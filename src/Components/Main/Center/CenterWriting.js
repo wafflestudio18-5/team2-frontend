@@ -6,7 +6,10 @@ const CenterWriting = () => {
   return (
     <div>
       <CenterBigWriting>Where good ideas find you</CenterBigWriting>
-      <CenterSmallWriting>asd</CenterSmallWriting>
+      <CenterSmallWriting>
+        Read and share new perspectives on just about any topic. Everyone’s
+        welcome. Learn more.
+      </CenterSmallWriting>
       <CenterStartButton>Get Started</CenterStartButton>
     </div>
   )
