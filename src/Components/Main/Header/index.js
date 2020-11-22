@@ -9,7 +9,6 @@ const HeaderWrapper = styled.div`
   background: ${Color.yellow};
   width: 100%;
   height: 76px;
-  position: fixed;
   display: flex;
   box-sizing: border-box;
   flex-direction: column;
