@@ -1,7 +1,13 @@
 import Header from "./Header"
+import Center from "./Center"
 
 const Main = () => {
-  return <Header />
+  return (
+    <div>
+      <Header />
+      <Center />
+    </div>
+  )
 }
 
 export default Main
