@@ -17,10 +17,7 @@ const CenterWriting = () => {
   return (
     <CenterWritingStyle>
       <CenterBigWriting>Where good ideas find you</CenterBigWriting>
-      <CenterSmallWriting>
-        Read and share new perspectives on just about any topic. Everyone’s
-        welcome. Learn more.
-      </CenterSmallWriting>
+      <CenterSmallWriting />
       <CenterStartButton>Get Started</CenterStartButton>
     </CenterWritingStyle>
   )
