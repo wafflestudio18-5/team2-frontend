@@ -24,6 +24,16 @@ const HeaderWrapper = styled.div`
   }
 `
 
+const HeaderLogo = styled.svg`
+  height: 25px;
+  color: ${Color.black};
+`
+
+const HeaderLinkGroup = styled.div`
+  display: flex;
+  align-items: center;
+`
+
 const HeaderContents = styled.div`
   width: 100%;
   height: 100%;
@@ -39,19 +49,11 @@ const HeaderSignIn = styled.a`
   margin-right: 25px;
   color: ${Color.borderBlack};
   font-size: 14px;
+  text-decoration: none;
+
   &:hover {
     cursor: pointer;
   }
-`
-
-const HeaderLogo = styled.svg`
-  height: 25px;
-  color: ${Color.black};
-`
-
-const HeaderLinkGroup = styled.div`
-  display: flex;
-  align-items: center;
 `
 
 const HeaderLink = styled(HeaderSignIn)`
@@ -84,9 +86,13 @@ const Header = () => {
           </HeaderLogo>
         </a>
         <HeaderLinkGroup>
-          <HeaderLink>Our Story</HeaderLink>
-          <HeaderLink>Membership</HeaderLink>
-          <HeaderLink>Write</HeaderLink>
+          <HeaderLink href="https://about.medium.com/">Our Story</HeaderLink>
+          <HeaderLink href="https://about.medium.com/membership/">
+            Membership
+          </HeaderLink>
+          <HeaderLink href="https://about.medium.com/creators/">
+            Write
+          </HeaderLink>
           <HeaderSignIn>Sign In</HeaderSignIn>
           <HeaderStartButton>Get Started</HeaderStartButton>
         </HeaderLinkGroup>
