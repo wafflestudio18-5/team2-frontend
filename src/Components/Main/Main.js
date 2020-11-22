@@ -1,4 +1,4 @@
-import Header from "./Header/Header"
+import Header from "./Header"
 import Center from "./Center/Center"
 
 const Main = () => {
