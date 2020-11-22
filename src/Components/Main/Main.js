@@ -1,5 +1,7 @@
+import Header from "./Header"
+
 const Main = () => {
-  return <p>Main</p>
+  return <Header />
 }
 
 export default Main
