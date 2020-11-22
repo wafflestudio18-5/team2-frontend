@@ -37,8 +37,6 @@ const HeaderContents = styled.div`
 
 const HeaderLogo = styled.div``
 
-const HeaderLinkGroup = styled.div``
-
 const HeaderSignIn = styled.a`
   margin-right: 25px;
   color: ${Color.borderBlack};
@@ -73,13 +71,13 @@ const Header = () => {
     <HeaderWrapper>
       <HeaderContents>
         <HeaderLogo>Medium</HeaderLogo>
-        <HeaderLinkGroup>
+        <div>
           <HeaderLink>Our Story</HeaderLink>
           <HeaderLink>Membership</HeaderLink>
           <HeaderLink>Write</HeaderLink>
           <HeaderSignIn>Sign In</HeaderSignIn>
           <HeaderStartButton>Get Started</HeaderStartButton>
-        </HeaderLinkGroup>
+        </div>
       </HeaderContents>
     </HeaderWrapper>
   )
