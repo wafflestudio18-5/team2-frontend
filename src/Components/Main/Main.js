@@ -1,5 +1,5 @@
 import Header from "./Header"
-import Center from "./Center/Center"
+import Center from "./Center/"
 
 const Main = () => {
   return (
