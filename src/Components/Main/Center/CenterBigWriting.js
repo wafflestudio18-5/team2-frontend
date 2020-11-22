@@ -2,16 +2,19 @@ import styled from "styled-components"
 import GlobalStyle from "../../../Assets/Fonts/fonts"
 
 const CenterBigWritingStyle = styled.h2`
-  font-size: 70px;
+  font-size: 68px;
   font-family: "GTSuper";
+  margin: 0;
+  line-height: 74px;
+  margin-bottom: 53px;
 `
 
 const CenterBigWriting = ({ children }) => {
   return (
-    <div>
+    <span>
       <GlobalStyle />
       <CenterBigWritingStyle>{children}</CenterBigWritingStyle>
-    </div>
+    </span>
   )
 }
 

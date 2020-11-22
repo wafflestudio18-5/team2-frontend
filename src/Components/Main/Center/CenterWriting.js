@@ -5,6 +5,12 @@ import CenterStartButton from "./CenterStartButton"
 
 const CenterWritingStyle = styled.div`
   width: 550px;
+  height: 100%;
+  box-sizing: border-box;
+  padding-top: 33px;
+  padding-bottom: 51px;
+  display: flex;
+  flex-direction: column;
 `
 
 const CenterWriting = () => {
