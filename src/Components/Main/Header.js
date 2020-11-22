@@ -4,7 +4,7 @@ import Color from "../../Constants/Color"
 const HeaderWrapper = styled.div`
   background: ${Color.yellow};
   width: 100%;
-  height: 75px;
+  height: 76px;
   position: fixed;
   display: flex;
   box-sizing: border-box;
@@ -31,12 +31,56 @@ const HeaderContents = styled.div`
   box-sizing: border-box;
   padding: 25px 0;
   display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+const HeaderLogo = styled.div``
+
+const HeaderLinkGroup = styled.div``
+
+const HeaderSignIn = styled.a`
+  margin-right: 25px;
+  color: ${Color.borderBlack};
+  font-size: 14px;
+  &:hover {
+    cursor: pointer;
+  }
+`
+
+const HeaderLink = styled(HeaderSignIn)`
+  @media (max-width: 727.98px) {
+    display: none;
+  }
+`
+
+const HeaderStartButton = styled.button`
+  background-color: black;
+  color: white;
+  font-size: 14px;
+  width: 105.5px;
+  height: 38px;
+  border: 0;
+  box-sizing: border-box;
+  border-radius: 4px;
+  &:hover {
+    cursor: pointer;
+  }
 `
 
 const Header = () => {
   return (
     <HeaderWrapper>
-      <HeaderContents></HeaderContents>
+      <HeaderContents>
+        <HeaderLogo>Medium</HeaderLogo>
+        <HeaderLinkGroup>
+          <HeaderLink>Our Story</HeaderLink>
+          <HeaderLink>Membership</HeaderLink>
+          <HeaderLink>Write</HeaderLink>
+          <HeaderSignIn>Sign In</HeaderSignIn>
+          <HeaderStartButton>Get Started</HeaderStartButton>
+        </HeaderLinkGroup>
+      </HeaderContents>
     </HeaderWrapper>
   )
 }
