@@ -7,8 +7,13 @@ const CenterSmallWritingStyle = styled.h3`
   color: ${Color.borderBlack};
   line-height: 24px;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 500;
   font-family: "Arial";
+  letter-spacing: -0.02em;
+`
+
+const Styleda = styled.a`
+  color: inherit;
 `
 
 const CenterSmallWriting = () => {
@@ -16,7 +21,7 @@ const CenterSmallWriting = () => {
     <CenterSmallWritingStyle>
       Read and share new perspectives on just about any topic. Everyone’s
       welcome.&nbsp;
-      <a href="https://about.medium.com/">Learn more.</a>
+      <Styleda href="https://about.medium.com/">Learn more.</Styleda>
     </CenterSmallWritingStyle>
   )
 }
