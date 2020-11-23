@@ -1,21 +1,13 @@
 import styled from "styled-components"
-import GlobalStyle from "../../../Assets/Fonts/fonts"
 
-const CenterBigWritingStyle = styled.h2`
-  font-size: 68px;
-  font-family: "GTSuper";
+const CenterBigWriting = styled.h2`
+  font-size: 70px;
+  font-family: serif;
   margin: 0;
   line-height: 74px;
   margin-bottom: 53px;
+  font-weight: 600;
+  letter-spacing: -0.1em;
 `
-
-const CenterBigWriting = ({ children }) => {
-  return (
-    <span>
-      <GlobalStyle />
-      <CenterBigWritingStyle>{children}</CenterBigWritingStyle>
-    </span>
-  )
-}
 
 export default CenterBigWriting
