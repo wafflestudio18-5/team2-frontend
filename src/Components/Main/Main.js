@@ -2,17 +2,7 @@ import Header from "./Header"
 import Center from "./Center"
 import Trending from "./Trending"
 
-const TrendingPosts = [
-  {
-    title: "title",
-    summary: "summary",
-    writier: "writer",
-    data: "date",
-    time: "time",
-  },
-]
-
-const Main = () => {
+const Main = ({ TrendingPosts }) => {
   return (
     <div>
       <Header />
