@@ -15,6 +15,9 @@ const HeaderWrapper = styled.div`
   justify-content: center;
   align-items: center;
   border-bottom: solid 1px ${Color.black};
+  position: fixed;
+  top: 0;
+  z-index: 1;
 
   @media (min-width: 904px) {
     padding: 0 64px;
