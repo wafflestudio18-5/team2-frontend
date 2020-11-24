@@ -68,20 +68,20 @@ const TrendingBlockDateAndTime = styled.p`
   letter-spacing: 0.03em;
 `
 
-const TrendingBlock = ({ index, title, writer, date, time, profileurl }) => {
+const TrendingBlock = ({ index, post }) => {
   return (
     <TrendingBlockStyle>
       <TrendingBlockNumber>0{index + 1}</TrendingBlockNumber>
       <div>
         <TrendingBlockWriter>
-          <TrendingBlockProfile src={profileurl} />
-          {writer}
+          <TrendingBlockProfile src={post.profileurl} />
+          {post.writer}
         </TrendingBlockWriter>
-        <TrendingBlockTitle>{title}</TrendingBlockTitle>
+        <TrendingBlockTitle>{post.title}</TrendingBlockTitle>
         <TrendingBlockDateAndTime>
-          {date}
+          {post.date}
           &nbsp;&middot;&nbsp;
-          {time}
+          {post.time}
           &nbsp;read
         </TrendingBlockDateAndTime>
       </div>

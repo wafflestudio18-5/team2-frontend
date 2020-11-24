@@ -13,16 +13,7 @@ const TrendingList = ({ trendingPosts }) => {
   return (
     <TrendingListStyle>
       {trendingPosts.map((post, index) => {
-        return (
-          <TrendingBlock
-            index={index}
-            title={post.title}
-            writer={post.writer}
-            date={post.date}
-            time={post.time}
-            profileurl={post.profileurl}
-          />
-        )
+        return <TrendingBlock index={index} post={post} />
       })}
     </TrendingListStyle>
   )
