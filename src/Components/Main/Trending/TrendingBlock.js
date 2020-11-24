@@ -44,11 +44,15 @@ const TrendingBlockProfile = styled.img`
 `
 
 const TrendingBlockTitle = styled.p`
+  width: 100%;
+  max-height: 40px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
   margin: 0;
   margin-bottom: 8px;
-  max-height: 40px;
-  text-overflow: ellipsis;
   overflow: hidden;
+  text-overflow: ellipsis;
   font-weight: 700;
   line-height: 20px;
   font-size: 16px;
