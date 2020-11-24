@@ -2,15 +2,29 @@ import styled from "styled-components"
 import Color from "../../../Constants/Color"
 
 const TrendingBlockStyle = styled.div`
-  width: 33.33333333%;
-  flex-basis: 33.33333333%;
   box-sizing: border-box;
   display: flex;
   margin-bottom: 24px;
-  padding: 0 16px;
+
+  @media (min-width: 1080px) {
+    width: 33.33333333%;
+    flex-basis: 33.33333333%;
+    padding: 0 16px;
+  }
+  @media (max-width: 1079.98px) and (min-width: 728px) {
+    width: 50%;
+    flex-basis: 50%;
+    padding: 0 16px;
+  }
+  @media (max-width: 727.98px) {
+    width: 100%;
+    flex-basis: 100%;
+    padding: 0 12px;
+  }
 `
 
 const TrendingBlockNumber = styled.p`
+  flex-shrink: 0;
   margin: 0px;
   margin-right: 16px;
   width: 40px;
@@ -22,8 +36,7 @@ const TrendingBlockNumber = styled.p`
   position: relative;
 `
 
-const TrendingBlockWriter = styled.p`
-  margin: 0;
+const TrendingBlockWriter = styled.div`
   margin-bottom: 8px;
   display: flex;
   align-items: center;
