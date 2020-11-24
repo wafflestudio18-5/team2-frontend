@@ -5,9 +5,9 @@ import HeaderStartButton from "./HeaderStartButton"
 import HeaderWrapper from "./HeaderWrapper"
 import HeaderContents from "./HeaderContents"
 
-const Header = () => {
+const Header = ({ reachScrollCheckPoint }) => {
   return (
-    <HeaderWrapper>
+    <HeaderWrapper reachScrollCheckPoint={reachScrollCheckPoint}>
       <HeaderContents>
         <a href="/main/">
           <HeaderLogo />
@@ -21,7 +21,9 @@ const Header = () => {
             Write
           </HeaderLink>
           <HeaderSignIn>Sign In</HeaderSignIn>
-          <HeaderStartButton>Get Started</HeaderStartButton>
+          <HeaderStartButton reachScrollCheckPoint={reachScrollCheckPoint}>
+            Get Started
+          </HeaderStartButton>
         </HeaderLinkGroup>
       </HeaderContents>
     </HeaderWrapper>
