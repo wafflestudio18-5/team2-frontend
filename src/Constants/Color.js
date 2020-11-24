@@ -5,6 +5,7 @@ const Color = {
   lightGray: `rgba(230, 230, 230, 1)`,
   green: `rgba(26, 137, 23, 1)`,
   gray: `rgba(117, 117, 117, 1)`,
+  hoverGreen: `rgb(15, 115, 12, 1)`,
 }
 
 export default Color
