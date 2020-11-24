@@ -20,7 +20,11 @@ const CenterSmallWritingStyle = styled.h3`
   }
   @media (max-width: 551.98px) {
     margin-top: 74px;
-    width: 477px;
+    width: 100%;
+  }
+
+  @media (max-width: 388.98px) {
+    margin-top: 53px;
   }
 `
 

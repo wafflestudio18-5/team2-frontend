@@ -11,6 +11,16 @@ const CenterWritingStyle = styled.div`
   padding-bottom: 51px;
   display: flex;
   flex-direction: column;
+
+  @media (min-width: 904px) {
+    width: 550px;
+  }
+  @media (max-width: 903.98px) {
+    width: 500px;
+  }
+  @media (max-width: 551.98px) {
+    width: 100%;
+  }
 `
 
 const CenterWriting = () => {
