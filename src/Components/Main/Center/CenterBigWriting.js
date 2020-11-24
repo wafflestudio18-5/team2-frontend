@@ -11,7 +11,7 @@ const CenterBigWriting = styled.h2`
     line-height: 74px;
   }
   @media (max-width: 551.98px) {
-    font-size: 48px;
+    font-size: 50px;
     line-height: 52px;
   }
 `

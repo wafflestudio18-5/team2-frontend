@@ -10,6 +10,10 @@ const HeaderSignIn = styled.a`
   &:hover {
     cursor: pointer;
   }
+
+  @media (max-width: 551.98px) {
+    display: none;
+  }
 `
 
 const HeaderLink = styled(HeaderSignIn)`
