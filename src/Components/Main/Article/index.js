@@ -1,6 +1,12 @@
+import ArticleWrapper from "./ArticleWrapper"
+import Articlecontents from "./ArticleContents"
 const Article = () => {
     return (
-        <p>article</p>
+    <ArticleWrapper>
+        <Articlecontents>
+            <p>article</p>
+        </Articlecontents>
+    </ArticleWrapper>
     )
 }
 

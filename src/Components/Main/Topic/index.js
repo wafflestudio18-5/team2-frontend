@@ -1,8 +1,8 @@
+import TopicWrapper from "./TopicWrapper"
 const Topic = () => {
     return (
-        <p>topic</p>
+        <TopicWrapper>Topic</TopicWrapper>
     )
 }
-
 
 export default Topic

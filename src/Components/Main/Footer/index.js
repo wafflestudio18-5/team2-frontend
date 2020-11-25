@@ -1,6 +1,7 @@
+import FooterWrapper from "./FooterWrapper"
 const Footer = () => {
     return (
-        <p>footer</p>
+        <FooterWrapper>footer</FooterWrapper>
     )
 }
 
