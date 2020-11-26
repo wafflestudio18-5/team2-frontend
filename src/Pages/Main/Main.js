@@ -1,6 +1,6 @@
 import { useState } from "react"
 import { Main } from "../../Components/Main"
-import { AuthModal } from "../../Components/AuthModal"
+import AuthModal from "../../Components/AuthModal"
 import TrendingPosts from "../../Constants/TrendingPosts"
 
 const MainPage = () => {
@@ -39,7 +39,7 @@ const MainPage = () => {
         reachScrollCheckPoint={reachScrollCheckPoint}
         showModal={showModal}
       />
-      {modalShow && <AuthModal ModalType={ModalType} />}
+      {modalShow && <AuthModal ModalType={ModalType} hideModal={hideModal} />}
     </div>
   )
 }

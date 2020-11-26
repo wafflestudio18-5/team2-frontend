@@ -7,11 +7,14 @@ const MainStyle = styled.div`
   padding-top: 76px;
 `
 
-const Main = ({ TrendingPosts, reachScrollCheckPoint }) => {
+const Main = ({ TrendingPosts, reachScrollCheckPoint, showModal }) => {
   return (
     <MainStyle>
-      <Header reachScrollCheckPoint={reachScrollCheckPoint} />
-      <Center />
+      <Header
+        reachScrollCheckPoint={reachScrollCheckPoint}
+        showModal={showModal}
+      />
+      <Center showModal={showModal} />
       <Trending trendingPosts={TrendingPosts} />
     </MainStyle>
   )
