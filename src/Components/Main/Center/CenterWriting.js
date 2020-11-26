@@ -2,6 +2,7 @@ import styled from "styled-components"
 import CenterBigWriting from "./CenterBigWriting"
 import CenterSmallWriting from "./CenterSmallWriting"
 import CenterStartButton from "./CenterStartButton"
+import ModalTypeConstants from "../../../Constants/ModalTypeConstants"
 
 const CenterWritingStyle = styled.div`
   width: 550px;
@@ -23,12 +24,18 @@ const CenterWritingStyle = styled.div`
   }
 `
 
-const CenterWriting = () => {
+const CenterWriting = ({ showModal }) => {
   return (
     <CenterWritingStyle>
       <CenterBigWriting>Where good ideas find you</CenterBigWriting>
       <CenterSmallWriting />
-      <CenterStartButton>Get Started</CenterStartButton>
+      <CenterStartButton
+        onCLick={() => {
+          showModal(ModalTypeConstants.SIGN_UP)
+        }}
+      >
+        Get Started
+      </CenterStartButton>
     </CenterWritingStyle>
   )
 }

@@ -4,6 +4,7 @@ import HeaderLinkGroup from "./HeaderLinkGroup"
 import HeaderStartButton from "./HeaderStartButton"
 import HeaderWrapper from "./HeaderWrapper"
 import HeaderContents from "./HeaderContents"
+import ModalTypeConstants from "../../../Constants/ModalTypeConstants"
 
 const Header = ({ reachScrollCheckPoint, showModal }) => {
   return (
@@ -22,7 +23,7 @@ const Header = ({ reachScrollCheckPoint, showModal }) => {
           </HeaderLink>
           <HeaderSignIn
             onClick={() => {
-              showModal("Login")
+              showModal(ModalTypeConstants.LOG_IN)
             }}
           >
             Sign In
@@ -30,7 +31,7 @@ const Header = ({ reachScrollCheckPoint, showModal }) => {
           <HeaderStartButton
             reachScrollCheckPoint={reachScrollCheckPoint}
             onClick={() => {
-              showModal("Signup")
+              showModal(ModalTypeConstants.SIGN_UP)
             }}
           >
             Get Started

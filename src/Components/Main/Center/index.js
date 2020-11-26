@@ -2,11 +2,11 @@ import CenterWrapper from "./CenterWrapper"
 import CenterContents from "./CenterContents"
 import CenterWriting from "./CenterWriting"
 
-const Center = () => {
+const Center = ({ showModal }) => {
   return (
     <CenterWrapper>
       <CenterContents>
-        <CenterWriting />
+        <CenterWriting showModal={showModal} />
       </CenterContents>
     </CenterWrapper>
   )
