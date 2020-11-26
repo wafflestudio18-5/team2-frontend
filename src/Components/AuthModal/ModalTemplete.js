@@ -3,8 +3,6 @@ import Colors from "../../Constants/Color"
 
 const ModalTempleteStyle = styled.div`
   position: relative;
-  color: black;
-  font-size: 70px;
   width: 678px;
   height: 695px;
   background-color: white;
