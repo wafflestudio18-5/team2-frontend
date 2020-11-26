@@ -1,7 +1,7 @@
 import styled from "styled-components"
 
 const ModalBigWriting = styled.p`
-  letter-spacing: -0.05em;
+  letter-spacing: -0.07em;
   font-size: 28px;
   font-family: serif;
   color: rgba(8, 8, 8, 1);
