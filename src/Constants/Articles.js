@@ -108,3 +108,5 @@ const Articles = [
         pictureurl: "https://miro.medium.com/fit/c/250/166/1*64qHxWPsfibMBlP-BbA9RQ.jpeg",
     },
 ]
+
+export default Articles

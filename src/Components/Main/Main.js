@@ -30,6 +30,7 @@ const BottomStyle = styled.div`
 `
 
 const BottomWrapper = styled.div`
+  display: flex;
   box-sizing: border-box;
   max-width: 1192px;
   padding: 0 -16px;
@@ -38,17 +39,22 @@ const BottomWrapper = styled.div`
   box-sizing: border-box;
 `
 
-const BottomRightStyle = styled.div`
-  float: left;
-  position: relative;
-  top: 0;
-  height: 100%;
-  width: 40%;
-  margin-right: -16px;
+const BottomLeftStyle = styled.div`
   box-sizing: border-box;
+  width: 68%;
+  flex-basis: 62%;
+  padding-right: 50px;
+  margin-right: 0;
+`
+const BottomRightStyle = styled.div`
+  width: 38%;
+  flex-basis: 38%;
+  box-sizing: border-box;
+  padding-left: 50px;
+  margin-left: 0;
 `
 
-const Main = ({ TrendingPosts, reachScrollCheckPoint }) => {
+const Main = ({ TrendingPosts, reachScrollCheckPoint, Articles }) => {
   return (
     <MainStyle>
       <Header reachScrollCheckPoint={reachScrollCheckPoint} />
@@ -56,7 +62,9 @@ const Main = ({ TrendingPosts, reachScrollCheckPoint }) => {
       <Trending trendingPosts={TrendingPosts} />
       <BottomStyle>
         <BottomWrapper>
-          <Article />
+          <BottomLeftStyle>
+            <Article Articles={Articles}/>
+          </BottomLeftStyle>
           <BottomRightStyle>
             <Topic />
             <Footer />

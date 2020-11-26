@@ -1,9 +1,11 @@
-import Articlecontents from "./ArticleContents"
-const Article = () => {
+import ArticleContents from "./ArticleContents"
+import ArticleList from "./ArticleList"
+
+const Article = ({ Articles }) => {
     return (
-        <Articlecontents>
-            <p>article</p>
-        </Articlecontents>
+        <ArticleContents>
+            <ArticleList Articles = { Articles }/>
+        </ArticleContents>
     )
 }
 
