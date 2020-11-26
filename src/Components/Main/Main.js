@@ -19,17 +19,17 @@ const BottomStyle = styled.div`
   align-items: center;
   box-sizing: border-box;
   @media (min-width: 1080px) {
-    padding: 0 64px;
+    padding: 56px 64px 0px;
   }
   @media (max-width: 1079.98px) and (min-width: 728px) {
-    padding: 0 48px;
+    padding: 56px 48px 0px;
   }
   @media (max-width: 727.98px) {
-    padding: 0 24px;
+    padding: 56px 24px 0px;
   }
 `
 
-const BottomContents = styled.div`
+const BottomWrapper = styled.div`
   box-sizing: border-box;
   max-width: 1192px;
   padding: 0 -16px;
@@ -38,21 +38,14 @@ const BottomContents = styled.div`
   box-sizing: border-box;
 `
 
-const BottomLeftSytle = styled.div`
-  float: left;
-  position: relative;
-  box-sizing: border-box;
-  width: 60%;
-  padding: 0 16px 0 0;
-`
-
 const BottomRightStyle = styled.div`
   float: left;
   position: relative;
   top: 0;
   height: 100%;
+  width: 40%;
+  margin-right: -16px;
   box-sizing: border-box;
-  padding: 0 0 0 16px;
 `
 
 const Main = ({ TrendingPosts, reachScrollCheckPoint }) => {
@@ -62,20 +55,13 @@ const Main = ({ TrendingPosts, reachScrollCheckPoint }) => {
       <Center />
       <Trending trendingPosts={TrendingPosts} />
       <BottomStyle>
-        <BottomContents>
-          <BottomLeftSytle>
-            <Article />
-            <Article />
-            <Article />
-            <Article />
-            <Article />
-            <Article />
-          </BottomLeftSytle>
+        <BottomWrapper>
+          <Article />
           <BottomRightStyle>
             <Topic />
             <Footer />
           </BottomRightStyle>
-        </BottomContents>
+        </BottomWrapper>
       </BottomStyle>
     </MainStyle>
   )
