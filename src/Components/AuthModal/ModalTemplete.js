@@ -10,6 +10,9 @@ const ModalTempleteStyle = styled.div`
   border-radius: 4px;
   box-sizing: border-box;
   padding: 44px 56px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 `
 
 const CloseButton = styled.button`
