@@ -30,7 +30,7 @@ const CenterWriting = ({ showModal }) => {
       <CenterBigWriting>Where good ideas find you</CenterBigWriting>
       <CenterSmallWriting />
       <CenterStartButton
-        onCLick={() => {
+        onClick={() => {
           showModal(ModalTypeConstants.SIGN_UP)
         }}
       >
