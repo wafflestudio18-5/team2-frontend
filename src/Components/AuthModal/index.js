@@ -20,8 +20,12 @@ const AuthModal = ({ ModalType, hideModal }) => {
   return (
     <ModalStyle>
       <ModalOverlay onClick={hideModal} />
-      {ModalType === ModalTypeConstants.LOG_IN && <Login />}
-      {ModalType === ModalTypeConstants.SIGN_UP && <Signup />}
+      {ModalType === ModalTypeConstants.LOG_IN && (
+        <Login hideModal={hideModal} />
+      )}
+      {ModalType === ModalTypeConstants.SIGN_UP && (
+        <Signup hideModal={hideModal} />
+      )}
     </ModalStyle>
   )
 }

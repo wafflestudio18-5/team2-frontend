@@ -1,7 +1,7 @@
 import ModalTemplete from "./ModalTemplete"
 
-const Signup = () => {
-  return <ModalTemplete>SIGN UP</ModalTemplete>
+const Signup = ({ hideModal }) => {
+  return <ModalTemplete hideModal={hideModal}>SIGN UP</ModalTemplete>
 }
 
 export default Signup
