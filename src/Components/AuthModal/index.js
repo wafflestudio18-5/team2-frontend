@@ -2,12 +2,12 @@ import ModalOverlay from "./ModalOverlay"
 import Login from "./Login"
 import Signup from "./Signup"
 
-const AuthModal = ({ type }) => {
+const AuthModal = ({ ModalType }) => {
   return (
     <div>
       <ModalOverlay />
-      {type === "Login" && <Login />}
-      {type === "Signup" && <Signup />}
+      {ModalType === "Login" && <Login />}
+      {ModalType === "Signup" && <Signup />}
     </div>
   )
 }
