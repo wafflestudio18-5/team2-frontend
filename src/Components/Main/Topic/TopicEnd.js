@@ -3,10 +3,7 @@ import Color from "../../../Constants/Color"
 
 const TopicEndWrapper = styled.div`
     margin-top: 12px;
-
-    &:hover {
-      cursor: pointer;
-    }
+    margin-bottom: 24px;
 `
 
 const TopicEndStyle = styled.a`
@@ -17,7 +14,10 @@ const TopicEndStyle = styled.a`
     font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
     color: ${Color.green};
     margin: 0;
-    text-decoration: none;
+    text-decoration: none;s
+    &:hover {
+      cursor: pointer;
+    }
 `
 
 const TopicEnd = () => {
