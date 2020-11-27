@@ -9,8 +9,8 @@ const ArticleListStyle = styled.div`
 const ArticleList = ({ Articles }) => {
     return (
         <ArticleListStyle>
-            {Articles.map((article, index) => {
-                return <ArticleBlock index={index} article={article} />
+            {Articles.map((article) => {
+                return <ArticleBlock article={article} />
             })}
         </ArticleListStyle>
     )

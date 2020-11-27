@@ -33,7 +33,7 @@ const Articles = [
         date: "Oct 29",
         time: "4 min",
         profileurl: "https://miro.medium.com/fit/c/25/25/1*bQrOCsmXteRwFJQ7plGXHQ.jpeg",
-        picutreurl: "https://miro.medium.com/fit/c/250/166/1*DCF8YSGUjv3m5VMshtvzdA.jpeg",
+        pictureurl: "https://miro.medium.com/fit/c/250/166/1*DCF8YSGUjv3m5VMshtvzdA.jpeg",
     },
     {
         writer: "Sinem Günel",
