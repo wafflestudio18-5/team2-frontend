@@ -55,11 +55,10 @@ const BottomRightStyle = styled.div`
   box-sizing: border-box;
   padding-left: 50px;
   margin-left: 0;
-  background: red;
   position: sticky;
   position: -webkit-sticky;
   align-self: flex-start;
-  top: 75px;
+  top: 107px;
 `
 
 const Main = ({ TrendingPosts, reachScrollCheckPoint, Articles, Topics}) => {

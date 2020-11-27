@@ -1,7 +1,14 @@
 import TopicWrapper from "./TopicWrapper"
-const Topic = () => {
+import TopicTitle from "./TopicTitle"
+import TopicList from "./TopicList"
+import TopicEnd from "./TopicEnd"
+
+const Topic = ({Topics}) => {
     return (
-        <TopicWrapper>Topic</TopicWrapper>
+        <TopicWrapper>
+            <TopicTitle />
+            <TopicEnd />
+        </TopicWrapper>
     )
 }
 
