@@ -52,6 +52,9 @@ const BottomRightStyle = styled.div`
   box-sizing: border-box;
   padding-left: 50px;
   margin-left: 0;
+  position: -webkit-sticky;
+  position: sticky;
+  background-color: red;
 `
 
 const Main = ({ TrendingPosts, reachScrollCheckPoint, Articles, Topics }) => {
