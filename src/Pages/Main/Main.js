@@ -2,7 +2,6 @@ import { useState } from "react"
 import { Main } from "../../Components/Main"
 import TrendingPosts from "../../Constants/TrendingPosts"
 import Articles from "../../Constants/Articles"
-import Topics from "../../Constants/Topics"
 
 const MainPage = () => {
   const [reachScrollCheckPoint, setReachScrollCheckPoint] = useState(false)
@@ -21,7 +20,6 @@ const MainPage = () => {
       TrendingPosts={TrendingPosts}
       reachScrollCheckPoint={reachScrollCheckPoint}
       Articles={Articles}
-      Topics={Topics}
     />
   )
 }

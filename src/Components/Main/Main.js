@@ -4,7 +4,7 @@ import Trending from "./Trending"
 import Article from "./Article"
 import Topic from "./Topic"
 import Footer from "./Footer"
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import Color from "../../Constants/Color"
 
 const MainStyle = styled.div`
@@ -14,10 +14,12 @@ const MainStyle = styled.div`
 const BottomStyle = styled.div`
   display: flex;
   width: 100%;
+  height: 100%;
   justify-content: center;
   border-top: 1px solid ${Color.lightGray};
   align-items: center;
   box-sizing: border-box;
+  overflow: visible;
   @media (min-width: 1080px) {
     padding: 56px 64px 0px;
   }
@@ -37,11 +39,12 @@ const BottomWrapper = styled.div`
   width: 100%;
   height: 100%;
   box-sizing: border-box;
+  overflow: visible;
 `
 
 const BottomLeftStyle = styled.div`
   box-sizing: border-box;
-  width: 68%;
+  width: 62%;
   flex-basis: 62%;
   padding-right: 50px;
   margin-right: 0;
@@ -52,12 +55,14 @@ const BottomRightStyle = styled.div`
   box-sizing: border-box;
   padding-left: 50px;
   margin-left: 0;
-  position: -webkit-sticky;
+  background: red;
   position: sticky;
-  background-color: red;
+  position: -webkit-sticky;
+  align-self: flex-start;
+  top: 75px;
 `
 
-const Main = ({ TrendingPosts, reachScrollCheckPoint, Articles, Topics }) => {
+const Main = ({ TrendingPosts, reachScrollCheckPoint, Articles, Topics}) => {
   return (
     <MainStyle>
       <Header reachScrollCheckPoint={reachScrollCheckPoint} />
