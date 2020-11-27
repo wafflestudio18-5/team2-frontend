@@ -54,7 +54,7 @@ const BottomRightStyle = styled.div`
   margin-left: 0;
 `
 
-const Main = ({ TrendingPosts, reachScrollCheckPoint, Articles }) => {
+const Main = ({ TrendingPosts, reachScrollCheckPoint, Articles, Topics }) => {
   return (
     <MainStyle>
       <Header reachScrollCheckPoint={reachScrollCheckPoint} />
@@ -66,7 +66,7 @@ const Main = ({ TrendingPosts, reachScrollCheckPoint, Articles }) => {
             <Article Articles={Articles}/>
           </BottomLeftStyle>
           <BottomRightStyle>
-            <Topic />
+            <Topic Topics={Topics}/>
             <Footer />
           </BottomRightStyle>
         </BottomWrapper>
