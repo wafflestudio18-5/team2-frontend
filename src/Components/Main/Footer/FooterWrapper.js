@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from 'styled-components';
 
 const FooterWrapper = styled.div`
     width: 100%;
@@ -6,5 +6,5 @@ const FooterWrapper = styled.div`
     padding: 24px 0;
     flex-wrap: wrap;
     flex-direction: row;
-`
-export default FooterWrapper
+`;
+export default FooterWrapper;

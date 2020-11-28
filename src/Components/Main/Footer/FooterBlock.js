@@ -1,9 +1,9 @@
-import styled from 'styled-components'
-import Color from "../../../Constants/Color"
+import styled from 'styled-components';
+import Color from '../../../Constants/Color';
 
 const FooterBlock = styled.a`
     font-size: 14px;
-    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: sohne, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: ${Color.gray};
     line-height: 20px;
     font-weight: 400;
@@ -11,5 +11,5 @@ const FooterBlock = styled.a`
     text-decoration: none;
     margin-right: 24px;
     margin-bottom: 8px;
-`
-export default FooterBlock
+`;
+export default FooterBlock;
