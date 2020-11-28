@@ -5,5 +5,5 @@ const Article = ({ Articles }) => {
         <ArticleList Articles = { Articles }/>
     )
 }
-
+    
 export default Article

@@ -4,7 +4,7 @@ import Trending from "./Trending"
 import Article from "./Article"
 import Topic from "./Topic"
 import Footer from "./Footer"
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 import Color from "../../Constants/Color"
 
 const MainStyle = styled.div`
