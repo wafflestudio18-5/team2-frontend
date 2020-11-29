@@ -1,10 +1,23 @@
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import Colors from "../../Constants/Color"
 import ModalBigWriting from "./ModalBigWriting"
 import ModalMediumWriting from "./ModalMediumWriting"
 import ModalSmallWriting from "./ModalSmallWriting"
 import ModalButtonWrapper from "./ModalButtonWrapper"
 import ModalButton from "./ModalButton"
+
+const animation = keyframes`
+  0% {
+    opacity: 0;
+  }
+  25% {
+    transform: scale(.9);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+`
 
 const ModalTempleteStyle = styled.div`
   position: relative;
@@ -18,6 +31,8 @@ const ModalTempleteStyle = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  animation: 300ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s 1 normal forwards running
+    ${animation};
 `
 
 const CloseButton = styled.button`
