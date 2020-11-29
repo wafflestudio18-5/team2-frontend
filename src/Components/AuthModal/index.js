@@ -14,11 +14,15 @@ const ModalStyle = styled.div`
   z-index: 2;
 `
 
-const AuthModal = ({ ModalType, hideModal }) => {
+const AuthModal = ({ ModalType, hideModal, changeModal }) => {
   return (
     <ModalStyle>
       <ModalOverlay onClick={hideModal} />
-      <ModalTemplete ModalType={ModalType} hideModal={hideModal} />
+      <ModalTemplete
+        ModalType={ModalType}
+        hideModal={hideModal}
+        changeModal={changeModal}
+      />
     </ModalStyle>
   )
 }

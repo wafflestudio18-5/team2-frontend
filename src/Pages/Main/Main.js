@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Main } from "../../Components/Main"
 import AuthModal from "../../Components/AuthModal"
 import TrendingPosts from "../../Constants/TrendingPosts"
+import ModalTypeConstants from "../../Constants/ModalTypeConstants"
 
 const MainPage = () => {
   // 스크롤 될 때 header 색 변하는 로직
@@ -19,7 +20,15 @@ const MainPage = () => {
   const [modalShow, setModalShow] = useState(false)
 
   // 어떤 Modal을 띄울지 결정
-  const [ModalType, setModalType] = useState("Login")
+  const [ModalType, setModalType] = useState(ModalTypeConstants.LOG_IN)
+
+  const changeModal = () => {
+    if (ModalType === ModalTypeConstants.LOG_IN) {
+      setModalType(ModalTypeConstants.SIGN_UP)
+    } else {
+      setModalType(ModalTypeConstants.LOG_IN)
+    }
+  }
 
   // ModalType을 입력받아 이에 해당하는 Modal을 화면에 표시
   const showModal = (ModalType) => {
@@ -39,7 +48,13 @@ const MainPage = () => {
         reachScrollCheckPoint={reachScrollCheckPoint}
         showModal={showModal}
       />
-      {modalShow && <AuthModal ModalType={ModalType} hideModal={hideModal} />}
+      {modalShow && (
+        <AuthModal
+          ModalType={ModalType}
+          hideModal={hideModal}
+          changeModal={changeModal}
+        />
+      )}
     </div>
   )
 }

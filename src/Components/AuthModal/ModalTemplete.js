@@ -36,7 +36,7 @@ const Svg = styled.svg`
   fill: ${Colors.gray};
 `
 
-const ModalTemplete = ({ ModalType, hideModal }) => {
+const ModalTemplete = ({ ModalType, hideModal, changeModal }) => {
   return (
     <ModalTempleteStyle>
       <CloseButton onClick={hideModal}>
@@ -52,7 +52,7 @@ const ModalTemplete = ({ ModalType, hideModal }) => {
         <ModalButton Logo="Google" ModalType={ModalType} />
         <ModalButton Logo="Facebook" ModalType={ModalType} />
         <ModalButton Logo="email" ModalType={ModalType} />
-        <ModalMediumWriting ModalType={ModalType} />
+        <ModalMediumWriting ModalType={ModalType} changeModal={changeModal} />
       </ModalButtonWrapper>
       <ModalSmallWriting ModalType={ModalType} />
     </ModalTempleteStyle>

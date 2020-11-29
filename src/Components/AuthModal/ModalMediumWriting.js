@@ -18,17 +18,19 @@ const GreenLink = styled.button`
   font-weight: 600;
 `
 
-const ModalMediumWriting = ({ ModalType }) => {
+const ModalMediumWriting = ({ ModalType, changeModal }) => {
   return (
     <ModalMediumWritingStyle>
       {ModalType === ModalTypeConstants.LOG_IN && (
         <div>
-          No account?&nbsp;<GreenLink>Create one</GreenLink>
+          No account?&nbsp;
+          <GreenLink onClick={changeModal}>Create one</GreenLink>
         </div>
       )}
       {ModalType === ModalTypeConstants.SIGN_UP && (
         <div>
-          Already have an account?&nbsp;<GreenLink>Sign in</GreenLink>
+          Already have an account?&nbsp;
+          <GreenLink onClick={changeModal}>Sign in</GreenLink>
         </div>
       )}
     </ModalMediumWritingStyle>
