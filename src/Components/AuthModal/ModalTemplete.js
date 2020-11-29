@@ -6,6 +6,7 @@ import ModalSmallWriting from "./ModalSmallWriting"
 import ModalButtonWrapper from "./ModalButtonWrapper"
 import ModalButton from "./ModalButton"
 import { Google, Facebook, Email } from "./ButtonLogos"
+import ModalTypeConstants from "../../Constants/ModalTypeConstants"
 
 const ModalTempleteStyle = styled.div`
   position: relative;
@@ -37,7 +38,7 @@ const Svg = styled.svg`
   fill: ${Colors.gray};
 `
 
-const ModalTemplete = ({ hideModal }) => {
+const ModalTemplete = ({ ModalType, hideModal }) => {
   return (
     <ModalTempleteStyle>
       <CloseButton onClick={hideModal}>
@@ -48,22 +49,30 @@ const ModalTemplete = ({ hideModal }) => {
           ></path>
         </Svg>
       </CloseButton>
-      <ModalBigWriting>Join Wadium.</ModalBigWriting>
+      <ModalBigWriting>
+        {ModalType === ModalTypeConstants.LOG_IN && "Welcome back."}
+        {ModalType === ModalTypeConstants.SIGN_UP && "Join Wadium."}
+      </ModalBigWriting>
       <ModalButtonWrapper>
         <ModalButton>
           <Google />
-          Sign up with Google
+          {ModalType === ModalTypeConstants.LOG_IN && "Sign in with Google"}
+          {ModalType === ModalTypeConstants.SIGN_UP && "Sign up with Google"}
         </ModalButton>
         <ModalButton>
           <Facebook />
-          Sign up with Facebook
+          {ModalType === ModalTypeConstants.LOG_IN && "Sign in with Google"}
+          {ModalType === ModalTypeConstants.SIGN_UP && "Sign up with Google"}
         </ModalButton>
         <ModalButton>
           <Email />
-          Sign up with email
+          {ModalType === ModalTypeConstants.LOG_IN && "Sign in with Google"}
+          {ModalType === ModalTypeConstants.SIGN_UP && "Sign up with Google"}
         </ModalButton>
         <ModalMediumWriting>
-          Already have an account? Sign in
+          {ModalType === ModalTypeConstants.LOG_IN && "No account? Create one"}
+          {ModalType === ModalTypeConstants.SIGN_UP &&
+            "Already have an account? Sign in"}
         </ModalMediumWriting>
       </ModalButtonWrapper>
       <ModalSmallWriting>
