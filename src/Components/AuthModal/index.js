@@ -1,7 +1,5 @@
 import ModalOverlay from "./ModalOverlay"
-import Login from "./Login"
-import Signup from "./Signup"
-import ModalTypeConstants from "../../Constants/ModalTypeConstants"
+import ModalTemplete from "./ModalTemplete"
 import styled from "styled-components"
 
 const ModalStyle = styled.div`
@@ -20,12 +18,7 @@ const AuthModal = ({ ModalType, hideModal }) => {
   return (
     <ModalStyle>
       <ModalOverlay onClick={hideModal} />
-      {ModalType === ModalTypeConstants.LOG_IN && (
-        <Login hideModal={hideModal} />
-      )}
-      {ModalType === ModalTypeConstants.SIGN_UP && (
-        <Signup hideModal={hideModal} />
-      )}
+      <ModalTemplete hideModal={hideModal} />
     </ModalStyle>
   )
 }
