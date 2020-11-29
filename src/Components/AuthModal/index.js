@@ -18,7 +18,7 @@ const AuthModal = ({ ModalType, hideModal }) => {
   return (
     <ModalStyle>
       <ModalOverlay onClick={hideModal} />
-      <ModalTemplete hideModal={hideModal} />
+      <ModalTemplete ModalType={ModalType} hideModal={hideModal} />
     </ModalStyle>
   )
 }
