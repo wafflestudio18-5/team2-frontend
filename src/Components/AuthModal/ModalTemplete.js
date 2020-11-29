@@ -5,8 +5,6 @@ import ModalMediumWriting from "./ModalMediumWriting"
 import ModalSmallWriting from "./ModalSmallWriting"
 import ModalButtonWrapper from "./ModalButtonWrapper"
 import ModalButton from "./ModalButton"
-import { Google, Facebook, Email } from "./ButtonLogos"
-import ModalTypeConstants from "../../Constants/ModalTypeConstants"
 
 const ModalTempleteStyle = styled.div`
   position: relative;
@@ -49,36 +47,14 @@ const ModalTemplete = ({ ModalType, hideModal }) => {
           ></path>
         </Svg>
       </CloseButton>
-      <ModalBigWriting>
-        {ModalType === ModalTypeConstants.LOG_IN && "Welcome back."}
-        {ModalType === ModalTypeConstants.SIGN_UP && "Join Wadium."}
-      </ModalBigWriting>
+      <ModalBigWriting ModalType={ModalType} />
       <ModalButtonWrapper>
-        <ModalButton>
-          <Google />
-          {ModalType === ModalTypeConstants.LOG_IN && "Sign in with Google"}
-          {ModalType === ModalTypeConstants.SIGN_UP && "Sign up with Google"}
-        </ModalButton>
-        <ModalButton>
-          <Facebook />
-          {ModalType === ModalTypeConstants.LOG_IN && "Sign in with Google"}
-          {ModalType === ModalTypeConstants.SIGN_UP && "Sign up with Google"}
-        </ModalButton>
-        <ModalButton>
-          <Email />
-          {ModalType === ModalTypeConstants.LOG_IN && "Sign in with Google"}
-          {ModalType === ModalTypeConstants.SIGN_UP && "Sign up with Google"}
-        </ModalButton>
-        <ModalMediumWriting>
-          {ModalType === ModalTypeConstants.LOG_IN && "No account? Create one"}
-          {ModalType === ModalTypeConstants.SIGN_UP &&
-            "Already have an account? Sign in"}
-        </ModalMediumWriting>
+        <ModalButton Logo="Google" ModalType={ModalType} />
+        <ModalButton Logo="Facebook" ModalType={ModalType} />
+        <ModalButton Logo="Email" ModalType={ModalType} />
+        <ModalMediumWriting ModalType={ModalType} />
       </ModalButtonWrapper>
-      <ModalSmallWriting>
-        Click “Sign Up” to agree to Wadium’s Terms of Service and acknowledge
-        that Wadium’s Privacy Policy applies to you.
-      </ModalSmallWriting>
+      <ModalSmallWriting ModalType={ModalType} />
     </ModalTempleteStyle>
   )
 }

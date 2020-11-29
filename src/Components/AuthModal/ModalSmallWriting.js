@@ -1,5 +1,17 @@
 import styled from "styled-components"
+import ModalTypeConstants from "../../Constants/ModalTypeConstants"
 
-const ModalSmallWriting = styled.p``
+const ModalSmallWritingStyle = styled.p``
+
+const ModalSmallWriting = ({ ModalType }) => {
+  return (
+    <ModalSmallWritingStyle>
+      {ModalType === ModalTypeConstants.LOG_IN &&
+        "Click “Sign In” to agree to Wadium’s Terms of Service and acknowledge that Wadium’s Privacy Policy applies to you."}
+      {ModalType === ModalTypeConstants.SIGN_UP &&
+        "Click “Sign Up” to agree to Medium’s Terms of Service and acknowledge that Medium’s Privacy Policy applies to you."}
+    </ModalSmallWritingStyle>
+  )
+}
 
 export default ModalSmallWriting

@@ -1,6 +1,7 @@
 import styled from "styled-components"
+import ModalTypeConstants from "../../Constants/ModalTypeConstants"
 
-const ModalBigWriting = styled.p`
+const ModalBigWritingStyle = styled.p`
   letter-spacing: -0.07em;
   font-size: 28px;
   font-family: serif;
@@ -8,5 +9,14 @@ const ModalBigWriting = styled.p`
   font-weight: 600;
   margin-bottom: 0;
 `
+
+const ModalBigWriting = ({ ModalType }) => {
+  return (
+    <ModalBigWritingStyle>
+      {ModalType === ModalTypeConstants.LOG_IN && "Welcome back."}
+      {ModalType === ModalTypeConstants.SIGN_UP && "Join Wadium."}
+    </ModalBigWritingStyle>
+  )
+}
 
 export default ModalBigWriting

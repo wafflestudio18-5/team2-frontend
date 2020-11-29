@@ -1,7 +1,9 @@
 import styled from "styled-components"
 import Colors from "../../Constants/Color"
+import { Google, Facebook, Email } from "./ButtonLogos"
+import ModalTypeConstants from "../../Constants/ModalTypeConstants"
 
-const ModalButton = styled.button`
+const ModalButtonStyle = styled.button`
   width: 212px;
   height: 41px;
   box-sizing: border-box;
@@ -20,5 +22,17 @@ const ModalButton = styled.button`
     cursor: pointer;
   }
 `
+
+const ModalButton = ({ ModalType, Logo }) => {
+  return (
+    <ModalButtonStyle>
+      {Logo === "Google" && <Google />}
+      {Logo === "Facebook" && <Facebook />}
+      {Logo === "Email" && <Email />}
+      {ModalType === ModalTypeConstants.LOG_IN && "Sign in with " + Logo}
+      {ModalType === ModalTypeConstants.SIGN_UP && "Sign up with " + Logo}
+    </ModalButtonStyle>
+  )
+}
 
 export default ModalButton
