@@ -51,7 +51,7 @@ const ModalTemplete = ({ ModalType, hideModal }) => {
       <ModalButtonWrapper>
         <ModalButton Logo="Google" ModalType={ModalType} />
         <ModalButton Logo="Facebook" ModalType={ModalType} />
-        <ModalButton Logo="Email" ModalType={ModalType} />
+        <ModalButton Logo="email" ModalType={ModalType} />
         <ModalMediumWriting ModalType={ModalType} />
       </ModalButtonWrapper>
       <ModalSmallWriting ModalType={ModalType} />

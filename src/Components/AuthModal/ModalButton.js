@@ -28,7 +28,7 @@ const ModalButton = ({ ModalType, Logo }) => {
     <ModalButtonStyle>
       {Logo === "Google" && <Google />}
       {Logo === "Facebook" && <Facebook />}
-      {Logo === "Email" && <Email />}
+      {Logo === "email" && <Email />}
       {ModalType === ModalTypeConstants.LOG_IN && "Sign in with " + Logo}
       {ModalType === ModalTypeConstants.SIGN_UP && "Sign up with " + Logo}
     </ModalButtonStyle>
