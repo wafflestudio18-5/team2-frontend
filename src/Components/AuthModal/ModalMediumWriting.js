@@ -11,11 +11,23 @@ const ModalMediumWritingStyle = styled.p`
   font-family: Arial, Helvetica, sans-serif;
   line-height: 24px;
   font-weight: 400;
+  font-size: 16px;
+  letter-spacing: -0.02em;
 `
 
 const GreenLink = styled.button`
   color: ${Colors.green};
   font-weight: 600;
+  border: 0;
+  background: 0;
+  padding: 0;
+  font-family: inherit;
+  font-size: inherit;
+  letter-spacing: inherit;
+
+  :hover {
+    cursor: pointer;
+  }
 `
 
 const ModalMediumWriting = ({ ModalType, changeModal }) => {

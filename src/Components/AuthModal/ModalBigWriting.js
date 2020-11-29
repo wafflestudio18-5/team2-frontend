@@ -8,6 +8,7 @@ const ModalBigWritingStyle = styled.p`
   color: rgba(8, 8, 8, 1);
   font-weight: 600;
   margin-bottom: 0;
+  margin-top: 60px;
 `
 
 const ModalBigWriting = ({ ModalType }) => {
