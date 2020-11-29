@@ -1,6 +1,6 @@
 import ModalOverlay from "./ModalOverlay"
 import ModalTemplete from "./ModalTemplete"
-import styled, { keyframes } from "styled-components"
+import styled, { keyframes, css } from "styled-components"
 
 const fadeIn = keyframes`
   0% {
@@ -8,6 +8,15 @@ const fadeIn = keyframes`
   }
   100% {
     opacity: 1;
+  }
+`
+
+const fadeOut = keyframes`
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 `
 
@@ -23,16 +32,23 @@ const ModalStyle = styled.div`
   z-index: 2;
   animation: 300ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s 1 normal forwards running
     ${fadeIn};
+  ${(props) =>
+    !props.modalVisible &&
+    css`
+      animation: 100ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s 1 normal forwards
+        running ${fadeOut};
+    `}
 `
 
-const AuthModal = ({ ModalType, hideModal, changeModal }) => {
+const AuthModal = ({ ModalType, hideModal, changeModal, modalVisible }) => {
   return (
-    <ModalStyle>
+    <ModalStyle modalVisible={modalVisible}>
       <ModalOverlay onClick={hideModal} />
       <ModalTemplete
         ModalType={ModalType}
         hideModal={hideModal}
         changeModal={changeModal}
+        modalVisible={modalVisible}
       />
     </ModalStyle>
   )

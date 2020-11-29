@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components"
+import styled, { keyframes, css } from "styled-components"
 import Colors from "../../Constants/Color"
 import ModalBigWriting from "./ModalBigWriting"
 import ModalMediumWriting from "./ModalMediumWriting"
@@ -6,7 +6,7 @@ import ModalSmallWriting from "./ModalSmallWriting"
 import ModalButtonWrapper from "./ModalButtonWrapper"
 import ModalButton from "./ModalButton"
 
-const animation = keyframes`
+const fadeIn = keyframes`
   0% {
     opacity: 0;
   }
@@ -16,6 +16,19 @@ const animation = keyframes`
   100% {
     opacity: 1;
     transform: scale(1);
+  }
+`
+
+const fadeOut = keyframes`
+  0% {
+    opacity: 1;
+  }
+  75% {
+    transform: scale(.9);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0);
   }
 `
 
@@ -32,7 +45,14 @@ const ModalTempleteStyle = styled.div`
   flex-direction: column;
   align-items: center;
   animation: 300ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s 1 normal forwards running
-    ${animation};
+    ${fadeIn};
+
+  ${(props) =>
+    !props.modalVisible &&
+    css`
+      animation: 100ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s 1 normal forwards
+        running ${fadeOut};
+    `}
 `
 
 const CloseButton = styled.button`
@@ -51,9 +71,9 @@ const Svg = styled.svg`
   fill: ${Colors.gray};
 `
 
-const ModalTemplete = ({ ModalType, hideModal, changeModal }) => {
+const ModalTemplete = ({ ModalType, hideModal, changeModal, modalVisible }) => {
   return (
-    <ModalTempleteStyle>
+    <ModalTempleteStyle modalVisible={modalVisible}>
       <CloseButton onClick={hideModal}>
         <Svg class="sf" width="29" height="29">
           <path
