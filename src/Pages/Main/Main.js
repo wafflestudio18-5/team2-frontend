@@ -3,6 +3,8 @@ import { Main } from "../../Components/Main"
 import AuthModal from "../../Components/AuthModal"
 import TrendingPosts from "../../Constants/TrendingPosts"
 import ModalTypeConstants from "../../Constants/ModalTypeConstants"
+import Articles from "../../Constants/Articles"
+import Topics from "../../Constants/Topics"
 
 const MainPage = () => {
   // 스크롤 될 때 header 색 변하는 로직
@@ -64,6 +66,8 @@ const MainPage = () => {
       <Main
         TrendingPosts={TrendingPosts}
         reachScrollCheckPoint={reachScrollCheckPoint}
+        Articles={Articles}
+        Topics={Topics}
         showModal={showModal}
       />
       {modalShow && (
