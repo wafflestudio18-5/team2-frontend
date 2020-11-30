@@ -52,7 +52,7 @@ const MainPage = () => {
   // Modal이 떠있는 동안 scroll 고정
   useEffect(() => {
     if (modalVisible === true) {
-      document.body.style.cssText = `position: fixed; top: -${window.scrollY}px`
+      document.body.style.cssText = `overflow: hidden; top: -${window.scrollY}px`
       return () => {
         const scrollY = document.body.style.top
         document.body.style.cssText = `position: ""; top: "";`
