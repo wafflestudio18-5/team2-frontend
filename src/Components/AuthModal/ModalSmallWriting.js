@@ -11,6 +11,11 @@ const ModalSmallWritingStyle = styled.p`
   font-weight: 400;
   text-align: center;
   letter-spacing: -0.01em;
+  margin-bottom: 0;
+
+  @media (max-width: 727.98px) {
+    width: 80%;
+  }
 `
 
 const ModalSmallWriting = ({ ModalType }) => {

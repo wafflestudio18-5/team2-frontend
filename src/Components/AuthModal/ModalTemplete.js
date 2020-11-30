@@ -1,5 +1,6 @@
 import styled, { keyframes, css } from "styled-components"
 import Colors from "../../Constants/Color"
+import ModalContent from "./ModalContent"
 import ModalBigWriting from "./ModalBigWriting"
 import ModalMediumWriting from "./ModalMediumWriting"
 import ModalSmallWriting from "./ModalSmallWriting"
@@ -42,15 +43,22 @@ const ModalTempleteStyle = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
-  @media (min-width: 728px) {
+  @media (min-width: 904px) {
     width: 678px;
     height: 695px;
   }
 
+  @media (max-width: 903.98px) {
+    height: 100vh;
+    width: 600px;
+  }
+
   @media (max-width: 727.98px) {
     width: 100vw;
-    height: 100vh;
+    padding-top: 120px;
+    padding-bottom: 44px;
   }
 
   animation: 300ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s 1 normal forwards running
@@ -91,14 +99,16 @@ const ModalTemplete = ({ ModalType, hideModal, changeModal, modalVisible }) => {
           ></path>
         </Svg>
       </CloseButton>
-      <ModalBigWriting ModalType={ModalType} />
-      <ModalButtonWrapper>
-        <ModalButton Logo="Google" ModalType={ModalType} />
-        <ModalButton Logo="Facebook" ModalType={ModalType} />
-        <ModalButton Logo="email" ModalType={ModalType} />
-        <ModalMediumWriting ModalType={ModalType} changeModal={changeModal} />
-      </ModalButtonWrapper>
-      <ModalSmallWriting ModalType={ModalType} />
+      <ModalContent>
+        <ModalBigWriting ModalType={ModalType} />
+        <ModalButtonWrapper>
+          <ModalButton Logo="Google" ModalType={ModalType} />
+          <ModalButton Logo="Facebook" ModalType={ModalType} />
+          <ModalButton Logo="email" ModalType={ModalType} />
+          <ModalMediumWriting ModalType={ModalType} changeModal={changeModal} />
+        </ModalButtonWrapper>
+        <ModalSmallWriting ModalType={ModalType} />
+      </ModalContent>
     </ModalTempleteStyle>
   )
 }
