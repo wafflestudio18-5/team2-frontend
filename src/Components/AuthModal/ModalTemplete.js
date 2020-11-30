@@ -34,8 +34,6 @@ const fadeOut = keyframes`
 
 const ModalTempleteStyle = styled.div`
   position: relative;
-  width: 678px;
-  height: 695px;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 10px;
   border-radius: 4px;
@@ -44,6 +42,17 @@ const ModalTempleteStyle = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  @media (min-width: 728px) {
+    width: 678px;
+    height: 695px;
+  }
+
+  @media (max-width: 727.98px) {
+    width: 100vw;
+    height: 100vh;
+  }
+
   animation: 300ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s 1 normal forwards running
     ${fadeIn};
 
