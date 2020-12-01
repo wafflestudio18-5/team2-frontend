@@ -30,6 +30,7 @@ const ModalStyle = styled.div`
   justify-content: center;
   align-items: center;
   z-index: 2;
+  overflow-y: scroll;
   animation: 300ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s 1 normal forwards running
     ${fadeIn};
   ${(props) =>
@@ -49,6 +50,9 @@ const AuthModal = ({ ModalType, hideModal, changeModal, modalVisible }) => {
         hideModal={hideModal}
         changeModal={changeModal}
         modalVisible={modalVisible}
+        onClick={(event) => {
+          event.stopPropagation()
+        }}
       />
     </ModalStyle>
   )

@@ -34,7 +34,6 @@ const fadeOut = keyframes`
 `
 
 const ModalTempleteStyle = styled.div`
-  position: relative;
   background-color: white;
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 10px;
   border-radius: 4px;
@@ -44,6 +43,9 @@ const ModalTempleteStyle = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: auto;
+  margin-bottom: auto;
+  min-height: 695px;
 
   @media (min-width: 904px) {
     width: 678px;
