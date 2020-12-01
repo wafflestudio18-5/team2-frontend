@@ -50,9 +50,6 @@ const AuthModal = ({ ModalType, hideModal, changeModal, modalVisible }) => {
         hideModal={hideModal}
         changeModal={changeModal}
         modalVisible={modalVisible}
-        onClick={(event) => {
-          event.stopPropagation()
-        }}
       />
     </ModalStyle>
   )
