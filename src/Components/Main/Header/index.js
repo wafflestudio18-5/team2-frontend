@@ -4,8 +4,9 @@ import HeaderLinkGroup from "./HeaderLinkGroup"
 import HeaderStartButton from "./HeaderStartButton"
 import HeaderWrapper from "./HeaderWrapper"
 import HeaderContents from "./HeaderContents"
+import ModalTypeConstants from "../../../Constants/ModalTypeConstants"
 
-const Header = ({ reachScrollCheckPoint }) => {
+const Header = ({ reachScrollCheckPoint, showModal }) => {
   return (
     <HeaderWrapper reachScrollCheckPoint={reachScrollCheckPoint}>
       <HeaderContents>
@@ -20,8 +21,19 @@ const Header = ({ reachScrollCheckPoint }) => {
           <HeaderLink href="https://about.medium.com/creators/">
             Write
           </HeaderLink>
-          <HeaderSignIn>Sign In</HeaderSignIn>
-          <HeaderStartButton reachScrollCheckPoint={reachScrollCheckPoint}>
+          <HeaderSignIn
+            onClick={() => {
+              showModal(ModalTypeConstants.LOG_IN)
+            }}
+          >
+            Sign In
+          </HeaderSignIn>
+          <HeaderStartButton
+            reachScrollCheckPoint={reachScrollCheckPoint}
+            onClick={() => {
+              showModal(ModalTypeConstants.SIGN_UP)
+            }}
+          >
             Get Started
           </HeaderStartButton>
         </HeaderLinkGroup>
