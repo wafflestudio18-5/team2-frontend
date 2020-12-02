@@ -1,9 +1,9 @@
 import MainPage from "./Pages/Main/Main"
-import WritePage from "./Pages/Write/Write"
+import EditPage from "./Pages/Edit/Edit"
 
 const routes = {
   main: { path: "/main", component: MainPage },
-  write: { path: "/write", component: WritePage },
+  edit: { path: "/edit", component: EditPage },
 }
 
 export { routes }

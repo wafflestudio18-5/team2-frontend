@@ -1,7 +1,7 @@
 import Header from "./Header"
 import Main from "./Main"
 
-const Write = ({ user, status }) => {
+const Edit = ({ user, status }) => {
   return (
     <div>
       <Header user={user} status={status} />
@@ -10,4 +10,4 @@ const Write = ({ user, status }) => {
   )
 }
 
-export default Write
+export default Edit

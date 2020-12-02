@@ -8,7 +8,7 @@ function App() {
       <Fonts />
       <Switch>
         <Route path={routes.main.path} component={routes.main.component} />
-        <Route path={routes.write.path} component={routes.write.component} />
+        <Route path={routes.edit.path} component={routes.edit.component} />
         <Redirect to={routes.main.path} />
       </Switch>
     </BrowserRouter>
