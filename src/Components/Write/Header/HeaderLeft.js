@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import Color from "../../../Constants/Color"
+import Fonts from "../../../Fonts"
 
 const HeaderLeftStyle = styled.div`
   display: flex;
@@ -12,16 +13,22 @@ const HeaderLogo = styled.a`
 
 const UserName = styled.p`
   margin-left: 10px;
-  font-size: 16px;
-  color: rgba(0, 0, 0, 0.84);
-  font-family: sans-serif;
+  font-size: 13px;
+  color: ${Color.black};
+  font-family: "NotoSans";
 `
 
-const Status = styled.span``
+const Status = styled.span`
+  margin-left: 18px;
+  font-size: 13px;
+  color: ${Color.gray};
+  font-family: "NotoSans";
+`
 
 const HeaderLeft = ({ userName, status }) => {
   return (
     <HeaderLeftStyle>
+      <Fonts />
       <HeaderLogo href="/main">
         <svg height="25px" viewBox="0 0 1043.63 592.71">
           <g>
@@ -31,8 +38,8 @@ const HeaderLeft = ({ userName, status }) => {
           </g>
         </svg>
       </HeaderLogo>
-      <UserName>Draft in Seungbin Jeong</UserName>
-      <Status>Saved</Status>
+      <UserName>{userName}</UserName>
+      <Status>{status}</Status>
     </HeaderLeftStyle>
   )
 }

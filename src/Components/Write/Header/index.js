@@ -17,11 +17,11 @@ const HeaderContent = styled.div`
   align-items: center;
 `
 
-const Header = () => {
+const Header = ({ userName, status }) => {
   return (
     <HeaderWrapper>
       <HeaderContent>
-        <HeaderLeft />
+        <HeaderLeft userName={userName} status={status} />
         <HeaderRight />
       </HeaderContent>
     </HeaderWrapper>
