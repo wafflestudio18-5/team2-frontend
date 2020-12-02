@@ -1,5 +1,13 @@
+import Header from "./Header"
+import Main from "./Main"
+
 const Write = () => {
-  return <p>write page</p>
+  return (
+    <div>
+      <Header />
+      <Main />
+    </div>
+  )
 }
 
 export default Write
