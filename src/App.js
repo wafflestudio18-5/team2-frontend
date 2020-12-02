@@ -6,6 +6,7 @@ function App() {
     <BrowserRouter>
       <Switch>
         <Route path={routes.main.path} component={routes.main.component} />
+        <Route path={routes.write.path} component={routes.write.component} />
         <Redirect to={routes.main.path} />
       </Switch>
     </BrowserRouter>
