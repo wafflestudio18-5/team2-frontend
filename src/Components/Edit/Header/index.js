@@ -5,12 +5,13 @@ import HeaderRight from "./HeaderRight"
 const HeaderWrapper = styled.div`
   position: fixed;
   width: 100vw;
+  top: 0px;
 `
 
 const HeaderContent = styled.div`
   max-width: 1032px;
   height: 65px;
-  padding: 0 25px;
+  padding: 0 20px;
   margin: 0 auto;
   position: relative;
   display: flex;
