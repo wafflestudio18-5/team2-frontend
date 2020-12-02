@@ -1,6 +1,13 @@
 import styled from "styled-components"
+import HeaderLeft from "./HeaderLeft"
+import HeaderRight from "./HeaderRight"
 
-const HeaderStyle = styled.div`
+const HeaderWrapper = styled.div`
+  position: fixed;
+  width: 100vw;
+`
+
+const HeaderContent = styled.div`
   max-width: 1032px;
   height: 65px;
   padding: 0 25px;
@@ -11,7 +18,14 @@ const HeaderStyle = styled.div`
 `
 
 const Header = () => {
-  return <HeaderStyle>Header</HeaderStyle>
+  return (
+    <HeaderWrapper>
+      <HeaderContent>
+        <HeaderLeft />
+        <HeaderRight />
+      </HeaderContent>
+    </HeaderWrapper>
+  )
 }
 
 export default Header
