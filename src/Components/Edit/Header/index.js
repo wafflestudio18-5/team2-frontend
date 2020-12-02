@@ -23,7 +23,7 @@ const Header = ({ user, status }) => {
     <HeaderWrapper>
       <HeaderContent>
         <HeaderLeft userName={user.userName} status={status} />
-        <HeaderRight />
+        <HeaderRight profileUrl={user.profileUrl} />
       </HeaderContent>
     </HeaderWrapper>
   )
