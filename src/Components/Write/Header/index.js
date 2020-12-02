@@ -15,13 +15,14 @@ const HeaderContent = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 `
 
-const Header = ({ userName, status }) => {
+const Header = ({ user, status }) => {
   return (
     <HeaderWrapper>
       <HeaderContent>
-        <HeaderLeft userName={userName} status={status} />
+        <HeaderLeft userName={user.userName} status={status} />
         <HeaderRight />
       </HeaderContent>
     </HeaderWrapper>

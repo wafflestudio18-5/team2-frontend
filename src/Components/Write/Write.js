@@ -1,10 +1,10 @@
 import Header from "./Header"
 import Main from "./Main"
 
-const Write = ({ userName, status }) => {
+const Write = ({ user, status }) => {
   return (
     <div>
-      <Header userName={userName} status={status} />
+      <Header user={user} status={status} />
       <Main />
     </div>
   )
