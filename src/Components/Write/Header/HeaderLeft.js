@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import Color from "../../../Constants/Color"
-import Fonts from "../../../Fonts"
 
 const HeaderLeftStyle = styled.div`
   display: flex;
@@ -28,7 +27,6 @@ const Status = styled.span`
 const HeaderLeft = ({ userName, status }) => {
   return (
     <HeaderLeftStyle>
-      <Fonts />
       <HeaderLogo href="/main">
         <svg height="25px" viewBox="0 0 1043.63 592.71">
           <g>
