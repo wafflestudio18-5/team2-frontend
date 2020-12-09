@@ -6,11 +6,11 @@ const EditStyle = styled.div`
   padding-top: 65px;
 `
 
-const Edit = ({ user, status }) => {
+const Edit = ({ user, status, story }) => {
   return (
     <EditStyle>
       <Header user={user} status={status} />
-      <Main />
+      <Main story={story} />
     </EditStyle>
   )
 }
