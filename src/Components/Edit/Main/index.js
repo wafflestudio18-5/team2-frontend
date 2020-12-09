@@ -1,5 +1,4 @@
-import Image from "./Imgae"
-import Paragraph from "./Paragraph"
+import Content from "./Content"
 import Section from "./Section"
 import styled from "styled-components"
 
@@ -9,20 +8,9 @@ const Main = ({ story }) => {
   const article = story.map((section) => {
     return (
       <Section>
-        {section.map((content) => {
-          if (content.type === "paragraph") {
-            return (
-              <Paragraph emphasizing={content.detail.emphasizing}>
-                {content.detail.content}
-              </Paragraph>
-            )
-          }
-          if (content.type === "image") {
-            return <Image></Image>
-          } else {
-            return <p>error.</p>
-          }
-        })}
+        {section.map((content) => (
+          <Content content={content} />
+        ))}
       </Section>
     )
   })
