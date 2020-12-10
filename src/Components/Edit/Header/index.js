@@ -4,6 +4,7 @@ import HeaderRight from "./HeaderRight"
 
 const HeaderWrapper = styled.div`
   position: fixed;
+  background-color: rgba(255, 255, 255, 0.97);
   width: 100vw;
   top: 0px;
 `
