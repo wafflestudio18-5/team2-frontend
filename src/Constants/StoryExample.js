@@ -47,7 +47,7 @@ const StoryExample = [
     {
       type: "image",
       detail: {
-        size: "normal", //이미지의 크기를 결정. small, normal, large, largest있음.
+        size: "large", //이미지의 크기를 결정. small, normal, large, largest있음.
         //이미지 주소
         imgsrc:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOJtsADIlVCT6wf5DooH_nMKAIaVXoIvlJaw&usqp=CAU",
