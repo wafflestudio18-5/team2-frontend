@@ -23,9 +23,22 @@ const ImageStyle = ({ size, children }) => {
   }
 }
 
-const Img = styled.img``
+const Img = styled.img`
+  width: 100%;
+`
 
-const Caption = styled.figcaption``
+const Caption = styled.figcaption`
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 1.4;
+  color: rgba(0, 0, 0, 0.68);
+  letter-spacing: 0;
+  width: 100%;
+  margin-top: 10px;
+  text-align: center;
+  overflow-wrap: break-word;
+  font-family: "Noto Sans";
+`
 
 const Image = ({ detail }) => {
   return (
