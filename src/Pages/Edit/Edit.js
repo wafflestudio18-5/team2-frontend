@@ -12,7 +12,7 @@ const EditPage = () => {
   const [story, setStory] = useState(StoryExample)
 
   const onInput = (event) => {
-    console.log(event.target)
+    console.log(event.target.innerHTML)
   }
 
   return <Edit user={user} status="Saved" story={story} change={onInput} />

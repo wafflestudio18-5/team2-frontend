@@ -8,8 +8,8 @@ const Main = ({ story, change }) => {
   const article = story.map((section) => {
     return (
       <Section>
-        {section.map((content) => (
-          <Content content={content} change={change} />
+        {section.map((content, index) => (
+          <Content content={content} change={change} index={index} />
         ))}
       </Section>
     )

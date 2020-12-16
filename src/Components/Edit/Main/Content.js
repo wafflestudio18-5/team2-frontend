@@ -1,16 +1,12 @@
 import Paragraph from "./Paragraph"
 import Image from "./Image"
 
-const Content = ({ content: { type, detail }, change }) => {
+const Content = ({ content: { type, detail }, change, index }) => {
   if (type === "paragraph") {
-    return (
-      <Paragraph emphasizing={detail.emphasizing} change={change}>
-        {detail.content}
-      </Paragraph>
-    )
+    return <Paragraph detail={detail} change={change} index={index} />
   }
   if (type === "image") {
-    return <Image detail={detail} change={change} />
+    return <Image detail={detail} change={change} index={index} />
   }
 }
 
