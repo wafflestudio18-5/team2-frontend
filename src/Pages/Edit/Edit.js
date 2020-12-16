@@ -33,7 +33,19 @@ const EditPage = () => {
     setStory(newStory)
   }
 
-  return <Edit user={user} status="Saved" story={story} change={onInput} />
+  const publish = () => {
+    console.log(JSON.stringify(story))
+  }
+
+  return (
+    <Edit
+      user={user}
+      status="Saved"
+      story={story}
+      change={onInput}
+      publish={publish}
+    />
+  )
 }
 
 export default EditPage

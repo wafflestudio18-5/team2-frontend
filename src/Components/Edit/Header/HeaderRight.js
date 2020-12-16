@@ -69,10 +69,10 @@ const UserProfile = styled.button`
   }
 `
 
-const HeaderRight = ({ profileUrl }) => {
+const HeaderRight = ({ profileUrl, publish }) => {
   return (
     <HeaderRightStyle>
-      <PublishButton>Publish</PublishButton>
+      <PublishButton onClick={publish}>Publish</PublishButton>
       <ThreeDotsButton>
         <svg width="25" height="25">
           <path
