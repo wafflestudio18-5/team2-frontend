@@ -5,11 +5,16 @@ import styled from "styled-components"
 const MainStyle = styled.div``
 
 const Main = ({ story, change }) => {
-  const article = story.map((section) => {
+  const article = story.map((section, sectionIndex) => {
     return (
       <Section>
-        {section.map((content, index) => (
-          <Content content={content} change={change} index={index} />
+        {section.map((content, contentIndex) => (
+          <Content
+            content={content}
+            change={change}
+            sectionIndex={sectionIndex}
+            contentIndex={contentIndex}
+          />
         ))}
       </Section>
     )

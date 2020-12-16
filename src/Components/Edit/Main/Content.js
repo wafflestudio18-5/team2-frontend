@@ -1,12 +1,31 @@
 import Paragraph from "./Paragraph"
 import Image from "./Image"
 
-const Content = ({ content: { type, detail }, change, index }) => {
+const Content = ({
+  content: { type, detail },
+  change,
+  sectionIndex,
+  contentIndex,
+}) => {
   if (type === "paragraph") {
-    return <Paragraph detail={detail} change={change} index={index} />
+    return (
+      <Paragraph
+        detail={detail}
+        change={change}
+        sectionIndex={sectionIndex}
+        contentIndex={contentIndex}
+      />
+    )
   }
   if (type === "image") {
-    return <Image detail={detail} change={change} index={index} />
+    return (
+      <Image
+        detail={detail}
+        change={change}
+        sectionIndex={sectionIndex}
+        contentIndex={contentIndex}
+      />
+    )
   }
 }
 

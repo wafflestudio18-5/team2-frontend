@@ -12,7 +12,24 @@ const EditPage = () => {
   const [story, setStory] = useState(StoryExample)
 
   const onInput = (event) => {
-    console.log(event.target.innerHTML)
+    const sectionIndex = parseInt(
+      event.target.getAttribute("data-sectionIndex")
+    )
+    const contentIndex = parseInt(
+      event.target.getAttribute("data-contentIndex")
+    )
+    const value = event.target.innerHTML
+
+    const newStory = story
+    newStory[sectionIndex][contentIndex] = {
+      ...story[sectionIndex][contentIndex],
+      detail: {
+        ...story[sectionIndex][contentIndex].detail,
+        content: value,
+      },
+    }
+
+    setStory(newStory)
   }
 
   return <Edit user={user} status="Saved" story={story} change={onInput} />

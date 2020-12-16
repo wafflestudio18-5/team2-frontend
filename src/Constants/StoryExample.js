@@ -51,7 +51,7 @@ const StoryExample = [
         //이미지 주소
         imgsrc:
           "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQOJtsADIlVCT6wf5DooH_nMKAIaVXoIvlJaw&usqp=CAU",
-        caption: "image caption example", //캡션
+        content: "image caption example", //캡션
       },
     },
   ],
