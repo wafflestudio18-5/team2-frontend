@@ -44,7 +44,7 @@ const Image = ({ detail }) => {
   return (
     <ImageStyle size={detail.size}>
       <Img src={detail.imgsrc} />
-      <Caption>{detail.caption}</Caption>
+      <Caption contentEditable="true">{detail.caption}</Caption>
     </ImageStyle>
   )
 }
