@@ -7,31 +7,63 @@ import Normal from "./ParagraphStyles/Normal"
 import Emphasize1 from "./ParagraphStyles/Emphasize1"
 import Emphasize2 from "./ParagraphStyles/Emphasize2"
 
-const Paragraph = ({ emphasizing, children }) => {
+const Paragraph = ({ emphasizing, children, change }) => {
   switch (emphasizing) {
     case "kicker":
-      return <Kicker contentEditable="true">{children}</Kicker>
+      return (
+        <Kicker contentEditable="true" onInput={change}>
+          {children}
+        </Kicker>
+      )
 
     case "title":
-      return <Title contentEditable="true">{children}</Title>
+      return (
+        <Title contentEditable="true" onInput={change}>
+          {children}
+        </Title>
+      )
 
     case "subtitle":
-      return <Subtitle contentEditable="true">{children}</Subtitle>
+      return (
+        <Subtitle contentEditable="true" onInput={change}>
+          {children}
+        </Subtitle>
+      )
 
     case "largest":
-      return <Largest contentEditable="true">{children}</Largest>
+      return (
+        <Largest contentEditable="true" onInput={change}>
+          {children}
+        </Largest>
+      )
 
     case "large":
-      return <Large contentEditable="true">{children}</Large>
+      return (
+        <Large contentEditable="true" onInput={change}>
+          {children}
+        </Large>
+      )
 
     case "normal":
-      return <Normal contentEditable="true">{children}</Normal>
+      return (
+        <Normal contentEditable="true" onInput={change}>
+          {children}
+        </Normal>
+      )
 
     case "emphasize1":
-      return <Emphasize1 contentEditable="true">{children}</Emphasize1>
+      return (
+        <Emphasize1 contentEditable="true" onInput={change}>
+          {children}
+        </Emphasize1>
+      )
 
     case "emphasize2":
-      return <Emphasize2 contentEditable="true">{children}</Emphasize2>
+      return (
+        <Emphasize2 contentEditable="true" onInput={change}>
+          {children}
+        </Emphasize2>
+      )
 
     default:
       break

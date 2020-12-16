@@ -43,11 +43,13 @@ const Caption = styled.figcaption`
   }
 `
 
-const Image = ({ detail }) => {
+const Image = ({ detail, change }) => {
   return (
     <ImageStyle size={detail.size}>
       <Img src={detail.imgsrc} />
-      <Caption contentEditable="true">{detail.caption}</Caption>
+      <Caption contentEditable="true" onChang={change}>
+        {detail.caption}
+      </Caption>
     </ImageStyle>
   )
 }

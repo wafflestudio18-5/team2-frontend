@@ -4,12 +4,12 @@ import styled from "styled-components"
 
 const MainStyle = styled.div``
 
-const Main = ({ story }) => {
+const Main = ({ story, change }) => {
   const article = story.map((section) => {
     return (
       <Section>
         {section.map((content) => (
-          <Content content={content} />
+          <Content content={content} change={change} />
         ))}
       </Section>
     )
