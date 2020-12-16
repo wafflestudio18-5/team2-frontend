@@ -21,6 +21,7 @@ const EditPage = () => {
     const value = event.target.innerHTML
 
     const newStory = story
+
     newStory[sectionIndex][contentIndex] = {
       ...story[sectionIndex][contentIndex],
       detail: {
