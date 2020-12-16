@@ -15,6 +15,9 @@ const Normal = styled.p`
   letter-spacing: -0.003em;
   margin-bottom: 0;
   color: ${Color.black};
+  :focus {
+    outline: 0;
+  }
 `
 
 export default Normal

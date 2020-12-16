@@ -17,6 +17,9 @@ const Emphasize1 = styled.blockquote`
   letter-spacing: -0.003em;
   color: ${Color.black};
   border-left: 3px solid ${Color.black};
+  :focus {
+    outline: 0;
+  }
 `
 
 export default Emphasize1

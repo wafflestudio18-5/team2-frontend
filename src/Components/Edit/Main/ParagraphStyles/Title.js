@@ -7,6 +7,9 @@ const Title = styled.h3`
   margin: 0 auto;
   box-sizing: border-box;
   word-break: berak-word;
+  :focus {
+    outline: 0;
+  }
 `
 
 export default Title

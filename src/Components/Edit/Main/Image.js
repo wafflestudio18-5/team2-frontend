@@ -38,6 +38,9 @@ const Caption = styled.figcaption`
   text-align: center;
   overflow-wrap: break-word;
   font-family: "Noto Sans";
+  :focus {
+    outline: 0;
+  }
 `
 
 const Image = ({ detail }) => {

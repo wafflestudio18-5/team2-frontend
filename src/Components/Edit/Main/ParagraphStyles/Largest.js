@@ -13,6 +13,9 @@ const Largest = styled.h3`
   font-weight: 700;
   line-height: 1.15;
   letter-spacing: -0.015em;
+  :focus {
+    outline: 0;
+  }
 `
 
 export default Largest

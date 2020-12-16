@@ -13,6 +13,9 @@ const Large = styled.h4`
   font-weight: 700;
   line-height: 1.22;
   letter-spacing: -0.012em;
+  :focus {
+    outline: 0;
+  }
 `
 
 export default Large

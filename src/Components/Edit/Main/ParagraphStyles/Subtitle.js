@@ -7,6 +7,9 @@ const Subtitle = styled.h4`
   margin: 0 auto;
   box-sizing: border-box;
   word-break: berak-word;
+  :focus {
+    outline: 0;
+  }
 `
 
 export default Subtitle
