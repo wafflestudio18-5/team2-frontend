@@ -11,12 +11,12 @@ const EditPage = () => {
 
   const [story, setStory] = useState(StoryExample)
 
-  const findTitle = (story) => {
+  const findTitle = (s) => {
     // story를 입력받아 kicker, title, subtitle이 표시될지 아닐지 판단한 후 적절히 수정해 리턴
     // 이후 각 컴포넌트들은 이 함수를 거쳐 수정된 story를 가지고 출력하게 됨.
     let checker = true
-    let result = story
-    const firstSection = story[0]
+    let result = JSON.parse(JSON.stringify(s))
+    const firstSection = s[0]
 
     mainLoop: for (let i = 0; i < firstSection.length; i++) {
       if (!checker) {
@@ -48,7 +48,6 @@ const EditPage = () => {
         }
       }
     }
-
     return result
   }
 
