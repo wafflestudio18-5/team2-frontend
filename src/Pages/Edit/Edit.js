@@ -12,6 +12,8 @@ const EditPage = () => {
   const [story, setStory] = useState(StoryExample)
 
   const findTitle = (story) => {
+    // story를 입력받아 kicker, title, subtitle이 표시될지 아닐지 판단한 후 적절히 수정해 리턴
+    // 이후 각 컴포넌트들은 이 함수를 거쳐 수정된 story를 가지고 출력하게 됨.
     let checker = true
     let result = story
     const firstSection = story[0]
@@ -73,6 +75,7 @@ const EditPage = () => {
   }
 
   const publish = () => {
+    // publish 버튼을 눌렀을 때 실행되는 함수. 나중에 API 관련 추가 필요
     console.log(JSON.stringify(story))
   }
 
