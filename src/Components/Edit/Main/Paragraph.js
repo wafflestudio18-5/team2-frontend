@@ -7,8 +7,14 @@ import Normal from "./ParagraphStyles/Normal"
 import Emphasize1 from "./ParagraphStyles/Emphasize1"
 import Emphasize2 from "./ParagraphStyles/Emphasize2"
 
-const Paragraph = ({ detail, change, sectionIndex, contentIndex }) => {
-  switch (detail.emphasizing) {
+const Paragraph = ({
+  content,
+  emphasizing,
+  change,
+  sectionIndex,
+  contentIndex,
+}) => {
+  switch (emphasizing) {
     case "kicker":
       return (
         <Kicker
@@ -17,7 +23,7 @@ const Paragraph = ({ detail, change, sectionIndex, contentIndex }) => {
           data-sectionIndex={sectionIndex}
           data-contentIndex={contentIndex}
         >
-          {detail.content}
+          {content}
         </Kicker>
       )
 
@@ -29,7 +35,7 @@ const Paragraph = ({ detail, change, sectionIndex, contentIndex }) => {
           data-sectionIndex={sectionIndex}
           data-contentIndex={contentIndex}
         >
-          {detail.content}
+          {content}
         </Title>
       )
 
@@ -41,7 +47,7 @@ const Paragraph = ({ detail, change, sectionIndex, contentIndex }) => {
           data-sectionIndex={sectionIndex}
           data-contentIndex={contentIndex}
         >
-          {detail.content}
+          {content}
         </Subtitle>
       )
 
@@ -53,7 +59,7 @@ const Paragraph = ({ detail, change, sectionIndex, contentIndex }) => {
           data-sectionIndex={sectionIndex}
           data-contentIndex={contentIndex}
         >
-          {detail.content}
+          {content}
         </Largest>
       )
 
@@ -65,7 +71,7 @@ const Paragraph = ({ detail, change, sectionIndex, contentIndex }) => {
           data-sectionIndex={sectionIndex}
           data-contentIndex={contentIndex}
         >
-          {detail.content}
+          {content}
         </Large>
       )
 
@@ -77,7 +83,7 @@ const Paragraph = ({ detail, change, sectionIndex, contentIndex }) => {
           data-sectionIndex={sectionIndex}
           data-contentIndex={contentIndex}
         >
-          {detail.content}
+          {content}
         </Normal>
       )
 
@@ -89,7 +95,7 @@ const Paragraph = ({ detail, change, sectionIndex, contentIndex }) => {
           data-sectionIndex={sectionIndex}
           data-contentIndex={contentIndex}
         >
-          {detail.content}
+          {content}
         </Emphasize1>
       )
 
@@ -101,7 +107,7 @@ const Paragraph = ({ detail, change, sectionIndex, contentIndex }) => {
           data-sectionIndex={sectionIndex}
           data-contentIndex={contentIndex}
         >
-          {detail.content}
+          {content}
         </Emphasize2>
       )
 

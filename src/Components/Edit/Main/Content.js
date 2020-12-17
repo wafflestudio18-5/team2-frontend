@@ -10,7 +10,8 @@ const Content = ({
   if (type === "paragraph") {
     return (
       <Paragraph
-        detail={detail}
+        content={detail.content}
+        emphasizing={detail.emphasizing}
         change={change}
         sectionIndex={sectionIndex}
         contentIndex={contentIndex}
