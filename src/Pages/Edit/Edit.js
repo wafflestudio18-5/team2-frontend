@@ -18,7 +18,7 @@ const EditPage = () => {
 
     mainLoop: for (let i = 0; i < firstSection.length; i++) {
       if (!checker) {
-        break mainLoop
+        break
       }
       if (firstSection[i].type === "paragraph") {
         checker = false
@@ -27,7 +27,7 @@ const EditPage = () => {
           case "largest":
             result[0][i].detail.emphasizing = "title"
             if (firstSection[i + 1].detail.emphasizing === "large") {
-              result[0][i].detail.emphasizing = "subtitle"
+              result[0][i + 1].detail.emphasizing = "subtitle"
             }
             break mainLoop
 
