@@ -4,7 +4,7 @@ import styled from "styled-components"
 
 const MainStyle = styled.div``
 
-const Main = ({ story, change }) => {
+const Main = ({ story, change, createNewContent }) => {
   const article = story.map((section, sectionIndex) => {
     return (
       <Section>
@@ -14,6 +14,7 @@ const Main = ({ story, change }) => {
             change={change}
             sectionIndex={sectionIndex}
             contentIndex={contentIndex}
+            createNewContent={createNewContent}
           />
         ))}
       </Section>

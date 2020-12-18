@@ -13,15 +13,9 @@ const Paragraph = ({
   change,
   sectionIndex,
   contentIndex,
+  createNewContent,
 }) => {
   const id = sectionIndex * 100 + contentIndex
-
-  const hello = (event) => {
-    if (event.key === "Enter") {
-      event.preventDefault()
-      console.log("hi")
-    }
-  }
 
   switch (emphasizing) {
     case "kicker":
@@ -30,7 +24,7 @@ const Paragraph = ({
           contentEditable="true"
           onInput={change}
           id={id}
-          onKeyPress={hello}
+          onKeyPress={createNewContent}
         >
           {content}
         </Kicker>
@@ -42,7 +36,7 @@ const Paragraph = ({
           contentEditable="true"
           onInput={change}
           id={id}
-          onKeyPress={hello}
+          onKeyPress={createNewContent}
         >
           {content}
         </Title>
@@ -54,7 +48,7 @@ const Paragraph = ({
           contentEditable="true"
           onInput={change}
           id={id}
-          onKeyPress={hello}
+          onKeyPress={createNewContent}
         >
           {content}
         </Subtitle>
@@ -66,7 +60,7 @@ const Paragraph = ({
           contentEditable="true"
           onInput={change}
           id={id}
-          onKeyPress={hello}
+          onKeyPress={createNewContent}
         >
           {content}
         </Largest>
@@ -78,7 +72,7 @@ const Paragraph = ({
           contentEditable="true"
           onInput={change}
           id={id}
-          onKeyPress={hello}
+          onKeyPress={createNewContent}
         >
           {content}
         </Large>
@@ -90,7 +84,7 @@ const Paragraph = ({
           contentEditable="true"
           onInput={change}
           id={id}
-          onKeyPress={hello}
+          onKeyPress={createNewContent}
         >
           {content}
         </Normal>
@@ -102,7 +96,7 @@ const Paragraph = ({
           contentEditable="true"
           onInput={change}
           id={id}
-          onKeyPress={hello}
+          onKeyPress={createNewContent}
         >
           {content}
         </Emphasize1>
@@ -114,7 +108,7 @@ const Paragraph = ({
           contentEditable="true"
           onInput={change}
           id={id}
-          onKeyPress={hello}
+          onKeyPress={createNewContent}
         >
           {content}
         </Emphasize2>

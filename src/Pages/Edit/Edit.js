@@ -52,6 +52,7 @@ const EditPage = () => {
   }
 
   const onInput = (event) => {
+    // 값에 변경 있을 시 state도 그에 맞게 변경
     const id = event.target.id
     const sectionIndex = parseInt(id / 100)
     const contentIndex = id % 100
@@ -75,6 +76,14 @@ const EditPage = () => {
     console.log(JSON.stringify(story))
   }
 
+  const createNewContent = (event) => {
+    // 엔터 키가 눌러지면 새로운 content를 바로 아래에 만드는 함수.
+    if (event.key === "Enter") {
+      event.preventDefault()
+      console.log(event.target)
+    }
+  }
+
   return (
     <Edit
       user={user}
@@ -82,6 +91,7 @@ const EditPage = () => {
       story={findTitle(story)}
       change={onInput}
       publish={publish}
+      createNewContent={createNewContent}
     />
   )
 }

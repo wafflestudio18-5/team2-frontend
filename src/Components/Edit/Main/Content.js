@@ -6,6 +6,7 @@ const Content = ({
   change,
   sectionIndex,
   contentIndex,
+  createNewContent,
 }) => {
   if (type === "paragraph") {
     return (
@@ -15,6 +16,7 @@ const Content = ({
         change={change}
         sectionIndex={sectionIndex}
         contentIndex={contentIndex}
+        createNewContent={createNewContent}
       />
     )
   }
