@@ -80,7 +80,21 @@ const EditPage = () => {
     // 엔터 키가 눌러지면 새로운 content를 바로 아래에 만드는 함수.
     if (event.key === "Enter") {
       event.preventDefault()
-      console.log(event.target)
+
+      const id = event.target.id
+      const sectionIndex = parseInt(id / 100)
+      const contentIndex = id % 100
+
+      let newStory = JSON.parse(JSON.stringify(story))
+
+      newStory[sectionIndex].splice(contentIndex, 0, {
+        type: "paragraph",
+        detail: {
+          content: "",
+          emphasizing: "normal",
+        },
+      })
+      setStory(newStory)
     }
   }
 
