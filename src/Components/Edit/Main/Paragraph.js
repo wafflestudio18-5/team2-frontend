@@ -20,8 +20,7 @@ const Paragraph = ({
         <Kicker
           contentEditable="true"
           onInput={change}
-          data-sectionIndex={sectionIndex}
-          data-contentIndex={contentIndex}
+          id={sectionIndex * 100 + contentIndex}
         >
           {content}
         </Kicker>
@@ -32,8 +31,7 @@ const Paragraph = ({
         <Title
           contentEditable="true"
           onInput={change}
-          data-sectionIndex={sectionIndex}
-          data-contentIndex={contentIndex}
+          id={sectionIndex * 100 + contentIndex}
         >
           {content}
         </Title>
@@ -44,8 +42,7 @@ const Paragraph = ({
         <Subtitle
           contentEditable="true"
           onInput={change}
-          data-sectionIndex={sectionIndex}
-          data-contentIndex={contentIndex}
+          id={sectionIndex * 100 + contentIndex}
         >
           {content}
         </Subtitle>
@@ -56,8 +53,7 @@ const Paragraph = ({
         <Largest
           contentEditable="true"
           onInput={change}
-          data-sectionIndex={sectionIndex}
-          data-contentIndex={contentIndex}
+          id={sectionIndex * 100 + contentIndex}
         >
           {content}
         </Largest>
@@ -68,8 +64,7 @@ const Paragraph = ({
         <Large
           contentEditable="true"
           onInput={change}
-          data-sectionIndex={sectionIndex}
-          data-contentIndex={contentIndex}
+          id={sectionIndex * 100 + contentIndex}
         >
           {content}
         </Large>
@@ -80,8 +75,7 @@ const Paragraph = ({
         <Normal
           contentEditable="true"
           onInput={change}
-          data-sectionIndex={sectionIndex}
-          data-contentIndex={contentIndex}
+          id={sectionIndex * 100 + contentIndex}
         >
           {content}
         </Normal>
@@ -92,8 +86,7 @@ const Paragraph = ({
         <Emphasize1
           contentEditable="true"
           onInput={change}
-          data-sectionIndex={sectionIndex}
-          data-contentIndex={contentIndex}
+          id={sectionIndex * 100 + contentIndex}
         >
           {content}
         </Emphasize1>
@@ -104,8 +97,7 @@ const Paragraph = ({
         <Emphasize2
           contentEditable="true"
           onInput={change}
-          data-sectionIndex={sectionIndex}
-          data-contentIndex={contentIndex}
+          id={sectionIndex * 100 + contentIndex}
         >
           {content}
         </Emphasize2>

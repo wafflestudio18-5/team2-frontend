@@ -52,12 +52,9 @@ const EditPage = () => {
   }
 
   const onInput = (event) => {
-    const sectionIndex = parseInt(
-      event.target.getAttribute("data-sectionIndex")
-    )
-    const contentIndex = parseInt(
-      event.target.getAttribute("data-contentIndex")
-    )
+    const id = event.target.id
+    const sectionIndex = parseInt(id / 100)
+    const contentIndex = id % 100
     const value = event.target.innerHTML
 
     const newStory = story
