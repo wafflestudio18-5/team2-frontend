@@ -116,16 +116,66 @@ const EditPage = () => {
     setStory(newStory)
   }
 
+  const onDeleteKeyPressed = (sectionIndex, contentIndex) => {
+    const selection = window.getSelection
+    const lengthOfContent =
+      story[sectionIndex][contentIndex].detail.content.length
+
+    if (selection.focusOffset !== lengthOfContent) {
+      return
+    }
+    let newStory = JSON.parse(JSON.stringify(story))
+
+    if (contentIndex === story[sectionIndex].length - 1) {
+      if (sectionIndex !== story.length - 1) {
+        newStory.splice(
+          sectionIndex,
+          2,
+          ...newStory[sectionIndex],
+          ...newStory[sectionIndex + 1]
+        )
+      }
+      return
+    }
+
+    if (lengthOfContent === 0) {
+      newStory.splice(sectionIndex, 1)
+      return
+    }
+
+    if (story[sectionIndex][contentIndex + 1].type !== "paragraph") {
+      return
+    }
+
+    const emphasizing = story[sectionIndex][contentIndex].detail.emphasizing
+    const content =
+      story[sectionIndex][contentIndex].detail.content +
+      story[sectionIndex][contentIndex + 1].detail.content
+
+    newStory[sectionIndex].splice(contentIndex, 2, {
+      type: "paragraph",
+      detail: {
+        content: content,
+        emphasizing: emphasizing,
+      },
+    })
+    setStory(newStory)
+  }
+
   const keyPressEventListener = (event) => {
     const id = event.target.id
     const sectionIndex = parseInt(id / 100)
     const contentIndex = id % 100
-    console.log(window.getSelection())
+    console.log(event.key)
 
     switch (event.key) {
       case "Enter":
         event.preventDefault()
         createNewContent(sectionIndex, contentIndex)
+        break
+
+      case "Delete":
+        onDeleteKeyPressed(sectionIndex, contentIndex)
         break
 
       default:
