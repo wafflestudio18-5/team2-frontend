@@ -14,13 +14,23 @@ const Paragraph = ({
   sectionIndex,
   contentIndex,
 }) => {
+  const id = sectionIndex * 100 + contentIndex
+
+  const hello = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault()
+      console.log("hi")
+    }
+  }
+
   switch (emphasizing) {
     case "kicker":
       return (
         <Kicker
           contentEditable="true"
           onInput={change}
-          id={sectionIndex * 100 + contentIndex}
+          id={id}
+          onKeyPress={hello}
         >
           {content}
         </Kicker>
@@ -31,7 +41,8 @@ const Paragraph = ({
         <Title
           contentEditable="true"
           onInput={change}
-          id={sectionIndex * 100 + contentIndex}
+          id={id}
+          onKeyPress={hello}
         >
           {content}
         </Title>
@@ -42,7 +53,8 @@ const Paragraph = ({
         <Subtitle
           contentEditable="true"
           onInput={change}
-          id={sectionIndex * 100 + contentIndex}
+          id={id}
+          onKeyPress={hello}
         >
           {content}
         </Subtitle>
@@ -53,7 +65,8 @@ const Paragraph = ({
         <Largest
           contentEditable="true"
           onInput={change}
-          id={sectionIndex * 100 + contentIndex}
+          id={id}
+          onKeyPress={hello}
         >
           {content}
         </Largest>
@@ -64,7 +77,8 @@ const Paragraph = ({
         <Large
           contentEditable="true"
           onInput={change}
-          id={sectionIndex * 100 + contentIndex}
+          id={id}
+          onKeyPress={hello}
         >
           {content}
         </Large>
@@ -75,7 +89,8 @@ const Paragraph = ({
         <Normal
           contentEditable="true"
           onInput={change}
-          id={sectionIndex * 100 + contentIndex}
+          id={id}
+          onKeyPress={hello}
         >
           {content}
         </Normal>
@@ -86,7 +101,8 @@ const Paragraph = ({
         <Emphasize1
           contentEditable="true"
           onInput={change}
-          id={sectionIndex * 100 + contentIndex}
+          id={id}
+          onKeyPress={hello}
         >
           {content}
         </Emphasize1>
@@ -97,7 +113,8 @@ const Paragraph = ({
         <Emphasize2
           contentEditable="true"
           onInput={change}
-          id={sectionIndex * 100 + contentIndex}
+          id={id}
+          onKeyPress={hello}
         >
           {content}
         </Emphasize2>
