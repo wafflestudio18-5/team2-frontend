@@ -77,16 +77,42 @@ const EditPage = () => {
   }
 
   const createNewContent = (sectionIndex, contentIndex) => {
-    // 엔터 키가 눌러지면 새로운 content를 바로 아래에 만드는 함수.
+    // 엔터 키가 눌러지면 새로운 content를 바로 아래에 만들고 커서를 이동하는 함수.
     let newStory = JSON.parse(JSON.stringify(story))
+    const originalContent = story[sectionIndex][contentIndex]
+    const selection = window.getSelection()
 
-    newStory[sectionIndex].splice(contentIndex, 0, {
-      type: "paragraph",
-      detail: {
-        content: "",
-        emphasizing: "normal",
+    const frontContent = originalContent.detail.content.slice(
+      0,
+      selection.anchorOffset
+    )
+    const backContent = originalContent.detail.content.slice(
+      selection.focusOffset
+    )
+
+    let newLineEmphasizing = originalContent.detail.emphasizing
+    if (selection.focusOffset === originalContent.detail.content.length) {
+      newLineEmphasizing = "normal"
+    }
+
+    newStory[sectionIndex].splice(
+      contentIndex,
+      1,
+      {
+        type: "paragraph",
+        detail: {
+          content: frontContent,
+          emphasizing: originalContent.detail.emphasizing,
+        },
       },
-    })
+      {
+        type: "paragraph",
+        detail: {
+          content: backContent,
+          emphasizing: newLineEmphasizing,
+        },
+      }
+    )
     setStory(newStory)
   }
 
@@ -94,6 +120,7 @@ const EditPage = () => {
     const id = event.target.id
     const sectionIndex = parseInt(id / 100)
     const contentIndex = id % 100
+    console.log(window.getSelection())
 
     switch (event.key) {
       case "Enter":
