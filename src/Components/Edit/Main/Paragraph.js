@@ -24,7 +24,7 @@ const Paragraph = ({
           contentEditable="true"
           onInput={change}
           id={id}
-          onKeyPress={keyPressEventListener}
+          onKeyDown={keyPressEventListener}
         >
           {content}
         </Kicker>
@@ -36,7 +36,7 @@ const Paragraph = ({
           contentEditable="true"
           onInput={change}
           id={id}
-          onKeyPress={keyPressEventListener}
+          onKeyDown={keyPressEventListener}
         >
           {content}
         </Title>
@@ -48,7 +48,7 @@ const Paragraph = ({
           contentEditable="true"
           onInput={change}
           id={id}
-          onKeyPress={keyPressEventListener}
+          onKeyDown={keyPressEventListener}
         >
           {content}
         </Subtitle>
@@ -60,7 +60,7 @@ const Paragraph = ({
           contentEditable="true"
           onInput={change}
           id={id}
-          onKeyPress={keyPressEventListener}
+          onKeyDown={keyPressEventListener}
         >
           {content}
         </Largest>
@@ -72,7 +72,7 @@ const Paragraph = ({
           contentEditable="true"
           onInput={change}
           id={id}
-          onKeyPress={keyPressEventListener}
+          onKeyDown={keyPressEventListener}
         >
           {content}
         </Large>
@@ -84,7 +84,7 @@ const Paragraph = ({
           contentEditable="true"
           onInput={change}
           id={id}
-          onKeyPress={keyPressEventListener}
+          onKeyDown={keyPressEventListener}
         >
           {content}
         </Normal>
@@ -96,7 +96,7 @@ const Paragraph = ({
           contentEditable="true"
           onInput={change}
           id={id}
-          onKeyPress={keyPressEventListener}
+          onKeyDown={keyPressEventListener}
         >
           {content}
         </Emphasize1>
@@ -108,7 +108,7 @@ const Paragraph = ({
           contentEditable="true"
           onInput={change}
           id={id}
-          onKeyPress={keyPressEventListener}
+          onKeyDown={keyPressEventListener}
         >
           {content}
         </Emphasize2>
