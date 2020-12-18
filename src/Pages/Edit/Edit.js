@@ -76,25 +76,33 @@ const EditPage = () => {
     console.log(JSON.stringify(story))
   }
 
-  const createNewContent = (event) => {
+  const createNewContent = (sectionIndex, contentIndex) => {
     // 엔터 키가 눌러지면 새로운 content를 바로 아래에 만드는 함수.
-    if (event.key === "Enter") {
-      event.preventDefault()
+    let newStory = JSON.parse(JSON.stringify(story))
 
-      const id = event.target.id
-      const sectionIndex = parseInt(id / 100)
-      const contentIndex = id % 100
+    newStory[sectionIndex].splice(contentIndex, 0, {
+      type: "paragraph",
+      detail: {
+        content: "",
+        emphasizing: "normal",
+      },
+    })
+    setStory(newStory)
+  }
 
-      let newStory = JSON.parse(JSON.stringify(story))
+  const keyPressEventListener = (event) => {
+    const id = event.target.id
+    const sectionIndex = parseInt(id / 100)
+    const contentIndex = id % 100
 
-      newStory[sectionIndex].splice(contentIndex, 0, {
-        type: "paragraph",
-        detail: {
-          content: "",
-          emphasizing: "normal",
-        },
-      })
-      setStory(newStory)
+    switch (event.key) {
+      case "Enter":
+        event.preventDefault()
+        createNewContent(sectionIndex, contentIndex)
+        break
+
+      default:
+        break
     }
   }
 
@@ -105,7 +113,7 @@ const EditPage = () => {
       story={findTitle(story)}
       change={onInput}
       publish={publish}
-      createNewContent={createNewContent}
+      keyPressEventListener={keyPressEventListener}
     />
   )
 }

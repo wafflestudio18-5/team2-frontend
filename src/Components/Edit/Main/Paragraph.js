@@ -13,7 +13,7 @@ const Paragraph = ({
   change,
   sectionIndex,
   contentIndex,
-  createNewContent,
+  keyPressEventListener,
 }) => {
   const id = sectionIndex * 100 + contentIndex
 
@@ -24,7 +24,7 @@ const Paragraph = ({
           contentEditable="true"
           onInput={change}
           id={id}
-          onKeyPress={createNewContent}
+          onKeyPress={keyPressEventListener}
         >
           {content}
         </Kicker>
@@ -36,7 +36,7 @@ const Paragraph = ({
           contentEditable="true"
           onInput={change}
           id={id}
-          onKeyPress={createNewContent}
+          onKeyPress={keyPressEventListener}
         >
           {content}
         </Title>
@@ -48,7 +48,7 @@ const Paragraph = ({
           contentEditable="true"
           onInput={change}
           id={id}
-          onKeyPress={createNewContent}
+          onKeyPress={keyPressEventListener}
         >
           {content}
         </Subtitle>
@@ -60,7 +60,7 @@ const Paragraph = ({
           contentEditable="true"
           onInput={change}
           id={id}
-          onKeyPress={createNewContent}
+          onKeyPress={keyPressEventListener}
         >
           {content}
         </Largest>
@@ -72,7 +72,7 @@ const Paragraph = ({
           contentEditable="true"
           onInput={change}
           id={id}
-          onKeyPress={createNewContent}
+          onKeyPress={keyPressEventListener}
         >
           {content}
         </Large>
@@ -84,7 +84,7 @@ const Paragraph = ({
           contentEditable="true"
           onInput={change}
           id={id}
-          onKeyPress={createNewContent}
+          onKeyPress={keyPressEventListener}
         >
           {content}
         </Normal>
@@ -96,7 +96,7 @@ const Paragraph = ({
           contentEditable="true"
           onInput={change}
           id={id}
-          onKeyPress={createNewContent}
+          onKeyPress={keyPressEventListener}
         >
           {content}
         </Emphasize1>
@@ -108,7 +108,7 @@ const Paragraph = ({
           contentEditable="true"
           onInput={change}
           id={id}
-          onKeyPress={createNewContent}
+          onKeyPress={keyPressEventListener}
         >
           {content}
         </Emphasize2>

@@ -6,7 +6,7 @@ const Content = ({
   change,
   sectionIndex,
   contentIndex,
-  createNewContent,
+  keyPressEventListener,
 }) => {
   if (type === "paragraph") {
     return (
@@ -16,7 +16,7 @@ const Content = ({
         change={change}
         sectionIndex={sectionIndex}
         contentIndex={contentIndex}
-        createNewContent={createNewContent}
+        keyPressEventListener={keyPressEventListener}
       />
     )
   }
