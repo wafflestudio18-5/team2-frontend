@@ -1,6 +1,10 @@
 import Edit from "../../Components/Edit"
 import { useState } from "react"
 import StoryExample from "../../Constants/StoryExample"
+import findTitle from "./Functions/findTitle"
+import createNewContent from "./Functions/createNewContent"
+import onDeleteKeyPressed from "./Functions/onDeleteKeyPressed"
+import onBackspacePressed from "./Functions/onBackspacePressed"
 
 const EditPage = () => {
   const user = {
@@ -10,46 +14,6 @@ const EditPage = () => {
   }
 
   const [story, setStory] = useState(StoryExample)
-
-  const findTitle = (s) => {
-    // story를 입력받아 kicker, title, subtitle이 표시될지 아닐지 판단한 후 적절히 수정해 리턴
-    // 이후 각 컴포넌트들은 이 함수를 거쳐 수정된 story를 가지고 출력하게 됨.
-    let checker = true
-    let result = JSON.parse(JSON.stringify(s))
-    const firstSection = s[0]
-
-    mainLoop: for (let i = 0; i < firstSection.length; i++) {
-      if (!checker) {
-        break
-      }
-      if (firstSection[i].type === "paragraph") {
-        checker = false
-
-        switch (firstSection[i].detail.emphasizing) {
-          case "largest":
-            result[0][i].detail.emphasizing = "title"
-            if (firstSection[i + 1].detail.emphasizing === "large") {
-              result[0][i + 1].detail.emphasizing = "subtitle"
-            }
-            break mainLoop
-
-          case "large":
-            if (firstSection[i + 1].detail.emphasizing === "largest") {
-              result[0][i].detail.emphasizing = "kicker"
-              result[0][i + 1].detail.emphasizing = "title"
-              if (firstSection[i + 2].detail.emphasizing === "large") {
-                result[0][i + 2].detail.emphasizing = "subtitle"
-              }
-            }
-            break mainLoop
-
-          default:
-            break mainLoop
-        }
-      }
-    }
-    return result
-  }
 
   const onInput = (event) => {
     // 값에 변경 있을 시 state도 그에 맞게 변경
@@ -67,7 +31,6 @@ const EditPage = () => {
         content: value,
       },
     }
-
     setStory(newStory)
   }
 
@@ -76,120 +39,19 @@ const EditPage = () => {
     console.log(JSON.stringify(story))
   }
 
-  const createNewContent = (event) => {
-    // 엔터 키가 눌러지면 새로운 content를 바로 아래에 만들고 커서를 이동하는 함수.
-    const id = event.target.id
-    const sectionIndex = parseInt(id / 100)
-    const contentIndex = id % 100
-
-    let newStory = JSON.parse(JSON.stringify(story))
-    const originalContent = story[sectionIndex][contentIndex]
-    const selection = window.getSelection()
-
-    const frontContent = originalContent.detail.content.slice(
-      0,
-      selection.anchorOffset
-    )
-    const backContent = originalContent.detail.content.slice(
-      selection.focusOffset
-    )
-
-    let newLineEmphasizing = originalContent.detail.emphasizing
-    if (selection.focusOffset === originalContent.detail.content.length) {
-      newLineEmphasizing = "normal"
-    }
-
-    newStory[sectionIndex].splice(
-      contentIndex,
-      1,
-      {
-        type: "paragraph",
-        detail: {
-          content: frontContent,
-          emphasizing: originalContent.detail.emphasizing,
-        },
-      },
-      {
-        type: "paragraph",
-        detail: {
-          content: backContent,
-          emphasizing: newLineEmphasizing,
-        },
-      }
-    )
-    setStory(newStory)
-  }
-
-  const onDeleteKeyPressed = (event) => {
-    // Delete 키가 눌렸을 때 실행
-    const id = event.target.id
-    const sectionIndex = parseInt(id / 100)
-    const contentIndex = id % 100
-    const selection = window.getSelection()
-    const lengthOfContent =
-      story[sectionIndex][contentIndex].detail.content.length
-
-    if (selection.focusOffset !== lengthOfContent) {
-      return
-    }
-    event.preventDefault()
-
-    let newStory = JSON.parse(JSON.stringify(story))
-
-    if (contentIndex === story[sectionIndex].length - 1) {
-      if (sectionIndex !== story.length - 1) {
-        newStory.splice(sectionIndex, 2, [
-          ...newStory[sectionIndex],
-          ...newStory[sectionIndex + 1],
-        ])
-        setStory(newStory)
-      }
-      return
-    }
-
-    if (lengthOfContent === 0) {
-      newStory[sectionIndex].splice(contentIndex, 1)
-      setStory(newStory)
-      return
-    }
-
-    if (story[sectionIndex][contentIndex + 1].type !== "paragraph") {
-      return
-    }
-
-    const emphasizing = story[sectionIndex][contentIndex].detail.emphasizing
-    const content =
-      story[sectionIndex][contentIndex].detail.content +
-      story[sectionIndex][contentIndex + 1].detail.content
-
-    console.log(content)
-
-    newStory[sectionIndex].splice(contentIndex, 2, {
-      type: "paragraph",
-      detail: {
-        content: content,
-        emphasizing: emphasizing,
-      },
-    })
-    setStory(newStory)
-  }
-
-  const onBackspacePressed = (event) => {}
-
   const keyPressEventListener = (event) => {
     console.log(event.key)
     switch (event.key) {
       case "Enter":
-        event.preventDefault()
-        createNewContent(event)
+        createNewContent(event, story, setStory)
         break
 
       case "Delete":
-        onDeleteKeyPressed(event)
+        onDeleteKeyPressed(event, story, setStory)
         break
 
       case "Backspace":
-        onBackspacePressed(event)
+        onBackspacePressed(event, story, setStory)
         break
 
       default:
