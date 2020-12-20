@@ -17,10 +17,12 @@ const EditPage = () => {
 
   const changeStateOnInput = (event) => {
     // 값에 변경 있을 시 state도 그에 맞게 변경
-    const id = event.target.id
+    const target = window.getSelection().getRangeAt(0).commonAncestorContainer
+      .parentNode
+    const id = target.id
     const sectionIndex = parseInt(id / 100)
     const contentIndex = id % 100
-    const value = event.target.innerHTML
+    const value = target.innerHTML
 
     const newStory = story
 

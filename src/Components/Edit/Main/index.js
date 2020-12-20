@@ -20,7 +20,24 @@ const Main = ({ story, changeStateOnInput, keyPressEventListener }) => {
     )
   })
 
-  return <MainStyle contentEditable="true">{article}</MainStyle>
+  const test = (event) => {
+    if (event.key === "Enter") {
+      event.preventDefault()
+      console.log(
+        window.getSelection().getRangeAt(0).commonAncestorContainer.parentNode
+      )
+    }
+  }
+
+  return (
+    <MainStyle
+      contentEditable="true"
+      onKeyPress={test}
+      onInput={changeStateOnInput}
+    >
+      {article}
+    </MainStyle>
+  )
 }
 
 export default Main
