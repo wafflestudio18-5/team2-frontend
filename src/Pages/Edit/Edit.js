@@ -15,7 +15,8 @@ const EditPage = () => {
 
   const [story, setStory] = useState(StoryExample)
 
-  const changeStateOnInput = () => {
+  const changeStateOnInput = (event) => {
+    console.log(event.data)
     // 값에 변경 있을 시 state도 그에 맞게 변경
     const target = window.getSelection().getRangeAt(0).startContainer.parentNode
     const id = target.id
@@ -41,7 +42,6 @@ const EditPage = () => {
   }
 
   const keyDownEventListener = (event) => {
-    console.log(event.key)
     switch (event.key) {
       case "Enter":
         createNewContent(event, story, setStory)
