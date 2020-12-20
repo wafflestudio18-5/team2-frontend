@@ -21,10 +21,12 @@ const EditPage = () => {
     // 값에 변경 있을 시 state도 그에 맞게 변경
 
     const { id, target } = getIdOfCaretPlaced()
-    console.log(target)
 
     const [sectionIndex, contentIndex] = id.split(" ").map((e) => parseInt(e))
-    const value = target.innerHTML
+    let value = target.innerHTML
+    if (value === "<br>") {
+      value = ""
+    }
 
     const newStory = story
 
