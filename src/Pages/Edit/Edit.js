@@ -40,7 +40,7 @@ const EditPage = () => {
     console.log(JSON.stringify(story))
   }
 
-  const keyPressEventListener = (event) => {
+  const keyDownEventListener = (event) => {
     console.log(event.key)
     switch (event.key) {
       case "Enter":
@@ -48,7 +48,8 @@ const EditPage = () => {
         break
 
       case "Delete":
-        //onDeleteKeyPressed(event, story, setStory)
+        console.log("hi")
+        onDeleteKeyPressed(event, story, setStory)
         break
 
       case "Backspace":
@@ -67,7 +68,7 @@ const EditPage = () => {
       story={findTitle(story)}
       changeStateOnInput={changeStateOnInput}
       publish={publish}
-      keyPressEventListener={keyPressEventListener}
+      keyDownEventListener={keyDownEventListener}
     />
   )
 }

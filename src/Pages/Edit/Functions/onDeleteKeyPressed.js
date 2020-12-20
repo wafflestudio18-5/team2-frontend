@@ -1,9 +1,10 @@
 const onDeleteKeyPressed = (event, story, setStory) => {
+  console.log("hi")
   // Delete 키가 눌렸을 때 실행
-  const id = event.target.id
+  const selection = window.getSelection()
+  const id = selection.getRangeAt(0).startContainer.parentNode.id
   const sectionIndex = parseInt(id / 100)
   const contentIndex = id % 100
-  const selection = window.getSelection()
   const lengthOfContent =
     story[sectionIndex][contentIndex].detail.content.length
 

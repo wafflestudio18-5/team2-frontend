@@ -8,7 +8,7 @@ const MainStyle = styled.div`
   }
 `
 
-const Main = ({ story, changeStateOnInput, keyPressEventListener }) => {
+const Main = ({ story, changeStateOnInput, keyDownEventListener }) => {
   const article = story.map((section, sectionIndex) => {
     return (
       <Section>
@@ -23,7 +23,7 @@ const Main = ({ story, changeStateOnInput, keyPressEventListener }) => {
   return (
     <MainStyle
       contentEditable="true"
-      onKeyPress={keyPressEventListener}
+      onKeyDown={keyDownEventListener}
       onInput={changeStateOnInput}
     >
       {article}

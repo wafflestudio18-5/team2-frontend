@@ -12,7 +12,7 @@ const Edit = ({
   story,
   publish,
   changeStateOnInput,
-  keyPressEventListener,
+  keyDownEventListener,
 }) => {
   return (
     <EditStyle>
@@ -20,7 +20,7 @@ const Edit = ({
       <Main
         story={story}
         changeStateOnInput={changeStateOnInput}
-        keyPressEventListener={keyPressEventListener}
+        keyDownEventListener={keyDownEventListener}
       />
     </EditStyle>
   )
