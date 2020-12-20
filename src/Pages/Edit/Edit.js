@@ -1,11 +1,12 @@
 import Edit from "../../Components/Edit"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import StoryExample from "../../Constants/StoryExample"
 import findTitle from "./Functions/findTitle"
 import createNewContent from "./Functions/createNewContent"
 import onDeleteKeyPressed from "./Functions/onDeleteKeyPressed"
 import onBackspacePressed from "./Functions/onBackspacePressed"
 import checkMultiLineSelected from "./Functions/checkMultiLineSelected"
+import getIdOfCaretPlaced from "./Functions/getIdOfCaretPlaced"
 
 const EditPage = () => {
   const user = {
@@ -18,10 +19,11 @@ const EditPage = () => {
 
   const changeStateOnInput = (event) => {
     // 값에 변경 있을 시 state도 그에 맞게 변경
-    const target = window.getSelection().getRangeAt(0).startContainer.parentNode
-    const id = target.id
-    console.log(id)
-    const [sectionIndex, contentIndex] = id.split(" ").map(parseInt)
+
+    const { id, target } = getIdOfCaretPlaced()
+    console.log(target)
+
+    const [sectionIndex, contentIndex] = id.split(" ").map((e) => parseInt(e))
     const value = target.innerHTML
 
     const newStory = story
