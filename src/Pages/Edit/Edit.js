@@ -48,7 +48,6 @@ const EditPage = () => {
         break
 
       case "Delete":
-        console.log("hi")
         onDeleteKeyPressed(event, story, setStory)
         break
 

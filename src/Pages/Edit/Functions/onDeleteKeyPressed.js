@@ -1,5 +1,4 @@
 const onDeleteKeyPressed = (event, story, setStory) => {
-  console.log("hi")
   // Delete 키가 눌렸을 때 실행
   const selection = window.getSelection()
   const id = selection.getRangeAt(0).startContainer.parentNode.id
