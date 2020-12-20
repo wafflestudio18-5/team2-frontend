@@ -16,9 +16,9 @@ const Main = ({
 }) => {
   const article = story.map((section, sectionIndex) => {
     return (
-      <Section>
+      <Section id={sectionIndex}>
         {section.map((content, contentIndex) => {
-          const id = sectionIndex * 100 + contentIndex
+          const id = sectionIndex + " " + contentIndex
           return <Content content={content} id={id} />
         })}
       </Section>

@@ -1,8 +1,7 @@
 const createNewContentSingleLineSelected = (newStory, range, id) => {
   const startOffset = range.startOffset
   const endOffset = range.endOffset
-  const sectionIndex = parseInt(id / 100)
-  const contentIndex = id % 100
+  const [sectionIndex, contentIndex] = id.split(" ").map((e) => parseInt(e))
 
   const frontContent = newStory[sectionIndex][
     contentIndex

@@ -1,5 +1,5 @@
 import Edit from "../../Components/Edit"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import StoryExample from "../../Constants/StoryExample"
 import findTitle from "./Functions/findTitle"
 import createNewContent from "./Functions/createNewContent"
@@ -17,12 +17,11 @@ const EditPage = () => {
   const [story, setStory] = useState(StoryExample)
 
   const changeStateOnInput = (event) => {
-    console.log(event.data)
     // 값에 변경 있을 시 state도 그에 맞게 변경
     const target = window.getSelection().getRangeAt(0).startContainer.parentNode
     const id = target.id
-    const sectionIndex = parseInt(id / 100)
-    const contentIndex = id % 100
+    console.log(id)
+    const [sectionIndex, contentIndex] = id.split(" ").map(parseInt)
     const value = target.innerHTML
 
     const newStory = story
@@ -34,7 +33,6 @@ const EditPage = () => {
         content: value,
       },
     }
-    setStory(newStory)
   }
 
   const publish = () => {

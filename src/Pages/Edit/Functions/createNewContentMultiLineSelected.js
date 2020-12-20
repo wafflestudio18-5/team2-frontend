@@ -1,10 +1,10 @@
 const createNewContentMultiLineSelected = (newStory, range, startId, endId) => {
   const startOffset = range.startOffset
   const endOffset = range.endOffset
-  const startSection = parseInt(startId / 100)
-  const endSection = parseInt(endId / 100)
-  const startContent = startId % 100
-  const endContent = endId % 100
+  const [startSection, startContent] = startId
+    .split(" ")
+    .map((e) => parseInt(e))
+  const [endSection, endContent] = endId.split(" ").map((e) => parseInt(e))
 
   const frontContent = newStory[startSection][
     startContent

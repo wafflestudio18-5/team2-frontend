@@ -8,10 +8,11 @@ const removeMultiSectionSelected = (
 
   const startId = range.startContainer.parentNode.id
   const endId = range.endContainer.parentNode.id
-  const startSection = parseInt(startId / 100)
-  const endSection = parseInt(endId / 100)
-  const startContent = startId % 100
-  const endContent = endId % 100
+  console.log(startId)
+  const [startSection, startContent] = startId
+    .split(" ")
+    .map((e) => parseInt(e))
+  const [endSection, endContent] = endId.split(" ").map((e) => parseInt(e))
   const frontContent = newStory[startSection][
     startContent
   ].detail.content.slice(0, range.startOffset)

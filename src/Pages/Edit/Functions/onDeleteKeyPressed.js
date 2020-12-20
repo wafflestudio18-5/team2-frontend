@@ -7,8 +7,8 @@ const onDeleteKeyPressed = (event, story, setStory) => {
 
   if (range.collapsed) {
     const id = range.startContainer.parentNode.id
-    const sectionIndex = parseInt(id / 100)
-    const contentIndex = id % 100
+    const [sectionIndex, contentIndex] = id.split(" ").map((e) => parseInt(e))
+
     const lengthOfContent =
       story[sectionIndex][contentIndex].detail.content.length
 
