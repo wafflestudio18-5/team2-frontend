@@ -32,7 +32,7 @@ const removeMultiSectionSelected = (
     newStory[startSection].splice(startContent, Infinity, {
       type: "paragraph",
       detail: {
-        content: frontContent + backContent,
+        content: frontContent + newContent + backContent,
         emphasizing: emphasizing,
       },
     })
