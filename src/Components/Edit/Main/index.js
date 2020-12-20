@@ -1,5 +1,6 @@
 import Content from "./Content"
 import Section from "./Section"
+import SectionDivider from "./SectionDivider"
 import styled from "styled-components"
 
 const MainStyle = styled.div`
@@ -15,8 +16,10 @@ const Main = ({
   checkMultiLineSelected,
 }) => {
   console.log("hi")
-  const article = story.map((section, sectionIndex) => {
-    return (
+  let article = []
+  const lastSection = story.length - 1
+  story.forEach((section, sectionIndex) => {
+    article.push(
       <Section id={sectionIndex}>
         {section.map((content, contentIndex) => {
           const id = sectionIndex + " " + contentIndex
@@ -24,6 +27,9 @@ const Main = ({
         })}
       </Section>
     )
+    if (sectionIndex < lastSection) {
+      article.push(<SectionDivider />)
+    }
   })
 
   return (
