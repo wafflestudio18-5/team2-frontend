@@ -15,7 +15,6 @@ const Main = ({
   keyDownEventListener,
   checkMultiLineSelected,
 }) => {
-  console.log("hi")
   let article = []
   const lastSection = story.length - 1
   story.forEach((section, sectionIndex) => {

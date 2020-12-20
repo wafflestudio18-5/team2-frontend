@@ -44,6 +44,7 @@ const EditPage = () => {
   }
 
   const keyDownEventListener = (event) => {
+    console.log(window.getSelection().getRangeAt(0).startOffset)
     switch (event.key) {
       case "Enter":
         createNewContent(event, story, setStory, setCaret)
