@@ -2,9 +2,13 @@ import Content from "./Content"
 import Section from "./Section"
 import styled from "styled-components"
 
-const MainStyle = styled.div``
+const MainStyle = styled.div`
+  :focus {
+    outline: 0;
+  }
+`
 
-const Main = ({ story, change, keyPressEventListener }) => {
+const Main = ({ story, changeStateOnInput, keyPressEventListener }) => {
   const article = story.map((section, sectionIndex) => {
     return (
       <Section>
@@ -16,16 +20,7 @@ const Main = ({ story, change, keyPressEventListener }) => {
     )
   })
 
-  return (
-    <MainStyle
-      contentEditable="true"
-      onInput={(event) => {
-        console.log(event.target)
-      }}
-    >
-      {article}
-    </MainStyle>
-  )
+  return <MainStyle contentEditable="true">{article}</MainStyle>
 }
 
 export default Main

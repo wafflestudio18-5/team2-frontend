@@ -15,7 +15,7 @@ const EditPage = () => {
 
   const [story, setStory] = useState(StoryExample)
 
-  const onInput = (event) => {
+  const changeStateOnInput = (event) => {
     // 값에 변경 있을 시 state도 그에 맞게 변경
     const id = event.target.id
     const sectionIndex = parseInt(id / 100)
@@ -64,7 +64,7 @@ const EditPage = () => {
       user={user}
       status="Saved"
       story={findTitle(story)}
-      change={onInput}
+      changeStateOnInput={changeStateOnInput}
       publish={publish}
       keyPressEventListener={keyPressEventListener}
     />
