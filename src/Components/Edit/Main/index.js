@@ -23,9 +23,7 @@ const Main = ({ story, changeStateOnInput, keyPressEventListener }) => {
   const test = (event) => {
     if (event.key === "Enter") {
       event.preventDefault()
-      console.log(
-        window.getSelection().getRangeAt(0).commonAncestorContainer.parentNode
-      )
+      console.log(window.getSelection().getRangeAt(0))
     }
   }
 
