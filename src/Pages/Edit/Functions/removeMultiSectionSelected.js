@@ -1,4 +1,9 @@
-const removeMultiSectionSelected = (event, range, newStory) => {
+const removeMultiSectionSelected = (
+  event,
+  range,
+  newStory,
+  newContent = ""
+) => {
   event.preventDefault()
 
   const startId = range.startContainer.parentNode.id
@@ -19,7 +24,7 @@ const removeMultiSectionSelected = (event, range, newStory) => {
     newStory[startSection].splice(startContent, endContent - startContent + 1, {
       type: "paragraph",
       detail: {
-        content: frontContent + backContent,
+        content: frontContent + newContent + backContent,
         emphasizing: emphasizing,
       },
     })
