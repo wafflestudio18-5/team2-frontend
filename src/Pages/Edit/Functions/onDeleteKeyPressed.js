@@ -32,6 +32,7 @@ const onDeleteKeyPressed = (event, story, setStory, setCaret) => {
     if (lengthOfContent === 0) {
       newStory[sectionIndex].splice(contentIndex, 1)
       setStory(newStory)
+      setCaret({ id, offset: lengthOfContent })
       return
     }
 
@@ -52,6 +53,7 @@ const onDeleteKeyPressed = (event, story, setStory, setCaret) => {
       },
     })
     setStory(newStory)
+    setCaret({ id, offset: lengthOfContent })
   } else {
     removeMultiSectionSelected(event, range, newStory, setStory, setCaret)
   }

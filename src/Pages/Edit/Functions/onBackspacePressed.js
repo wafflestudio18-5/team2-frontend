@@ -33,6 +33,10 @@ const onBackspacePressed = (event, story, setStory, setCaret) => {
       newStory[sectionIndex].splice(contentIndex, 1)
       console.log(JSON.stringify(newStory))
       setStory(newStory)
+      setCaret({
+        id: sectionIndex + " " + (contentIndex - 1),
+        offset: story[sectionIndex][contentIndex - 1].detail.content.length,
+      })
       return
     }
 
@@ -53,6 +57,10 @@ const onBackspacePressed = (event, story, setStory, setCaret) => {
       },
     })
     setStory(newStory)
+    setCaret({
+      id: sectionIndex + " " + (contentIndex - 1),
+      offset: story[sectionIndex][contentIndex - 1].detail.content.length,
+    })
   } else {
     removeMultiSectionSelected(event, range, newStory, setStory, setCaret)
   }
