@@ -1,7 +1,7 @@
 import removeMultiSectionSelected from "./removeMultiSectionSelected"
 import getIdOfCaretPlaced from "./getIdOfCaretPlaced"
 
-const onBackspacePressed = (event, story, setStory) => {
+const onBackspacePressed = (event, story, setStory, setCaret) => {
   // Backspace 키가 눌렸을 때 실행
   const range = window.getSelection().getRangeAt(0)
   let newStory = JSON.parse(JSON.stringify(story))
@@ -52,10 +52,10 @@ const onBackspacePressed = (event, story, setStory) => {
         emphasizing: emphasizing,
       },
     })
+    setStory(newStory)
   } else {
-    removeMultiSectionSelected(event, range, newStory)
+    removeMultiSectionSelected(event, range, newStory, setStory)
   }
-  setStory(newStory)
 }
 
 export default onBackspacePressed

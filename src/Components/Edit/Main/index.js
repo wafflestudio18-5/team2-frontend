@@ -14,6 +14,7 @@ const Main = ({
   keyDownEventListener,
   checkMultiLineSelected,
 }) => {
+  console.log("hi")
   const article = story.map((section, sectionIndex) => {
     return (
       <Section id={sectionIndex}>

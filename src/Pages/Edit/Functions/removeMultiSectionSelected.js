@@ -4,12 +4,12 @@ const removeMultiSectionSelected = (
   event,
   range,
   newStory,
+  setStory,
   newContent = ""
 ) => {
   event.preventDefault()
 
   const { startId, endId } = getIdOfCaretPlaced(false)
-  console.log(startId)
   const [startSection, startContent] = startId
     .split(" ")
     .map((e) => parseInt(e))
@@ -20,13 +20,14 @@ const removeMultiSectionSelected = (
   const backContent = newStory[endSection][endContent].detail.content.slice(
     range.endOffset
   )
+  const content = frontContent + newContent + backContent
   const emphasizing = newStory[startSection][startContent].detail.emphasizing
 
   if (startSection === endSection) {
     newStory[startSection].splice(startContent, endContent - startContent + 1, {
       type: "paragraph",
       detail: {
-        content: frontContent + newContent + backContent,
+        content: content,
         emphasizing: emphasizing,
       },
     })
@@ -34,7 +35,7 @@ const removeMultiSectionSelected = (
     newStory[startSection].splice(startContent, Infinity, {
       type: "paragraph",
       detail: {
-        content: frontContent + newContent + backContent,
+        content: content,
         emphasizing: emphasizing,
       },
     })
@@ -46,6 +47,7 @@ const removeMultiSectionSelected = (
       ...newStory[endSection]
     )
   }
+  setStory(newStory)
 }
 
 export default removeMultiSectionSelected

@@ -1,7 +1,7 @@
 import removeMultiSectionSelected from "./removeMultiSectionSelected"
 import getIdOfCaretPlaced from "./getIdOfCaretPlaced"
 
-const onDeleteKeyPressed = (event, story, setStory) => {
+const onDeleteKeyPressed = (event, story, setStory, setCaret) => {
   // Delete 키가 눌렸을 때 실행
   const range = window.getSelection().getRangeAt(0)
   let newStory = JSON.parse(JSON.stringify(story))
@@ -51,10 +51,10 @@ const onDeleteKeyPressed = (event, story, setStory) => {
         emphasizing: emphasizing,
       },
     })
+    setStory(newStory)
   } else {
-    removeMultiSectionSelected(event, range, newStory)
+    removeMultiSectionSelected(event, range, newStory, setStory)
   }
-  setStory(newStory)
 }
 
 export default onDeleteKeyPressed

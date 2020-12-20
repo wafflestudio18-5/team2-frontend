@@ -9,8 +9,7 @@ const checkMultiLineSelected = (event, story, setStory) => {
   }
   event.preventDefault()
   const newStory = JSON.parse(JSON.stringify(story))
-  removeMultiSectionSelected(event, range, newStory, event.key)
-  setStory(newStory)
+  removeMultiSectionSelected(event, range, newStory, setStory, event.key)
 }
 
 export default checkMultiLineSelected

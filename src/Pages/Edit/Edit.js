@@ -1,5 +1,5 @@
 import Edit from "../../Components/Edit"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import StoryExample from "../../Constants/StoryExample"
 import findTitle from "./Functions/findTitle"
 import createNewContent from "./Functions/createNewContent"
@@ -7,6 +7,7 @@ import onDeleteKeyPressed from "./Functions/onDeleteKeyPressed"
 import onBackspacePressed from "./Functions/onBackspacePressed"
 import checkMultiLineSelected from "./Functions/checkMultiLineSelected"
 import getIdOfCaretPlaced from "./Functions/getIdOfCaretPlaced"
+import moveCaret from "./Functions/moveCaret"
 
 const EditPage = () => {
   const user = {
@@ -28,9 +29,7 @@ const EditPage = () => {
       value = ""
     }
 
-    const newStory = story
-
-    newStory[sectionIndex][contentIndex] = {
+    story[sectionIndex][contentIndex] = {
       ...story[sectionIndex][contentIndex],
       detail: {
         ...story[sectionIndex][contentIndex].detail,
@@ -47,21 +46,27 @@ const EditPage = () => {
   const keyDownEventListener = (event) => {
     switch (event.key) {
       case "Enter":
-        createNewContent(event, story, setStory)
+        createNewContent(event, story, setStory, setCaret)
         break
 
       case "Delete":
-        onDeleteKeyPressed(event, story, setStory)
+        onDeleteKeyPressed(event, story, setStory, setCaret)
         break
 
       case "Backspace":
-        onBackspacePressed(event, story, setStory)
+        onBackspacePressed(event, story, setStory, setCaret)
         break
 
       default:
         break
     }
   }
+
+  const [caret, setCaret] = useState({ id: "0 0", offset: 0 })
+
+  useEffect(() => {
+    moveCaret(caret)
+  }, [caret, story])
 
   return (
     <Edit
