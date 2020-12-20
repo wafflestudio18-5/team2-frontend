@@ -13,7 +13,6 @@ const Edit = ({
   publish,
   changeStateOnInput,
   keyDownEventListener,
-  checkMultiLineSelected,
 }) => {
   return (
     <EditStyle>
@@ -22,7 +21,6 @@ const Edit = ({
         story={story}
         changeStateOnInput={changeStateOnInput}
         keyDownEventListener={keyDownEventListener}
-        checkMultiLineSelected={checkMultiLineSelected}
       />
     </EditStyle>
   )

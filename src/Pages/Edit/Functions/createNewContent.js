@@ -1,45 +1,19 @@
+import createNewContentMultiLineSelected from "./createNewContentMultiLineSelected"
+import createNewContentSingleLineSelected from "./createNewContentSingleLineSelected"
+
 const createNewContent = (event, story, setStory) => {
   // 엔터 키가 눌러지면 새로운 content를 바로 아래에 만들고 커서를 이동하는 함수.
   event.preventDefault()
-  const selection = window.getSelection()
-  const id = selection.getRangeAt(0).startContainer.parentNode.id
-  const sectionIndex = parseInt(id / 100)
-  const contentIndex = id % 100
+  const newStory = JSON.parse(JSON.stringify(story))
+  const range = window.getSelection().getRangeAt(0)
+  const startId = range.startContainer.parentNode.id
+  const endId = range.endContainer.parentNode.id
 
-  let newStory = JSON.parse(JSON.stringify(story))
-  const originalContent = story[sectionIndex][contentIndex]
-
-  const frontContent = originalContent.detail.content.slice(
-    0,
-    selection.anchorOffset
-  )
-  const backContent = originalContent.detail.content.slice(
-    selection.focusOffset
-  )
-
-  let newLineEmphasizing = originalContent.detail.emphasizing
-  if (selection.focusOffset === originalContent.detail.content.length) {
-    newLineEmphasizing = "normal"
+  if (startId !== endId) {
+    createNewContentMultiLineSelected(newStory, range, startId, endId)
+  } else {
+    createNewContentSingleLineSelected(newStory, range, startId)
   }
-
-  newStory[sectionIndex].splice(
-    contentIndex,
-    1,
-    {
-      type: "paragraph",
-      detail: {
-        content: frontContent,
-        emphasizing: originalContent.detail.emphasizing,
-      },
-    },
-    {
-      type: "paragraph",
-      detail: {
-        content: backContent,
-        emphasizing: newLineEmphasizing,
-      },
-    }
-  )
   setStory(newStory)
 }
 
