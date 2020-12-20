@@ -40,8 +40,6 @@ const onDeleteKeyPressed = (event, story, setStory) => {
     story[sectionIndex][contentIndex].detail.content +
     story[sectionIndex][contentIndex + 1].detail.content
 
-  console.log(content)
-
   newStory[sectionIndex].splice(contentIndex, 2, {
     type: "paragraph",
     detail: {
