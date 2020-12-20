@@ -5,6 +5,7 @@ import findTitle from "./Functions/findTitle"
 import createNewContent from "./Functions/createNewContent"
 import onDeleteKeyPressed from "./Functions/onDeleteKeyPressed"
 import onBackspacePressed from "./Functions/onBackspacePressed"
+import checkMultiLineSelected from "./Functions/checkMultiLineSelected"
 
 const EditPage = () => {
   const user = {
@@ -44,14 +45,17 @@ const EditPage = () => {
     console.log(event.key)
     switch (event.key) {
       case "Enter":
+        checkMultiLineSelected(event, story, setStory)
         createNewContent(event, story, setStory)
         break
 
       case "Delete":
+        checkMultiLineSelected(event, story, setStory)
         onDeleteKeyPressed(event, story, setStory)
         break
 
       case "Backspace":
+        checkMultiLineSelected(event, story, setStory)
         //onBackspacePressed(event, story, setStory)
         break
 
@@ -68,6 +72,9 @@ const EditPage = () => {
       changeStateOnInput={changeStateOnInput}
       publish={publish}
       keyDownEventListener={keyDownEventListener}
+      checkMultiLineSelected={(event) => {
+        checkMultiLineSelected(event, story, setStory)
+      }}
     />
   )
 }

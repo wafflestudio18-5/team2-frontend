@@ -8,7 +8,12 @@ const MainStyle = styled.div`
   }
 `
 
-const Main = ({ story, changeStateOnInput, keyDownEventListener }) => {
+const Main = ({
+  story,
+  changeStateOnInput,
+  keyDownEventListener,
+  checkMultiLineSelected,
+}) => {
   const article = story.map((section, sectionIndex) => {
     return (
       <Section>
@@ -24,6 +29,7 @@ const Main = ({ story, changeStateOnInput, keyDownEventListener }) => {
     <MainStyle
       contentEditable="true"
       onKeyDown={keyDownEventListener}
+      onKeyPress={checkMultiLineSelected}
       onInput={changeStateOnInput}
     >
       {article}
