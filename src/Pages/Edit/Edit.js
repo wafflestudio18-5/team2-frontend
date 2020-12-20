@@ -48,11 +48,11 @@ const EditPage = () => {
         break
 
       case "Delete":
-        onDeleteKeyPressed(event, story, setStory)
+        //onDeleteKeyPressed(event, story, setStory)
         break
 
       case "Backspace":
-        onBackspacePressed(event, story, setStory)
+        //onBackspacePressed(event, story, setStory)
         break
 
       default:

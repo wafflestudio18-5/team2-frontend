@@ -20,17 +20,10 @@ const Main = ({ story, changeStateOnInput, keyPressEventListener }) => {
     )
   })
 
-  const test = (event) => {
-    if (event.key === "Enter") {
-      event.preventDefault()
-      console.log(window.getSelection().getRangeAt(0))
-    }
-  }
-
   return (
     <MainStyle
       contentEditable="true"
-      onKeyPress={test}
+      onKeyPress={keyPressEventListener}
       onInput={changeStateOnInput}
     >
       {article}

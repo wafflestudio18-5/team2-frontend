@@ -3,6 +3,7 @@ import styled from "styled-components"
 const Subtitle = styled.h4`
   max-width: 740px;
   width: 100%;
+  height: 34px;
   padding: 0 20px;
   margin: 0 auto;
   margin-top: 5px;
