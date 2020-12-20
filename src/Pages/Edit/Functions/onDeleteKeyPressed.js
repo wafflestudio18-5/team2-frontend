@@ -1,6 +1,9 @@
+import removeMultiSectionSelected from "./removeMultiSectionSelected"
+
 const onDeleteKeyPressed = (event, story, setStory) => {
   // Delete 키가 눌렸을 때 실행
   const range = window.getSelection().getRangeAt(0)
+  let newStory = JSON.parse(JSON.stringify(story))
 
   if (range.collapsed) {
     const id = range.startContainer.parentNode.id
@@ -13,8 +16,6 @@ const onDeleteKeyPressed = (event, story, setStory) => {
       return
     }
     event.preventDefault()
-
-    let newStory = JSON.parse(JSON.stringify(story))
 
     if (contentIndex === story[sectionIndex].length - 1) {
       if (sectionIndex !== story.length - 1) {
@@ -52,40 +53,8 @@ const onDeleteKeyPressed = (event, story, setStory) => {
 
     setStory(newStory)
   } else {
-    event.preventDefault()
-    let newStory = JSON.parse(JSON.stringify(story))
-
-    const startId = range.startContainer.parentNode.id
-    const endId = range.endContainer.parentNode.id
-    const startSection = parseInt(startId / 100)
-    const endSection = parseInt(endId / 100)
-    const startContent = startId % 100
-    const endContent = endId % 100
-
-    if (startSection === endSection) {
-      const frontContent = newStory[startSection][
-        startContent
-      ].detail.content.slice(0, range.startOffset)
-      const backContent = newStory[endSection][endContent].detail.content.slice(
-        range.endOffset
-      )
-      const emphasizing =
-        newStory[startSection][startContent].detail.emphasizing
-
-      newStory[startSection].splice(
-        startContent,
-        endContent - startContent + 1,
-        {
-          type: "paragraph",
-          detail: {
-            content: frontContent + backContent,
-            emphasizing: emphasizing,
-          },
-        }
-      )
-      setStory(newStory)
-    } else {
-    }
+    removeMultiSectionSelected(event, range, newStory)
+    setStory(newStory)
   }
 }
 
