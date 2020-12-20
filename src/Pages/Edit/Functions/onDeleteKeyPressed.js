@@ -50,12 +50,10 @@ const onDeleteKeyPressed = (event, story, setStory) => {
         emphasizing: emphasizing,
       },
     })
-
-    setStory(newStory)
   } else {
     removeMultiSectionSelected(event, range, newStory)
-    setStory(newStory)
   }
+  setStory(newStory)
 }
 
 export default onDeleteKeyPressed
