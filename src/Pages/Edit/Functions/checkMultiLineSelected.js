@@ -1,9 +1,9 @@
 import removeMultiSectionSelected from "./removeMultiSectionSelected"
+import getIdOfCaretPlaced from "./getIdOfCaretPlaced"
 
 const checkMultiLineSelected = (event, story, setStory) => {
   const range = window.getSelection().getRangeAt(0)
-  const startId = range.startContainer.parentNode.id
-  const endId = range.endContainer.parentNode.id
+  const { startId, endId } = getIdOfCaretPlaced(false)
   if (startId === endId) {
     return
   }

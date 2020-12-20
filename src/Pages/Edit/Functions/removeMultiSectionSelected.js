@@ -1,3 +1,5 @@
+import getIdOfCaretPlaced from "./getIdOfCaretPlaced"
+
 const removeMultiSectionSelected = (
   event,
   range,
@@ -6,8 +8,7 @@ const removeMultiSectionSelected = (
 ) => {
   event.preventDefault()
 
-  const startId = range.startContainer.parentNode.id
-  const endId = range.endContainer.parentNode.id
+  const { startId, endId } = getIdOfCaretPlaced(false)
   console.log(startId)
   const [startSection, startContent] = startId
     .split(" ")

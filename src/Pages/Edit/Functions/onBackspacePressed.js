@@ -1,4 +1,5 @@
 import removeMultiSectionSelected from "./removeMultiSectionSelected"
+import getIdOfCaretPlaced from "./getIdOfCaretPlaced"
 
 const onBackspacePressed = (event, story, setStory) => {
   // Backspace 키가 눌렸을 때 실행
@@ -6,7 +7,7 @@ const onBackspacePressed = (event, story, setStory) => {
   let newStory = JSON.parse(JSON.stringify(story))
 
   if (range.collapsed) {
-    const id = range.startContainer.parentNode.id
+    const { id } = getIdOfCaretPlaced()
     const [sectionIndex, contentIndex] = id.split(" ").map((e) => parseInt(e))
     const selection = window.getSelection()
     const lengthOfContent =
