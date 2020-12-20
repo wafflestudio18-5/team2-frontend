@@ -25,6 +25,7 @@ const onDeleteKeyPressed = (event, story, setStory, setCaret) => {
           ...newStory[sectionIndex + 1],
         ])
         setStory(newStory)
+        setCaret({ id, offset: lengthOfContent })
       }
       return
     }

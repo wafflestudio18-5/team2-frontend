@@ -20,11 +20,18 @@ const onBackspacePressed = (event, story, setStory, setCaret) => {
 
     if (contentIndex === 0) {
       if (sectionIndex !== 0) {
+        const previousSectionLength = newStory[sectionIndex - 1].length - 1
         newStory.splice(sectionIndex - 1, 2, [
           ...newStory[sectionIndex - 1],
           ...newStory[sectionIndex],
         ])
         setStory(newStory)
+        setCaret({
+          id: sectionIndex - 1 + " " + previousSectionLength,
+          offset:
+            newStory[sectionIndex - 1][previousSectionLength].detail.content
+              .length,
+        })
       }
       return
     }
