@@ -77,7 +77,7 @@ const EditPage = () => {
       publish={publish}
       keyDownEventListener={keyDownEventListener}
       checkMultiLineSelected={(event) => {
-        checkMultiLineSelected(event, story, setStory)
+        checkMultiLineSelected(event, story, setStory, setCaret)
       }}
     />
   )

@@ -54,7 +54,7 @@ const onBackspacePressed = (event, story, setStory, setCaret) => {
     })
     setStory(newStory)
   } else {
-    removeMultiSectionSelected(event, range, newStory, setStory)
+    removeMultiSectionSelected(event, range, newStory, setStory, setCaret)
   }
 }
 

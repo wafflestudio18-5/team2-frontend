@@ -5,6 +5,7 @@ const removeMultiSectionSelected = (
   range,
   newStory,
   setStory,
+  setCaret,
   newContent = ""
 ) => {
   event.preventDefault()
@@ -48,6 +49,7 @@ const removeMultiSectionSelected = (
     )
   }
   setStory(newStory)
+  setCaret({ id: startId, offset: frontContent.length + newContent.length })
 }
 
 export default removeMultiSectionSelected
