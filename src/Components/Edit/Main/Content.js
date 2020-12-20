@@ -1,34 +1,18 @@
 import Paragraph from "./Paragraph"
 import Image from "./Image"
 
-const Content = ({
-  content: { type, detail },
-  change,
-  sectionIndex,
-  contentIndex,
-  keyPressEventListener,
-}) => {
+const Content = ({ content: { type, detail }, id }) => {
   if (type === "paragraph") {
     return (
       <Paragraph
         content={detail.content}
         emphasizing={detail.emphasizing}
-        change={change}
-        sectionIndex={sectionIndex}
-        contentIndex={contentIndex}
-        keyPressEventListener={keyPressEventListener}
+        id={id}
       />
     )
   }
   if (type === "image") {
-    return (
-      <Image
-        detail={detail}
-        change={change}
-        sectionIndex={sectionIndex}
-        contentIndex={contentIndex}
-      />
-    )
+    return <Image detail={detail} id={id} />
   }
 }
 
