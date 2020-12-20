@@ -41,13 +41,12 @@ const removeMultiSectionSelected = (
       },
     })
     newStory[endSection].splice(0, endContent + 1)
-    newStory.splice(
-      startSection,
-      endSection - startSection + 1,
+    newStory.splice(startSection, endSection - startSection + 1, [
       ...newStory[startSection],
-      ...newStory[endSection]
-    )
+      ...newStory[endSection],
+    ])
   }
+  console.log(JSON.stringify(newStory))
   setStory(newStory)
   setCaret({ id: startId, offset: frontContent.length + newContent.length })
 }
