@@ -11,13 +11,13 @@ const createNewContent = (event, story, setStory, setCaret) => {
 
   if (startId !== endId) {
     createNewContentMultiLineSelected(newStory, range, startId, endId)
-    let temp = startId.split(" ")
-    temp[1]++
-    const caretId = temp.join(" ")
-    setCaret({ id: caretId, offset: 0 })
   } else {
     createNewContentSingleLineSelected(newStory, range, startId)
   }
+  let temp = startId.split(" ")
+  temp[1]++
+  const caretId = temp.join(" ")
+  setCaret({ id: caretId, offset: 0 })
   setStory(newStory)
 }
 
