@@ -69,7 +69,7 @@ const onBackspacePressed = (event, story, setStory, setCaret) => {
       offset: story[sectionIndex][contentIndex - 1].detail.content.length,
     })
   } else {
-    removeMultiSectionSelected(event, range, newStory, setStory, setCaret)
+    removeMultiSectionSelected(event, newStory, setStory, setCaret)
   }
 }
 

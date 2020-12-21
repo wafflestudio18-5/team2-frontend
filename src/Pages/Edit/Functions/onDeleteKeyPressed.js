@@ -56,7 +56,7 @@ const onDeleteKeyPressed = (event, story, setStory, setCaret) => {
     setStory(newStory)
     setCaret({ id, offset: lengthOfContent })
   } else {
-    removeMultiSectionSelected(event, range, newStory, setStory, setCaret)
+    removeMultiSectionSelected(event, newStory, setStory, setCaret)
   }
 }
 

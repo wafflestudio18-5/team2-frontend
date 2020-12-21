@@ -2,7 +2,6 @@ import getIdOfCaretPlaced from "./getIdOfCaretPlaced"
 
 const removeMultiSectionSelected = (
   event,
-  range,
   newStory,
   setStory,
   setCaret,
@@ -10,17 +9,13 @@ const removeMultiSectionSelected = (
 ) => {
   event.preventDefault()
 
-  const { startId, endId } = getIdOfCaretPlaced(false)
+  const { startId, endId, frontContent, backContent } = getIdOfCaretPlaced(
+    false
+  )
   const [startSection, startContent] = startId
     .split(" ")
     .map((e) => parseInt(e))
   const [endSection, endContent] = endId.split(" ").map((e) => parseInt(e))
-  const frontContent = newStory[startSection][
-    startContent
-  ].detail.content.slice(0, range.startOffset)
-  const backContent = newStory[endSection][endContent].detail.content.slice(
-    range.endOffset
-  )
   const content = frontContent + newContent + backContent
   const emphasizing = newStory[startSection][startContent].detail.emphasizing
 
