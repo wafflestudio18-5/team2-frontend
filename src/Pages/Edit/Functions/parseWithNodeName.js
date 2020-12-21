@@ -1,4 +1,7 @@
 const parseWithNodeName = (nodeName, text) => {
+  if (text === "") {
+    return ""
+  }
   switch (nodeName) {
     case "EM":
       return "<em>" + text + "</em>"
