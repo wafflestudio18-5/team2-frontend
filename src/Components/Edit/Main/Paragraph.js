@@ -10,28 +10,32 @@ import Emphasize2 from "./ParagraphStyles/Emphasize2"
 const Paragraph = ({ content, emphasizing, id }) => {
   switch (emphasizing) {
     case "kicker":
-      return <Kicker id={id}>{content}</Kicker>
+      return <Kicker id={id} dangerouslySetInnerHTML={{ __html: content }} />
 
     case "title":
-      return <Title id={id}>{content}</Title>
+      return <Title id={id} dangerouslySetInnerHTML={{ __html: content }} />
 
     case "subtitle":
-      return <Subtitle id={id}>{content}</Subtitle>
+      return <Subtitle id={id} dangerouslySetInnerHTML={{ __html: content }} />
 
     case "largest":
-      return <Largest id={id}>{content}</Largest>
+      return <Largest id={id} dangerouslySetInnerHTML={{ __html: content }} />
 
     case "large":
-      return <Large id={id}>{content}</Large>
+      return <Large id={id} dangerouslySetInnerHTML={{ __html: content }} />
 
     case "normal":
       return <Normal id={id} dangerouslySetInnerHTML={{ __html: content }} />
 
     case "emphasize1":
-      return <Emphasize1 id={id}>{content}</Emphasize1>
+      return (
+        <Emphasize1 id={id} dangerouslySetInnerHTML={{ __html: content }} />
+      )
 
     case "emphasize2":
-      return <Emphasize2 id={id}>{content}</Emphasize2>
+      return (
+        <Emphasize2 id={id} dangerouslySetInnerHTML={{ __html: content }} />
+      )
 
     default:
       break

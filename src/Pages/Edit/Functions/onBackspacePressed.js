@@ -3,17 +3,13 @@ import getIdOfCaretPlaced from "./getIdOfCaretPlaced"
 
 const onBackspacePressed = (event, story, setStory, setCaret) => {
   // Backspace 키가 눌렸을 때 실행
-  const range = window.getSelection().getRangeAt(0)
   let newStory = JSON.parse(JSON.stringify(story))
 
-  if (range.collapsed) {
-    const { id } = getIdOfCaretPlaced()
+  if (window.getSelection().getRangeAt(0).collapsed) {
+    const { id, frontContent } = getIdOfCaretPlaced()
     const [sectionIndex, contentIndex] = id.split(" ").map((e) => parseInt(e))
-    const selection = window.getSelection()
-    const lengthOfContent =
-      story[sectionIndex][contentIndex].detail.content.length
 
-    if (selection.anchorOffset !== 0) {
+    if (frontContent !== "") {
       return
     }
     event.preventDefault()
@@ -27,27 +23,49 @@ const onBackspacePressed = (event, story, setStory, setCaret) => {
         ])
         setStory(newStory)
         setCaret({
-          id: sectionIndex - 1 + " " + previousSectionLength,
-          offset:
-            newStory[sectionIndex - 1][previousSectionLength].detail.content
-              .length,
+          id: [sectionIndex, previousSectionLength].join(" "),
+          offset: "end",
         })
       }
       return
     }
 
-    if (lengthOfContent === 0) {
-      newStory[sectionIndex].splice(contentIndex, 1)
-      console.log(JSON.stringify(newStory))
+    if (story[sectionIndex][contentIndex - 1].detail.content.length === 0) {
+      newStory[sectionIndex].splice(contentIndex - 1, 1)
       setStory(newStory)
       setCaret({
-        id: sectionIndex + " " + (contentIndex - 1),
-        offset: story[sectionIndex][contentIndex - 1].detail.content.length,
+        id: [sectionIndex, contentIndex - 1].join(" "),
+        offset: [0],
       })
       return
     }
 
-    if (story[sectionIndex][contentIndex + 1].type !== "paragraph") {
+    let offset = []
+    let tempNode = document.getElementById(
+      [sectionIndex, contentIndex - 1].join(" ")
+    )
+    let tempNodeIndex = 0
+
+    while (tempNode !== null && tempNode.nodeType !== 3) {
+      tempNodeIndex = tempNode.childNodes.length - 1
+      offset.push(tempNodeIndex)
+      tempNode = tempNode.lastChild
+    }
+    if (tempNode !== null) {
+      offset.push(tempNode.textContent.length)
+    }
+
+    if (story[sectionIndex][contentIndex].detail.content.length === 0) {
+      newStory[sectionIndex].splice(contentIndex, 1)
+      setStory(newStory)
+      setCaret({
+        id: [sectionIndex, contentIndex - 1].join(" "),
+        offset,
+      })
+      return
+    }
+
+    if (story[sectionIndex][contentIndex - 1].type !== "paragraph") {
       return
     }
 
@@ -63,10 +81,11 @@ const onBackspacePressed = (event, story, setStory, setCaret) => {
         emphasizing: emphasizing,
       },
     })
+
     setStory(newStory)
     setCaret({
-      id: sectionIndex + " " + (contentIndex - 1),
-      offset: story[sectionIndex][contentIndex - 1].detail.content.length,
+      id: [sectionIndex, contentIndex - 1].join(" "),
+      offset,
     })
   } else {
     removeMultiSectionSelected(event, newStory, setStory, setCaret)

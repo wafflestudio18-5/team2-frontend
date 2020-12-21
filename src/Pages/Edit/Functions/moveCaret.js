@@ -6,8 +6,8 @@ const moveCaret = ({ id, offset }) => {
     node = node.childNodes[offset.shift()]
   }
 
-  newRange.setStart(node, offset)
-  newRange.setEnd(node, offset)
+  newRange.setStart(node, offset[0])
+  newRange.setEnd(node, offset[0])
 
   const selection = window.getSelection()
   selection.removeAllRanges()
