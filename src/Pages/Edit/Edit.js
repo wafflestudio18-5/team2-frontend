@@ -56,6 +56,10 @@ const EditPage = () => {
         onBackspacePressed(event, story, setStory, setCaret)
         break
 
+      case "Control":
+        getIdOfCaretPlaced(true)
+        break
+
       default:
         break
     }

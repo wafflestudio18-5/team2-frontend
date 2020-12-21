@@ -59,7 +59,14 @@ const StoryExample = [
     {
       type: "paragraph",
       detail: {
-        content: "Normal <em>hello!</em>",
+        content: "Normal <em>hello! <strong>asdbasdnb</strong>asdbpoiahsb</em>",
+        emphasizing: "normal",
+      },
+    },
+    {
+      type: "paragraph",
+      detail: {
+        content: "",
         emphasizing: "normal",
       },
     },
