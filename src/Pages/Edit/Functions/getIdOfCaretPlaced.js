@@ -50,6 +50,7 @@ const getIdOfCaretPlaced = (single = true) => {
     tempEnd = endTarget
     endId = endTarget.id
   }
+  console.log(offsetList)
 
   if (single) {
     return {
