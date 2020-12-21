@@ -30,26 +30,42 @@ const BottomWrapper = styled.div`
     height: 100%;
     box-sizing: border-box;
     overflow: visible;
+    @media (max-width: 900px) {
+        display: inline-block;
+    }
 `;
 
 const BottomLeftStyle = styled.div`
     box-sizing: border-box;
     width: 62%;
     flex-basis: 62%;
-    padding-right: 50px;
+    padding-right: 5%;
     margin-right: 0;
+    @media (max-width: 900px) {
+        background: blue;
+        width: 100%;
+        flex-basis: 100%;
+        padding-right: 0%;
+    }
 `;
 
 const BottomRightStyle = styled.div`
     width: 38%;
     flex-basis: 38%;
     box-sizing: border-box;
-    padding-left: 50px;
+    padding-left: 5%;
     margin-left: 0;
     position: sticky;
     position: -webkit-sticky;
     align-self: flex-start;
     top: 107px;
+    @media (max-width: 900px) {
+        background: red;
+        width: 100%;
+        flex-basis: 100%;
+        padding-left: 0%;
+        position: static;
+    }
 `;
 
 export {BottomStyle, BottomWrapper, BottomLeftStyle, BottomRightStyle};
