@@ -9,12 +9,15 @@ const getIdOfCaretPlaced = (single = true) => {
   let startId = startTarget.id
   let startNodeIndex = range.startOffset
   let frontContent = startTarget.textContent.slice(0, startNodeIndex)
+  let offsetList = [startNodeIndex]
   let tempStart = startTarget
 
   while (startId === undefined || startId === "") {
+    startNodeIndex = 0
     while (true) {
       tempStart = tempStart.previousSibling
       if (tempStart !== null) {
+        startNodeIndex++
         frontContent = parseChildNodes(tempStart) + frontContent
       } else {
         break
@@ -24,6 +27,7 @@ const getIdOfCaretPlaced = (single = true) => {
     frontContent = parseWithNodeName(startTarget.nodeName, frontContent)
     tempStart = startTarget
     startId = startTarget.id
+    offsetList.unshift(startNodeIndex)
   }
 
   let endTarget = range.endContainer
@@ -48,7 +52,13 @@ const getIdOfCaretPlaced = (single = true) => {
   }
 
   if (single) {
-    return { id: startId, target: startTarget, frontContent, backContent }
+    return {
+      id: startId,
+      target: startTarget,
+      frontContent,
+      backContent,
+      offsetList,
+    }
   } else {
     return {
       startId,
@@ -57,6 +67,7 @@ const getIdOfCaretPlaced = (single = true) => {
       endTarget,
       frontContent,
       backContent,
+      offsetList,
     }
   }
 }
