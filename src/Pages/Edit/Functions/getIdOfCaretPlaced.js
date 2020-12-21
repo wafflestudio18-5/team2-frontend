@@ -4,6 +4,9 @@ const getIdOfCaretPlaced = (single = true) => {
 
   if (single) {
     let target = range.startContainer
+    const frontContent = target.textContent.slice(0, range.startOffset)
+    const backContent = target.textContent.slice(range.endOffset)
+
     let id = target.parentNode.id
     while (id === "") {
       target = target.parentNode
@@ -14,11 +17,15 @@ const getIdOfCaretPlaced = (single = true) => {
     } else {
       target = target.parentNode
     }
-    return { id, target }
+
+    return { id, target, frontContent, backContent }
   } else {
     let startTarget = range.startContainer
-    let startId = startTarget.parentNode.id
     let endTarget = range.endContainer
+    const frontContent = startTarget.textContent.slice(0, range.startOffset)
+    const backContent = endTarget.textContent.slice(range.endOffset)
+
+    let startId = startTarget.parentNode.id
     let endId = endTarget.parentNode.id
 
     while (startId === "") {
@@ -40,7 +47,7 @@ const getIdOfCaretPlaced = (single = true) => {
     } else {
       endTarget = endTarget.parentNode
     }
-    return { startId, startTarget, endId, endTarget }
+    return { startId, startTarget, endId, endTarget, frontContent, backContent }
   }
 }
 

@@ -46,7 +46,6 @@ const removeMultiSectionSelected = (
       ...newStory[endSection],
     ])
   }
-  console.log(JSON.stringify(newStory))
   setStory(newStory)
   setCaret({ id: startId, offset: frontContent.length + newContent.length })
 }
