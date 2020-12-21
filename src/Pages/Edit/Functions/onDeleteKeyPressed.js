@@ -3,17 +3,13 @@ import getIdOfCaretPlaced from "./getIdOfCaretPlaced"
 
 const onDeleteKeyPressed = (event, story, setStory, setCaret) => {
   // Delete 키가 눌렸을 때 실행
-  const range = window.getSelection().getRangeAt(0)
   let newStory = JSON.parse(JSON.stringify(story))
 
-  if (range.collapsed) {
-    const { id } = getIdOfCaretPlaced()
+  if (window.getSelection().getRangeAt(0).collapsed) {
+    const { id, backContent, offsetList } = getIdOfCaretPlaced()
     const [sectionIndex, contentIndex] = id.split(" ").map((e) => parseInt(e))
 
-    const lengthOfContent =
-      story[sectionIndex][contentIndex].detail.content.length
-
-    if (range.endOffset !== lengthOfContent) {
+    if (backContent !== "") {
       return
     }
     event.preventDefault()
@@ -25,15 +21,15 @@ const onDeleteKeyPressed = (event, story, setStory, setCaret) => {
           ...newStory[sectionIndex + 1],
         ])
         setStory(newStory)
-        setCaret({ id, offset: lengthOfContent })
+        setCaret({ id, offset: offsetList })
       }
       return
     }
 
-    if (lengthOfContent === 0) {
+    if (story[sectionIndex][contentIndex].detail.content.length === 0) {
       newStory[sectionIndex].splice(contentIndex, 1)
       setStory(newStory)
-      setCaret({ id, offset: lengthOfContent })
+      setCaret({ id, offset: [0] })
       return
     }
 
@@ -54,7 +50,7 @@ const onDeleteKeyPressed = (event, story, setStory, setCaret) => {
       },
     })
     setStory(newStory)
-    setCaret({ id, offset: lengthOfContent })
+    setCaret({ id, offset: offsetList })
   } else {
     removeMultiSectionSelected(event, newStory, setStory, setCaret)
   }
