@@ -20,7 +20,6 @@ const EditPage = () => {
 
   const changeStateOnInput = (event) => {
     // 값에 변경 있을 시 state도 그에 맞게 변경
-
     const { id, target } = getIdOfCaretPlaced()
 
     const [sectionIndex, contentIndex] = id.split(" ").map((e) => parseInt(e))
@@ -44,7 +43,6 @@ const EditPage = () => {
   }
 
   const keyDownEventListener = (event) => {
-    console.log(window.getSelection().getRangeAt(0).startOffset)
     switch (event.key) {
       case "Enter":
         createNewContent(event, story, setStory, setCaret)

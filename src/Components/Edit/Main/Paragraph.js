@@ -25,7 +25,7 @@ const Paragraph = ({ content, emphasizing, id }) => {
       return <Large id={id}>{content}</Large>
 
     case "normal":
-      return <Normal id={id}>{content}</Normal>
+      return <Normal id={id} dangerouslySetInnerHTML={{ __html: content }} />
 
     case "emphasize1":
       return <Emphasize1 id={id}>{content}</Emphasize1>

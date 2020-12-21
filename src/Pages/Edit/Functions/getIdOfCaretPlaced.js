@@ -5,6 +5,10 @@ const getIdOfCaretPlaced = (single = true) => {
   if (single) {
     let target = range.startContainer
     let id = target.parentNode.id
+    while (id === "") {
+      target = target.parentNode
+      id = target.parentNode.id
+    }
     if (id.split(" ").length === 1) {
       id = target.id
     } else {
@@ -16,6 +20,15 @@ const getIdOfCaretPlaced = (single = true) => {
     let startId = startTarget.parentNode.id
     let endTarget = range.endContainer
     let endId = endTarget.parentNode.id
+
+    while (startId === "") {
+      startTarget = startTarget.parentNode
+      startId = startTarget.parentNode.id
+    }
+    while (endId === "") {
+      endTarget = endTarget.parentNode
+      endId = endTarget.parentNode.id
+    }
 
     if (startId.split(" ").length === 1) {
       startId = startTarget.id
