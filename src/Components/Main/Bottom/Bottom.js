@@ -42,7 +42,6 @@ const BottomLeftStyle = styled.div`
     padding-right: 5%;
     margin-right: 0;
     @media (max-width: 900px) {
-        background: blue;
         width: 100%;
         flex-basis: 100%;
         padding-right: 0%;
@@ -61,7 +60,6 @@ const BottomRightStyle = styled.div`
     align-self: flex-start;
     top: 107px;
     @media (max-width: 900px) {
-        background: red;
         width: 100%; 
         flex-basis: 100%;
         padding-left: 0%;
