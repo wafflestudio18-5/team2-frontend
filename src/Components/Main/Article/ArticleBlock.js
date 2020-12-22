@@ -63,6 +63,9 @@ const ArticleBlockSubtitle = styled.p`
     letter-spacing: 0;
     font-family: sohne, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: ${Color.gray};
+    @media (max-width: 727px) {
+        display: none;
+    }
 `;
 
 const ArticleBottomBlock = styled.div`

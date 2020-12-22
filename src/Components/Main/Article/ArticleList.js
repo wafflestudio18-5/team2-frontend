@@ -4,6 +4,9 @@ import ArticleBlock from './ArticleBlock';
 const ArticleListStyle = styled.div`
     display: block;
     width: 100%;
+    @media (max-width: 900px) {
+        padding-top: 40px;
+    }
 `;
 
 const ArticleList = ({ Articles }) => {

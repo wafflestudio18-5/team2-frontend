@@ -6,5 +6,8 @@ const FooterWrapper = styled.div`
     padding: 24px 0;
     flex-wrap: wrap;
     flex-direction: row;
+    @media (max-width: 900px) {
+        display: none;
+    }
 `;
 export default FooterWrapper;
