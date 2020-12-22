@@ -61,12 +61,41 @@ const MainPage = () => {
     }
   }, [modalVisible])
 
+  const [Article, setArticle] = useState(Articles);
+  const [fetching, setFetching] = useState(false);
+
+  const fetchMoreArticle = () => {
+      setFetching(true)
+
+      const MergedArticle = Article.concat(Articles)
+      setArticle(MergedArticle)
+
+      setFetching(false);
+  };
+
+  const handleScroll = () => {
+      const scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+      const scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+      const clientHeight = document.documentElement.clientHeight
+      if (scrollTop + clientHeight >= scrollHeight && fetching === false) {
+          fetchMoreArticle()
+      }
+  };
+
+  useEffect(() => {
+      window.addEventListener('scroll', handleScroll)
+      return () => {
+          window.removeEventListener('scroll', handleScroll)
+      }
+  })
+
+
   return (
     <div>
       <Main
         TrendingPosts={TrendingPosts}
         reachScrollCheckPoint={reachScrollCheckPoint}
-        Articles={Articles}
+        Articles={Article}
         Topics={Topics}
         showModal={showModal}
       />
