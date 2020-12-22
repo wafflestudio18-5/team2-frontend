@@ -31,7 +31,7 @@ const BottomWrapper = styled.div`
     box-sizing: border-box;
     overflow: visible;
     @media (max-width: 900px) {
-        display: inline-block;
+        flex-direction: column;
     }
 `;
 
@@ -46,6 +46,7 @@ const BottomLeftStyle = styled.div`
         width: 100%;
         flex-basis: 100%;
         padding-right: 0%;
+        order: 2;
     }
 `;
 
@@ -61,10 +62,11 @@ const BottomRightStyle = styled.div`
     top: 107px;
     @media (max-width: 900px) {
         background: red;
-        width: 100%;
+        width: 100%; 
         flex-basis: 100%;
         padding-left: 0%;
         position: static;
+        order: 1;
     }
 `;
 
