@@ -9,7 +9,7 @@ const removeMultiSectionSelected = (
 ) => {
   event.preventDefault()
 
-  const { startId, endId, frontContent, backContent } = getIdOfCaretPlaced(
+  const { startId, endId, frontContent, backContent, offsetList } = getIdOfCaretPlaced(
     false
   )
   const [startSection, startContent] = startId
@@ -42,7 +42,7 @@ const removeMultiSectionSelected = (
     ])
   }
   setStory(newStory)
-  setCaret({ id: startId, offset: frontContent.length + newContent.length })
+  setCaret({ id: startId, offset: offsetList })
 }
 
 export default removeMultiSectionSelected
