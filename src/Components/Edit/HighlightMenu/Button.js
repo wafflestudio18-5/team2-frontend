@@ -12,13 +12,20 @@ const ButtonStyle = styled.button`
   margin: 0 8px;
   height: 44px;
   line-height: 46px;
-  display: inline-block;
-  vertical-align: middle;
+  display: flex;
+  align-items: center;
   border: 0;
   color: #fff;
   box-sizing: content-box;
   padding: 0;
   text-align: left;
+  background: 0;
+  :hover {
+    cursor: pointer;
+  }
+  :focus {
+    outline: 0;
+  }
 `
 
 const Button = ({ type }) => {
