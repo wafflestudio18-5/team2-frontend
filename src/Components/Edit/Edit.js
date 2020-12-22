@@ -16,6 +16,7 @@ const Edit = ({
   keyDownEventListener,
   checkMultiLineSelected,
   rangeCollapsed,
+  buttonFunctions,
 }) => {
   return (
     <EditStyle>
@@ -26,7 +27,7 @@ const Edit = ({
         keyDownEventListener={keyDownEventListener}
         checkMultiLineSelected={checkMultiLineSelected}
       />
-      {!rangeCollapsed && <HighlightMenu />}
+      {!rangeCollapsed && <HighlightMenu buttonFunctions={buttonFunctions} />}
     </EditStyle>
   )
 }

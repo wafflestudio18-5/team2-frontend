@@ -8,6 +8,7 @@ import onBackspacePressed from "./Functions/onBackspacePressed"
 import checkMultiLineSelected from "./Functions/checkMultiLineSelected"
 import getIdOfCaretPlaced from "./Functions/getIdOfCaretPlaced"
 import moveCaret from "./Functions/moveCaret"
+import buttonFunctions from "./ButtonFunctions"
 
 const EditPage = () => {
   const user = {
@@ -89,6 +90,7 @@ const EditPage = () => {
         checkMultiLineSelected(event, story, setStory, setCaret)
       }}
       rangeCollapsed={rangeCollapsed}
+      buttonFunctions={buttonFunctions}
     />
   )
 }

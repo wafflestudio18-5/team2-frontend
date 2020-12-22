@@ -37,10 +37,10 @@ const HighlightMenuStyle = styled.div`
   animation: ${popUpwards} 180ms forwards linear;
 `
 
-const HighlightMenu = () => {
+const HighlightMenu = ({ buttonFunctions }) => {
   return (
     <HighlightMenuStyle>
-      <ButtonWrapper></ButtonWrapper>
+      <ButtonWrapper buttonFunctions={buttonFunctions}></ButtonWrapper>
       <Arrow />
     </HighlightMenuStyle>
   )
