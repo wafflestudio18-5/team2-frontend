@@ -20,7 +20,7 @@ const ButtonWrapper = () => {
       <ButtonDivider />
       <Button type="largest" />
       <Button type="large" />
-      <Button type="emphaisze" />
+      <Button type="emphasize" />
     </ButtonWrapperStyle>
   )
 }
