@@ -28,54 +28,54 @@ const ButtonStyle = styled.button`
   }
 `
 
-const Button = ({ type, buttonFunctions }) => {
+const Button = ({ type, buttonFunctions, activated }) => {
   switch (type) {
     case "bold":
       return (
         <ButtonStyle onClick={buttonFunctions.makeBold}>
-          <Bold />
+          <Bold activated={activated} />
         </ButtonStyle>
       )
     case "italic":
       return (
         <ButtonStyle onClick={buttonFunctions.makeItalic}>
-          <Italic />
+          <Italic activated={activated} />
         </ButtonStyle>
       )
     case "largest":
       return (
         <ButtonStyle onClick={buttonFunctions.makeLargest}>
-          <Largest />
+          <Largest activated={activated} />
         </ButtonStyle>
       )
     case "large":
       return (
         <ButtonStyle onClick={buttonFunctions.makeLarge}>
-          <Large />
+          <Large activated={activated} />
         </ButtonStyle>
       )
     case "emphasize":
       return (
         <ButtonStyle onClick={buttonFunctions.changeEmphasize}>
-          <Emphasize />
+          <Emphasize activated={activated} />
         </ButtonStyle>
       )
     case "normalImage":
       return (
         <ButtonStyle>
-          <NormalImage />
+          <NormalImage activated={activated} />
         </ButtonStyle>
       )
     case "largeImage":
       return (
         <ButtonStyle>
-          <LargeImage />
+          <LargeImage activated={activated} />
         </ButtonStyle>
       )
     case "largestImage":
       return (
         <ButtonStyle>
-          <LargestImage />
+          <LargestImage activated={activated} />
         </ButtonStyle>
       )
     default:
