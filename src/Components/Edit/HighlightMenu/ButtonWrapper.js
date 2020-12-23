@@ -12,15 +12,35 @@ const ButtonWrapperStyle = styled.div`
   align-items: center;
 `
 
-const ButtonWrapper = ({ buttonFunctions }) => {
+const ButtonWrapper = ({ buttonFunctions, activated }) => {
   return (
     <ButtonWrapperStyle>
-      <Button type="bold" buttonFunctions={buttonFunctions} />
-      <Button type="italic" buttonFunctions={buttonFunctions} />
+      <Button
+        type="bold"
+        buttonFunctions={buttonFunctions}
+        activated={activated}
+      />
+      <Button
+        type="italic"
+        buttonFunctions={buttonFunctions}
+        activated={activated}
+      />
       <ButtonDivider />
-      <Button type="largest" buttonFunctions={buttonFunctions} />
-      <Button type="large" buttonFunctions={buttonFunctions} />
-      <Button type="emphasize" buttonFunctions={buttonFunctions} />
+      <Button
+        type="largest"
+        buttonFunctions={buttonFunctions}
+        activated={activated}
+      />
+      <Button
+        type="large"
+        buttonFunctions={buttonFunctions}
+        activated={activated}
+      />
+      <Button
+        type="emphasize"
+        buttonFunctions={buttonFunctions}
+        activated={activated}
+      />
     </ButtonWrapperStyle>
   )
 }
