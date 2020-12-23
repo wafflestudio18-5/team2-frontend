@@ -24,7 +24,14 @@ const ButtonWrapper = ({ buttonFunctions, story }) => {
         .split(" ")
         .map((element) => parseInt(element))
 
-      var emphasize = story[startSection][startContent].detail.emphasizing
+      let emphasize = story[startSection][startContent].detail.emphasizing
+      if (emphasize === "title") {
+        emphasize = "largest"
+      }
+      if (emphasize === "subtitle" || emphasize === "kicker") {
+        emphasize = "large"
+      }
+      let temp = story[startSection][startContent].detail.emphasizing
 
       mainLoop: for (
         var sectionIndex = startSection;
@@ -36,14 +43,20 @@ const ButtonWrapper = ({ buttonFunctions, story }) => {
           contentIndex <= endContent;
           contentIndex++
         ) {
-          if (
-            story[sectionIndex][contentIndex].detail.emphasizing !== emphasize
-          ) {
+          temp = story[sectionIndex][contentIndex].detail.emphasizing
+          if (temp === "title") {
+            temp = "largest"
+          }
+          if (temp === "subtitle" || temp === "kicker") {
+            temp = "large"
+          }
+          if (temp !== emphasize) {
             emphasize = "normal"
             break mainLoop
           }
         }
       }
+
       switch (emphasize) {
         case "largest":
           document.getElementById("largeSvg").style.fill = "#fff"
@@ -57,7 +70,8 @@ const ButtonWrapper = ({ buttonFunctions, story }) => {
           document.getElementById("emphasizeSvg").style.fill = "#fff"
           break
 
-        case "emphasize1" || "emphasize2":
+        case "emphasize1":
+        case "emphasize2":
           document.getElementById("largeSvg").style.fill = "#fff"
           document.getElementById("largestSvg").style.fill = "#fff"
           document.getElementById("emphasizeSvg").style.fill = "#b5e5a4"
