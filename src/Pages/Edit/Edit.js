@@ -72,12 +72,10 @@ const EditPage = () => {
     moveCaret(caret)
   }, [caret, story])
 
-  const [rangeCollapsed, setRangeCollapsed] = useState(true)
-  let range
+  const [range, setRange] = useState(0)
 
   document.addEventListener("selectionchange", () => {
-    range = window.getSelection().getRangeAt(0)
-    setRangeCollapsed(range.collapsed)
+    setRange(window.getSelection().getRangeAt(0))
   })
 
   return (
@@ -91,7 +89,7 @@ const EditPage = () => {
       checkMultiLineSelected={(event) => {
         checkMultiLineSelected(event, story, setStory, setCaret)
       }}
-      rangeCollapsed={rangeCollapsed}
+      range={range}
       buttonFunctions={buttonFunctions}
     />
   )
