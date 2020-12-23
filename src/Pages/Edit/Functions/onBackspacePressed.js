@@ -22,9 +22,27 @@ const onBackspacePressed = (event, story, setStory, setCaret) => {
           ...newStory[sectionIndex],
         ])
         setStory(newStory)
+
+        let offset = []
+        let tempNode = document.getElementById(
+          [sectionIndex - 1, previousSectionLength].join(" ")
+        )
+        let tempNodeIndex = 0
+
+        while (
+          (tempNode !== null && tempNode.nodeType !== 3,
+          tempNode.childNodes.length !== 0)
+        ) {
+          tempNodeIndex = tempNode.childNodes.length - 1
+          offset.push(tempNodeIndex)
+          tempNode = tempNode.lastChild
+        }
+        if (tempNode !== null) {
+          offset.push(tempNode.textContent.length)
+        }
         setCaret({
-          id: [sectionIndex, previousSectionLength].join(" "),
-          offset: "end",
+          id: [sectionIndex - 1, previousSectionLength].join(" "),
+          offset,
         })
       }
       return

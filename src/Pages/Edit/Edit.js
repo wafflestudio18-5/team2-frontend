@@ -73,7 +73,7 @@ const EditPage = () => {
   }, [caret, story])
 
   const [rangeCollapsed, setRangeCollapsed] = useState(true)
-  let range = window.getSelection().getRangeAt(0)
+  let range
 
   document.addEventListener("selectionchange", () => {
     range = window.getSelection().getRangeAt(0)
