@@ -7,14 +7,6 @@ const SvgStyle = styled.svg`
   fill: #fff;
   margin: 0 -3px;
   margin-top: -3px;
-
-  ${(props) => {
-    if (props.activated) {
-      return css`
-        fill: #b5e5a4;
-      `
-    }
-  }}
 `
 
 export default SvgStyle
