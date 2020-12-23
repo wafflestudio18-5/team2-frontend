@@ -27,7 +27,9 @@ const Edit = ({
         keyDownEventListener={keyDownEventListener}
         checkMultiLineSelected={checkMultiLineSelected}
       />
-      {!range.collapsed && <HighlightMenu buttonFunctions={buttonFunctions} />}
+      {!range.collapsed && (
+        <HighlightMenu buttonFunctions={buttonFunctions} range={range} />
+      )}
     </EditStyle>
   )
 }

@@ -1,4 +1,4 @@
-import styled, { keyframes } from "styled-components"
+import styled, { keyframes, css } from "styled-components"
 import ButtonWrapper from "./ButtonWrapper"
 import Arrow from "./Arrow"
 
@@ -30,16 +30,30 @@ const popUpwards = keyframes`
 `
 
 const HighlightMenuStyle = styled.div`
-  left: 50px;
-  top: 50px;
+  width: auto;
+  height: auto;
+  ${(props) =>
+    css`
+      left: ${props.position.left};
+      top: ${props.position.top};
+    `}
   display: inline-block;
   position: absolute;
   animation: ${popUpwards} 180ms forwards linear;
 `
 
-const HighlightMenu = ({ buttonFunctions }) => {
+const HighlightMenu = ({ buttonFunctions, range }) => {
+  let position = { left: 0, top: 0 }
+  if (range !== 0) {
+    const rect = range.getBoundingClientRect()
+    position = {
+      left: rect.left + rect.width / 2 - 90 + "px",
+      top: rect.top - 50 + "px",
+    }
+  }
+
   return (
-    <HighlightMenuStyle>
+    <HighlightMenuStyle position={position}>
       <ButtonWrapper buttonFunctions={buttonFunctions}></ButtonWrapper>
       <Arrow />
     </HighlightMenuStyle>
