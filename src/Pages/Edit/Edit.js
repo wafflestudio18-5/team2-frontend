@@ -19,7 +19,7 @@ const EditPage = () => {
 
   const [story, setStory] = useState(StoryExample)
 
-  const changeStateOnInput = (event) => {
+  const changeStateOnInput = () => {
     // 값에 변경 있을 시 state도 그에 맞게 변경
     const { id, target } = getIdOfCaretPlaced()
 
@@ -72,12 +72,6 @@ const EditPage = () => {
     moveCaret(caret)
   }, [caret, story])
 
-  const [range, setRange] = useState(0)
-
-  document.addEventListener("selectionchange", () => {
-    setRange(window.getSelection().getRangeAt(0))
-  })
-
   return (
     <Edit
       user={user}
@@ -89,7 +83,6 @@ const EditPage = () => {
       checkMultiLineSelected={(event) => {
         checkMultiLineSelected(event, story, setStory, setCaret)
       }}
-      range={range}
       buttonFunctions={buttonFunctions}
     />
   )

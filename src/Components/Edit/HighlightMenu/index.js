@@ -32,28 +32,30 @@ const popUpwards = keyframes`
 const HighlightMenuStyle = styled.div`
   width: auto;
   height: auto;
-  ${(props) =>
-    css`
-      left: ${props.position.left};
-      top: ${props.position.top};
-    `}
+  visibility: hidden;
   display: inline-block;
   position: absolute;
   animation: ${popUpwards} 180ms forwards linear;
 `
 
-const HighlightMenu = ({ range, ...props }) => {
-  let position = { left: 0, top: 0 }
-  if (range !== 0) {
-    const rect = range.getBoundingClientRect()
-    position = {
-      left: rect.left + rect.width / 2 - 90 + "px",
-      top: rect.top - 50 + document.documentElement.scrollTop + "px",
+const HighlightMenu = ({ ...props }) => {
+  document.addEventListener("selectionchange", () => {
+    var highlightMenu = document.getElementById("highlightMenu")
+    var range = window.getSelection().getRangeAt(0)
+
+    if (range.collapsed) {
+      highlightMenu.style.visibility = "hidden"
+    } else {
+      var rect = range.getBoundingClientRect()
+      highlightMenu.style.top =
+        rect.top - 50 + document.documentElement.scrollTop + "px"
+      highlightMenu.style.left = rect.left + rect.width / 2 - 90 + "px"
+      highlightMenu.style.visibility = "visible"
     }
-  }
+  })
 
   return (
-    <HighlightMenuStyle position={position}>
+    <HighlightMenuStyle id="highlightMenu">
       <ButtonWrapper {...props}></ButtonWrapper>
       <Arrow />
     </HighlightMenuStyle>
