@@ -1,4 +1,4 @@
-import styled, { keyframes, css } from "styled-components"
+import styled, { keyframes } from "styled-components"
 import ButtonWrapper from "./ButtonWrapper"
 import Arrow from "./Arrow"
 
@@ -32,8 +32,7 @@ const popUpwards = keyframes`
 const HighlightMenuStyle = styled.div`
   width: auto;
   height: auto;
-  visibility: hidden;
-  display: inline-block;
+  display: none;
   position: absolute;
   animation: ${popUpwards} 180ms forwards linear;
 `
@@ -44,13 +43,13 @@ const HighlightMenu = ({ ...props }) => {
     var range = window.getSelection().getRangeAt(0)
 
     if (range.collapsed) {
-      highlightMenu.style.visibility = "hidden"
+      highlightMenu.style.display = "none"
     } else {
       var rect = range.getBoundingClientRect()
       highlightMenu.style.top =
         rect.top - 50 + document.documentElement.scrollTop + "px"
       highlightMenu.style.left = rect.left + rect.width / 2 - 90 + "px"
-      highlightMenu.style.visibility = "visible"
+      highlightMenu.style.display = "inline-block"
     }
   })
 
