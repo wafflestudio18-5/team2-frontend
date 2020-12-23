@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components"
+import styled from "styled-components"
 
 const SvgStyle = styled.svg`
   width: 21px;

@@ -17,6 +17,10 @@ const ButtonWrapper = ({ buttonFunctions, story }) => {
   document.addEventListener("selectionchange", () => {
     if (!window.getSelection().getRangeAt(0).collapsed) {
       const { startId, endId } = getIdOfCaretPlaced(false)
+      if (startId === "root" || endId === "root") {
+        return
+      }
+
       const [startSection, startContent] = startId
         .split(" ")
         .map((element) => parseInt(element))
