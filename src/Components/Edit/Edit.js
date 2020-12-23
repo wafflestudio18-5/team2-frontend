@@ -28,7 +28,11 @@ const Edit = ({
         checkMultiLineSelected={checkMultiLineSelected}
       />
       {!range.collapsed && (
-        <HighlightMenu buttonFunctions={buttonFunctions} range={range} />
+        <HighlightMenu
+          range={range}
+          buttonFunctions={buttonFunctions}
+          story={story}
+        />
       )}
     </EditStyle>
   )

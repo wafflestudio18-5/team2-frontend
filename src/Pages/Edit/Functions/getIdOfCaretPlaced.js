@@ -3,6 +3,9 @@ import parseWithNodeName from "./parseWithNodeName"
 
 const getIdOfCaretPlaced = (single = true) => {
   // 커서가 위치한 element와 id를 리턴하는 함수. single이 true이면 시작 커서를 기준, false이면 시작과 끝 모두 리턴
+  if (window.getSelection().rangeCount === 0) {
+    return { startId: "0 0", endId: "0 0" }
+  }
   const range = window.getSelection().getRangeAt(0)
 
   let startTarget = range.startContainer

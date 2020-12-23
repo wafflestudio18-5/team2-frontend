@@ -42,7 +42,7 @@ const HighlightMenuStyle = styled.div`
   animation: ${popUpwards} 180ms forwards linear;
 `
 
-const HighlightMenu = ({ buttonFunctions, range }) => {
+const HighlightMenu = ({ range, ...props }) => {
   let position = { left: 0, top: 0 }
   if (range !== 0) {
     const rect = range.getBoundingClientRect()
@@ -54,7 +54,7 @@ const HighlightMenu = ({ buttonFunctions, range }) => {
 
   return (
     <HighlightMenuStyle position={position}>
-      <ButtonWrapper buttonFunctions={buttonFunctions}></ButtonWrapper>
+      <ButtonWrapper {...props}></ButtonWrapper>
       <Arrow />
     </HighlightMenuStyle>
   )
