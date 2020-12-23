@@ -48,7 +48,7 @@ const HighlightMenu = ({ buttonFunctions, range }) => {
     const rect = range.getBoundingClientRect()
     position = {
       left: rect.left + rect.width / 2 - 90 + "px",
-      top: rect.top - 50 + "px",
+      top: rect.top - 50 + document.documentElement.scrollTop + "px",
     }
   }
 

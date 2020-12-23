@@ -1,7 +1,6 @@
 const moveCaret = ({ id, offset }) => {
   const newRange = document.createRange()
   let node = document.getElementById(id)
-  console.log(id, node, offset)
 
   while (offset.length > 1) {
     node = node.childNodes[offset.shift()]
