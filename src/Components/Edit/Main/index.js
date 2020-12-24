@@ -34,6 +34,7 @@ const Main = ({
   return (
     <MainStyle
       contentEditable="true"
+      suppressContentEditableWarning={true}
       onKeyDown={keyDownEventListener}
       onKeyPress={checkMultiLineSelected}
       onInput={changeStateOnInput}

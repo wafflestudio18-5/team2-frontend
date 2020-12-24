@@ -44,7 +44,7 @@ const EditPage = () => {
 
   const publish = () => {
     // publish 버튼을 눌렀을 때 실행되는 함수. 나중에 API 관련 추가 필요
-    console.log(story)
+    console.log(JSON.stringify(story))
   }
 
   const keyDownEventListener = (event) => {
