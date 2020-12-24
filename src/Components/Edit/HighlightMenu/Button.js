@@ -32,31 +32,71 @@ const Button = ({ type, buttonFunctions, emphasize }) => {
   switch (type) {
     case "bold":
       return (
-        <ButtonStyle onClick={() => buttonFunctions.makeBold(emphasize)}>
+        <ButtonStyle
+          onClick={() =>
+            buttonFunctions.makeBold(
+              emphasize,
+              buttonFunctions.story,
+              buttonFunctions.setStory
+            )
+          }
+        >
           <Bold />
         </ButtonStyle>
       )
     case "italic":
       return (
-        <ButtonStyle onClick={() => buttonFunctions.makeItalic(emphasize)}>
+        <ButtonStyle
+          onClick={() =>
+            buttonFunctions.makeItalic(
+              emphasize,
+              buttonFunctions.story,
+              buttonFunctions.setStory
+            )
+          }
+        >
           <Italic />
         </ButtonStyle>
       )
     case "largest":
       return (
-        <ButtonStyle onClick={() => buttonFunctions.makeLargest(emphasize)}>
+        <ButtonStyle
+          onClick={() =>
+            buttonFunctions.makeLargest(
+              emphasize,
+              buttonFunctions.story,
+              buttonFunctions.setStory
+            )
+          }
+        >
           <Largest />
         </ButtonStyle>
       )
     case "large":
       return (
-        <ButtonStyle onClick={() => buttonFunctions.makeLarge(emphasize)}>
+        <ButtonStyle
+          onClick={() =>
+            buttonFunctions.makeLarge(
+              emphasize,
+              buttonFunctions.story,
+              buttonFunctions.setStory
+            )
+          }
+        >
           <Large />
         </ButtonStyle>
       )
     case "emphasize":
       return (
-        <ButtonStyle onClick={() => buttonFunctions.changeEmphasize(emphasize)}>
+        <ButtonStyle
+          onClick={() =>
+            buttonFunctions.changeEmphasize(
+              emphasize,
+              buttonFunctions.story,
+              buttonFunctions.setStory
+            )
+          }
+        >
           <Emphasize />
         </ButtonStyle>
       )

@@ -83,7 +83,7 @@ const EditPage = () => {
       checkMultiLineSelected={(event) => {
         checkMultiLineSelected(event, story, setStory, setCaret)
       }}
-      buttonFunctions={buttonFunctions}
+      buttonFunctions={buttonFunctions(story, setStory)}
     />
   )
 }
