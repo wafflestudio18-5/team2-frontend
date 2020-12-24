@@ -35,6 +35,7 @@ const ButtonWrapper = ({ buttonFunctions, story }) => {
       if (emphasize === "subtitle" || emphasize === "kicker") {
         emphasize = "large"
       }
+
       let temp = story[startSection][startContent].detail.emphasizing
 
       mainLoop: for (
