@@ -14,7 +14,6 @@ const ButtonWrapperStyle = styled.div`
 `
 
 const ButtonWrapper = ({ buttonFunctions, story }) => {
-  let emphasize = "normal"
   document.addEventListener("selectionchange", () => {
     if (!window.getSelection().getRangeAt(0).collapsed) {
       const { startId, endId } = getIdOfCaretPlaced(false)
@@ -29,7 +28,7 @@ const ButtonWrapper = ({ buttonFunctions, story }) => {
         .split(" ")
         .map((element) => parseInt(element))
 
-      emphasize = story[startSection][startContent].detail.emphasizing
+      let emphasize = story[startSection][startContent].detail.emphasizing
       if (emphasize === "title") {
         emphasize = "largest"
       }
@@ -96,21 +95,9 @@ const ButtonWrapper = ({ buttonFunctions, story }) => {
       <Button type="bold" buttonFunctions={buttonFunctions} />
       <Button type="italic" buttonFunctions={buttonFunctions} />
       <ButtonDivider />
-      <Button
-        type="largest"
-        buttonFunctions={buttonFunctions}
-        emphasize={emphasize}
-      />
-      <Button
-        type="large"
-        buttonFunctions={buttonFunctions}
-        emphasize={emphasize}
-      />
-      <Button
-        type="emphasize"
-        buttonFunctions={buttonFunctions}
-        emphasize={emphasize}
-      />
+      <Button type="largest" buttonFunctions={buttonFunctions} />
+      <Button type="large" buttonFunctions={buttonFunctions} />
+      <Button type="emphasize" buttonFunctions={buttonFunctions} />
     </ButtonWrapperStyle>
   )
 }

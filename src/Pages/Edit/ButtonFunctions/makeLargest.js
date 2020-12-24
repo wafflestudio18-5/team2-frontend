@@ -1,6 +1,6 @@
 import getIdOfCaretPlaced from "../Functions/getIdOfCaretPlaced"
 
-const makeLargest = (emphasize, story, setStory) => {
+const makeLargest = (story, setStory) => {
   const newStory = JSON.parse(JSON.stringify(story))
   const { startId, endId } = getIdOfCaretPlaced(false)
   const [startSection, startContent] = startId
@@ -10,9 +10,15 @@ const makeLargest = (emphasize, story, setStory) => {
     .split(" ")
     .map((element) => parseInt(element))
 
+  let buttonOn = false
+  const svgColor = document.getElementById("largestSvg").style.fill
+  if (svgColor !== "rgb(255, 255, 255)") {
+    buttonOn = true
+  }
+
   for (let si = startSection; si <= endSection; si++) {
     for (let ci = startContent; ci <= endContent; ci++) {
-      if (emphasize === "largest") {
+      if (buttonOn) {
         newStory[si][ci].detail.emphasizing = "normal"
       } else {
         newStory[si][ci].detail.emphasizing = "largest"

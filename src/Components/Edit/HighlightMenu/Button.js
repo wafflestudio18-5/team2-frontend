@@ -28,14 +28,13 @@ const ButtonStyle = styled.button`
   }
 `
 
-const Button = ({ type, buttonFunctions, emphasize }) => {
+const Button = ({ type, buttonFunctions }) => {
   switch (type) {
     case "bold":
       return (
         <ButtonStyle
           onClick={() =>
             buttonFunctions.makeBold(
-              emphasize,
               buttonFunctions.story,
               buttonFunctions.setStory
             )
@@ -49,7 +48,6 @@ const Button = ({ type, buttonFunctions, emphasize }) => {
         <ButtonStyle
           onClick={() =>
             buttonFunctions.makeItalic(
-              emphasize,
               buttonFunctions.story,
               buttonFunctions.setStory
             )
@@ -63,7 +61,6 @@ const Button = ({ type, buttonFunctions, emphasize }) => {
         <ButtonStyle
           onClick={() =>
             buttonFunctions.makeLargest(
-              emphasize,
               buttonFunctions.story,
               buttonFunctions.setStory
             )
@@ -77,7 +74,6 @@ const Button = ({ type, buttonFunctions, emphasize }) => {
         <ButtonStyle
           onClick={() =>
             buttonFunctions.makeLarge(
-              emphasize,
               buttonFunctions.story,
               buttonFunctions.setStory
             )
@@ -91,7 +87,6 @@ const Button = ({ type, buttonFunctions, emphasize }) => {
         <ButtonStyle
           onClick={() =>
             buttonFunctions.changeEmphasize(
-              emphasize,
               buttonFunctions.story,
               buttonFunctions.setStory
             )
