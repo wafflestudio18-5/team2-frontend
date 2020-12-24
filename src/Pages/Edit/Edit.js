@@ -1,6 +1,5 @@
 import Edit from "../../Components/Edit"
 import { useState, useEffect } from "react"
-import StoryExample from "../../Constants/StoryExample"
 import findTitle from "./Functions/findTitle"
 import createNewContent from "./Functions/createNewContent"
 import onDeleteKeyPressed from "./Functions/onDeleteKeyPressed"
@@ -17,7 +16,12 @@ const EditPage = () => {
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo4BQSpilYy5KuAptMxbOAxm4uKjFYDG6_wg&usqp=CAU",
   }
 
-  const [story, setStory] = useState(StoryExample)
+  const [story, setStory] = useState([
+    [
+      { type: "paragraph", detail: { content: "", emphasizing: "largest" } },
+      { type: "paragraph", detail: { content: "", emphasizing: "normal" } },
+    ],
+  ])
 
   const changeStateOnInput = () => {
     // 값에 변경 있을 시 state도 그에 맞게 변경
