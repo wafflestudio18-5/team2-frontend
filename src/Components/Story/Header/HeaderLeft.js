@@ -39,6 +39,47 @@ const UserName = styled.a`
     cursor: pointer;
 `
 
+const UserInfoWrapper = styled.div`
+    margin-top: 32px;
+    display: block;
+`
+
+const UserInfoBlock = styled.div`
+    align-items: center;
+    display: flex;
+`
+
+const About = styled.a`
+    margin-left: 12px;
+    line-height: 24px;
+    font-size: 16px;
+    color: ${Color.gray};
+    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    text-decoration: none;
+`
+
+const FollowBlock = styled.div`
+    margin-left: 24px;
+    display: block;
+`
+
+const FollowButton = styled.button`
+    padding: 7px 16px 9px;
+    border-width: 1px;
+    border-radius: 4px;
+    text-decoration: none;
+    background: 0;
+    border-color: ${Color.gray};
+    color: ${Color.borderBlack};
+    border-style: solid;
+    line-height: 20px;
+    font-size: 14px;
+    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    margin: 0;
+    cursor: pointer;
+`
+
 const HeaderLeft = () => {
     return (
         <HeaderLeftWrapper>
@@ -46,6 +87,16 @@ const HeaderLeft = () => {
                 <UserNameBlock>
                     <UserName href="https://medium.com/@unintelligents"> UserName </ UserName>
                 </UserNameBlock>
+                <UserInfoWrapper>
+                    <UserInfoBlock>
+                        <About href="https://medium.com/@unintelligents/about">About</About>
+                        <FollowBlock>
+                            <FollowButton>
+                                Follow
+                            </FollowButton>
+                        </FollowBlock>
+                    </UserInfoBlock>
+                </UserInfoWrapper>
             </HeaderLeftBox>
         </HeaderLeftWrapper>
     )
