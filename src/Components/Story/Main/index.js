@@ -5,7 +5,6 @@ import MainStory from "./MainStory"
 const MainWrapper = styled.div`
   display: block;
   width: 100vw;
-  background: red;
 `
 
 const Main = () => {
