@@ -13,53 +13,32 @@ const ButtonWrapperStyle = styled.div`
   align-items: center;
 `
 
-const ButtonWrapper = ({ buttonFunctions, story }) => {
+const ButtonWrapper = ({ buttonFunctions, getStory }) => {
   document.addEventListener("selectionchange", () => {
     if (!window.getSelection().getRangeAt(0).collapsed) {
-      const { startId, endId } = getIdOfCaretPlaced(false)
-      if (startId === "root" || endId === "root") {
-        return
-      }
-
-      const [startSection, startContent] = startId
-        .split(" ")
-        .map((element) => parseInt(element))
-      const [endSection, endContent] = endId
-        .split(" ")
-        .map((element) => parseInt(element))
-
-      let emphasize = story[startSection][startContent].detail.emphasizing
+      const { startTarget, endTarget } = getIdOfCaretPlaced(false)
+      let emphasize = startTarget.getAttribute("data-emphasizing")
       if (emphasize === "title") {
         emphasize = "largest"
       }
       if (emphasize === "subtitle" || emphasize === "kicker") {
         emphasize = "large"
       }
+      let temp = emphasize
+      let currentElement = startTarget
 
-      let temp = story[startSection][startContent].detail.emphasizing
-
-      mainLoop: for (
-        var sectionIndex = startSection;
-        sectionIndex <= endSection;
-        sectionIndex++
-      ) {
-        for (
-          var contentIndex = startContent;
-          contentIndex <= endContent;
-          contentIndex++
-        ) {
-          temp = story[sectionIndex][contentIndex].detail.emphasizing
-          if (temp === "title") {
-            temp = "largest"
-          }
-          if (temp === "subtitle" || temp === "kicker") {
-            temp = "large"
-          }
-          if (temp !== emphasize) {
-            emphasize = "normal"
-            break mainLoop
-          }
+      while (currentElement !== null && currentElement !== endTarget) {
+        temp = currentElement.getAttribute("data-emphasizing")
+        if (temp === "title") {
+          temp = "largest"
         }
+        if (temp === "subtitle" || temp === "kicker") {
+          temp = "large"
+        }
+        if (temp === "normal" || temp !== emphasize) {
+          emphasize = "normal"
+        }
+        currentElement = currentElement.nextSibling
       }
 
       switch (emphasize) {

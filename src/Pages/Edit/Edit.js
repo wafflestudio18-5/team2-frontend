@@ -23,6 +23,10 @@ const EditPage = () => {
     ],
   ])
 
+  const getStory = () => {
+    return story
+  }
+
   const changeStateOnInput = () => {
     // 값에 변경 있을 시 state도 그에 맞게 변경
     const { id, target } = getIdOfCaretPlaced()
@@ -33,37 +37,42 @@ const EditPage = () => {
       value = ""
     }
 
-    setStory((story) =>
-      story.splice(
-        sectionIndex,
-        1,
-        story[sectionIndex].splice(contentIndex, 1, {
-          ...story[sectionIndex][contentIndex],
-          detail: {
-            ...story[sectionIndex][contentIndex].detail,
-            content: value,
-          },
-        })
-      )
-    )
-    let offset = []
-    let tempNode = target
-    let tempNodeIndex = 0
+    story[sectionIndex][contentIndex] = {
+      ...story[sectionIndex][contentIndex],
+      detail: {
+        ...story[sectionIndex][contentIndex].detail,
+        content: value,
+      },
+    }
 
-    while (tempNode !== null && tempNode.nodeType !== 3) {
-      tempNodeIndex = tempNode.childNodes.length - 1
-      offset.push(tempNodeIndex)
-      tempNode = tempNode.lastChild
-    }
-    if (tempNode !== null) {
-      offset.push(tempNode.textContent.length)
-    }
-    setCaret({ id, offset })
+    // const newStory = JSON.parse(JSON.stringify(story))
+    // newStory[sectionIndex][contentIndex] = {
+    //   type: "paragraph",
+    //   detail: {
+    //     emphasizing: story[sectionIndex][contentIndex].detail.emphasizing,
+    //     content: value,
+    //   },
+    // }
+
+    //   setStory(newStory)
+    //   let offset = []
+    //   let tempNode = target
+    //   let tempNodeIndex = 0
+
+    //   while (tempNode !== null && tempNode.nodeType !== 3) {
+    //     tempNodeIndex = tempNode.childNodes.length - 1
+    //     offset.push(tempNodeIndex)
+    //     tempNode = tempNode.lastChild
+    //   }
+    //   if (tempNode !== null) {
+    //     offset.push(tempNode.textContent.length)
+    //   }
+    //   setCaret({ id, offset })
   }
 
   const publish = () => {
     // publish 버튼을 눌렀을 때 실행되는 함수. 나중에 API 관련 추가 필요
-    console.log(JSON.stringify(story))
+    console.log(JSON.stringify(getStory()))
   }
 
   const keyDownEventListener = (event) => {
@@ -107,6 +116,7 @@ const EditPage = () => {
         checkMultiLineSelected(event, story, setStory, setCaret)
       }}
       buttonFunctions={buttonFunctions(story, setStory)}
+      getStory={getStory}
     />
   )
 }

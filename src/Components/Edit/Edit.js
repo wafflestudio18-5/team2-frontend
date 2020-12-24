@@ -16,6 +16,7 @@ const Edit = ({
   keyDownEventListener,
   checkMultiLineSelected,
   buttonFunctions,
+  getStory,
 }) => {
   return (
     <EditStyle>
@@ -26,7 +27,7 @@ const Edit = ({
         keyDownEventListener={keyDownEventListener}
         checkMultiLineSelected={checkMultiLineSelected}
       />
-      <HighlightMenu buttonFunctions={buttonFunctions} story={story} />
+      <HighlightMenu buttonFunctions={buttonFunctions} getStory={getStory} />
     </EditStyle>
   )
 }
