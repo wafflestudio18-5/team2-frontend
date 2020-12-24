@@ -7,7 +7,7 @@ const Color = {
   gray: `rgba(117, 117, 117, 1)`,
   borderGray: `rgb(168,168,168)`,
   hoverGreen: `rgb(15, 115, 12, 1)`,
-  letterBlack: `rbga(25, 25, 25, 1)`,
+  letterBlack: `#191919`,
 }
 
 export default Color

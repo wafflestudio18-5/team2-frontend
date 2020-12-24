@@ -28,7 +28,7 @@ const UserNameBlock = styled.div`
 
 const UserName = styled.a`
     word-break: break-word;
-    color: ${Color.letterBlack};
+    color: ${Color.letterBlack} !important;
     background-color: white;
     line-height: 34px;
     font-size: 27px;
