@@ -1,9 +1,9 @@
 import styled from "styled-components"
 
 const CenterBigWriting = styled.h2`
-  font-family: serif;
+  font-family: "Lora";
   margin: 0;
-  font-weight: 600;
+  font-weight: 500;
   letter-spacing: -0.1em;
 
   @media (min-width: 552px) {
