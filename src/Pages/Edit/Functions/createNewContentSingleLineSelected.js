@@ -1,4 +1,5 @@
 const createNewContentSingleLineSelected = (
+  //하나의 줄 안에 selection이 있을 떄 엔터키가 눌리면 endOffset 뒤 content를 다음 줄로 옮김
   newStory,
   id,
   frontContent,
