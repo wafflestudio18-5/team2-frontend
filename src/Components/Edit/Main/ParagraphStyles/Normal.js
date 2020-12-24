@@ -4,7 +4,7 @@ import Color from "../../../../Constants/Color"
 const Normal = styled.p`
   max-width: 740px;
   width: 100%;
-  height: 31px;
+  min-height: 31px;
   padding: 0 20px;
   margin: 0 auto;
   box-sizing: border-box;

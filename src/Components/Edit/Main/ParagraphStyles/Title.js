@@ -3,7 +3,7 @@ import styled from "styled-components"
 const Title = styled.h3`
   max-width: 740px;
   width: 100%;
-  height: 52px;
+  min-height: 52px;
   padding: 0 20px;
   margin: 0 auto;
   margin-top: 5px;

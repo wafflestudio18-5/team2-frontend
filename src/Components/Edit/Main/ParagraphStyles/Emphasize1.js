@@ -4,7 +4,7 @@ import Color from "../../../../Constants/Color"
 const Emphasize1 = styled.blockquote`
   max-width: 740px;
   width: 100%;
-  height: 30px;
+  min-height: 30px;
   padding: 0 17px;
   margin-right: auto;
   margin-left: auto;
