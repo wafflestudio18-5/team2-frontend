@@ -28,35 +28,35 @@ const ButtonStyle = styled.button`
   }
 `
 
-const Button = ({ type, buttonFunctions }) => {
+const Button = ({ type, buttonFunctions, emphasize }) => {
   switch (type) {
     case "bold":
       return (
-        <ButtonStyle onClick={buttonFunctions.makeBold}>
+        <ButtonStyle onClick={() => buttonFunctions.makeBold(emphasize)}>
           <Bold />
         </ButtonStyle>
       )
     case "italic":
       return (
-        <ButtonStyle onClick={buttonFunctions.makeItalic}>
+        <ButtonStyle onClick={() => buttonFunctions.makeItalic(emphasize)}>
           <Italic />
         </ButtonStyle>
       )
     case "largest":
       return (
-        <ButtonStyle onClick={buttonFunctions.makeLargest}>
+        <ButtonStyle onClick={() => buttonFunctions.makeLargest(emphasize)}>
           <Largest />
         </ButtonStyle>
       )
     case "large":
       return (
-        <ButtonStyle onClick={buttonFunctions.makeLarge}>
+        <ButtonStyle onClick={() => buttonFunctions.makeLarge(emphasize)}>
           <Large />
         </ButtonStyle>
       )
     case "emphasize":
       return (
-        <ButtonStyle onClick={buttonFunctions.changeEmphasize}>
+        <ButtonStyle onClick={() => buttonFunctions.changeEmphasize(emphasize)}>
           <Emphasize />
         </ButtonStyle>
       )
