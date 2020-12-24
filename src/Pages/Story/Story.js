@@ -1,11 +1,11 @@
-import Story from "../../Components/Story"
+import Story from '../../Components/Story';
 
 const StoryPage = () => {
-    return(
+    return (
         <div>
             <Story />
         </div>
-    )
-}
+    );
+};
 
-export default StoryPage
+export default StoryPage;

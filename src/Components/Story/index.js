@@ -1,3 +1,3 @@
-import Story from "./Story"
+import Story from './Story';
 
-export default Story
+export default Story;
