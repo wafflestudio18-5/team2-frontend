@@ -4,8 +4,8 @@ import StoryPage from './Pages/Story/Story';
 
 
 const routes = {
+  story: { path: '/main/:title', component: StoryPage },
   main: { path: "/main", component: MainPage },
   edit: { path: "/edit", component: EditPage },
-  story: { path: '/main/:title', component: StoryPage },
 }
 export { routes };
