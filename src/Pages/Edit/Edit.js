@@ -33,13 +33,19 @@ const EditPage = () => {
       value = ""
     }
 
-    story[sectionIndex][contentIndex] = {
-      ...story[sectionIndex][contentIndex],
-      detail: {
-        ...story[sectionIndex][contentIndex].detail,
-        content: value,
-      },
-    }
+    setStory((story) =>
+      story.splice(
+        sectionIndex,
+        1,
+        story[sectionIndex].splice(contentIndex, 1, {
+          ...story[sectionIndex][contentIndex],
+          detail: {
+            ...story[sectionIndex][contentIndex].detail,
+            content: value,
+          },
+        })
+      )
+    )
   }
 
   const publish = () => {
