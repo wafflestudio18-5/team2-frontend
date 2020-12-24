@@ -13,7 +13,7 @@ const ButtonWrapperStyle = styled.div`
   align-items: center;
 `
 
-const ButtonWrapper = ({ buttonFunctions, getStory }) => {
+const ButtonWrapper = ({ buttonFunctions }) => {
   document.addEventListener("selectionchange", () => {
     if (!window.getSelection().getRangeAt(0).collapsed) {
       const { startTarget, endTarget } = getIdOfCaretPlaced(false)
