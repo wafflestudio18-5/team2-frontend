@@ -46,6 +46,19 @@ const EditPage = () => {
         })
       )
     )
+    let offset = []
+    let tempNode = target
+    let tempNodeIndex = 0
+
+    while (tempNode !== null && tempNode.nodeType !== 3) {
+      tempNodeIndex = tempNode.childNodes.length - 1
+      offset.push(tempNodeIndex)
+      tempNode = tempNode.lastChild
+    }
+    if (tempNode !== null) {
+      offset.push(tempNode.textContent.length)
+    }
+    setCaret({ id, offset })
   }
 
   const publish = () => {
