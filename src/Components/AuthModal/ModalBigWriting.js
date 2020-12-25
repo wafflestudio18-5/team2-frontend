@@ -6,7 +6,7 @@ const ModalBigWritingStyle = styled.p`
   font-size: 28px;
   font-family: "Lora";
   color: rgba(8, 8, 8, 1);
-  font-weight: 600;
+  font-weight: 500;
   margin: 0;
 `
 
