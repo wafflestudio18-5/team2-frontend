@@ -6,7 +6,7 @@ import ModalMediumWriting from "./ModalMediumWriting"
 import ModalSmallWriting from "./ModalSmallWriting"
 import ModalButtonWrapper from "./ModalButtonWrapper"
 import ModalButton from "./ModalButton"
-import ModalInput from "./ModalInput"
+import ModalGetEmail from "./ModalGetEmail"
 import ModalTypeConstants from "../../Constants/ModalTypeConstants"
 
 const fadeIn = keyframes`
@@ -137,35 +137,12 @@ const ModalTemplete = ({
         </ModalContent>
       )}
       {!modalFirstPage && (
-        <ModalContent>
-          <ModalBigWriting ModalType={ModalType} />
-          <ModalMediumWriting ModalType={ModalType} />
-          <ModalInput updateEmailOnChange={updateEmailOnChange} />
-          <a
-            onClick={() => {
-              changeModal(true)
-            }}
-          >
-            All signin options
-          </a>
-          <button
-            onClick={() => {
-              switch (ModalType) {
-                case ModalTypeConstants.EMAIL_LOG_IN:
-                  clickContinueButton("log in")
-                  break
-                case ModalTypeConstants.EMAIL_SIGN_UP:
-                  clickContinueButton("sign up")
-                  break
-                default:
-                  console.log("invalid modal type")
-                  break
-              }
-            }}
-          >
-            continue
-          </button>
-        </ModalContent>
+        <ModalGetEmail
+          ModalType={ModalType}
+          updateEmailOnChange={updateEmailOnChange}
+          changeModal={changeModal}
+          clickContinueButton={clickContinueButton}
+        />
       )}
     </ModalTempleteStyle>
   )
