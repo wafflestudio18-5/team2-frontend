@@ -6,6 +6,7 @@ import ModalMediumWriting from "./ModalMediumWriting"
 import ModalSmallWriting from "./ModalSmallWriting"
 import ModalButtonWrapper from "./ModalButtonWrapper"
 import ModalButton from "./ModalButton"
+import ModalTypeConstants from "../../Constants/ModalTypeConstants"
 
 const fadeIn = keyframes`
   0% {
@@ -91,6 +92,13 @@ const Svg = styled.svg`
 `
 
 const ModalTemplete = ({ ModalType, hideModal, changeModal, modalVisible }) => {
+  let modalFirstPage = true
+  if (
+    ModalType === ModalTypeConstants.EMAIL_LOG_IN ||
+    ModalType === ModalTypeConstants.EMAIL_SIGN_UP
+  ) {
+    modalFirstPage = false
+  }
   return (
     <ModalTempleteStyle modalVisible={modalVisible}>
       <CloseButton onClick={hideModal}>
@@ -101,16 +109,21 @@ const ModalTemplete = ({ ModalType, hideModal, changeModal, modalVisible }) => {
           ></path>
         </Svg>
       </CloseButton>
-      <ModalContent>
-        <ModalBigWriting ModalType={ModalType} />
-        <ModalButtonWrapper>
-          <ModalButton Logo="Google" ModalType={ModalType} />
-          <ModalButton Logo="Facebook" ModalType={ModalType} />
-          <ModalButton Logo="email" ModalType={ModalType} />
-          <ModalMediumWriting ModalType={ModalType} changeModal={changeModal} />
-        </ModalButtonWrapper>
-        <ModalSmallWriting ModalType={ModalType} />
-      </ModalContent>
+      {modalFirstPage && (
+        <ModalContent>
+          <ModalBigWriting ModalType={ModalType} />
+          <ModalButtonWrapper>
+            <ModalButton Logo="Google" ModalType={ModalType} />
+            <ModalButton Logo="Facebook" ModalType={ModalType} />
+            <ModalButton Logo="email" ModalType={ModalType} />
+            <ModalMediumWriting
+              ModalType={ModalType}
+              changeModal={changeModal}
+            />
+          </ModalButtonWrapper>
+          <ModalSmallWriting ModalType={ModalType} />
+        </ModalContent>
+      )}
     </ModalTempleteStyle>
   )
 }
