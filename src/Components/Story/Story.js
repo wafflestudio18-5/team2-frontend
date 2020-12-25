@@ -3,11 +3,11 @@ import Header from './Header';
 import Main from './Main';
 
 const StoryStyle = styled.div``;
-const Story = ({showModal}) => {
+const Story = ({ showModal, reachScrollCheckPoint }) => {
     return (
         <StoryStyle>
-            <Header showModal={showModal}/>
-            <Main />
+            <Header showModal={showModal} />
+            <Main reachScrollCheckPoint={reachScrollCheckPoint} />
         </StoryStyle>
     );
 };

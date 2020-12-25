@@ -1,8 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Color from '../../../Constants/Color';
 
 const AboutWrapper = styled.div`
-    display: flex;
+    display: none;
     justify-content: center;
     transition: opacity 200ms;
     opacity: 1;
@@ -10,7 +10,13 @@ const AboutWrapper = styled.div`
     top: 85.6px;
     position: fixed;
     width: 100%;
-`
+
+    ${props =>
+        props.reachScrollCheckPoint &&
+        css`
+            display: flex;
+        `}
+`;
 
 const AboutBlock = styled.div`
     display: block;
@@ -18,19 +24,19 @@ const AboutBlock = styled.div`
     min-width: 0;
     max-width: 1192px;
     width: 100%;
-`
+`;
 
 const AboutInnerBlock = styled.div`
     display: flex;
     width: 131px;
     flex-direction: column;
-`
+`;
 
 const WriterInfoBlock = styled.div`
     display: block;
     padding-bottom: 28px;
     border-bottom: 1px solid ${Color.lightGray};
-`
+`;
 
 const WrittenBy = styled.p`
     text-transform: uppercase;
@@ -38,46 +44,46 @@ const WrittenBy = styled.p`
     line-height: 16px;
     font-size: 12px;
     color: ${Color.gray};
-    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: sohne, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 400;
     margin: 0;
-`
+`;
 
 const UserNameBlock = styled.div`
     display: block;
     padding-top: 5px;
     padding-bottom: 5px;
-`
+`;
 
 const UserName = styled.a`
     font-weight: 500;
-    Color: ${Color.black};
+    color: ${Color.black};
     font-size: 16px;
     word-break: break-word;
     letter-spacing: 0;
     line-height: 20px;
-    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: sohne, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     text-decoration: none;
     cursor: pointer;
-`
+`;
 
 const UserInfoBlock = styled.div`
     display: block;
     padding-top: 2px;
-`
+`;
 
 const UserInfo = styled.p`
     color: ${Color.gray};
     line-height: 20px;
     font-size: 14px;
-    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: sohne, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     margin: 0;
-`
+`;
 
 const FollowBlock = styled.div`
     display: block;
     padding-top: 14px;
-`
+`;
 
 const FollowButton = styled.button`
     display: inline-block;
@@ -90,26 +96,22 @@ const FollowButton = styled.button`
     background: 0;
     line-height: 20px;
     font-size: 14px;
-    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: sohne, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     cursor: pointer;
-`
+`;
 
-const About = () => {
-    return(
-        <AboutWrapper>
+const About = ({ reachScrollCheckPoint }) => {
+    return (
+        <AboutWrapper reachScrollCheckPoint={reachScrollCheckPoint}>
             <AboutBlock>
                 <AboutInnerBlock>
                     <WriterInfoBlock>
                         <WrittenBy>written by</WrittenBy>
                         <UserNameBlock>
-                            <UserName href="https://medium.com/@unintelligents">
-                                Unintelligents
-                            </UserName>
+                            <UserName href="https://medium.com/@unintelligents">Unintelligents</UserName>
                         </UserNameBlock>
                         <UserInfoBlock>
-                            <UserInfo>
-                                Teach News
-                            </UserInfo>
+                            <UserInfo>Teach News</UserInfo>
                         </UserInfoBlock>
                         <FollowBlock>
                             <FollowButton>Follow</FollowButton>
@@ -118,7 +120,7 @@ const About = () => {
                 </AboutInnerBlock>
             </AboutBlock>
         </AboutWrapper>
-    )
-}
+    );
+};
 
-export default About
+export default About;

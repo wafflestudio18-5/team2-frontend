@@ -1,7 +1,7 @@
 import Story from '../../Components/Story';
 import { useState, useEffect } from 'react';
 import ModalTypeConstants from '../../Constants/ModalTypeConstants';
-import AuthModal from "../../Components/AuthModal"
+import AuthModal from '../../Components/AuthModal';
 
 const StoryPage = () => {
     // AuthModal 화면 표시 여부 관리하는 state
@@ -47,11 +47,22 @@ const StoryPage = () => {
         }
     }, [modalVisible]);
 
-    
+    const [reachScrollCheckPoint, setReachScrollCheckPoint] = useState(false);
+    window.addEventListener('scroll', () => {
+        let scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+        let scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+        let clientHeight = document.documentElement.clientHeight;
+        console.log(scrollTop, scrollTop + clientHeight - scrollHeight)
+        if (scrollTop >= 300 && scrollTop + clientHeight < scrollHeight - 10) {
+            setReachScrollCheckPoint(true);
+        } else {
+            setReachScrollCheckPoint(false);
+        }
+    });
 
     return (
         <div>
-            <Story showModal={showModal} />
+            <Story showModal={showModal} reachScrollCheckPoint={reachScrollCheckPoint} />
             {modalShow && <AuthModal ModalType={ModalType} hideModal={hideModal} modalVisible={modalVisible} changeModal={changeModal} />}
         </div>
     );
