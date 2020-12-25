@@ -23,16 +23,42 @@ const ModalButtonStyle = styled.button`
   }
 `
 
-const ModalButton = ({ ModalType, Logo }) => {
-  return (
-    <ModalButtonStyle>
-      {Logo === "Google" && <Google />}
-      {Logo === "Facebook" && <Facebook />}
-      {Logo === "email" && <Email />}
-      {ModalType === ModalTypeConstants.LOG_IN && "Sign in with " + Logo}
-      {ModalType === ModalTypeConstants.SIGN_UP && "Sign up with " + Logo}
-    </ModalButtonStyle>
-  )
+const ModalButton = ({ ModalType, Logo, changeModal }) => {
+  switch (Logo) {
+    case "Google":
+      return (
+        <ModalButtonStyle>
+          <Google />
+          {ModalType === ModalTypeConstants.LOG_IN && "Sign in with " + Logo}
+          {ModalType === ModalTypeConstants.SIGN_UP && "Sign up with " + Logo}
+        </ModalButtonStyle>
+      )
+
+    case "Facebook":
+      return (
+        <ModalButtonStyle>
+          <Facebook />
+          {ModalType === ModalTypeConstants.LOG_IN && "Sign in with " + Logo}
+          {ModalType === ModalTypeConstants.SIGN_UP && "Sign up with " + Logo}
+        </ModalButtonStyle>
+      )
+
+    case "email":
+      return (
+        <ModalButtonStyle
+          onClick={() => {
+            changeModal(true)
+          }}
+        >
+          <Email />
+          {ModalType === ModalTypeConstants.LOG_IN && "Sign in with " + Logo}
+          {ModalType === ModalTypeConstants.SIGN_UP && "Sign up with " + Logo}
+        </ModalButtonStyle>
+      )
+
+    default:
+      return
+  }
 }
 
 export default ModalButton

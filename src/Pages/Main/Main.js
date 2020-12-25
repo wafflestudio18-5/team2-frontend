@@ -52,13 +52,13 @@ const MainPage = () => {
     }
     if (ModalType === ModalTypeConstants.LOG_IN) {
       if (changeToEmail) {
-        setModalType(ModalTypeConstants.EMAIL_SIGN_UP)
+        setModalType(ModalTypeConstants.EMAIL_LOG_IN)
         return
       }
       setModalType(ModalTypeConstants.SIGN_UP)
     } else {
       if (changeToEmail) {
-        setModalType(ModalTypeConstants.EMAIL_LOG_IN)
+        setModalType(ModalTypeConstants.EMAIL_SIGN_UP)
         return
       }
       setModalType(ModalTypeConstants.LOG_IN)

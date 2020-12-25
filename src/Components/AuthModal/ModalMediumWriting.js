@@ -36,15 +36,31 @@ const ModalMediumWriting = ({ ModalType, changeModal }) => {
       {ModalType === ModalTypeConstants.LOG_IN && (
         <div>
           No account?&nbsp;
-          <GreenLink onClick={changeModal}>Create one</GreenLink>
+          <GreenLink
+            onClick={() => {
+              changeModal(false)
+            }}
+          >
+            Create one
+          </GreenLink>
         </div>
       )}
       {ModalType === ModalTypeConstants.SIGN_UP && (
         <div>
           Already have an account?&nbsp;
-          <GreenLink onClick={changeModal}>Sign in</GreenLink>
+          <GreenLink
+            onClick={() => {
+              changeModal(false)
+            }}
+          >
+            Sign in
+          </GreenLink>
         </div>
       )}
+      {ModalType === ModalTypeConstants.EMAIL_SIGN_UP &&
+        "Enter your email address to create an account."}
+      {ModalType === ModalTypeConstants.EMAIL_SIGN_UP &&
+        "Enter the email address associated with your account, and we'll send a magic link to your inbox."}
     </ModalMediumWritingStyle>
   )
 }

@@ -115,13 +115,30 @@ const ModalTemplete = ({ ModalType, hideModal, changeModal, modalVisible }) => {
           <ModalButtonWrapper>
             <ModalButton Logo="Google" ModalType={ModalType} />
             <ModalButton Logo="Facebook" ModalType={ModalType} />
-            <ModalButton Logo="email" ModalType={ModalType} />
+            <ModalButton
+              Logo="email"
+              ModalType={ModalType}
+              changeModal={changeModal}
+            />
             <ModalMediumWriting
               ModalType={ModalType}
               changeModal={changeModal}
             />
           </ModalButtonWrapper>
           <ModalSmallWriting ModalType={ModalType} />
+        </ModalContent>
+      )}
+      {!modalFirstPage && (
+        <ModalContent>
+          <ModalBigWriting ModalType={ModalType} />
+          <ModalMediumWriting ModalType={ModalType} />
+          <a
+            onClick={() => {
+              changeModal(true)
+            }}
+          >
+            All signin options
+          </a>
         </ModalContent>
       )}
     </ModalTempleteStyle>
