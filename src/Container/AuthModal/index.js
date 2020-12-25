@@ -23,6 +23,15 @@ const AuthModalContainer = ({ hideModal, modalVisible, ModalType }) => {
 
     if (!checkEmailValidation(email)) {
       setAlertWrongEmail(true)
+      setTimeout(() => {
+        document.getElementById("EmailInputField").classList.add("onAnimation")
+      }, 1)
+
+      setTimeout(() => {
+        document
+          .getElementById("EmailInputField")
+          .classList.remove("onAnimation")
+      }, 400)
       return
     }
 

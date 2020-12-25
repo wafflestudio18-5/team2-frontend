@@ -26,19 +26,22 @@ const ModalInputMessage = styled.p`
 
 const shake = keyframes`
   0% {
-   transform: translate(0 0); 
+   transform: translateX(3px); 
   }
-  25% {
-    transform: translate(1px 0);
+  20% {
+    transform: translateX(-3px);
   }
-  50% {
-    transform: translate(0 0);
+  40% {
+    transform: translateX(3px);
   }
-  75% {
-    transform: translate(-1px 0);
+  60% {
+    transform: translateX(-3px);
+  }
+  80% {
+    transform: translateX(3px);
   }
   100% {
-    transform: translate(0 0);
+    transform: translateX(-3px);
   }
 `
 
@@ -75,7 +78,7 @@ const ModalInputStyle = styled.input`
     }};
   }
 
-  .onAnimation {
+  &.onAnimation {
     animation-fill-mode: forwards;
     animation: 400ms ease 0s 1 normal none running ${shake};
   }
