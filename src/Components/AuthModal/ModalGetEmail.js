@@ -2,7 +2,8 @@ import ModalContent from "./ModalContent"
 import ModalBigWriting from "./ModalBigWriting"
 import ModalMediumWriting from "./ModalMediumWriting"
 import ModalInput from "./ModalInput"
-import ModalTypeConstants from "../../Constants/ModalTypeConstants"
+import GreenLink from "./GreenLink"
+import ContinueButton from "./ContinueButton"
 
 const ModalGetEmail = ({
   ModalType,
@@ -19,30 +20,11 @@ const ModalGetEmail = ({
         updateEmailOnChange={updateEmailOnChange}
         alertWrongEmail={alertWrongEmail}
       />
-      <button
-        onClick={() => {
-          changeModal(true)
-        }}
-      >
-        All signin options
-      </button>
-      <button
-        onClick={() => {
-          switch (ModalType) {
-            case ModalTypeConstants.EMAIL_LOG_IN:
-              clickContinueButton("log in")
-              break
-            case ModalTypeConstants.EMAIL_SIGN_UP:
-              clickContinueButton("sign up")
-              break
-            default:
-              console.log("invalid modal type")
-              break
-          }
-        }}
-      >
-        continue
-      </button>
+      <ContinueButton
+        ModalType={ModalType}
+        clickContinueButton={clickContinueButton}
+      />
+      <GreenLink changeModal={changeModal} ModalType={ModalType} />
     </ModalContent>
   )
 }

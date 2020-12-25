@@ -25,8 +25,6 @@ const AuthModalContainer = ({ hideModal, modalVisible, ModalType }) => {
       setAlertWrongEmail(true)
       return
     }
-    console.log("success")
-    return
 
     switch (type) {
       case "log in":
@@ -34,7 +32,9 @@ const AuthModalContainer = ({ hideModal, modalVisible, ModalType }) => {
           auth_type: "EMAIL",
           req_type: "INIT",
           email,
-        }).then((response) => {})
+        }).then((response) => {
+          console.log(response)
+        })
         break
 
       case "sign up":
@@ -42,7 +42,9 @@ const AuthModalContainer = ({ hideModal, modalVisible, ModalType }) => {
           auth_type: "EMAIL",
           req_type: "INIT",
           email,
-        }).then((response) => {})
+        }).then((response) => {
+          console.log(response)
+        })
         break
 
       default:
