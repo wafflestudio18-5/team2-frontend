@@ -6,6 +6,7 @@ import ModalMediumWriting from "./ModalMediumWriting"
 import ModalSmallWriting from "./ModalSmallWriting"
 import ModalButtonWrapper from "./ModalButtonWrapper"
 import ModalButton from "./ModalButton"
+import ModalInput from "./ModalInput"
 import ModalTypeConstants from "../../Constants/ModalTypeConstants"
 
 const fadeIn = keyframes`
@@ -132,6 +133,7 @@ const ModalTemplete = ({ ModalType, hideModal, changeModal, modalVisible }) => {
         <ModalContent>
           <ModalBigWriting ModalType={ModalType} />
           <ModalMediumWriting ModalType={ModalType} />
+          <ModalInput />
           <a
             onClick={() => {
               changeModal(true)
