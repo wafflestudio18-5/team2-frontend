@@ -9,6 +9,7 @@ const HeaderRightWrapper = styled.div`
     box-sizing: border-box;
     align-items: center;
     justify-content: flex-end;
+    margin-bottom: -18px;
 `;
 
 const SigninBlock = styled.div`
@@ -29,7 +30,7 @@ const GetstartedBlock = styled.div`
     display: block;
     margin-top: -3px;
     margin-left: 14px;
-    margin-bottom: -3px;
+    margin-bottom: -8px;
     margin-right: 24px;
 `;
 
@@ -45,7 +46,6 @@ const Getstarted = styled.button`
     line-height: 20px;
     font-family: sohne, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 400;
-    margin: 0;
     cursor: pointer;
     color: ${Color.green};
     background: 0;
