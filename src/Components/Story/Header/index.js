@@ -27,12 +27,12 @@ const HeaderBlock = styled.div`
     justify-content: space-between;
 `
 
-const Header = () => {
+const Header = ({showModal}) => {
     return (
       <HeaderWrapper>
           <HeaderBlock>
               <HeaderLeft />
-              <HeaderRight />
+              <HeaderRight showModal={showModal}/>
           </HeaderBlock>
       </HeaderWrapper>
     )

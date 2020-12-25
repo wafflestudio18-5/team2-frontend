@@ -1,5 +1,6 @@
 import styled from 'styled-components';
 import Color from '../../../Constants/Color';
+import ModalTypeConstants from '../../../Constants/ModalTypeConstants'
 
 const HeaderRightWrapper = styled.div`
     display: flex;
@@ -10,10 +11,29 @@ const HeaderRightWrapper = styled.div`
     justify-content: flex-end;
 `;
 
-const HeaderRight = () => {
+const SigninBlock = styled.div`
+    display: block;
+`
+
+const Signin = styled.a`
+    margin: 0;
+    padding: 0;
+    font-weight: 400;
+    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: ${Color.green};
+    line-height: 20px;
+    cursor: pointer;
+`
+
+const HeaderRight = ( {showModal} ) => {
     return (
         <HeaderRightWrapper>
-            Right
+            <SigninBlock>
+                <Signin onClick={() => {
+              showModal(ModalTypeConstants.LOG_IN)
+            }}>Sign in</Signin>
+            </SigninBlock>
         </HeaderRightWrapper>
     )
 };

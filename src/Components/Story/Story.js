@@ -3,10 +3,10 @@ import Header from './Header';
 import Main from './Main';
 
 const StoryStyle = styled.div``;
-const Story = ({}) => {
+const Story = ({showModal}) => {
     return (
         <StoryStyle>
-            <Header />
+            <Header showModal={showModal}/>
             <Main />
         </StoryStyle>
     );
