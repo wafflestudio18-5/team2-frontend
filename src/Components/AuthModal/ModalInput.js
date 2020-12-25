@@ -4,11 +4,11 @@ const ModalInputMessage = styled.p``
 
 const ModalInputStyle = styled.input``
 
-const ModalInput = ({ onChangeEmail }) => {
+const ModalInput = ({ updateEmailOnChange }) => {
   return (
     <div>
       <ModalInputMessage>Your email</ModalInputMessage>
-      <ModalInputStyle />
+      <ModalInputStyle onChange={updateEmailOnChange} />
     </div>
   )
 }

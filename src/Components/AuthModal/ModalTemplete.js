@@ -92,7 +92,14 @@ const Svg = styled.svg`
   fill: ${Colors.gray};
 `
 
-const ModalTemplete = ({ ModalType, hideModal, changeModal, modalVisible }) => {
+const ModalTemplete = ({
+  ModalType,
+  hideModal,
+  changeModal,
+  modalVisible,
+  updateEmailOnChange,
+  clickContinueButton,
+}) => {
   let modalFirstPage = true
   if (
     ModalType === ModalTypeConstants.EMAIL_LOG_IN ||
@@ -133,7 +140,7 @@ const ModalTemplete = ({ ModalType, hideModal, changeModal, modalVisible }) => {
         <ModalContent>
           <ModalBigWriting ModalType={ModalType} />
           <ModalMediumWriting ModalType={ModalType} />
-          <ModalInput />
+          <ModalInput updateEmailOnChange={updateEmailOnChange} />
           <a
             onClick={() => {
               changeModal(true)
@@ -141,6 +148,23 @@ const ModalTemplete = ({ ModalType, hideModal, changeModal, modalVisible }) => {
           >
             All signin options
           </a>
+          <button
+            onClick={() => {
+              switch (ModalType) {
+                case ModalTypeConstants.EMAIL_LOG_IN:
+                  clickContinueButton("log in")
+                  break
+                case ModalTypeConstants.EMAIL_SIGN_UP:
+                  clickContinueButton("sign up")
+                  break
+                default:
+                  console.log("invalid modal type")
+                  break
+              }
+            }}
+          >
+            continue
+          </button>
         </ModalContent>
       )}
     </ModalTempleteStyle>
