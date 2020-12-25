@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import About from './About';
 import MainStory from './MainStory';
+import StoryEnd from './StoryEnd';
+import Footer from './Footer';
 
 const MainWrapper = styled.div`
     display: flex;
