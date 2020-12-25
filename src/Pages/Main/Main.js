@@ -41,10 +41,26 @@ const MainPage = () => {
   // 어떤 Modal을 띄울지 결정
   const [ModalType, setModalType] = useState(ModalTypeConstants.LOG_IN)
 
-  const changeModal = () => {
+  const changeModal = (changeToEmail = false) => {
+    if (ModalType === ModalTypeConstants.EMAIL_LOG_IN) {
+      setModalType(ModalTypeConstants.LOG_IN)
+      return
+    }
+    if (ModalType === ModalTypeConstants.EMAIL_SIGN_UP) {
+      setModalType(ModalTypeConstants.SIGN_UP)
+      return
+    }
     if (ModalType === ModalTypeConstants.LOG_IN) {
+      if (changeToEmail) {
+        setModalType(ModalTypeConstants.EMAIL_SIGN_UP)
+        return
+      }
       setModalType(ModalTypeConstants.SIGN_UP)
     } else {
+      if (changeToEmail) {
+        setModalType(ModalTypeConstants.EMAIL_LOG_IN)
+        return
+      }
       setModalType(ModalTypeConstants.LOG_IN)
     }
   }
