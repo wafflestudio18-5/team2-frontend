@@ -4,6 +4,7 @@ import ModalTypeConstants from '../../../Constants/ModalTypeConstants';
 
 const HeaderRightWrapper = styled.div`
     display: flex;
+    flex-wrap: wrap;
     flex: 0 0 auto;
     z-index: 500;
     box-sizing: border-box;

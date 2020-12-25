@@ -11,13 +11,13 @@ const HeaderLeftWrapper = styled.div`
 `;
 
 const HeaderLeftBox = styled.div`
+    display: flex;
     flex-wrap: wrap;
     align-items: flex-end;
     margin-top: -32px;
     margin-bottom: 0px;
     flex-direction: row;
     width: 100%;
-    display: flex;
 `
 const UserNameBlock = styled.div`
     margin-right: 24px;
