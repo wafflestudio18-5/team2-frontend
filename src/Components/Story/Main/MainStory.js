@@ -118,7 +118,6 @@ const StoryBlock = styled.div`
 `;
 
 const StoryImageBlock = styled.div`
-    transition: transform 300ms cubic-bezier(0.2, 0, 0.2, 1);
     cursor: zoom-in;
     background: ${Color.backgroundGray};
     width: 100%;
