@@ -13,6 +13,7 @@ const Main = () => {
     return (
       <MainWrapper>
           <MainStory />
+          <About />
       </MainWrapper>
     )
   }
