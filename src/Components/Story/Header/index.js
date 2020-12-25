@@ -7,7 +7,7 @@ const HeaderWrapper = styled.div`
   display: flex;
   margin-bottom: 36px;
   width: 100vw;
-  border-bottom: solid 1px ${Color.black};
+  border-bottom: solid 1px ${Color.lightGray};
   min-height: 115px;
   box-sizing: border-box;
   align-items: center;

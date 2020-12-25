@@ -22,6 +22,7 @@ const HeaderLeftBox = styled.div`
 const UserNameBlock = styled.div`
     margin-right: 24px;
     margin-top: 32px;
+    margin-bottom: -6px;
     display: block;
     box-sizing: inherit;
 `
@@ -40,13 +41,15 @@ const UserName = styled.a`
 `
 
 const UserInfoWrapper = styled.div`
-    margin-top: 32px;
+    margin-top: 36px;
     display: block;
 `
 
 const UserInfoBlock = styled.div`
     align-items: center;
     display: flex;
+    margin-bottom: -10px;
+    margin-top: -6px;
 `
 
 const About = styled.a`
@@ -57,11 +60,13 @@ const About = styled.a`
     font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
     text-decoration: none;
+    margin: 0;
 `
 
 const FollowBlock = styled.div`
     margin-left: 24px;
     display: block;
+    margin-bottom: -5px;
 `
 
 const FollowButton = styled.button`
