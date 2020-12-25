@@ -59,7 +59,7 @@ const ModalMediumWriting = ({ ModalType, changeModal }) => {
       )}
       {ModalType === ModalTypeConstants.EMAIL_SIGN_UP &&
         "Enter your email address to create an account."}
-      {ModalType === ModalTypeConstants.EMAIL_SIGN_UP &&
+      {ModalType === ModalTypeConstants.EMAIL_LOG_IN &&
         "Enter the email address associated with your account, and we'll send a magic link to your inbox."}
     </ModalMediumWritingStyle>
   )
