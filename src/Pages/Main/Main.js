@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { Main } from "../../Components/Main"
-import AuthModal from "../../Components/AuthModal"
+import AuthModalContainer from "../../Container/AuthModal"
 import TrendingPosts from "../../Constants/TrendingPosts"
 import ModalTypeConstants from "../../Constants/ModalTypeConstants"
 import Articles from "../../Constants/Articles"
@@ -20,9 +20,10 @@ const MainPage = () => {
 
   // AuthModal 화면 표시 여부 관리하는 state
   const [modalShow, setModalShow] = useState(false)
-
   // AuthModal이 사라질 때 애니메이션을 실행시키기 위한 state.
   const [modalVisible, setModalVisible] = useState(false)
+  //
+  const [ModalType, setModalType] = useState(ModalTypeConstants.LOG_IN)
 
   // Modal 다시 숨김. hideModal이 호출되면 modalVisible이 false로 바뀌고,
   // 이 때 100ms짜리 fadeOut 애니메이션이 실행, 100ms 이후 modalShow가 false가 되면서 실제로 modal이 사라짐.
@@ -36,33 +37,6 @@ const MainPage = () => {
     setModalShow(true)
     setModalVisible(true)
     setModalType(ModalType)
-  }
-
-  // 어떤 Modal을 띄울지 결정
-  const [ModalType, setModalType] = useState(ModalTypeConstants.LOG_IN)
-
-  const changeModal = (changeToEmail = false) => {
-    if (ModalType === ModalTypeConstants.EMAIL_LOG_IN) {
-      setModalType(ModalTypeConstants.LOG_IN)
-      return
-    }
-    if (ModalType === ModalTypeConstants.EMAIL_SIGN_UP) {
-      setModalType(ModalTypeConstants.SIGN_UP)
-      return
-    }
-    if (ModalType === ModalTypeConstants.LOG_IN) {
-      if (changeToEmail) {
-        setModalType(ModalTypeConstants.EMAIL_LOG_IN)
-        return
-      }
-      setModalType(ModalTypeConstants.SIGN_UP)
-    } else {
-      if (changeToEmail) {
-        setModalType(ModalTypeConstants.EMAIL_SIGN_UP)
-        return
-      }
-      setModalType(ModalTypeConstants.LOG_IN)
-    }
   }
 
   // Modal이 떠있는 동안 scroll 고정
@@ -121,11 +95,10 @@ const MainPage = () => {
         showModal={showModal}
       />
       {modalShow && (
-        <AuthModal
-          ModalType={ModalType}
+        <AuthModalContainer
           hideModal={hideModal}
           modalVisible={modalVisible}
-          changeModal={changeModal}
+          ModalType={ModalType}
         />
       )}
     </div>
