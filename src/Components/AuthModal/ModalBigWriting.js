@@ -17,6 +17,8 @@ const ModalBigWriting = ({ ModalType }) => {
       {ModalType === ModalTypeConstants.SIGN_UP && "Join Wadium."}
       {ModalType === ModalTypeConstants.EMAIL_LOG_IN && "Sign in with email"}
       {ModalType === ModalTypeConstants.EMAIL_SIGN_UP && "Sign up with email"}
+      {ModalType === ModalTypeConstants.EMAIL_NOT_EXISTS &&
+        "Sorry, we didn't recognize that email."}
     </ModalBigWritingStyle>
   )
 }
