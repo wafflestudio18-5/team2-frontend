@@ -4,11 +4,17 @@ const ModalInputMessage = styled.p``
 
 const ModalInputStyle = styled.input``
 
-const ModalInput = ({ updateEmailOnChange }) => {
+const ModalInput = ({ updateEmailOnChange, alertWrongEmail }) => {
   return (
     <div>
-      <ModalInputMessage>Your email</ModalInputMessage>
-      <ModalInputStyle onChange={updateEmailOnChange} />
+      <ModalInputMessage alertWrongEmail={alertWrongEmail}>
+        Your email
+      </ModalInputMessage>
+      <ModalInputStyle
+        alertWrongEmail={alertWrongEmail}
+        onChange={updateEmailOnChange}
+      />
+      {alertWrongEmail && <p>wrong email</p>}
     </div>
   )
 }

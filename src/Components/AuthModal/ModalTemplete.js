@@ -99,14 +99,8 @@ const ModalTemplete = ({
   modalVisible,
   updateEmailOnChange,
   clickContinueButton,
+  alertWrongEmail,
 }) => {
-  let modalFirstPage = true
-  if (
-    ModalType === ModalTypeConstants.EMAIL_LOG_IN ||
-    ModalType === ModalTypeConstants.EMAIL_SIGN_UP
-  ) {
-    modalFirstPage = false
-  }
   return (
     <ModalTempleteStyle modalVisible={modalVisible}>
       <CloseButton onClick={hideModal}>
@@ -117,7 +111,8 @@ const ModalTemplete = ({
           ></path>
         </Svg>
       </CloseButton>
-      {modalFirstPage && (
+      {(ModalType === ModalTypeConstants.LOG_IN ||
+        ModalType === ModalTypeConstants.SIGN_UP) && (
         <ModalContent>
           <ModalBigWriting ModalType={ModalType} />
           <ModalButtonWrapper>
@@ -136,14 +131,18 @@ const ModalTemplete = ({
           <ModalSmallWriting ModalType={ModalType} />
         </ModalContent>
       )}
-      {!modalFirstPage && (
+      {(ModalType === ModalTypeConstants.EMAIL_NOT_EXISTS ||
+        ModalType === ModalTypeConstants.EMAIL_LOG_IN ||
+        ModalType === ModalTypeConstants.EMAIL_SIGN_UP) && (
         <ModalGetEmail
           ModalType={ModalType}
           updateEmailOnChange={updateEmailOnChange}
           changeModal={changeModal}
           clickContinueButton={clickContinueButton}
+          alertWrongEmail={alertWrongEmail}
         />
       )}
+      {ModalType === ModalTypeConstants.EMAIL_SENT && <div>sent</div>}
     </ModalTempleteStyle>
   )
 }

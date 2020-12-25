@@ -7,6 +7,7 @@ import ModalTypeConstants from "../../Constants/ModalTypeConstants"
 const ModalGetEmail = ({
   ModalType,
   updateEmailOnChange,
+  alertWrongEmail,
   changeModal,
   clickContinueButton,
 }) => {
@@ -14,7 +15,10 @@ const ModalGetEmail = ({
     <ModalContent>
       <ModalBigWriting ModalType={ModalType} />
       <ModalMediumWriting ModalType={ModalType} />
-      <ModalInput updateEmailOnChange={updateEmailOnChange} />
+      <ModalInput
+        updateEmailOnChange={updateEmailOnChange}
+        alertWrongEmail={alertWrongEmail}
+      />
       <button
         onClick={() => {
           changeModal(true)
