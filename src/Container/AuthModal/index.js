@@ -1,5 +1,7 @@
 import AuthModal from "../../Components/AuthModal"
 import ModalTypeConstants from "../../Constants/ModalTypeConstants"
+import { postUser, postUserLogin } from "../../api"
+import { useCookies } from "react-cookies"
 import { useState } from "react"
 
 const AuthModalContainer = ({ hideModal, modalVisible, ModalType }) => {
@@ -17,11 +19,19 @@ const AuthModalContainer = ({ hideModal, modalVisible, ModalType }) => {
     // parameter로 type을 입력받아 로그인인지 회원가입인지 결정.
     switch (type) {
       case "log in":
-        console.log("Log in with " + email)
+        postUserLogin({
+          auth_type: "EMAIL",
+          req_type: "INIT",
+          email,
+        }).then((response) => {})
         break
 
       case "sign up":
-        console.log("Sign up with " + email)
+        postUser({
+          auth_type: "EMAIL",
+          req_type: "INIT",
+          email,
+        }).then((response) => {})
         break
 
       default:
