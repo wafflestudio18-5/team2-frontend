@@ -3,14 +3,16 @@ import About from "./About"
 import MainStory from "./MainStory"
 
 const MainWrapper = styled.div`
-  display: block;
+  display: flex;
+  justify-content: center;
   width: 100vw;
+  word-break: break-word;
 `
 
 const Main = () => {
     return (
       <MainWrapper>
-          Main
+          <MainStory />
       </MainWrapper>
     )
   }

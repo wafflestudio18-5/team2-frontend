@@ -47,6 +47,8 @@ const StoryPage = () => {
         }
     }, [modalVisible]);
 
+    
+
     return (
         <div>
             <Story showModal={showModal} />

@@ -90,7 +90,7 @@ const HeaderLeft = () => {
         <HeaderLeftWrapper>
             <HeaderLeftBox>
                 <UserNameBlock>
-                    <UserName href="https://medium.com/@unintelligents"> UserName </ UserName>
+                    <UserName href="https://medium.com/@unintelligents">Unintelligents</ UserName>
                 </UserNameBlock>
                 <UserInfoWrapper>
                     <UserInfoBlock>
