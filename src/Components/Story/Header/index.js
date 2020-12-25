@@ -6,7 +6,7 @@ import HeaderRight from './HeaderRight';
 const HeaderWrapper = styled.div`
     display: flex;
     margin: 0 0 36px;
-    width: 100vw;
+    width: 100%;
     border-bottom: solid 1px ${Color.lightGray};
     min-height: 115px;
     box-sizing: border-box;
