@@ -1,13 +1,12 @@
 import { postUser } from "../../../api"
 
-const signupInit = (email) => {
-  postUser({
+const signupInit = async (email) => {
+  const response = await postUser({
     auth_type: "EMAIL",
     req_type: "INIT",
     email,
-  }).then((response) => {
-    console.log(response)
   })
+  console.log(response)
 }
 
 export default signupInit

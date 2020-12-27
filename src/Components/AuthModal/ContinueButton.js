@@ -18,6 +18,7 @@ const ContinueButton = ({ clickContinueButton, ModalType }) => {
   const onClick = () => {
     switch (ModalType) {
       case ModalTypeConstants.EMAIL_LOG_IN:
+      case ModalTypeConstants.EMAIL_NOT_EXISTS:
         clickContinueButton("log in")
         break
       case ModalTypeConstants.EMAIL_SIGN_UP:

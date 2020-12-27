@@ -25,7 +25,13 @@ const AuthModalContainer = ({ hideModal, modalVisible, ModalType }) => {
       }}
       updateEmailOnChange={updateEmailOnChange}
       clickContinueButton={(type) => {
-        clickContinueButton(type, email, setAlertWrongEmail)
+        clickContinueButton(
+          type,
+          email,
+          setAlertWrongEmail,
+          setModalType,
+          setEmail
+        )
       }}
       alertWrongEmail={alertWrongEmail}
     />
