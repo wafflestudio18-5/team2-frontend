@@ -30,7 +30,7 @@ const GreenLink = styled.button`
   }
 `
 
-const ModalMediumWriting = ({ ModalType, changeModal }) => {
+const ModalMediumWriting = ({ ModalType, changeModal, email }) => {
   return (
     <ModalMediumWritingStyle>
       {ModalType === ModalTypeConstants.LOG_IN && (
@@ -63,6 +63,10 @@ const ModalMediumWriting = ({ ModalType, changeModal }) => {
         "Enter the email address associated with your account, and we'll send a magic link to your inbox."}
       {ModalType === ModalTypeConstants.EMAIL_NOT_EXISTS &&
         "Would you like to sign in with a different email?"}
+      {ModalType === ModalTypeConstants.EMAIL_SENT &&
+        "Click the link we sent to " +
+          email +
+          " to complete your account set-up."}
     </ModalMediumWritingStyle>
   )
 }
