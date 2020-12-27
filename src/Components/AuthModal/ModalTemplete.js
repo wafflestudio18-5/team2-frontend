@@ -142,7 +142,11 @@ const ModalTemplete = ({
         />
       )}
       {ModalType === ModalTypeConstants.EMAIL_SENT && (
-        <ModalEmailSent ModalType={ModalType} email={email} />
+        <ModalEmailSent
+          ModalType={ModalType}
+          email={email}
+          hideModal={hideModal}
+        />
       )}
     </ModalTempleteStyle>
   )
