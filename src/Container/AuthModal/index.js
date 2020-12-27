@@ -34,6 +34,7 @@ const AuthModalContainer = ({ hideModal, modalVisible, ModalType }) => {
         )
       }}
       alertWrongEmail={alertWrongEmail}
+      email={email}
     />
   )
 }

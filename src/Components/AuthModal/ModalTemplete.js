@@ -7,6 +7,7 @@ import ModalSmallWriting from "./ModalSmallWriting"
 import ModalButtonWrapper from "./ModalButtonWrapper"
 import ModalButton from "./ModalButton"
 import ModalGetEmail from "./ModalGetEmail"
+import ModalEmailSent from "./ModalEmailSent"
 import ModalTypeConstants from "../../Constants/ModalTypeConstants"
 
 const fadeIn = keyframes`
@@ -100,6 +101,7 @@ const ModalTemplete = ({
   updateEmailOnChange,
   clickContinueButton,
   alertWrongEmail,
+  email,
 }) => {
   return (
     <ModalTempleteStyle modalVisible={modalVisible}>
@@ -139,7 +141,9 @@ const ModalTemplete = ({
           alertWrongEmail={alertWrongEmail}
         />
       )}
-      {ModalType === ModalTypeConstants.EMAIL_SENT && <div>sent</div>}
+      {ModalType === ModalTypeConstants.EMAIL_SENT && (
+        <ModalEmailSent ModalType={ModalType} email={email} />
+      )}
     </ModalTempleteStyle>
   )
 }
