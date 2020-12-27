@@ -1,10 +1,5 @@
-const CallbackEmail = ({ token, operation }) => {
-  return (
-    <div>
-      {token}&nbsp;
-      {operation}
-    </div>
-  )
+const CallbackEmail = ({ email }) => {
+  return <div>{email}</div>
 }
 
 export default CallbackEmail
