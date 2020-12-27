@@ -1,11 +1,11 @@
-import Callback from "../../Components/Callback"
+import CallbackEmail from "../../Components/CallbackEmail"
 import { useLocation } from "react-router-dom"
 import queryString from "query-string"
 
-const CallbackPage = () => {
+const CallbackEmailPage = () => {
   const queryStrings = queryString.parse(useLocation().search)
   console.log(queryStrings)
-  return <Callback {...queryStrings} />
+  return <CallbackEmail {...queryStrings} />
 }
 
-export default CallbackPage
+export default CallbackEmailPage

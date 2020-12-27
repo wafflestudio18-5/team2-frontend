@@ -1,16 +1,16 @@
 import { Route } from "react-router-dom"
-import { routes } from "../../Routes"
+import { routes } from "./Routes"
 
-const EditPage = () => {
+const CallbackPage = () => {
   return (
     <>
       <Route
         exact
-        path={routes.callback}
-        component={routes.callback.component}
+        path={routes.email.path}
+        component={routes.email.component}
       />
     </>
   )
 }
 
-export default EditPage
+export default CallbackPage

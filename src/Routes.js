@@ -1,6 +1,6 @@
-import MainPage from "./Pages/Main/Main"
-import EditPage from "./Pages/Edit/Edit"
-import CallbackPage from "./Pages/Callback/Callback"
+import MainPage from "./Pages/Main"
+import EditPage from "./Pages/Edit"
+import CallbackPage from "./Pages/Callback"
 
 const routes = {
   main: { path: "/main", component: MainPage },
