@@ -11,13 +11,26 @@ const DivStyle = styled.div`
   height: 100vh;
 `
 
-const CallbackEmail = ({ email, tokenStatus, token }) => {
+const CallbackEmail = ({
+  email,
+  tokenStatus,
+  token,
+  onClickCreateButton,
+  onChangeInput,
+}) => {
   return (
     <DivStyle>
       {tokenStatus === TokenStatus.VALID && (
-        <TokenValid email={email} token={token} />
+        <TokenValid
+          email={email}
+          token={token}
+          onClickCreateButton={onClickCreateButton}
+          onChangeInput={onChangeInput}
+        />
       )}
-      {tokenStatus === TokenStatus.INVALID && <TokenInvalid />}
+      {tokenStatus === TokenStatus.INVALID && (
+        <TokenInvalid onChangeInput={onChangeInput} />
+      )}
     </DivStyle>
   )
 }

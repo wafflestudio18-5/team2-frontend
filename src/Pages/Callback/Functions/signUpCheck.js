@@ -1,7 +1,14 @@
 import { postUser } from "../../../api"
 import TokenStatus from "../../../Constants/TokenStatus"
 
-const signUpCheck = async (token, history, setEmail, setTokenStatus) => {
+const signUpCheck = async (
+  token,
+  history,
+  setEmail,
+  setTokenStatus,
+  setUsername,
+  setAccessToken
+) => {
   // POST /user/
   try {
     const response = await postUser({
@@ -9,9 +16,11 @@ const signUpCheck = async (token, history, setEmail, setTokenStatus) => {
       req_type: "CHECK",
       access_token: token,
     })
-    // 성공 시 email과 token state에 저장
+    // 성공 시 state 저장
     setEmail(response.data.email)
     setTokenStatus(TokenStatus.VALID)
+    setUsername(response.data.username)
+    setAccessToken(response.data.access_token)
   } catch (error) {
     switch (error.response.status) {
       case 401:
