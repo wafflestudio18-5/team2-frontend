@@ -1,6 +1,7 @@
 import { postUserLogin } from "../../../api"
+import TokenStatus from "../../../Constants/TokenStatus"
 
-const login = async (token, history, setCookie) => {
+const login = async (token, history, setCookie, setTokenStatus) => {
   try {
     const authToken = await postUserLogin({
       auth_type: "EMAIL",
@@ -10,7 +11,17 @@ const login = async (token, history, setCookie) => {
     setCookie("auth", authToken, { path: "/" })
     history.push("/main")
   } catch (error) {
-    console.log(error)
+    switch (error.response.status) {
+      case 404:
+        break
+
+      case 401:
+        setTokenStatus(TokenStatus.INVALID)
+        break
+
+      default:
+        break
+    }
   }
 }
 

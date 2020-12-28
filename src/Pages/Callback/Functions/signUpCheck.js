@@ -1,6 +1,7 @@
 import { postUser } from "../../../api"
+import TokenStatus from "../../../Constants/TokenStatus"
 
-const signUpCheck = async (token, setEmail) => {
+const signUpCheck = async (token, history, setEmail, setTokenStatus) => {
   try {
     const response = await postUser({
       auth_type: "EMAIL",
@@ -8,8 +9,19 @@ const signUpCheck = async (token, setEmail) => {
       access_token: token,
     })
     setEmail(response.data.email)
+    setTokenStatus(TokenStatus.VALID)
   } catch (error) {
-    console.log(error)
+    switch (error.response.status) {
+      case 401:
+        setTokenStatus(TokenStatus.INVALID)
+        break
+
+      case 404:
+        break
+
+      default:
+        break
+    }
   }
 }
 
