@@ -4,11 +4,12 @@ import TokenStatus from "../../../Constants/TokenStatus"
 const login = async (token, history, setCookie, setTokenStatus) => {
   // POST /user/login/
   try {
-    const authToken = await postUserLogin({
+    const response = await postUserLogin({
       auth_type: "EMAIL",
       req_type: "LOGIN",
       access_token: token,
-    }).data.token
+    })
+    const authToken = response.data.token
     setCookie("auth", authToken, { path: "/" })
     history.push("/main")
     // 요청 성공 시 authentication token 쿠키에 저장, main page로 redirect

@@ -58,7 +58,7 @@ const CallbackEmailPage = () => {
     // 토큰의 유효 여부와 상관없이 input field의 값이 변경되면 state에 저장
     // 토큰이 유효하면 이 값(full name)으로 sign up 요청을 보내고,
     // 토큰이 유효하지 않으면 이 값(email)으로 메일을 보냄
-    setInput(event.value)
+    setInput(event.target.value)
   }
 
   return (
