@@ -1,21 +1,27 @@
 import CallbackEmail from "../../Components/CallbackEmail"
-import { postUser } from "../../api"
-import { useLocation } from "react-router-dom"
+import signUpCheck from "./Functions/signUpCheck"
+import login from "./Functions/login"
+import { useLocation, useHistory } from "react-router-dom"
 import queryString from "query-string"
 import { useState } from "react"
+import { useCookies } from "react-cookie"
 
 const CallbackEmailPage = () => {
   const [email, setEmail] = useState("")
   const queryStrings = queryString.parse(useLocation().search)
+  const history = useHistory()
+  const setCookie = useCookies(["auth"])[1]
   switch (queryStrings.operation) {
     case "register":
-      postUser({
-        auth_type: "EMAIL",
-        req_type: "CHECK",
-        access_token: queryStrings.token,
-      }).then((response) => {
-        setEmail(response.data.email)
-      })
+      signUpCheck(queryString.token, setEmail)
+      break
+
+    case "login":
+      login(queryString.token, history, setCookie)
+      break
+
+    default:
+      break
   }
   return <CallbackEmail email={email} />
 }
