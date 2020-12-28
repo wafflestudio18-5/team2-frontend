@@ -13,6 +13,7 @@ const CallbackEmailPage = () => {
   const queryStrings = queryString.parse(useLocation().search)
   const history = useHistory()
   const setCookie = useCookies(["auth"])[1]
+
   switch (queryStrings.operation) {
     case "register":
       signUpCheck(queryStrings.token, history, setEmail, setTokenStatus)
@@ -25,7 +26,13 @@ const CallbackEmailPage = () => {
     default:
       break
   }
-  return <CallbackEmail email={email} tokenStatus={tokenStatus} />
+  return (
+    <CallbackEmail
+      email={email}
+      tokenStatus={tokenStatus}
+      token={queryStrings.token}
+    />
+  )
 }
 
 export default CallbackEmailPage
