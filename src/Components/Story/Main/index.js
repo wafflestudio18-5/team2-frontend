@@ -9,6 +9,7 @@ const MainWrapper = styled.div`
     justify-content: center;
     width: 100%;
     word-break: break-word;
+    flex-direction: column;
 `;
 
 const Main = ({ reachScrollCheckPoint }) => {
@@ -16,6 +17,7 @@ const Main = ({ reachScrollCheckPoint }) => {
         <MainWrapper>
             <MainStory />
             <About reachScrollCheckPoint={reachScrollCheckPoint} />
+            <StoryEnd />
         </MainWrapper>
     );
 };

@@ -3,7 +3,7 @@ import Color from '../../../Constants/Color';
 
 const MainWrapper = styled.div`
     display: block;
-    margin: 0 64px;
+    margin: 0 auto;
     max-width: 680px;
     min-width: 0;
     width: 100%;
@@ -138,16 +138,16 @@ const Story = styled.p`
 const MainStory = () => {
     return (
         <MainWrapper>
-            <Title>I created my own YouTube algorithm to stop me wasting time.</Title>
+            <Title>Title</Title>
             <WriterWrapper>
                 <WriterBlock>
                     <WriterLeft>
-                        <a href="https://medium.com/@unintelligents">
+                        <a href="https://medium.com/@username">
                             <WriterPicture src="https://miro.medium.com/fit/c/56/56/1*dmbNkD5D-u45r44go_cf0g.png" />
                         </a>
                         <WriterInfoBlock>
                             <WriterNameBlock>
-                                <WriterName href="https://medium.com/@unintelligents">Unintelligents</WriterName>
+                                <WriterName href="https://medium.com/@username">UserName</WriterName>
                             </WriterNameBlock>
                             <DateAndTimeSpan>
                                 <DateAndTime href="/main/story">&nbsp;&nbsp;Nov 30&nbsp;&middot;&nbsp;9 min read</DateAndTime>
@@ -191,13 +191,23 @@ const MainStory = () => {
                 </StoryImageBlock>
             </StoryBlock>
             <StoryBlock>
+                <Story>Short Sample Text</Story>
+            </StoryBlock>
+            <StoryBlock>
                 <Story>
-                    I love viewing YouTube recordings that improve my life in some unmistakable manner. Shockingly, the YouTube calculation
-                    disagrees. It jumps at the chance to take care of me misleading content and other trash.
+                    Long Sample Text Long Sample Text Long Sample Text Long Sample Text Long Sample Text Long Sample Text Long Sample Text
                 </Story>
             </StoryBlock>
             <StoryBlock>
-                <Story>This isn’t too astonishing. The calculation organizes snaps and watch time.</Story>
+                <Story>
+                    Long Sample Text Long Sample Text Long Sample Text Long Sample Text Long Sample Text Long Sample Text Long Sample Text
+                </Story>
+            </StoryBlock>
+            <StoryBlock>
+                <Story>Short Sample Text</Story>
+            </StoryBlock>
+            <StoryBlock>
+                <Story>Short Sample Text</Story>
             </StoryBlock>
         </MainWrapper>
     );

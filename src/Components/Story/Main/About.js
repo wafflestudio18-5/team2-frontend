@@ -153,10 +153,10 @@ const About = ({ reachScrollCheckPoint }) => {
                     <WriterInfoBlock>
                         <WrittenBy>written by</WrittenBy>
                         <UserNameBlock>
-                            <UserName href="https://medium.com/@unintelligents">Unintelligents</UserName>
+                            <UserName href="https://medium.com/username">UserName</UserName>
                         </UserNameBlock>
                         <UserInfoBlock>
-                            <UserInfo>Teach News</UserInfo>
+                            <UserInfo>UserInfo</UserInfo>
                         </UserInfoBlock>
                         <FollowBlock>
                             <FollowButton>Follow</FollowButton>
