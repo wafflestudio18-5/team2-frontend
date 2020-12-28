@@ -2,6 +2,7 @@ import { postUserLogin } from "../../../api"
 import TokenStatus from "../../../Constants/TokenStatus"
 
 const login = async (token, history, setCookie, setTokenStatus) => {
+  // POST /user/login/
   try {
     const authToken = await postUserLogin({
       auth_type: "EMAIL",
@@ -10,12 +11,15 @@ const login = async (token, history, setCookie, setTokenStatus) => {
     }).data.token
     setCookie("auth", authToken, { path: "/" })
     history.push("/main")
+    // 요청 성공 시 authentication token 쿠키에 저장, main page로 redirect
   } catch (error) {
     switch (error.response.status) {
       case 404:
+        // error code 404
         break
 
       case 401:
+        //error code 401
         setTokenStatus(TokenStatus.INVALID)
         break
 
