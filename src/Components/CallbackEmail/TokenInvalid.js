@@ -1,9 +1,6 @@
 import styled from "styled-components"
 import BigWriting from "./BigWriting"
 import MediumWriting from "./MediumWriting"
-import SmallWriting from "./SmallWriting"
-import Input from "./Input"
-import Button from "./Button"
 
 const DivStyle = styled.div`
   display: flex;
