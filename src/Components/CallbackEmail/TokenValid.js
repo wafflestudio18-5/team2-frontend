@@ -10,15 +10,27 @@ const DivStyle = styled.div`
   padding: 100px 60px;
 `
 
-const TokenValid = ({ email, token, onClickCreateButton, onChangeInput }) => {
+const TokenValid = ({
+  email,
+  token,
+  onClickCreateButton,
+  onChangeInput,
+  alertInvalidInput,
+}) => {
   return (
     <DivStyle>
       <BigWriting>Almost there!</BigWriting>
       <MediumWriting>
         Finish creating your account for the full Medium experience.
       </MediumWriting>
-      <SmallWriting>Your full name</SmallWriting>
-      <Input id="EmailInputField" onChange={onChangeInput} />
+      <SmallWriting alertInvalidInput={alertInvalidInput}>
+        Your full name
+      </SmallWriting>
+      <Input
+        id="EmailInputField"
+        onChange={onChangeInput}
+        alertInvalidInput={alertInvalidInput}
+      />
       <SmallWriting>Your email</SmallWriting>
       <MediumWriting>{email}</MediumWriting>
       <Button onClick={onClickCreateButton}>Create account</Button>

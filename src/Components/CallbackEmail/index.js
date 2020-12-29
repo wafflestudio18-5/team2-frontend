@@ -17,6 +17,7 @@ const CallbackEmail = ({
   token,
   onClickCreateButton,
   onChangeInput,
+  alertInvalidInput,
 }) => {
   return (
     <DivStyle>
@@ -26,10 +27,14 @@ const CallbackEmail = ({
           token={token}
           onClickCreateButton={onClickCreateButton}
           onChangeInput={onChangeInput}
+          alertInvalidInput={alertInvalidInput}
         />
       )}
       {tokenStatus === TokenStatus.INVALID && (
-        <TokenInvalid onChangeInput={onChangeInput} />
+        <TokenInvalid
+          onChangeInput={onChangeInput}
+          alertInvalidInput={alertInvalidInput}
+        />
       )}
     </DivStyle>
   )

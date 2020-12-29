@@ -5,7 +5,7 @@ const SmallWriting = styled.p`
   font-size: 13px;
   line-height: 20px;
   color: ${(props) => {
-    switch (props.alertWrongEmail) {
+    switch (props.alertInvalidInput) {
       case true:
         return "rgb(201, 74, 74)"
       case false:

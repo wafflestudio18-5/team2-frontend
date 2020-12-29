@@ -28,20 +28,20 @@ const Input = styled.input`
   box-sizing: border-box;
   border: 0;
   border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+  border-bottom-color: ${(props) => {
+    switch (props.alertInvalidInput) {
+      case true:
+        return "rgb(201, 74, 74)"
+      default:
+        break
+    }
+  }};
   padding: 0 5px;
   height: 35px;
   font-size: 16px;
 
   :focus {
     outline: 0;
-    border-bottom-color: ${(props) => {
-      switch (props.alertWrongEmail) {
-        case true:
-          return "rgb(201, 74, 74)"
-        default:
-          break
-      }
-    }};
   }
 
   &.onAnimation {

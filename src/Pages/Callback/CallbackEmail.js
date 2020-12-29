@@ -21,6 +21,7 @@ const CallbackEmailPage = () => {
   // 토큰의 상태(유효한지 아닌지)
   const [input, setInput] = useState("")
   // input field의 값
+  const [alertInvalidInput, setAlertInvalidInput] = useState(false)
 
   //operation=register인 경우 필요한 state
   const [access_token, setAccessToken] = useState("")
@@ -53,6 +54,7 @@ const CallbackEmailPage = () => {
   const onClickCreateButton = () => {
     // 마지막 POST /user/ 요청을 보내는 함수
     if (input === "") {
+      setAlertInvalidInput(true)
       runAnimationOnInvalidEmail()
       return
     }
@@ -73,6 +75,7 @@ const CallbackEmailPage = () => {
       token={queryStrings.token}
       onClickCreateButton={onClickCreateButton}
       onChangeInput={onChangeInput}
+      alertInvalidInput={alertInvalidInput}
     />
   )
 }
