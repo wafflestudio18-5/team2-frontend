@@ -6,6 +6,9 @@ import ModalMediumWriting from "./ModalMediumWriting"
 import ModalSmallWriting from "./ModalSmallWriting"
 import ModalButtonWrapper from "./ModalButtonWrapper"
 import ModalButton from "./ModalButton"
+import ModalGetEmail from "./ModalGetEmail"
+import ModalEmailSent from "./ModalEmailSent"
+import ModalTypeConstants from "../../Constants/ModalTypeConstants"
 
 const fadeIn = keyframes`
   0% {
@@ -90,27 +93,61 @@ const Svg = styled.svg`
   fill: ${Colors.gray};
 `
 
-const ModalTemplete = ({ ModalType, hideModal, changeModal, modalVisible }) => {
+const ModalTemplete = ({
+  ModalType,
+  hideModal,
+  changeModal,
+  modalVisible,
+  updateEmailOnChange,
+  clickContinueButton,
+  alertWrongEmail,
+  email,
+}) => {
   return (
     <ModalTempleteStyle modalVisible={modalVisible}>
       <CloseButton onClick={hideModal}>
         <Svg class="sf" width="29" height="29">
-          <path
-            d="M20.13 8.11l-5.61 5.61-5.6-5.61-.81.8 5.61 5.61-5.61 5.61.8.8 5.61-5.6 5.61 5.6.8-.8-5.6-5.6 5.6-5.62"
-            fill-rule="evenodd"
-          ></path>
+          <path d="M20.13 8.11l-5.61 5.61-5.6-5.61-.81.8 5.61 5.61-5.61 5.61.8.8 5.61-5.6 5.61 5.6.8-.8-5.6-5.6 5.6-5.62"></path>
         </Svg>
       </CloseButton>
-      <ModalContent>
-        <ModalBigWriting ModalType={ModalType} />
-        <ModalButtonWrapper>
-          <ModalButton Logo="Google" ModalType={ModalType} />
-          <ModalButton Logo="Facebook" ModalType={ModalType} />
-          <ModalButton Logo="email" ModalType={ModalType} />
-          <ModalMediumWriting ModalType={ModalType} changeModal={changeModal} />
-        </ModalButtonWrapper>
-        <ModalSmallWriting ModalType={ModalType} />
-      </ModalContent>
+      {(ModalType === ModalTypeConstants.LOG_IN ||
+        ModalType === ModalTypeConstants.SIGN_UP) && (
+        <ModalContent>
+          <ModalBigWriting ModalType={ModalType} />
+          <ModalButtonWrapper>
+            <ModalButton Logo="Google" ModalType={ModalType} />
+            <ModalButton Logo="Facebook" ModalType={ModalType} />
+            <ModalButton
+              Logo="email"
+              ModalType={ModalType}
+              changeModal={changeModal}
+            />
+            <ModalMediumWriting
+              ModalType={ModalType}
+              changeModal={changeModal}
+            />
+          </ModalButtonWrapper>
+          <ModalSmallWriting ModalType={ModalType} />
+        </ModalContent>
+      )}
+      {(ModalType === ModalTypeConstants.EMAIL_NOT_EXISTS ||
+        ModalType === ModalTypeConstants.EMAIL_LOG_IN ||
+        ModalType === ModalTypeConstants.EMAIL_SIGN_UP) && (
+        <ModalGetEmail
+          ModalType={ModalType}
+          updateEmailOnChange={updateEmailOnChange}
+          changeModal={changeModal}
+          clickContinueButton={clickContinueButton}
+          alertWrongEmail={alertWrongEmail}
+        />
+      )}
+      {ModalType === ModalTypeConstants.EMAIL_SENT && (
+        <ModalEmailSent
+          ModalType={ModalType}
+          email={email}
+          hideModal={hideModal}
+        />
+      )}
     </ModalTempleteStyle>
   )
 }

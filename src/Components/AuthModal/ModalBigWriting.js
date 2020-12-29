@@ -6,7 +6,7 @@ const ModalBigWritingStyle = styled.p`
   font-size: 28px;
   font-family: "Lora";
   color: rgba(8, 8, 8, 1);
-  font-weight: 600;
+  font-weight: 500;
   margin: 0;
 `
 
@@ -15,6 +15,11 @@ const ModalBigWriting = ({ ModalType }) => {
     <ModalBigWritingStyle>
       {ModalType === ModalTypeConstants.LOG_IN && "Welcome back."}
       {ModalType === ModalTypeConstants.SIGN_UP && "Join Wadium."}
+      {ModalType === ModalTypeConstants.EMAIL_LOG_IN && "Sign in with email"}
+      {ModalType === ModalTypeConstants.EMAIL_SIGN_UP && "Sign up with email"}
+      {ModalType === ModalTypeConstants.EMAIL_NOT_EXISTS &&
+        "Sorry, we didn't recognize that email."}
+      {ModalType === ModalTypeConstants.EMAIL_SENT && "Check your inbox"}
     </ModalBigWritingStyle>
   )
 }
