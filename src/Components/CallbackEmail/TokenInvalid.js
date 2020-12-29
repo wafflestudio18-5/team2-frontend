@@ -17,13 +17,7 @@ const TokenInvalid = () => {
   return (
     <DivStyle>
       <BigWriting>Your sign in link has expired</BigWriting>
-      <MediumWriting>
-        Enter the email address associated with your account, and we’ll send a
-        new magic link to your inbox.
-      </MediumWriting>
-      <SmallWriting alertWrongEmail={false}>Your email</SmallWriting>
-      <Input id="EmailInputField" alertWrongEmail={false} />
-      <Button>Continue</Button>
+      <MediumWriting>Please try again.</MediumWriting>
     </DivStyle>
   )
 }
