@@ -12,7 +12,6 @@ const DivStyle = styled.div`
 
 const TokenValid = ({
   email,
-  token,
   onClickCreateButton,
   onChangeInput,
   alertInvalidInput,

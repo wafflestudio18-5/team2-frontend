@@ -14,7 +14,6 @@ const DivStyle = styled.div`
 const CallbackEmail = ({
   email,
   tokenStatus,
-  token,
   onClickCreateButton,
   onChangeInput,
   alertInvalidInput,
@@ -24,7 +23,6 @@ const CallbackEmail = ({
       {tokenStatus === TokenStatus.VALID && (
         <TokenValid
           email={email}
-          token={token}
           onClickCreateButton={onClickCreateButton}
           onChangeInput={onChangeInput}
           alertInvalidInput={alertInvalidInput}

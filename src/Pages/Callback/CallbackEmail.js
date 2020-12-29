@@ -72,7 +72,6 @@ const CallbackEmailPage = () => {
     <CallbackEmail
       email={email}
       tokenStatus={tokenStatus}
-      token={queryStrings.token}
       onClickCreateButton={onClickCreateButton}
       onChangeInput={onChangeInput}
       alertInvalidInput={alertInvalidInput}
