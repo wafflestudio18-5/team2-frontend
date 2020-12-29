@@ -58,6 +58,7 @@ const MainStory = () => {
                         src="https://miro.medium.com/max/1750/0*COGrSeNR23C-F84U.jpeg"
                         srcset="https://miro.medium.com/max/345/0*COGrSeNR23C-F84U.jpeg 276w, https://miro.medium.com/max/690/0*COGrSeNR23C-F84U.jpeg 552w, https://miro.medium.com/max/800/0*COGrSeNR23C-F84U.jpeg 640w, https://miro.medium.com/max/875/0*COGrSeNR23C-F84U.jpeg 700w"
                         sizes="700px"
+                        alt="Sample Image"
                     />
                 </StoryImageBlock>
             </StoryBlock>
