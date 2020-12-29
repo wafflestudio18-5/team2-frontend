@@ -41,16 +41,11 @@ const ModalStyle = styled.div`
     `}
 `
 
-const AuthModal = ({ ModalType, hideModal, changeModal, modalVisible }) => {
+const AuthModal = ({ ...props }) => {
   return (
-    <ModalStyle modalVisible={modalVisible}>
-      <ModalOverlay onClick={hideModal} />
-      <ModalTemplete
-        ModalType={ModalType}
-        hideModal={hideModal}
-        changeModal={changeModal}
-        modalVisible={modalVisible}
-      />
+    <ModalStyle modalVisible={props.modalVisible}>
+      <ModalOverlay onClick={props.hideModal} />
+      <ModalTemplete {...props} />
     </ModalStyle>
   )
 }
