@@ -1,7 +1,7 @@
 import Story from '../../Components/Story';
 import { useState, useEffect } from 'react';
 import ModalTypeConstants from '../../Constants/ModalTypeConstants';
-import AuthModal from '../../Components/AuthModal';
+import AuthModalContainer from '../../Container/AuthModal';
 
 const StoryPage = () => {
     // AuthModal 화면 표시 여부 관리하는 state
@@ -10,6 +10,7 @@ const StoryPage = () => {
     // AuthModal이 사라질 때 애니메이션을 실행시키기 위한 state.
     const [modalVisible, setModalVisible] = useState(false);
 
+    const [ModalType, setModalType] = useState(ModalTypeConstants.LOG_IN);
     // Modal 다시 숨김. hideModal이 호출되면 modalVisible이 false로 바뀌고,
     // 이 때 100ms짜리 fadeOut 애니메이션이 실행, 100ms 이후 modalShow가 false가 되면서 실제로 modal이 사라짐.
     const hideModal = () => {
@@ -22,17 +23,6 @@ const StoryPage = () => {
         setModalShow(true);
         setModalVisible(true);
         setModalType(ModalType);
-    };
-
-    // 어떤 Modal을 띄울지 결정
-    const [ModalType, setModalType] = useState(ModalTypeConstants.LOG_IN);
-
-    const changeModal = () => {
-        if (ModalType === ModalTypeConstants.LOG_IN) {
-            setModalType(ModalTypeConstants.SIGN_UP);
-        } else {
-            setModalType(ModalTypeConstants.LOG_IN);
-        }
     };
 
     // Modal이 떠있는 동안 scroll 고정
@@ -52,7 +42,7 @@ const StoryPage = () => {
         let scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
         let scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
         let clientHeight = document.documentElement.clientHeight;
-        console.log(scrollTop, scrollTop + clientHeight - scrollHeight)
+        console.log(scrollTop, scrollTop + clientHeight - scrollHeight);
         if (scrollTop >= 300 && scrollTop + clientHeight < scrollHeight - 10) {
             setReachScrollCheckPoint(true);
         } else {
@@ -63,7 +53,7 @@ const StoryPage = () => {
     return (
         <div>
             <Story showModal={showModal} reachScrollCheckPoint={reachScrollCheckPoint} />
-            {modalShow && <AuthModal ModalType={ModalType} hideModal={hideModal} modalVisible={modalVisible} changeModal={changeModal} />}
+            {modalShow && <AuthModalContainer hideModal={hideModal} modalVisible={modalVisible} ModalType={ModalType} />}
         </div>
     );
 };

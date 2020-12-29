@@ -1,13 +1,3 @@
-import React from 'react';
-import { Route } from 'react-router-dom';
-import { routes } from '../../Routes';
+import StoryPage from "./Story"
 
-const Story = () => {
-    return (
-        <>
-            <Route path={routes.story} component={routes.story.component} />
-        </>
-    );
-};
-
-export default Story;
+export default StoryPage
