@@ -2,6 +2,7 @@ import CallbackEmail from "../../Components/CallbackEmail"
 import signUpCheck from "./Functions/signUpCheck"
 import login from "./Functions/login"
 import signUp from "./Functions/signUp"
+import runAnimationOnInvalidEmail from "../../Container/AuthModal/Functions/runAnimationOnInvalidEmail"
 import { useLocation, useHistory } from "react-router-dom"
 import queryString from "query-string"
 import { useState, useEffect } from "react"
@@ -51,6 +52,10 @@ const CallbackEmailPage = () => {
 
   const onClickCreateButton = () => {
     // 마지막 POST /user/ 요청을 보내는 함수
+    if (input === "") {
+      runAnimationOnInvalidEmail()
+      return
+    }
     signUp(access_token, email, input, username, setCookie, history)
   }
 

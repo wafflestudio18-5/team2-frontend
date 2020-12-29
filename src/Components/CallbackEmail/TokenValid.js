@@ -18,7 +18,7 @@ const TokenValid = ({ email, token, onClickCreateButton, onChangeInput }) => {
         Finish creating your account for the full Medium experience.
       </MediumWriting>
       <SmallWriting>Your full name</SmallWriting>
-      <Input onChange={onChangeInput} />
+      <Input id="EmailInputField" onChange={onChangeInput} />
       <SmallWriting>Your email</SmallWriting>
       <MediumWriting>{email}</MediumWriting>
       <Button onClick={onClickCreateButton}>Create account</Button>

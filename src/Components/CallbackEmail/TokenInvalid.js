@@ -22,7 +22,7 @@ const TokenInvalid = () => {
         new magic link to your inbox.
       </MediumWriting>
       <SmallWriting alertWrongEmail={false}>Your email</SmallWriting>
-      <Input alertWrongEmail={false} />
+      <Input id="EmailInputField" alertWrongEmail={false} />
       <Button>Continue</Button>
     </DivStyle>
   )

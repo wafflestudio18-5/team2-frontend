@@ -1,4 +1,25 @@
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
+
+const shake = keyframes`
+  0% {
+   transform: translateX(3px); 
+  }
+  20% {
+    transform: translateX(-3px);
+  }
+  40% {
+    transform: translateX(3px);
+  }
+  60% {
+    transform: translateX(-3px);
+  }
+  80% {
+    transform: translateX(3px);
+  }
+  100% {
+    transform: translateX(-3px);
+  }
+`
 
 const Input = styled.input`
   margin: 0;
@@ -21,6 +42,11 @@ const Input = styled.input`
           break
       }
     }};
+  }
+
+  &.onAnimation {
+    animation-fill-mode: forwards;
+    animation: 400ms ease 0s 1 normal none running ${shake};
   }
 `
 
