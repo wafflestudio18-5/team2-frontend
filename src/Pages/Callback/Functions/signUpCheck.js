@@ -22,6 +22,7 @@ const signUpCheck = async (
     setUsername(response.data.username)
     setAccessToken(response.data.access_token)
   } catch (error) {
+    console.log(error)
     switch (error.response.status) {
       case 401:
         // error code 401
