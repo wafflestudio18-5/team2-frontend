@@ -18,6 +18,7 @@ const Main = ({ reachScrollCheckPoint }) => {
             <MainStory />
             <About reachScrollCheckPoint={reachScrollCheckPoint} />
             <StoryEnd />
+            <Footer />
         </MainWrapper>
     );
 };

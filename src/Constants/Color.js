@@ -9,6 +9,8 @@ const Color = {
   borderGray: `rgb(168,168,168)`,
   hoverGreen: `rgb(15, 115, 12, 1)`,
   letterBlack: `#191919`,
+  white: `rgba(255, 255, 255, 1)`,
+  Footerblack: `rgba(0, 0, 0, 0.9)`,
 }
 
 export default Color

@@ -11,6 +11,7 @@ const AboutWrapper = styled.div`
     top: 85.6px;
     position: fixed;
     width: 100%;
+    z-index: -1;
 
     ${props =>
         props.reachScrollCheckPoint &&
