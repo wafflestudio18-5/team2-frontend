@@ -1,6 +1,6 @@
 import axios from "axios"
 
-const baseUrl = "https://api.wadium.shop/"
+const baseUrl = "http://localhost:8000"
 axios.defaults.baseURL = baseUrl
 
 export const postUser = async (body) => {
