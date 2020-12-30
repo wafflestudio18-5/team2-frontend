@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Main } from "../../Components/Main"
+import Main from "../../Components/Main"
 import AuthModalContainer from "../../Container/AuthModal"
 import TrendingPosts from "../../Constants/TrendingPosts"
 import ModalTypeConstants from "../../Constants/ModalTypeConstants"
@@ -9,7 +9,9 @@ import handleScroll from "./Functions/handleScroll"
 import hideModal from "./Functions/hideModal"
 import showModal from "./Functions/showModal"
 
-const MainPage = () => {
+const MainNotLoginPage = () => {
+  //로그인 하지 않았을 때 페이지
+
   // 스크롤 될 때 header 색 변하는 로직
   const [reachScrollCheckPoint, setReachScrollCheckPoint] = useState(false)
   window.addEventListener("scroll", () => {
@@ -76,4 +78,4 @@ const MainPage = () => {
   )
 }
 
-export default MainPage
+export default MainNotLoginPage
