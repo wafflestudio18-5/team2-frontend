@@ -11,18 +11,23 @@ const StoryEndWrapper = styled.div`
     width: 100%;
 `;
 
-const Blank = styled.div`
+const Blank1 = styled.div`
     display: block;
+    padding-top: 40px;
 `
 
+const Blank2 = styled.div`
+    display: block;
+    padding-top: 25px;
+`
 const StoryEnd = () => {
     return (
         <StoryEndWrapper>
             <UserEnd />
             <Tag />
-            <Blank padding-top="40px"/>
+            <Blank1 />
             <MoreFromWriter />
-            <Blank padding-top="25px"/>
+            <Blank2 />
         </StoryEndWrapper>
     );
 };
