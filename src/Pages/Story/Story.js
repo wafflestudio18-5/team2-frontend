@@ -1,7 +1,9 @@
 import Story from '../../Components/Story';
 import { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
 import ModalTypeConstants from '../../Constants/ModalTypeConstants';
 import AuthModalContainer from '../../Container/AuthModal';
+import StoryExample from '../../Constants/StoryExample';
 
 const StoryPage = () => {
     // AuthModal 화면 표시 여부 관리하는 state
@@ -50,9 +52,12 @@ const StoryPage = () => {
         }
     });
 
+    const { user, story } = useParams(); //이용해서 해당하는 유저, 스토리 가져오기
+    console.log(user, story);
+
     return (
         <div>
-            <Story showModal={showModal} reachScrollCheckPoint={reachScrollCheckPoint} />
+            <Story showModal={showModal} reachScrollCheckPoint={reachScrollCheckPoint} story={StoryExample} />
             {modalShow && <AuthModalContainer hideModal={hideModal} modalVisible={modalVisible} ModalType={ModalType} />}
         </div>
     );

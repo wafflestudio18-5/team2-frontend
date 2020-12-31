@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Color from '../../../Constants/Color';
 import Writer from './Writer'
+import Content from './Content'
 
 const MainWrapper = styled.div`
     display: block;
@@ -28,7 +29,7 @@ const StoryBlock = styled.div`
     margin-left: auto;
 `;
 
-const StoryImageBlock = styled.div`
+/*const StoryImageBlock = styled.div`
     background: ${Color.backgroundGray};
     width: 100%;
     max-width: 1400px;
@@ -45,10 +46,27 @@ const Story = styled.p`
     color: ${Color.borderBlack};
     word-break: break-word;
     margin: 0;
-`;
+`;*/
 
-const MainStory = () => {
-    return (
+const MainStory = ( {story} ) => {
+    let article = []
+    story.forEach((section) => {
+        article.push(
+            <StoryBlock>
+                {section.map((content) => {
+                    return <Content content={content} />
+                })}
+            </StoryBlock>
+        )
+    })
+    return(
+        <MainWrapper>
+            <Title>Title</Title>
+            <Writer />
+            {article}
+        </MainWrapper>
+    );
+    /*return (
         <MainWrapper>
             <Title>Title</Title>
             <Writer />
@@ -83,7 +101,7 @@ const MainStory = () => {
                 <Story>Short Sample Text</Story>
             </StoryBlock>
         </MainWrapper>
-    );
+    );*/
 };
 
 export default MainStory;

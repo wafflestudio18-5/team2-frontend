@@ -34,6 +34,52 @@ const StoryExample = [
       },
     },
   ],
+  [
+    {
+      type: "paragraph",
+      detail: {
+        content: "This is Sample Text. <em>This is Sample Text.</em> <strong>This is Sample Text.</strong> This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. ",
+        emphasizing: "kicker",
+      }
+    },
+    {
+      type: "paragraph",
+      detail: {
+        content: "This is Sample Text. <em>This is Sample Text.</em> <strong>This is Sample Text.</strong> This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. ",
+        emphasizing: "largest",
+      }
+    },
+    {
+      type: "paragraph",
+      detail: {
+        content: "This is Sample Text. <em>This is Sample Text.</em> <strong>This is Sample Text.</strong> This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. ",
+        emphasizing: "large",
+      }
+    },
+    {
+      type: "paragraph",
+      detail: {
+        content: "This is Sample Text. <em>This is Sample Text.</em> <strong>This is Sample Text.</strong> This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. ",
+        emphasizing: "normal",
+      }
+    },
+  ],
+  [
+    {
+      type: "paragraph",
+      detail: {
+        content: "This is Sample Text. <em>This is Sample Text.</em> <strong>This is Sample Text.</strong> This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. ",
+        emphasizing: "emphasize1",
+      }
+    },
+    {
+      type: "paragraph",
+      detail: {
+        content: "This is Sample Text. <em>This is Sample Text.</em> <strong>This is Sample Text.</strong> This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. ",
+        emphasizing: "emphasize2",
+      }
+    },
+  ],
 ]
 
 export default StoryExample
