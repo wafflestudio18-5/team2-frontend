@@ -1,4 +1,4 @@
-const UserProfile = () => {
+const UserProfile = ({ profileImage }) => {
   return <div>user</div>
 }
 

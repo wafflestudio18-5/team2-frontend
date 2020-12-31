@@ -8,6 +8,15 @@ import Topics from "../../Constants/Topics"
 const MainLoginPage = ({ token }) => {
   //로그인 하지 않았을 때 페이지
 
+  const user = {
+    id: 0,
+    username: "boqm123",
+    name: "Aibald Biak",
+    profileImage: "",
+  }
+
+  const centerArticles = {}
+
   const [Article, setArticle] = useState(Articles)
   const [fetching, setFetching] = useState(false)
 
@@ -26,8 +35,8 @@ const MainLoginPage = ({ token }) => {
     <MainLogin
       TrendingPosts={TrendingPosts}
       Articles={Article}
-      Topics={Topics}
-      token={token}
+      user={user}
+      centerArticles={centerArticles}
     />
   )
 }

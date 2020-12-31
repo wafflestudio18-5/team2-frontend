@@ -29,8 +29,8 @@ const Header = ({ user }) => {
       </HeaderLeft>
       <HeaderRight>
         <Search />
-        <UserProfile />
-        <UserDropdown />
+        <UserProfile profileImage={user.profileImage} />
+        <UserDropdown user={user} />
       </HeaderRight>
     </HeaderStyle>
   )
