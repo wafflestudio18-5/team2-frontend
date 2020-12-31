@@ -9,7 +9,12 @@ const DivStyle = styled.div`
   margin-right: 8px;
 `
 
-const Search = ({ isSearchboxOpen, onClickSearchButton }) => {
+const Search = ({
+  isSearchboxOpen,
+  onClickSearchButton,
+  onChangeSearchbox,
+  search,
+}) => {
   return (
     <DivStyle>
       <SearchButton onClickSearchButton={onClickSearchButton} />
@@ -17,6 +22,8 @@ const Search = ({ isSearchboxOpen, onClickSearchButton }) => {
         id="Searchbox"
         placeholder="Search Wadium"
         isSearchboxOpen={isSearchboxOpen}
+        onChange={onChangeSearchbox}
+        onKeyPress={search}
       />
     </DivStyle>
   )

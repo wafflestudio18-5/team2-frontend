@@ -20,6 +20,8 @@ const MainLogin = ({
   centerArticles,
   isSearchboxOpen,
   onClickSearchButton,
+  onChangeSearchbox,
+  search,
 }) => {
   return (
     <MainStyle>
@@ -27,6 +29,8 @@ const MainLogin = ({
         user={user}
         isSearchboxOpen={isSearchboxOpen}
         onClickSearchButton={onClickSearchButton}
+        onChangeSearchbox={onChangeSearchbox}
+        search={search}
       />
       <Center centerArticles={centerArticles} />
       <Trending trendingPosts={TrendingPosts} />

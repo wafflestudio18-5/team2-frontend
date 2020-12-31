@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react"
+import { useHistory } from "react-router-dom"
 import handleScroll from "./Functions/handleScroll"
 import onClickSearchButton from "./Functions/onClickSearchButton"
+import onChangeSearchbox from "./Functions/onChangeSearchbox"
+import search from "./Functions/search"
 import MainLogin from "../../Components/MainLogin"
 import Articles from "../../Constants/Articles"
 import TrendingPosts from "../../Constants/TrendingPosts"
@@ -21,8 +24,13 @@ const MainLoginPage = ({ token }) => {
   // 헤더의 검색창이 열려있는지 닫혀있는지
   const [isSearchboxOpen, setIsSearchboxOpen] = useState(false)
 
+  // 검색창의 value
+  const [searchValue, setSearchValue] = useState("")
+
   const [Article, setArticle] = useState(Articles)
   const [fetching, setFetching] = useState(false)
+
+  const history = useHistory()
 
   useEffect(() => {
     window.addEventListener("scroll", () =>
@@ -45,6 +53,8 @@ const MainLoginPage = ({ token }) => {
       onClickSearchButton={() =>
         onClickSearchButton(isSearchboxOpen, setIsSearchboxOpen)
       }
+      onChangeSearchbox={(event) => onChangeSearchbox(event, setSearchValue)}
+      search={(event) => search(event, searchValue, history)}
     />
   )
 }
