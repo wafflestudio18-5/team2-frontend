@@ -9,8 +9,13 @@ const HeaderStyle = styled.nav`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin: 24px 0;
+  margin: 24px 64px;
   height: 65px;
+
+  @media (max-width: 727.98px) {
+    height: 56px;
+    margin: 24px 24px;
+  }
 `
 
 const Header = ({ user }) => {
