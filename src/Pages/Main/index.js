@@ -7,7 +7,7 @@ const MainPage = () => {
   if (token === undefined) {
     return <MainNotLoginPage />
   } else {
-    return <MainLoginPage />
+    return <MainLoginPage token={token} />
   }
 }
 
