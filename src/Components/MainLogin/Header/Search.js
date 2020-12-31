@@ -5,6 +5,8 @@ import styled from "styled-components"
 const DivStyle = styled.div`
   display: flex;
   align-items: center;
+  margin-left: 12px;
+  margin-right: 8px;
 `
 
 const Search = () => {
