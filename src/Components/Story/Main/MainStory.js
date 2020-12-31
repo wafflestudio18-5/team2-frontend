@@ -19,9 +19,21 @@ const Title = styled.div`
     font-size: 46px;
     margin-bottom: -0.27em;
     font-style: normal;
-    font-weight: 700;
+    font-weight: bold;
+    word-break: break-word;
     font-family: sohne, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    color: ${Color.borderBlack};
 `;
+
+const SubTitle = styled.h2`
+    font-size: 22px;
+    margin-bottom: -0.42em;
+    font-style: normal;
+    letter-spacing: 0;
+    color: ${Color.gray};
+    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+`
 
 const StoryBlock = styled.div`
     margin-right: auto;
@@ -61,6 +73,7 @@ const MainStory = ( {story} ) => {
     return(
         <MainWrapper>
             <Title>Title</Title>
+            <SubTitle>subtitle</SubTitle>
             <Writer />
             {article}
         </MainWrapper>
