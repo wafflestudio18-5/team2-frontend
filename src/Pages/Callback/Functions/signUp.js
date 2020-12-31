@@ -23,7 +23,7 @@ const signUp = async (
     console.log(response)
     const authToken = response.data.token
 
-    setCookie("auth", authToken, { path: "/" })
+    setCookie("auth", authToken, { path: "/", sameSite: "Lax" })
     history.push("/main")
     // 요청 성공 시 authentication token 쿠키에 저장, main page로 redirect
   } catch (error) {
