@@ -9,7 +9,7 @@ const Paragraph = ({ content, emphasizing }) => {
     case "largest":
       return (
         <Largest
-          dangerouslySetInnerHTML={{ __html: content }}
+          dangerouslySetInnerHTML={{ __html: content.replace(/(<([^>]+)>)/gi, "") }}
           data-emphasizing={emphasizing}
         />
       )
@@ -17,7 +17,7 @@ const Paragraph = ({ content, emphasizing }) => {
     case "large":
       return (
         <Large
-          dangerouslySetInnerHTML={{ __html: content }}
+          dangerouslySetInnerHTML={{ __html: content.replace(/(<([^>]+)>)/gi, "") }}
           data-emphasizing={emphasizing}
         />
       )
@@ -41,7 +41,7 @@ const Paragraph = ({ content, emphasizing }) => {
     case "emphasize2":
       return (
         <Emphasize2
-          dangerouslySetInnerHTML={{ __html: content }}
+          dangerouslySetInnerHTML={{ __html: content.replace(/(<([^>]+)>)/gi, "") }}
           data-emphasizing={emphasizing}
         />
       )
