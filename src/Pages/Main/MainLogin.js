@@ -51,7 +51,7 @@ const MainLoginPage = ({ token }) => {
       centerArticles={centerArticles}
       isSearchboxOpen={isSearchboxOpen}
       onClickSearchButton={() =>
-        onClickSearchButton(isSearchboxOpen, setIsSearchboxOpen)
+        onClickSearchButton(isSearchboxOpen, setIsSearchboxOpen, history)
       }
       onChangeSearchbox={(event) => onChangeSearchbox(event, setSearchValue)}
       search={(event) => search(event, searchValue, history)}

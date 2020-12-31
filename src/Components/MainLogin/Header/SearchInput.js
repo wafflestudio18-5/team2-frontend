@@ -11,6 +11,10 @@ const SearchInput = styled.input`
   transition: width 140ms ease-in, padding 140ms ease-in;
   font-size: 15px;
 
+  @media (max-width: 903.98px) {
+    display: none;
+  }
+
   ${(props) =>
     !props.isSearchboxOpen &&
     css`
