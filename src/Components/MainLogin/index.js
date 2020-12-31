@@ -1,8 +1,9 @@
+import styled from "styled-components"
+import Header from "./Header"
+import Center from "./Center"
 import Trending from "../Main/Trending"
 import Article from "../Main/Article"
-import Topic from "../Main/Topic"
 import Footer from "../Main/Footer"
-import styled from "styled-components"
 import {
   BottomStyle,
   BottomWrapper,
@@ -12,9 +13,11 @@ import {
 
 const MainStyle = styled.div``
 
-const MainLogin = ({ TrendingPosts, Articles, Topics }) => {
+const MainLogin = ({ TrendingPosts, Articles, user, centerArticles }) => {
   return (
     <MainStyle>
+      <Header user={user} />
+      <Center centerArticles={centerArticles} />
       <Trending trendingPosts={TrendingPosts} />
       <BottomStyle>
         <BottomWrapper>
@@ -22,7 +25,6 @@ const MainLogin = ({ TrendingPosts, Articles, Topics }) => {
             <Article Articles={Articles} />
           </BottomLeftStyle>
           <BottomRightStyle>
-            <Topic Topics={Topics} />
             <Footer />
           </BottomRightStyle>
         </BottomWrapper>
