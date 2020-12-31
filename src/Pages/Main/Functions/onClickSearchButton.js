@@ -3,6 +3,9 @@ const onClickSearchButton = (isSearchboxOpen, setIsSearchboxOpen) => {
     setIsSearchboxOpen(false)
   } else {
     setIsSearchboxOpen(true)
+    setTimeout(() => {
+      document.getElementById("Searchbox").focus()
+    }, 140)
   }
 }
 

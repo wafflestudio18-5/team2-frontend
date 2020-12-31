@@ -14,6 +14,7 @@ const Search = ({ isSearchboxOpen, onClickSearchButton }) => {
     <DivStyle>
       <SearchButton onClickSearchButton={onClickSearchButton} />
       <SearchInput
+        id="Searchbox"
         placeholder="Search Wadium"
         isSearchboxOpen={isSearchboxOpen}
       />

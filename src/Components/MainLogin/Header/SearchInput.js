@@ -12,7 +12,7 @@ const SearchInput = styled.input`
   font-size: 15px;
 
   ${(props) =>
-    !!props.isSearchboxOpen &&
+    !props.isSearchboxOpen &&
     css`
       width: 0px;
       padding: 0;
