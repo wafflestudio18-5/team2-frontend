@@ -4,6 +4,8 @@ import Logo from "./Logo"
 import Search from "./Search"
 import UserDropdown from "./UserDropdown"
 import UserProfile from "./UserProfile"
+import HeaderLeft from "./HeaderLeft"
+import HeaderRight from "./HeaderRight"
 
 const HeaderStyle = styled.nav`
   display: flex;
@@ -21,11 +23,15 @@ const HeaderStyle = styled.nav`
 const Header = ({ user }) => {
   return (
     <HeaderStyle>
-      <Logo />
-      <Greeting />
-      <Search />
-      <UserProfile />
-      <UserDropdown />
+      <HeaderLeft>
+        <Logo />
+        <Greeting />
+      </HeaderLeft>
+      <HeaderRight>
+        <Search />
+        <UserProfile />
+        <UserDropdown />
+      </HeaderRight>
     </HeaderStyle>
   )
 }
