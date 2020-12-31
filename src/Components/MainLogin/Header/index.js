@@ -9,7 +9,7 @@ import HeaderRight from "./HeaderRight"
 
 const HeaderStyle = styled.nav`
   width: 100%;
-  max-width: 1192px;
+  max-width: 1320px;
   box-sizing: border-box;
   display: flex;
   justify-content: space-between;
@@ -26,7 +26,7 @@ const HeaderStyle = styled.nav`
   @media (max-width: 727.98px) {
     padding: 0 24px;
     height: 56px;
-    margin: 24px 24px;
+    margin: 24px auto;
   }
 `
 
