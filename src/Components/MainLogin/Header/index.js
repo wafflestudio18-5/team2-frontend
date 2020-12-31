@@ -20,7 +20,7 @@ const HeaderStyle = styled.nav`
   }
 `
 
-const Header = ({ user }) => {
+const Header = ({ user, isSearchboxOpen, onClickSearchButton }) => {
   return (
     <HeaderStyle>
       <HeaderLeft>
@@ -28,7 +28,10 @@ const Header = ({ user }) => {
         <Greeting />
       </HeaderLeft>
       <HeaderRight>
-        <Search />
+        <Search
+          isSearchboxOpen={isSearchboxOpen}
+          onClickSearchButton={onClickSearchButton}
+        />
         <UserProfile profileImage={user.profileImage} />
         <UserDropdown user={user} />
       </HeaderRight>

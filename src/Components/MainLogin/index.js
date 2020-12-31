@@ -13,10 +13,21 @@ import {
 
 const MainStyle = styled.div``
 
-const MainLogin = ({ TrendingPosts, Articles, user, centerArticles }) => {
+const MainLogin = ({
+  TrendingPosts,
+  Articles,
+  user,
+  centerArticles,
+  isSearchboxOpen,
+  onClickSearchButton,
+}) => {
   return (
     <MainStyle>
-      <Header user={user} />
+      <Header
+        user={user}
+        isSearchboxOpen={isSearchboxOpen}
+        onClickSearchButton={onClickSearchButton}
+      />
       <Center centerArticles={centerArticles} />
       <Trending trendingPosts={TrendingPosts} />
       <BottomStyle>
