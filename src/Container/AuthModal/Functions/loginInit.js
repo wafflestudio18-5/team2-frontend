@@ -8,7 +8,7 @@ const loginInit = async (email, setModalType, setEmail) => {
       req_type: "INIT",
       email,
     })
-    setModalType(ModalTypeConstants.EMAIL_SENT)
+    setModalType(ModalTypeConstants.EMAIL_SENT_LOG_IN)
   } catch (error) {
     setEmail("")
     document.getElementById("EmailInputField").value = ""

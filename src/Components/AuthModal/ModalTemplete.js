@@ -141,7 +141,8 @@ const ModalTemplete = ({
           alertWrongEmail={alertWrongEmail}
         />
       )}
-      {ModalType === ModalTypeConstants.EMAIL_SENT && (
+      {(ModalType === ModalTypeConstants.EMAIL_SENT_LOG_IN ||
+        ModalType === ModalTypeConstants.EMAIL_SENT_SIGN_UP) && (
         <ModalEmailSent
           ModalType={ModalType}
           email={email}

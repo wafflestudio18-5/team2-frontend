@@ -8,7 +8,7 @@ const signupInit = async (email, setModalType) => {
       req_type: "INIT",
       email,
     })
-    setModalType(ModalTypeConstants.EMAIL_SENT)
+    setModalType(ModalTypeConstants.EMAIL_SENT_SIGN_UP)
   } catch (error) {
     console.log(error)
   }

@@ -63,7 +63,9 @@ const ModalMediumWriting = ({ ModalType, changeModal, email }) => {
         "Enter the email address associated with your account, and we'll send a magic link to your inbox."}
       {ModalType === ModalTypeConstants.EMAIL_NOT_EXISTS &&
         "Would you like to sign in with a different email?"}
-      {ModalType === ModalTypeConstants.EMAIL_SENT &&
+      {ModalType === ModalTypeConstants.EMAIL_SENT_LOG_IN &&
+        "Click the link we sent to " + email + " to sign in."}
+      {ModalType === ModalTypeConstants.EMAIL_SENT_SIGN_UP &&
         "Click the link we sent to " +
           email +
           " to complete your account set-up."}
