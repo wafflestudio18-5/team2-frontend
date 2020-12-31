@@ -5,9 +5,12 @@ import Search from "./Search"
 import UserDropdown from "./UserDropdown"
 import UserProfile from "./UserProfile"
 
-const HeaderStyle = styled.div`
+const HeaderStyle = styled.nav`
   display: flex;
-  justify-content: space-around;
+  justify-content: space-between;
+  align-items: center;
+  margin: 24px 0;
+  height: 65px;
 `
 
 const Header = ({ user }) => {
