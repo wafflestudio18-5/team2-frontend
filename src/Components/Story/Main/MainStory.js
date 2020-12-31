@@ -24,7 +24,6 @@ const Title = styled.div`
 `;
 
 const StoryBlock = styled.div`
-    margin-top: 33px;
     margin-right: auto;
     margin-left: auto;
 `;

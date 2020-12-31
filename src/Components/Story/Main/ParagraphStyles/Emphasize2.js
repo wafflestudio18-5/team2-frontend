@@ -1,18 +1,18 @@
 import styled from "styled-components"
+import Color from '../../../../Constants/Color';
 
 const Emphasize2 = styled.blockquote`
-  max-width: 740px;
-  width: 100%;
-  min-height: 38px;
-  box-sizing: border-box;
+  padding-left: 30px;
+  margin-top: 2.75em;
+  font-size: 28px;
+  font-weight: lighter;
+  letter-spacing: -0.009em;
+  line-height: 40px;
+  margin-bottom: -0.46em;
+  font-style: normal;
+  color: ${Color.gray};   
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
   word-break: break-word;
-  margin-top: 55px;
-  font-style: italic;
-  font-size: 26px;
-  line-height: 1.48;
-  letter-spacing: -0.012em;
-  color: rgba(0, 0, 0, 0.68);
-  padding-left: 70px;
   :focus {
     outline: 0;
   }

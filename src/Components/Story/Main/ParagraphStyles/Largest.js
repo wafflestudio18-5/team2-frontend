@@ -1,20 +1,20 @@
-import styled from "styled-components"
+import styled from 'styled-components';
+import Color from '../../../../Constants/Color';
 
 const Largest = styled.h3`
-  max-width: 740px;
-  width: 100%;
-  min-height: 34px;
-  box-sizing: border-box;
-  word-break: break-word;
-  margin-top: 45px;
-  font-family: "NotoSans";
-  font-size: 30px;
-  font-weight: 700;
-  line-height: 1.15;
-  letter-spacing: -0.015em;
-  :focus {
-    outline: 0;
-  }
-`
+    line-height: 36px;
+    margin-top: 1.95em;
+    font-size: 30px;
+    letter-spacing: 0;
+    margin-bottom: -0.28em;
+    font-weight: bold;
+    font-style: normal;
+    color: ${Color.borderBlack};
+    font-family: 'NotoSans';
+    word-break: break-word;
+    :focus {
+        outline: 0;
+    }
+`;
 
-export default Largest
+export default Largest;

@@ -1,22 +1,23 @@
-import styled from "styled-components"
-import Color from "../../../../Constants/Color"
+import styled from 'styled-components';
+import Color from '../../../../Constants/Color';
 
 const Emphasize1 = styled.blockquote`
-  max-width: 740px;
-  width: 100%;
-  min-height: 30px;
-  box-sizing: border-box;
-  word-break: break-word;
-  font-family: "Lora";
-  font-style: italic;
-  font-size: 19px;
-  line-height: 1.58;
-  letter-spacing: -0.003em;
-  color: ${Color.black};
-  border-left: 3px solid ${Color.black};
-  :focus {
-    outline: 0;
-  }
-`
+    margin-left: -20px;
+    padding-left: 23px;
+    box-shadow: inset 3px 0 0 0 ${Color.borderBlack};
+    letter-spacing: -0.003em;
+    line-height: 32px;
+    margin-top: 2em;
+    font-size: 21px;
+    margin-bottom: -0.46em;
+    font-family: 'Lora';
+    font-style: italic;
+    color: ${Color.borderBlack};
+    font-weight: 400;
+    word-break: break-word;
+    :focus {
+        outline: 0;
+    }
+`;
 
-export default Emphasize1
+export default Emphasize1;

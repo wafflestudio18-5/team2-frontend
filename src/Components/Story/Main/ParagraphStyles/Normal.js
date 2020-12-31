@@ -1,22 +1,20 @@
-import styled from "styled-components"
-import Color from "../../../../Constants/Color"
+import styled from 'styled-components';
+import Color from '../../../../Constants/Color';
 
 const Normal = styled.p`
-  max-width: 740px;
-  width: 100%;
-  min-height: 31px;
-  box-sizing: border-box;
-  word-break: break-word;
-  margin-top: 54px;
-  font-family: "Lora";
-  font-size: 20px;
-  line-height: 1.58;
-  letter-spacing: -0.003em;
-  margin-bottom: 0;
-  color: ${Color.black};
-  :focus {
-    outline: 0;
-  }
-`
+    letter-spacing: -0.003em;
+    line-height: 32px;
+    margin-top: 2em;
+    font-size: 21px;
+    margin-bottom: -0.46em;
+    font-family: 'Lora';
+    font-style: normal;
+    word-break: break-word;
+    font-weight: 400;
+    color: ${Color.borderblack};
+    :focus {
+        outline: 0;
+    }
+`;
 
-export default Normal
+export default Normal;
