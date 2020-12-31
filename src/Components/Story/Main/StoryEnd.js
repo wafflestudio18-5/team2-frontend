@@ -23,6 +23,7 @@ const Blank2 = styled.div`
 const StoryEnd = () => {
     return (
         <StoryEndWrapper>
+            <Blank1 />
             <UserEnd />
             <Tag />
             <Blank1 />
