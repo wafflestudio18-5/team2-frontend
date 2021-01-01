@@ -10,7 +10,7 @@ const AboutWrapper = styled.div`
     will-change: opacity;
     top: 85.6px;
     position: fixed;
-    width: 20%;
+    width: 22.5%;
 
     @media (min-width: 1200px) {
         ${props =>
@@ -23,7 +23,7 @@ const AboutWrapper = styled.div`
 
 const AboutBlock = styled.div`
     display: block;
-    margin-left: 45%;
+    margin-left: 50%;
     min-width: 0;
     max-width: 1192px;
     width: 100%;

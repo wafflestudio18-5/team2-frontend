@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 const LargeWrapper = styled.figure`
     display: block;
+    background: white;
+    z-index: 1;
     max-width: 1192px;
     min-width: 0;
     width: 100%;
