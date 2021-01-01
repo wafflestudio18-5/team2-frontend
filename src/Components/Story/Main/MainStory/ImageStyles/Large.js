@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Large = styled.figure`
-    max-width: 1032px;
+    max-width: 1192px;
     width: 100%;
     margin: 0 auto;
     margin-top: 52px;
