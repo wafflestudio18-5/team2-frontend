@@ -5,6 +5,7 @@ import DropdownDivider from "./DropdownDivider"
 
 const DivStyle = styled.ul`
   display: flex;
+  max-width: 240px;
   flex-direction: column;
   background: rgb(255, 255, 255);
   border-radius: 3px;
@@ -17,16 +18,21 @@ const DivStyle = styled.ul`
   margin: 0;
 `
 
-const DividerLi = styled.li``
+const DividerLi = styled.li`
+  padding-top: 8px;
+  padding-bottom: 8px;
+`
 
 const LinkLi = styled.li`
   padding: 8px 20px;
 `
 
-const DropdownMain = () => {
+const DropdownMain = ({ user, signOut }) => {
   return (
     <DivStyle>
-      <DropdownUserProfile />
+      <LinkLi>
+        <DropdownUserProfile user={user} />
+      </LinkLi>
       <DividerLi>
         <DropdownDivider />
       </DividerLi>
@@ -43,7 +49,7 @@ const DropdownMain = () => {
         <DropdownDivider />
       </DividerLi>
       <LinkLi>
-        <DropdownLink>Sign out</DropdownLink>
+        <DropdownLink onClick={signOut}>Sign out</DropdownLink>
       </LinkLi>
     </DivStyle>
   )
