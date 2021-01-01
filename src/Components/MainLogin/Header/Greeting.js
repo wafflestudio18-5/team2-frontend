@@ -1,15 +1,14 @@
 import styled from "styled-components"
 import Color from "../../../Constants/Color"
 
-const GreetingStyle = styled.div`
+const GreetingStyle = styled.p`
   margin-left: 16px;
   padding-left: 16px;
   border-left: 1px solid rgba(230, 230, 230, 1);
-  font-weight: 600;
+  font-weight: 700;
   color: ${Color.borderBlack};
   line-height: 28px;
   font-size: 20px;
-  font-family: "Noto Sans";
   letter-spacing: -0.03em;
   white-space: nowrap;
 `
