@@ -23,6 +23,7 @@ const MainLogin = ({
   onClickSearchButton,
   onChangeSearchbox,
   search,
+  signOut,
 }) => {
   return (
     <MainStyle>
@@ -45,7 +46,7 @@ const MainLogin = ({
           </BottomRightStyle>
         </BottomWrapper>
       </BottomStyle>
-      <UserDropdown user={user} />
+      <UserDropdown user={user} signOut={signOut} />
     </MainStyle>
   )
 }

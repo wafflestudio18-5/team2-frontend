@@ -37,13 +37,13 @@ const DropdownMain = ({ user, signOut }) => {
         <DropdownDivider />
       </DividerLi>
       <LinkLi>
-        <DropdownLink>Write a story</DropdownLink>
+        <DropdownLink href="/edit">Write a story</DropdownLink>
       </LinkLi>
       <LinkLi>
-        <DropdownLink>Stories</DropdownLink>
+        <DropdownLink href="/me/stories">Stories</DropdownLink>
       </LinkLi>
       <LinkLi>
-        <DropdownLink>Settings</DropdownLink>
+        <DropdownLink href="me/settings">Settings</DropdownLink>
       </LinkLi>
       <DividerLi>
         <DropdownDivider />
