@@ -54,10 +54,11 @@ const Clap = styled.a`
 const ClapNumberBlock = styled.div`
     display: block;
     margin-top: 5px;
-    margin-left: 6px;
+    padding-left: 6px;
 `;
 
 const ClapNumber = styled.button`
+    padding-bottom: 3px;
     color: ${Color.gray};
     line-height: 20px;
     font-size: 14px;
