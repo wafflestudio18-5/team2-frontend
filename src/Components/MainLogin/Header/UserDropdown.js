@@ -15,11 +15,13 @@ const DropdownArrow = styled.div`
 
 const DropdownWrapper = styled.div`
   position: absolute;
-  margin-top: 15px;
+  margin-top: 150px;
   box-shadow: rgb(230, 230, 230) 0px 1px 4px;
   border: 1px solid rgb(230, 230, 230);
   box-sizing: border-box;
   border-radius: 4px;
+  box-shadow: rgb(117, 117, 117) -1px -1px 1px -1px;
+  z-index: 700;
 `
 
 const UserDropdown = ({ user }) => {

@@ -1,5 +1,5 @@
 import styled from "styled-components"
 
-const DropdownDivider = styled.li``
+const DropdownDivider = styled.div``
 
 export default DropdownDivider

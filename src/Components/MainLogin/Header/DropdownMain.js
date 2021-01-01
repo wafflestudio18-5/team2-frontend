@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import DropdownUserProfile from "./DropdownUserProfile"
-import DropdownButton from "./DropdownButton"
+import DropdownLink from "./DropdownLink"
 import DropdownDivider from "./DropdownDivider"
 
 const DivStyle = styled.ul`
@@ -14,18 +14,37 @@ const DivStyle = styled.ul`
   padding-bottom: 8px;
   align-items: stretch;
   list-style: none;
+  margin: 0;
+`
+
+const DividerLi = styled.li``
+
+const LinkLi = styled.li`
+  padding: 8px 20px;
 `
 
 const DropdownMain = () => {
   return (
     <DivStyle>
       <DropdownUserProfile />
-      <DropdownDivider />
-      <DropdownButton>Write a story</DropdownButton>
-      <DropdownButton>Stories</DropdownButton>
-      <DropdownButton>Settings</DropdownButton>
-      <DropdownDivider />
-      <DropdownButton>Sign out</DropdownButton>
+      <DividerLi>
+        <DropdownDivider />
+      </DividerLi>
+      <LinkLi>
+        <DropdownLink>Write a story</DropdownLink>
+      </LinkLi>
+      <LinkLi>
+        <DropdownLink>Stories</DropdownLink>
+      </LinkLi>
+      <LinkLi>
+        <DropdownLink>Settings</DropdownLink>
+      </LinkLi>
+      <DividerLi>
+        <DropdownDivider />
+      </DividerLi>
+      <LinkLi>
+        <DropdownLink>Sign out</DropdownLink>
+      </LinkLi>
     </DivStyle>
   )
 }
