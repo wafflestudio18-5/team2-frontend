@@ -6,6 +6,7 @@ import Footer from './Footer';
 
 const MainWrapper = styled.div`
     display: flex;
+    box-sizing: border-box;
     justify-content: center;
     width: 100%;
     word-break: break-word;

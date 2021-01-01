@@ -15,6 +15,7 @@ const Emphasize1 = styled.blockquote`
     color: ${Color.borderBlack} !important;
     font-weight: 400;
     word-break: break-word;
+    box-sizing: border-box;
     :focus {
         outline: 0;
     }

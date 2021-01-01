@@ -4,12 +4,26 @@ import Writer from './Writer'
 import Content from './Content'
 
 const MainWrapper = styled.div`
+    width: 100%;
+    display: flex;
+    justify-content: center;
+`
+
+const MainBlock = styled.div`
     display: block;
-    margin: 0 auto;
     max-width: 680px;
     min-width: 0;
     width: 100%;
     word-break: break-word;
+    margin: 0 64px;
+    justify-content: center;
+    box-sizing: border-box;
+    @media (max-width: 728px){
+        margin: 0 24px;
+    }
+    @media (max-width: 904px) and (min-width: 728px){
+        margin: 0 48px;
+    }
 `;
 
 const Kicker = styled.h2`
@@ -24,6 +38,8 @@ const Kicker = styled.h2`
     font-weight: 400;
     font-family: "NotoSans";
     word-break: break-word;
+    width: 100%;
+    box-sizing: border-box;
 `
 
 const Title = styled.div`
@@ -37,6 +53,8 @@ const Title = styled.div`
     word-break: break-word;
     font-family: sohne, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     color: ${Color.borderBlack};
+    width: 100%;
+    box-sizing: border-box;
 `;
 
 const SubTitle = styled.h2`
@@ -47,11 +65,15 @@ const SubTitle = styled.h2`
     color: ${Color.gray};
     font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
     font-weight: 400;
+    width: 100%;
+    box-sizing: border-box;
 `
 
 const StoryBlock = styled.div`
     margin-right: auto;
     margin-left: auto;
+    width: 100%;
+    box-sizing: border-box;
 `;
 
 const MainStory = ( {story} ) => {
@@ -67,11 +89,13 @@ const MainStory = ( {story} ) => {
     })
     return(
         <MainWrapper>
-            <Kicker>Kicker</Kicker>
-            <Title>Title</Title>
-            <SubTitle>Subtitle</SubTitle>
-            <Writer />
-            {article}
+            <MainBlock>
+                <Kicker>Kicker</Kicker>
+                <Title>Title</Title>
+                <SubTitle>Subtitle</SubTitle>
+                <Writer />
+                {article}
+            </MainBlock>    
         </MainWrapper>
     );
 };

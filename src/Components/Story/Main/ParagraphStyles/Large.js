@@ -12,6 +12,7 @@ const Large = styled.h4`
     color: ${Color.borderBlack};
     font-family: 'NotoSans';
     word-break: break-word;
+    box-sizing: border-box;
     :focus {
         outline: 0;
     }

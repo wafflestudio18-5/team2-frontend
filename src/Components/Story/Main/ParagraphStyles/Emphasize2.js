@@ -13,6 +13,7 @@ const Emphasize2 = styled.blockquote`
   color: ${Color.gray};   
   font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
   word-break: break-word;
+  box-sizing: border-box;
   :focus {
     outline: 0;
   }

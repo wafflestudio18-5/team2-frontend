@@ -13,6 +13,7 @@ const Normal = styled.p`
     font-weight: 400;
     color: ${Color.borderblack};
     text-decoration: none;
+    box-sizing: border-box;
     :focus {
         outline: 0;
     }

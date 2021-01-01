@@ -12,6 +12,7 @@ const Largest = styled.h3`
     color: ${Color.borderBlack};
     font-family: 'NotoSans';
     word-break: break-word;
+    box-sizing: border-box;
     :focus {
         outline: 0;
     }
