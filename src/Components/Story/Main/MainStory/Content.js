@@ -21,7 +21,7 @@ const Content = ({ section }) => {
                 </StoryBlock>
             );
         }
-        if (content.type === 'image') {
+        if (content.type === 'image') { //image가 들어있는 section에는 paragraph없이 image 하나만으로 구성 부탁드립니다.
             isimage = true;
             contents.push(
                 <Image detail={content.detail} />
@@ -29,7 +29,9 @@ const Content = ({ section }) => {
         }
     });
     if (isimage) {
-        return <MainWrapper>{contents}</MainWrapper>;
+        return (
+            <MainWrapper>{contents}</MainWrapper>
+        );
     } else {
         return (
             <MainWrapper>

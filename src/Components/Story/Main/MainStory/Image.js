@@ -14,7 +14,7 @@ const ImageStyle = ({ size, children }) => {
             return (
                 <NormalWrapper>
                     <StoryBlock>
-                        <Normal>{children}</Normal>;
+                        <Normal>{children}</Normal>
                     </StoryBlock>
                 </NormalWrapper>
             );
@@ -23,7 +23,7 @@ const ImageStyle = ({ size, children }) => {
             return (
                 <LargeWrapper>
                     <StoryBlock>
-                        <Large>{children}</Large>;
+                        <Large>{children}</Large>
                     </StoryBlock>
                 </LargeWrapper>
             );
@@ -32,7 +32,7 @@ const ImageStyle = ({ size, children }) => {
             return (
                 <LargestWrapper>
                     <StoryBlock>
-                        <Largest>{children}</Largest>;
+                        <Largest>{children}</Largest>
                     </StoryBlock>
                 </LargestWrapper>
             );

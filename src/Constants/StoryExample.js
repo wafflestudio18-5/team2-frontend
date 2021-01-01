@@ -4,11 +4,10 @@ const StoryExample = [
     {
       type: "image",
       detail: {
-        size: "normal", //이미지의 크기를 결정. small, normal, large, largest있음.
-        //이미지 주소
+        size: "normal", 
         imgsrc:
           "https://miro.medium.com/max/2363/1*G7_pAKAKTmM9bjob5OSTDA.jpeg",
-        content: "normal", //캡션
+        content: "normal", 
       },
     },
   ],
@@ -39,11 +38,10 @@ const StoryExample = [
     {
       type: "image",
       detail: {
-        size: "large", //이미지의 크기를 결정. small, normal, large, largest있음.
-        //이미지 주소
+        size: "large", 
         imgsrc:
           "https://miro.medium.com/max/2363/1*G7_pAKAKTmM9bjob5OSTDA.jpeg",
-        content: "large", //캡션
+        content: "large",
       },
     },
   ],
@@ -68,11 +66,10 @@ const StoryExample = [
     {
       type: "image",
       detail: {
-        size: "largest", //이미지의 크기를 결정. small, normal, large, largest있음.
-        //이미지 주소
+        size: "largest", 
         imgsrc:
           "https://miro.medium.com/max/2363/1*G7_pAKAKTmM9bjob5OSTDA.jpeg",
-        content: "largest", //캡션
+        content: "largest", 
       },
     },
   ],
