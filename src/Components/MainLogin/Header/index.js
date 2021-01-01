@@ -51,8 +51,8 @@ const Header = ({
           search={search}
         />
         <UserProfile profileImage={user.profileImage} />
-        <UserDropdown user={user} />
       </HeaderRight>
+      <UserDropdown user={user} />
     </HeaderStyle>
   )
 }
