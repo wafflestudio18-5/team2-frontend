@@ -3,6 +3,7 @@ import Normal from './ImageStyles/Normal';
 import Large from './ImageStyles/Large';
 import Largest from './ImageStyles/Largest';
 import styled from 'styled-components';
+import Color from '../../../Constants/Color'
 
 const ImageStyle = ({ size, children }) => {
     switch (size) {
@@ -31,7 +32,7 @@ const Caption = styled.figcaption`
     font-weight: 400;
     font-size: 14px;
     line-height: 1.4;
-    color: rgba(0, 0, 0, 0.68);
+    color: ${Color.gray}
     letter-spacing: 0;
     width: 100%;
     margin-top: 10px;
