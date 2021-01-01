@@ -9,7 +9,7 @@ const HeaderRightWrapper = styled.div`
     box-sizing: border-box;
     align-items: center;
     justify-content: flex-end;
-    margin-bottom: -18px;
+    margin-bottom: -8px;
 `;
 
 const SigninBlock = styled.div`

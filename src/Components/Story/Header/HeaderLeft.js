@@ -8,6 +8,7 @@ const HeaderLeftWrapper = styled.div`
     box-sizing: border-box;
     align-items: center;
     justify-content: flex-start;
+    margin-bottom: 10px;
 `;
 
 const HeaderLeftBox = styled.div`
