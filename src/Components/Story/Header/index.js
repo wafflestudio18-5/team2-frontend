@@ -19,12 +19,18 @@ const HeaderBlock = styled.div`
     display: flex;
     width: 100%;
     padding: 0 20px;
-    margin: 0 auto;
     max-width: 1192px;
     box-sizing: inherit;
     min-height: 115px;
     flex-direction: row;
     align-items: center;
+    margin: 0 64px;
+    @media (max-width: 728px){
+        margin: 0 24px;
+    }
+    @media (max-width: 904px) and (min-width: 728px){
+        margin: 0 48px;
+    }
 `;
 
 const Header = ({ showModal }) => {

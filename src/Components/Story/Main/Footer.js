@@ -19,6 +19,12 @@ const FooterContentWrapper = styled.div`
     width: 100%;
     height: 32px;
     margin: 0 64px;
+    @media (max-width: 728px){
+        margin: 0 24px;
+    }
+    @media (max-width: 904px) and (min-width: 728px){
+        margin: 0 48px;
+    }
 `;
 
 const FooterContentBlock = styled.div`
