@@ -125,12 +125,12 @@ const Bookmark = styled.button`
     }
 `;
 
-const About = ({ reachScrollCheckPoint }) => {
+const About = ({ reachScrollCheckPoint, userinfo, storyinfo }) => {
     return (
         <AboutWrapper reachScrollCheckPoint={reachScrollCheckPoint}>
             <AboutBlock>
                 <AboutInnerBlock>
-                    <WriterInfo />
+                    <WriterInfo userinfo={userinfo}/>
                     <ClapBlock>
                         <Clap>
                             <svg width="29" height="29" aria-label="clap">
@@ -140,7 +140,7 @@ const About = ({ reachScrollCheckPoint }) => {
                             </svg>
                         </Clap>
                         <ClapNumberBlock>
-                            <ClapNumber>0</ClapNumber>
+                            <ClapNumber>{storyinfo.clapnum}</ClapNumber>
                         </ClapNumberBlock>
                     </ClapBlock>
                     <ResponseBlock>
@@ -152,7 +152,7 @@ const About = ({ reachScrollCheckPoint }) => {
                                         fill-rule="evenodd"
                                     ></path>
                                 </svg>
-                                <ResponseNumber>0</ResponseNumber>
+                                <ResponseNumber>{storyinfo.responsenum}</ResponseNumber>
                             </ResponseWrapper>
                         </Response>
                     </ResponseBlock>

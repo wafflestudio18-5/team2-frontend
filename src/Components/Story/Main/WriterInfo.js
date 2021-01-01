@@ -69,15 +69,15 @@ const FollowButton = styled.button`
     cursor: pointer;
 `;
 
-const WriterInfo = () => {
+const WriterInfo = ({userinfo}) => {
     return (
         <WriterInfoBlock>
             <WrittenBy>written by</WrittenBy>
             <UserNameBlock>
-                <UserName href="https://medium.com/username">UserName</UserName>
+                <UserName href={userinfo.url}>{userinfo.name}</UserName>
             </UserNameBlock>
             <UserInfoBlock>
-                <UserInfo>UserInfo</UserInfo>
+                <UserInfo>{userinfo.userinfo}</UserInfo>
             </UserInfoBlock>
             <FollowBlock>
                 <FollowButton>Follow</FollowButton>

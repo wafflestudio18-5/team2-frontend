@@ -83,7 +83,7 @@ const StoryBlock = styled.div`
     box-sizing: border-box;
 `;
 
-const MainStory = ( {story} ) => {
+const MainStory = ( {story, userinfo, storyinfo} ) => {
     let article = []
     story.forEach((section) => {
         article.push(
@@ -98,10 +98,10 @@ const MainStory = ( {story} ) => {
         <MainWrapper>
             <MainBlock>
                 <Blank />
-                <Kicker>Kicker</Kicker>
-                <Title>Title</Title>
-                <SubTitle>Subtitle</SubTitle>
-                <Writer />
+                <Kicker>{storyinfo.kicker}</Kicker>
+                <Title>{storyinfo.title}</Title>
+                <SubTitle>{storyinfo.subtitle}</SubTitle>
+                <Writer userinfo={userinfo} storyinfo={storyinfo} />
                 {article}
             </MainBlock>    
         </MainWrapper>

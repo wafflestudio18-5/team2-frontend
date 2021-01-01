@@ -38,12 +38,12 @@ const HeaderBlock = styled.div`
 `;
 
 
-const Header = ({ showModal }) => {
+const Header = ({ showModal, userinfo }) => {
     console.log("width: "+window.innerWidth);
     return (
         <HeaderWrapper>
             <HeaderBlock>
-                <HeaderLeft />
+                <HeaderLeft userinfo={userinfo} />
                 <HeaderRight showModal={showModal} />
             </HeaderBlock>
         </HeaderWrapper>

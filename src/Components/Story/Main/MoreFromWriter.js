@@ -66,16 +66,16 @@ const WriterInfo = styled.p`
     margin: 0;
 `;
 
-const MoreFromWriter = () => {
+const MoreFromWriter = ({userinfo}) => {
     return (
         <MoreFromWriterWrapper>
             <MoreFromWriterBlock>
                 <WriterNameBlock>
-                    <WriterName href="https://medium.com/@username">UserName</WriterName>
+                    <WriterName href={userinfo.url}>{userinfo.name}</WriterName>
                     <FollowButton>Follow</FollowButton>
                 </WriterNameBlock>
                 <WriterInfoBlock>
-                    <WriterInfo>UserInfo</WriterInfo>
+                    <WriterInfo>{userinfo.userinfo}</WriterInfo>
                 </WriterInfoBlock>
             </MoreFromWriterBlock>
         </MoreFromWriterWrapper>

@@ -34,31 +34,19 @@ const TagA = styled.a`
     font-weight: 400;
 `
 
-const Tag = () => {
+const Tag = ({tag}) => {
+    let tags = []
+    tag.forEach((Tag) => {
+        tags.push(
+            <TagStyle>
+                <TagA href={Tag.url}>{Tag.name}</TagA>
+            </TagStyle>
+        )
+    })
     return(
         <TagWrapper>
         <TagBlock>
-            <TagStyle>
-                <TagA href="https://medium.com/tag/tag">tag</TagA>
-            </TagStyle>
-            <TagStyle>
-                <TagA href="https://medium.com/tag/longtag">longtag</TagA>
-            </TagStyle>
-            <TagStyle>
-                <TagA href="https://medium.com/tag/longlongtag">longlongtag</TagA>
-            </TagStyle>
-            <TagStyle>
-                <TagA href="https://medium.com/tag/longlongtag">longlongtag</TagA>
-            </TagStyle>
-            <TagStyle>
-                <TagA href="https://medium.com/tag/verylongtag">very very very very very very very very very very long tag</TagA>
-            </TagStyle>
-            <TagStyle>
-                <TagA href="https://medium.com/tag/tag">tag</TagA>
-            </TagStyle>
-            <TagStyle>
-                <TagA href="https://medium.com/tag/tag">tag</TagA>
-            </TagStyle>
+            {tags}
         </TagBlock>
     </TagWrapper>
     );

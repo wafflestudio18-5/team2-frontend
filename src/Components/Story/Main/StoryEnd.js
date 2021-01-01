@@ -32,15 +32,15 @@ const Blank2 = styled.div`
     display: block;
     padding-top: 25px;
 `
-const StoryEnd = () => {
+const StoryEnd = ({tag, storyinfo, userinfo}) => {
     return (
         <StoryEndWrapper>
             <StoryEndBlock>
                 <Blank1 />
-                <UserEnd />
-                <Tag />
+                <UserEnd storyinfo={storyinfo}/>
+                <Tag tag={tag}/>
                 <Blank1 />
-                <MoreFromWriter />
+                <MoreFromWriter userinfo={userinfo}/>
                 <Blank2 />
             </StoryEndBlock>
         </StoryEndWrapper>

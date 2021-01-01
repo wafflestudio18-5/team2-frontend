@@ -55,9 +55,39 @@ const StoryPage = () => {
     const { user, story } = useParams(); //이용해서 해당하는 유저, 스토리 가져오기
     console.log(user, story);
 
+    //sample
+    const userinfo = {
+        img: 'https://miro.medium.com/fit/c/56/56/1*dmbNkD5D-u45r44go_cf0g.png',
+        name: 'UserName',
+        userinfo: 'UserInfo',
+        url: 'https://medium.com/username',
+    };
+    const storyinfo = {
+        title: 'Title',
+        kicker: 'kicker',
+        subtitle: 'Subtitle',
+        clapnum: 0,
+        responsenum: 0,
+        url: '/user/story',
+        date: 'Nov 30',
+        time: '9 min'
+    };
+    const tag = [
+        { name: 'tag', url: 'https://medium.com/tag/tag' },
+        { name: 'long tag', url: 'https://medium.com/tag/long_tag' },
+        { name: 'long long tag', url: 'https://medium.com/tag/long_long_tag' },
+    ];
+
     return (
         <div>
-            <Story showModal={showModal} reachScrollCheckPoint={reachScrollCheckPoint} story={StoryExample} />
+            <Story
+                showModal={showModal}
+                reachScrollCheckPoint={reachScrollCheckPoint}
+                story={StoryExample}
+                storyinfo={storyinfo}
+                userinfo={userinfo}
+                tag={tag}
+            />
             {modalShow && <AuthModalContainer hideModal={hideModal} modalVisible={modalVisible} ModalType={ModalType} />}
         </div>
     );

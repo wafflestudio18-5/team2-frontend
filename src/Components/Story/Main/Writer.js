@@ -99,20 +99,20 @@ const IconButtonAType = styled.a`
     cursor: pointer;
 `;
 
-const Writer = () => {
+const Writer = ({userinfo, storyinfo}) => {
     return (
         <WriterWrapper>
             <WriterBlock>
                 <WriterLeft>
-                    <a href="https://medium.com/@username">
-                        <WriterPicture src="https://miro.medium.com/fit/c/56/56/1*dmbNkD5D-u45r44go_cf0g.png" />
+                    <a href={userinfo.url}>
+                        <WriterPicture src={userinfo.img} />
                     </a>
                     <WriterInfoBlock>
                         <WriterNameBlock>
-                            <WriterName href="https://medium.com/@username">UserName</WriterName>
+                            <WriterName href={userinfo.url}>{userinfo.name}</WriterName>
                         </WriterNameBlock>
                         <DateAndTimeSpan>
-                            <DateAndTime href="/main/story">&nbsp;&nbsp;Nov 30&nbsp;&middot;&nbsp;9 min read</DateAndTime>
+                            <DateAndTime href={storyinfo.url}>&nbsp;&nbsp;{storyinfo.date}&nbsp;&middot;&nbsp;{storyinfo.time} read</DateAndTime>
                         </DateAndTimeSpan>
                     </WriterInfoBlock>
                 </WriterLeft>

@@ -107,16 +107,16 @@ const FollowButton = styled.button`
     cursor: pointer;
 `;
 
-const HeaderLeft = () => {
+const HeaderLeft = ( {userinfo} ) => {
     return (
         <HeaderLeftWrapper>
             <HeaderLeftBox>
                 <UserNameBlock>
-                    <UserName href="https://medium.com/@username">UserName</UserName>
+                    <UserName href={userinfo.url}>{userinfo.name}</UserName>
                 </UserNameBlock>
                 <UserInfoWrapper>
                     <UserInfoBlock>
-                        <About href="https://medium.com/@username/about">About</About>
+                        <About href={userinfo.url.concat("/about")}>About</About>
                         <FollowBlock>
                             <FollowButton>Follow</FollowButton>
                         </FollowBlock>
