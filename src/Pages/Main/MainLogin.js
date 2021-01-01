@@ -4,10 +4,10 @@ import handleScroll from "./Functions/handleScroll"
 import onClickSearchButton from "./Functions/onClickSearchButton"
 import onChangeSearchbox from "./Functions/onChangeSearchbox"
 import search from "./Functions/search"
+import getCurrentUser from "./Functions/getCurrentUser"
 import MainLogin from "../../Components/MainLogin"
 import Articles from "../../Constants/Articles"
 import TrendingPosts from "../../Constants/TrendingPosts"
-import { getUserMeAbout } from "../../api"
 
 const MainLoginPage = ({ token }) => {
   //로그인 하지 않았을 때 페이지
@@ -25,16 +25,9 @@ const MainLoginPage = ({ token }) => {
   // const [user, setUser] = useState({})
 
   // useEffect(() => {
-  //   getUserMeAbout(token)
-  //     .then((response) => {
-  //       setUser(response.data)
-  //     })
-  //     .catch((error) => {
-  //       console.log(error)
-  //     })
-
+  //   getCurrentUser(token, setUser)
   //   // TODO: 글 불러오는 작업 추가
-  //   }, [token])
+  // }, [token])
 
   // states
   // 헤더의 검색창이 열려있는지 닫혀있는지
