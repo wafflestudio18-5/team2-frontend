@@ -9,6 +9,14 @@ const MainWrapper = styled.div`
     justify-content: center;
 `
 
+const Blank = styled.div`
+    margin-top: 3.88em;
+    
+    @media (max-width: 728px) {
+        margin-top: 2.64em;   
+    }
+`
+
 const MainBlock = styled.div`
     display: block;
     max-width: 680px;
@@ -27,7 +35,6 @@ const MainBlock = styled.div`
 `;
 
 const Kicker = styled.h2`
-    margin-top: 3.88em;
     text-transform: uppercase;
     margin-bottom: -0.31em;
     font-size: 13px;
@@ -90,6 +97,7 @@ const MainStory = ( {story} ) => {
     return(
         <MainWrapper>
             <MainBlock>
+                <Blank />
                 <Kicker>Kicker</Kicker>
                 <Title>Title</Title>
                 <SubTitle>Subtitle</SubTitle>
