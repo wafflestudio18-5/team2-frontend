@@ -35,8 +35,8 @@ const Kicker = styled.h2`
     letter-spacing: 0.077em;
     line-height: 18px;
     color: ${Color.gray};
-    font-weight: 400;
-    font-family: "NotoSans";
+    font-weight: 400;    
+    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
     word-break: break-word;
     width: 100%;
     box-sizing: border-box;
