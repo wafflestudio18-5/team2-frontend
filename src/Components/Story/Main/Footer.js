@@ -17,8 +17,8 @@ const FooterContentWrapper = styled.div`
     min-width: 0;
     max-width: 1192px;
     width: 100%;
-    margin: 0 auto;
     height: 32px;
+    margin: 0 64px;
 `;
 
 const FooterContentBlock = styled.div`
