@@ -12,11 +12,14 @@ const Emphasize1 = styled.blockquote`
     margin-bottom: -0.46em;
     font-family: 'Lora';
     font-style: italic;
-    color: ${Color.borderBlack};
+    color: ${Color.borderBlack} !important;
     font-weight: 400;
     word-break: break-word;
     :focus {
         outline: 0;
+    }
+    a {
+      color: inherit
     }
 `;
 

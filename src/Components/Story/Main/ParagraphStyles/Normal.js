@@ -12,8 +12,12 @@ const Normal = styled.p`
     word-break: break-word;
     font-weight: 400;
     color: ${Color.borderblack};
+    text-decoration: none;
     :focus {
         outline: 0;
+    }
+    a {
+        color: inherit
     }
 `;
 

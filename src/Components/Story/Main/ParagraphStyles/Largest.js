@@ -15,6 +15,9 @@ const Largest = styled.h3`
     :focus {
         outline: 0;
     }
+    a {
+      color: inherit
+    }
 `;
 
 export default Largest;

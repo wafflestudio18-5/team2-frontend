@@ -5,11 +5,13 @@ import Emphasize1 from "./ParagraphStyles/Emphasize1"
 import Emphasize2 from "./ParagraphStyles/Emphasize2"
 
 const Paragraph = ({ content, emphasizing }) => {
+  let removetag = content.replace(/(<([^>]+)>)/gi, "");
+  let removetagexcepta =  content.replace(/<(?!\/?a(?=>|\s.*>))\/?.*?>/, "").replace("<strong>","");
   switch (emphasizing) {
     case "largest":
       return (
         <Largest
-          dangerouslySetInnerHTML={{ __html: content.replace(/(<([^>]+)>)/gi, "") }}
+          dangerouslySetInnerHTML={{ __html: removetag }}
           data-emphasizing={emphasizing}
         />
       )
@@ -17,7 +19,7 @@ const Paragraph = ({ content, emphasizing }) => {
     case "large":
       return (
         <Large
-          dangerouslySetInnerHTML={{ __html: content.replace(/(<([^>]+)>)/gi, "") }}
+          dangerouslySetInnerHTML={{ __html: removetagexcepta }}
           data-emphasizing={emphasizing}
         />
       )
@@ -41,7 +43,7 @@ const Paragraph = ({ content, emphasizing }) => {
     case "emphasize2":
       return (
         <Emphasize2
-          dangerouslySetInnerHTML={{ __html: content.replace(/(<([^>]+)>)/gi, "") }}
+          dangerouslySetInnerHTML={{ __html: removetagexcepta }}
           data-emphasizing={emphasizing}
         />
       )

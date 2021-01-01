@@ -25,21 +25,21 @@ const StoryExample = [
     {
       type: "paragraph",
       detail: {
-        content: "This is Sample Text. <em>This is Sample Text.</em> <strong>This is Sample Text.</strong> This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. ",
+        content: "<a href='/main' color=#292929>This is Sample Text.</a> <em>This is Sample Text.</em> <strong>This is Sample Text.</strong> This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. ",
         emphasizing: "largest",
       }
     },
     {
       type: "paragraph",
       detail: {
-        content: "This is Sample Text. <em>This is Sample Text.</em> <strong>This is Sample Text.</strong> This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. ",
+        content: "<a href='/main' color=#292929>This is Sample Text.</a> <em>This is Sample Text.</em> <strong>This is Sample Text.</strong> This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. ",
         emphasizing: "large",
       }
     },
     {
       type: "paragraph",
       detail: {
-        content: "This is Sample Text. <em>This is Sample Text.</em> <strong>This is Sample Text.</strong> This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. ",
+        content: "<a href='/main' color=#292929>This is Sample Text.</a> <em>This is Sample Text.</em> <strong>This is Sample Text.</strong> This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. ",
         emphasizing: "normal",
       }
     },
@@ -48,14 +48,14 @@ const StoryExample = [
     {
       type: "paragraph",
       detail: {
-        content: "This is Sample Text. <em>This is Sample Text.</em> <strong>This is Sample Text.</strong> This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. ",
+        content: "<a href='/main' color=#292929>This is Sample Text.</a> <em>This is Sample Text.</em> <strong>This is Sample Text.</strong> This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. ",
         emphasizing: "emphasize1",
       }
     },
     {
       type: "paragraph",
       detail: {
-        content: "This is Sample Text. <em>This is Sample Text.</em> <strong>This is Sample Text.</strong> This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. ",
+        content: "<a href='/main' color=#292929>This is Sample Text.</a> <em>This is Sample Text.</em> <strong>This is Sample Text.</strong> This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. ",
         emphasizing: "emphasize2",
       }
     },

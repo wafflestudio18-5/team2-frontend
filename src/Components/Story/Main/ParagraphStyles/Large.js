@@ -15,6 +15,9 @@ const Large = styled.h4`
     :focus {
         outline: 0;
     }
+    a {
+      color: inherit
+    }
 `;
 
 export default Large;

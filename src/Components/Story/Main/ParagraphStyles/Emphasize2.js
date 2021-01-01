@@ -16,6 +16,9 @@ const Emphasize2 = styled.blockquote`
   :focus {
     outline: 0;
   }
+  a {
+    color: inherit
+  }
 `
 
 export default Emphasize2
