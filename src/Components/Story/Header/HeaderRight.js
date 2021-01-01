@@ -25,10 +25,9 @@ const HeaderRightWrapper = styled.div`
 `; //편의상 fixed로 두었습니다.(실제로는 내용이 같은 새로운 header 만들어서 특정 스크롤 지나면 위에서 새로운 header가 튀어나오는 방식 )
 
 const HeaderRightBlock = styled.div`
-    display: none;
+    display: flex;
+    width: 100%;
     @media (max-width: 728px){
-        display: flex;
-        width: 100%;
         margin: 0 24px;
     }
 `
@@ -88,6 +87,13 @@ const Logo = styled.a`
     }
 `
 
+const Mobile = styled.div`
+    display: none;
+    @media (max-width: 728px){
+        display: flex;
+    }
+`
+
 const HeaderRight = ({ showModal }) => {
     return (
         <HeaderRightWrapper>
@@ -111,11 +117,11 @@ const HeaderRight = ({ showModal }) => {
                             Get Started
                         </Getstarted>
                     </GetstartedBlock>
-                    <SigninBlock>
+                    <Mobile>
                         <Signin>
                             Open in app
                         </Signin>
-                    </SigninBlock>
+                    </Mobile>
                 </ButtonBlock>
                 <Logo href="/main">
                     <svg height="25px" viewBox="0 0 1043.63 592.71">

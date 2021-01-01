@@ -21,7 +21,6 @@ const HeaderWrapper = styled.div`
 const HeaderBlock = styled.div`
     display: flex;
     width: 100%;
-    padding: 0 20px;
     max-width: 1192px;
     box-sizing: inherit;
     min-height: 115px;
@@ -31,6 +30,7 @@ const HeaderBlock = styled.div`
     @media (max-width: 728px){
         margin: 0 24px;
         flex-direction: column;
+        padding: 0 20px;
     }
     @media (max-width: 904px) and (min-width: 728px){
         margin: 0 48px;
