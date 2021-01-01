@@ -6,7 +6,7 @@ import StoryPage from "./Pages/Story/Story"
 const routes = {
   main: { path: "/main", component: MainPage },
   edit: { path: "/edit", component: EditPage },
-  story: { path: '/story/:storyid', component: StoryPage },
+  story: { path: '/story/:story_id', component: StoryPage },
   callback: { path: "/callback", component: CallbackPage },
 }
 export { routes };

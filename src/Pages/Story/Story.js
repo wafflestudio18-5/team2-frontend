@@ -52,8 +52,8 @@ const StoryPage = () => {
         }
     });
 
-    const { user, story } = useParams(); //이용해서 해당하는 유저, 스토리 가져오기
-    console.log(user, story);
+    const { story_id } = useParams(); //이용해서 해당하는 유저, 스토리 가져오기
+    console.log( story_id );
 
     //sample
     const userinfo = {
