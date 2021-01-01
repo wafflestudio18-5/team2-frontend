@@ -13,6 +13,9 @@ const HeaderWrapper = styled.div`
     align-items: center;
     justify-content: center;
     flex-direction: column;
+    @media (max-width: 728px) {
+        height: 231px;
+    }
 `;
 
 const HeaderBlock = styled.div`
@@ -27,13 +30,16 @@ const HeaderBlock = styled.div`
     margin: 0 64px;
     @media (max-width: 728px){
         margin: 0 24px;
+        flex-direction: column;
     }
     @media (max-width: 904px) and (min-width: 728px){
         margin: 0 48px;
     }
 `;
 
+
 const Header = ({ showModal }) => {
+    console.log("width: "+window.innerWidth);
     return (
         <HeaderWrapper>
             <HeaderBlock>

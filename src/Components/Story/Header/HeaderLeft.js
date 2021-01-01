@@ -9,6 +9,10 @@ const HeaderLeftWrapper = styled.div`
     align-items: center;
     justify-content: flex-start;
     margin-bottom: 10px;
+    @media (max-width: 728px) {
+        order: 2;
+        width: 100%;
+    }
 `;
 
 const HeaderLeftBox = styled.div`
@@ -19,6 +23,10 @@ const HeaderLeftBox = styled.div`
     margin-bottom: 0px;
     flex-direction: row;
     width: 100%;
+    @media (max-width: 728px) {
+        flex-direction: column;
+        align-items: flex-start;
+    }
 `;
 const UserNameBlock = styled.div`
     margin-right: 24px;
@@ -26,6 +34,10 @@ const UserNameBlock = styled.div`
     margin-bottom: -6px;
     display: block;
     box-sizing: inherit;
+    @media (max-width: 728px) {
+        margin-top: 120px;
+        margin-bottom: 8px;
+    }
 `;
 
 const UserName = styled.a`
@@ -62,12 +74,21 @@ const About = styled.a`
     font-weight: 400;
     text-decoration: none;
     margin: 0;
+    
+    @media (max-width: 728px) {
+        order: 2;
+    }
 `;
 
 const FollowBlock = styled.div`
     margin-left: 24px;
     display: block;
     margin-bottom: -5px;
+    @media (max-width: 728px) {
+        order: 1;
+        margin-left: 0;
+        margin-right: 24px;
+    }
 `;
 
 const FollowButton = styled.button`
