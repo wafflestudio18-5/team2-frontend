@@ -35,6 +35,7 @@ const Header = ({
   onClickSearchButton,
   onChangeSearchbox,
   search,
+  openDropdown,
 }) => {
   return (
     <HeaderStyle>
@@ -49,7 +50,10 @@ const Header = ({
           onChangeSearchbox={onChangeSearchbox}
           search={search}
         />
-        <UserProfile profileImage={user.profileImage} />
+        <UserProfile
+          profileImage={user.profileImage}
+          openDropdown={openDropdown}
+        />
       </HeaderRight>
     </HeaderStyle>
   )

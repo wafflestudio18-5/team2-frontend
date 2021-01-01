@@ -26,6 +26,9 @@ const MainLogin = ({
   onChangeSearchbox,
   search,
   signOut,
+  isDropdownOpened,
+  openDropdown,
+  hideDropdown,
 }) => {
   return (
     <MainStyle>
@@ -35,6 +38,7 @@ const MainLogin = ({
         onClickSearchButton={onClickSearchButton}
         onChangeSearchbox={onChangeSearchbox}
         search={search}
+        openDropdown={openDropdown}
       />
       <Center centerArticles={centerArticles} />
       <Trending trendingPosts={TrendingPosts} />
@@ -48,7 +52,13 @@ const MainLogin = ({
           </BottomRightStyle>
         </BottomWrapper>
       </BottomStyle>
-      <UserDropdown user={user} signOut={signOut} />
+      {isDropdownOpened && (
+        <UserDropdown
+          user={user}
+          signOut={signOut}
+          hideDropdown={hideDropdown}
+        />
+      )}
     </MainStyle>
   )
 }

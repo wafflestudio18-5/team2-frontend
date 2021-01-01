@@ -10,9 +10,9 @@ const Background = styled.div`
   right: 0;
 `
 
-const UserDropdown = ({ ...props }) => {
+const UserDropdown = ({ hideDropdown, ...props }) => {
   return (
-    <Background>
+    <Background onClick={hideDropdown}>
       <DropdownContent {...props} />
     </Background>
   )

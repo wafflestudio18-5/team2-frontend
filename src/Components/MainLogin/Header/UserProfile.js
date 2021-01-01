@@ -16,13 +16,13 @@ const ProfileImage = styled.img`
   vertical-align: middle;
 `
 
-const UserProfile = ({ profileImage }) => {
+const UserProfile = ({ profileImage, openDropdown }) => {
   let profileImageUrl = profileImage
   if (profileImage === "") {
     profileImageUrl = default_profile_image
   }
   return (
-    <ButtonStyle>
+    <ButtonStyle onClick={openDropdown}>
       <ProfileImage src={profileImageUrl} />
     </ButtonStyle>
   )
