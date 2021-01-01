@@ -1,10 +1,12 @@
 import { useEffect, useState } from "react"
 import { useHistory } from "react-router-dom"
+import { useCookies } from "react-cookie"
 import handleScroll from "./Functions/handleScroll"
 import onClickSearchButton from "./Functions/onClickSearchButton"
 import onChangeSearchbox from "./Functions/onChangeSearchbox"
 import search from "./Functions/search"
 import getCurrentUser from "./Functions/getCurrentUser"
+import logout from "./Functions/logout"
 import MainLogin from "../../Components/MainLogin"
 import Articles from "../../Constants/Articles"
 import TrendingPosts from "../../Constants/TrendingPosts"
@@ -41,6 +43,7 @@ const MainLoginPage = ({ token }) => {
   const [fetching, setFetching] = useState(false)
 
   const history = useHistory()
+  const removeCookie = useCookies(["auth"])[2]
 
   window.addEventListener("resize", () => {
     const dropdown = document.getElementById("dropdown")
@@ -84,6 +87,7 @@ const MainLoginPage = ({ token }) => {
       isDropdownOpened={isDropdownOpened}
       openDropdown={() => setIsDropdownOpened(true)}
       hideDropdown={() => setIsDropdownOpened(false)}
+      signOut={() => logout(token, removeCookie)}
     />
   )
 }

@@ -23,3 +23,10 @@ export const postUserLogin = async (body) => {
   const response = await axios.post("user/login/", body)
   return response
 }
+
+export const postUserLogout = async (token) => {
+  // POST /user/logout/
+  const config = { Authorization: "Auth" + token }
+  const response = await axios.post("user/logout/", {}, config)
+  return response
+}
