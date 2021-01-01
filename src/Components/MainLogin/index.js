@@ -12,7 +12,9 @@ import {
   BottomRightStyle,
 } from "../Main/Bottom/Bottom"
 
-const MainStyle = styled.div``
+const MainStyle = styled.div`
+  position: relative;
+`
 
 const MainLogin = ({
   TrendingPosts,
