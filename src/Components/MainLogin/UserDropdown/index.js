@@ -22,7 +22,8 @@ const DropdownWrapper = styled.div`
   border-radius: 4px;
   box-shadow: rgb(117, 117, 117) -1px -1px 1px -1px;
   z-index: 700;
-  top: 300px;
+  top: 200px;
+  left: 40px;
 `
 
 const UserDropdown = ({ user, signOut }) => {

@@ -2,7 +2,6 @@ import styled from "styled-components"
 import Greeting from "./Greeting"
 import Logo from "./Logo"
 import Search from "./Search"
-import UserDropdown from "./UserDropdown"
 import UserProfile from "./UserProfile"
 import HeaderLeft from "./HeaderLeft"
 import HeaderRight from "./HeaderRight"
@@ -52,7 +51,6 @@ const Header = ({
         />
         <UserProfile profileImage={user.profileImage} />
       </HeaderRight>
-      <UserDropdown user={user} />
     </HeaderStyle>
   )
 }

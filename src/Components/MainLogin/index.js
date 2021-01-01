@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import Header from "./Header"
+import UserDropdown from "./UserDropdown"
 import Center from "./Center"
 import Trending from "../Main/Trending"
 import Article from "../Main/Article"
@@ -44,6 +45,7 @@ const MainLogin = ({
           </BottomRightStyle>
         </BottomWrapper>
       </BottomStyle>
+      <UserDropdown user={user} />
     </MainStyle>
   )
 }
