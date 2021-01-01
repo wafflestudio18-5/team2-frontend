@@ -7,6 +7,7 @@ import search from "./Functions/search"
 import MainLogin from "../../Components/MainLogin"
 import Articles from "../../Constants/Articles"
 import TrendingPosts from "../../Constants/TrendingPosts"
+import { getUserMeAbout } from "../../api"
 
 const MainLoginPage = ({ token }) => {
   //로그인 하지 않았을 때 페이지
@@ -19,6 +20,21 @@ const MainLoginPage = ({ token }) => {
     profileImage: "",
   }
   const centerArticles = {}
+
+  // 이후 api 추가되면 사용
+  // const [user, setUser] = useState({})
+
+  // useEffect(() => {
+  //   getUserMeAbout(token)
+  //     .then((response) => {
+  //       setUser(response.data)
+  //     })
+  //     .catch((error) => {
+  //       console.log(error)
+  //     })
+
+  //   // TODO: 글 불러오는 작업 추가
+  //   }, [token])
 
   // states
   // 헤더의 검색창이 열려있는지 닫혀있는지
