@@ -1,23 +1,41 @@
-import Small from './ImageStyles/Small';
 import Normal from './ImageStyles/Normal';
 import Large from './ImageStyles/Large';
 import Largest from './ImageStyles/Largest';
+import NormalWrapper from './ImageStyles/NormalWrapper';
+import LargeWrapper from './ImageStyles/LargeWrapper';
+import LargestWrapper from './ImageStyles/LargestWrapper';
 import styled from 'styled-components';
-import Color from '../../../../Constants/Color'
+import Color from '../../../../Constants/Color';
+import StoryBlock from './StoryBlock';
 
 const ImageStyle = ({ size, children }) => {
     switch (size) {
-        case 'small':
-            return <Small>{children}</Small>;
-
         case 'normal':
-            return <Normal>{children}</Normal>;
+            return (
+                <NormalWrapper>
+                    <StoryBlock>
+                        <Normal>{children}</Normal>;
+                    </StoryBlock>
+                </NormalWrapper>
+            );
 
         case 'large':
-            return <Large>{children}</Large>;
+            return (
+                <LargeWrapper>
+                    <StoryBlock>
+                        <Large>{children}</Large>;
+                    </StoryBlock>
+                </LargeWrapper>
+            );
 
         case 'largest':
-            return <Largest>{children}</Largest>;
+            return (
+                <LargestWrapper>
+                    <StoryBlock>
+                        <Largest>{children}</Largest>;
+                    </StoryBlock>
+                </LargestWrapper>
+            );
 
         default:
             break;
@@ -26,6 +44,9 @@ const ImageStyle = ({ size, children }) => {
 
 const Img = styled.img`
     width: 100%;
+    &:hover {
+        cursor: zoom-in;
+    }
 `;
 
 const Caption = styled.figcaption`

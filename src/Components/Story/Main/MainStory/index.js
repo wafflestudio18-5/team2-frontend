@@ -2,11 +2,28 @@ import styled from 'styled-components';
 import Color from '../../../../Constants/Color';
 import Writer from './Writer'
 import Content from './Content'
+import MainBlock from './MainBlock'
+
+const StoryWrapper = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+`
 
 const MainWrapper = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
+`
+
+const MainCenterize = styled.div`
+    display: block;
+    max-width: 680px;
+    width: 100%;
+    word-break: break-word;
+    justify-content: center;
+    box-sizing: border-box;
 `
 
 const Blank = styled.div`
@@ -16,23 +33,6 @@ const Blank = styled.div`
         margin-top: 2.64em;   
     }
 `
-
-const MainBlock = styled.div`
-    display: block;
-    max-width: 680px;
-    min-width: 0;
-    width: 100%;
-    word-break: break-word;
-    margin: 0 64px;
-    justify-content: center;
-    box-sizing: border-box;
-    @media (max-width: 728px){
-        margin: 0 24px;
-    }
-    @media (max-width: 904px) and (min-width: 728px){
-        margin: 0 48px;
-    }
-`;
 
 const Kicker = styled.h2`
     text-transform: uppercase;
@@ -76,35 +76,26 @@ const SubTitle = styled.h2`
     box-sizing: border-box;
 `
 
-const StoryBlock = styled.div`
-    margin-right: auto;
-    margin-left: auto;
-    width: 100%;
-    box-sizing: border-box;
-`;
-
 const MainStory = ( {story, userinfo, storyinfo} ) => {
     let article = []
     story.forEach((section) => {
         article.push(
-            <StoryBlock>
-                {section.map((content) => {
-                    return <Content content={content} />
-                })}
-            </StoryBlock>
+            <Content section={section} />
         )
     })
     return(
-        <MainWrapper>
-            <MainBlock>
-                <Blank />
-                <Kicker>{storyinfo.kicker}</Kicker>
-                <Title>{storyinfo.title}</Title>
-                <SubTitle>{storyinfo.subtitle}</SubTitle>
-                <Writer userinfo={userinfo} storyinfo={storyinfo} />
-                {article}
-            </MainBlock>    
-        </MainWrapper>
+        <StoryWrapper>
+            <MainWrapper>
+                <MainBlock>
+                    <Blank />
+                    <Kicker>{storyinfo.kicker}</Kicker>
+                    <Title>{storyinfo.title}</Title>
+                    <SubTitle>{storyinfo.subtitle}</SubTitle>
+                    <Writer userinfo={userinfo} storyinfo={storyinfo} />
+                </MainBlock>    
+            </MainWrapper>
+            {article}
+        </StoryWrapper>
     );
 };
 
