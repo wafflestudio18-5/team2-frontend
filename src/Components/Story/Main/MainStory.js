@@ -12,10 +12,24 @@ const MainWrapper = styled.div`
     word-break: break-word;
 `;
 
+const Kicker = styled.h2`
+    margin-top: 3.88em;
+    text-transform: uppercase;
+    margin-bottom: -0.31em;
+    font-size: 13px;
+    font-style: normal;
+    letter-spacing: 0.077em;
+    line-height: 18px;
+    color: ${Color.gray};
+    font-weight: 400;
+    font-family: "NotoSans";
+    word-break: break-word;
+`
+
 const Title = styled.div`
     letter-spacing: -0.011em;
     line-height: 56px;
-    margin-top: 0.6em;
+    margin-top: 0.17em;
     font-size: 46px;
     margin-bottom: -0.27em;
     font-style: normal;
@@ -40,25 +54,6 @@ const StoryBlock = styled.div`
     margin-left: auto;
 `;
 
-/*const StoryImageBlock = styled.div`
-    background: ${Color.backgroundGray};
-    width: 100%;
-    max-width: 1400px;
-    cursor: zoom-in;
-`;
-
-const Story = styled.p`
-    letter-spacing: -0.003em;
-    line-height: 32px;
-    font-size: 21px;
-    font-weight: 400;
-    font-family: charter, Georgia, Cambria, 'Times New Roman', Times, serif;
-    font-style: normal;
-    color: ${Color.borderBlack};
-    word-break: break-word;
-    margin: 0;
-`;*/
-
 const MainStory = ( {story} ) => {
     let article = []
     story.forEach((section) => {
@@ -72,48 +67,13 @@ const MainStory = ( {story} ) => {
     })
     return(
         <MainWrapper>
+            <Kicker>Kicker</Kicker>
             <Title>Title</Title>
-            <SubTitle>subtitle</SubTitle>
+            <SubTitle>Subtitle</SubTitle>
             <Writer />
             {article}
         </MainWrapper>
     );
-    /*return (
-        <MainWrapper>
-            <Title>Title</Title>
-            <Writer />
-            <StoryBlock>
-                <StoryImageBlock>
-                    <img
-                        width="100%"
-                        src="https://miro.medium.com/max/1750/0*COGrSeNR23C-F84U.jpeg"
-                        srcset="https://miro.medium.com/max/345/0*COGrSeNR23C-F84U.jpeg 276w, https://miro.medium.com/max/690/0*COGrSeNR23C-F84U.jpeg 552w, https://miro.medium.com/max/800/0*COGrSeNR23C-F84U.jpeg 640w, https://miro.medium.com/max/875/0*COGrSeNR23C-F84U.jpeg 700w"
-                        sizes="700px"
-                        alt="Sample"
-                    />
-                </StoryImageBlock>
-            </StoryBlock>
-            <StoryBlock>
-                <Story>Short Sample Text</Story>
-            </StoryBlock>
-            <StoryBlock>
-                <Story>
-                    Long Sample Text Long Sample Text Long Sample Text Long Sample Text Long Sample Text Long Sample Text Long Sample Text
-                </Story>
-            </StoryBlock>
-            <StoryBlock>
-                <Story>
-                    Long Sample Text Long Sample Text Long Sample Text Long Sample Text Long Sample Text Long Sample Text Long Sample Text
-                </Story>
-            </StoryBlock>
-            <StoryBlock>
-                <Story>Short Sample Text</Story>
-            </StoryBlock>
-            <StoryBlock>
-                <Story>Short Sample Text</Story>
-            </StoryBlock>
-        </MainWrapper>
-    );*/
 };
 
 export default MainStory;
