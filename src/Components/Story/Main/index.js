@@ -15,8 +15,8 @@ const MainWrapper = styled.div`
 const Main = ({ reachScrollCheckPoint, story }) => {
     return (
         <MainWrapper>
-            <MainStory story={story}/>
             <About reachScrollCheckPoint={reachScrollCheckPoint} />
+            <MainStory story={story}/>
             <StoryEnd />
             <Footer />
         </MainWrapper>

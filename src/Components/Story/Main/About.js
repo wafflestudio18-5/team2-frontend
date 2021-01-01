@@ -10,8 +10,7 @@ const AboutWrapper = styled.div`
     will-change: opacity;
     top: 85.6px;
     position: fixed;
-    width: 100%;
-    z-index: -1;
+    width: 25%;
 
     ${props =>
         props.reachScrollCheckPoint &&
@@ -22,7 +21,7 @@ const AboutWrapper = styled.div`
 
 const AboutBlock = styled.div`
     display: block;
-    margin: 0 64px;
+    margin-left: 45%;
     min-width: 0;
     max-width: 1192px;
     width: 100%;
