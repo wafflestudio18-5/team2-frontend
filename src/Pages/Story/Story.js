@@ -64,7 +64,6 @@ const StoryPage = () => {
     };
     const storyinfo = {
         title: 'Title',
-        kicker: 'kicker',
         subtitle: 'Subtitle',
         clapnum: 0,
         responsenum: 0,

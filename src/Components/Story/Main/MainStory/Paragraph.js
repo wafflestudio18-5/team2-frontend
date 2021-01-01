@@ -5,8 +5,8 @@ import Emphasize1 from "./ParagraphStyles/Emphasize1"
 import Emphasize2 from "./ParagraphStyles/Emphasize2"
 
 const Paragraph = ({ content, emphasizing }) => {
-  let removetag = content.replace(/(<([^>]+)>)/gi, "");
-  let removetagexcepta =  content.replace(/<(?!\/?a(?=>|\s.*>))\/?.*?>/, "").replace("<strong>","");
+  let removetag = content//content.replace(/(<([^>]+)>)/gi, "");
+  let removetagexcepta =  content//content.replace(/<(?!\/?a(?=>|\s.*>))\/?.*?>/, "").replace("<strong>","");
   switch (emphasizing) {
     case "largest":
       return (
