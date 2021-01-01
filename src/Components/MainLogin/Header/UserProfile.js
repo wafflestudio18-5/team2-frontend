@@ -22,7 +22,7 @@ const UserProfile = ({ profileImage, openDropdown }) => {
     profileImageUrl = default_profile_image
   }
   return (
-    <ButtonStyle onClick={openDropdown}>
+    <ButtonStyle id="userProfile" onClick={openDropdown}>
       <ProfileImage src={profileImageUrl} />
     </ButtonStyle>
   )

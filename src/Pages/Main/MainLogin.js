@@ -33,6 +33,22 @@ const MainLoginPage = ({ token }) => {
 
   const history = useHistory()
 
+  window.addEventListener("resize", () => {
+    const dropdown = document.getElementById("dropdown")
+    let left =
+      document.getElementById("userProfile").getBoundingClientRect().left - 150
+    if (dropdown !== null) {
+      if (window.innerWidth < 904) {
+        if (window.innerWidth < 728) {
+          left -= 40
+        } else {
+          left -= 16
+        }
+      }
+      dropdown.style.left = left + "px"
+    }
+  })
+
   useEffect(() => {
     window.addEventListener("scroll", () =>
       handleScroll(fetching, setFetching, Article, setArticle)

@@ -16,6 +16,14 @@ const DropdownArrow = styled.div`
     width: 14px;
     display: block;
   }
+
+  @media (max-width: 903.98px) {
+    left: 173px;
+  }
+
+  @media (max-width: 727.98px) {
+    left: 197px;
+  }
 `
 
 const DropdownWrapper = styled.div`
@@ -26,13 +34,27 @@ const DropdownWrapper = styled.div`
   box-sizing: border-box;
   border-radius: 4px;
   z-index: 700;
-  top: 0px;
-  left: 0px;
+  top: 73px;
+  left: ${(props) => props.left};
+  will-change: left;
+
+  @media (max-width: 727.98px) {
+    top: 68px;
+  }
 `
 
 const UserDropdown = ({ user, signOut }) => {
+  let left =
+    document.getElementById("userProfile").getBoundingClientRect().left - 150
+  if (window.innerWidth < 904) {
+    if (window.innerWidth < 728) {
+      left -= 40
+    } else {
+      left -= 16
+    }
+  }
   return (
-    <DropdownWrapper>
+    <DropdownWrapper id="dropdown" left={left + "px"}>
       <DropdownArrow />
       <DropdownMain user={user} signOut={signOut} />
     </DropdownWrapper>
