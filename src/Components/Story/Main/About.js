@@ -12,11 +12,13 @@ const AboutWrapper = styled.div`
     position: fixed;
     width: 20%;
 
-    ${props =>
-        props.reachScrollCheckPoint &&
-        css`
-            display: flex;
-        `}
+    @media (min-width: 1200px) {
+        ${props =>
+            props.reachScrollCheckPoint &&
+            css`
+                display: flex;
+            `}
+    }
 `;
 
 const AboutBlock = styled.div`
@@ -93,7 +95,7 @@ const Response = styled.button`
 const ResponseWrapper = styled.div`
     display: flex;
     justify-content: center;
-`
+`;
 
 const ResponseNumber = styled.h4`
     display: inline-block;
