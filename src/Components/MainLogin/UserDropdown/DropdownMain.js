@@ -5,7 +5,7 @@ import DropdownDivider from "./DropdownDivider"
 
 const DivStyle = styled.ul`
   display: flex;
-  max-width: 240px;
+  width: 240px;
   flex-direction: column;
   background: rgb(255, 255, 255);
   border-radius: 3px;
