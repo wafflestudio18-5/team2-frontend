@@ -19,10 +19,13 @@ const FooterContentWrapper = styled.div`
     width: 100%;
     height: 32px;
     margin: 0 64px;
-    @media (max-width: 728px){
+    @media (max-width: 728px) {
         margin: 0 24px;
+        display: flex;
+        height: auto;
+        flex-direction: column;
     }
-    @media (max-width: 904px) and (min-width: 728px){
+    @media (max-width: 904px) and (min-width: 728px) {
         margin: 0 48px;
     }
 `;
@@ -44,7 +47,7 @@ const FooterLinkBlock = styled.div`
     width: 200px;
     justify-content: space-between;
     padding-top: 8px;
-`
+`;
 
 const FooterLink = styled.a`
     margin: 0;
@@ -53,9 +56,43 @@ const FooterLink = styled.a`
     color: ${Color.white};
     line-height: 24px;
     font-size: 16px;
-    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: sohne, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 400;
-`
+`;
+
+const MobileLetterBlock = styled.div`
+    display: none;
+    margin-top: 30px;
+    margin-bottom: 16px;
+    @media (max-width: 728px) {
+        display: flex;
+    }
+`;
+
+const MobileLetter = styled.h4`
+    color: ${Color.mobilegray};
+    line-height: 24px;
+    font-size: 16px;
+    font-family: sohne, 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 400;
+    margin: 0;
+`;
+
+const MobileLogoBlock = styled.div`
+    display: none;
+    flex-direction: row;
+    width: 100%;
+    margin-bottom: 16px;
+    @media (max-width: 728px) {
+        display: flex;
+    }
+`;
+
+const MobileLogo = styled.a`
+    display: block;
+    margin-right: 16px;
+    cursor: pointer;
+`;
 
 const Footer = () => {
     return (
@@ -78,11 +115,40 @@ const Footer = () => {
                             </svg>
                         </Logo>
                         <FooterLinkBlock>
-                            <FooterLink href="https://medium.com/about?autoplay=1&source=post_page-----a9e2b1986203--------------------------------">About</FooterLink>
-                            <FooterLink href="https://help.medium.com/hc/en-us?source=post_page-----a9e2b1986203--------------------------------">Help</FooterLink>
-                            <FooterLink href="https://policy.medium.com/medium-terms-of-service-9db0094a1e0f?source=post_page-----a9e2b1986203--------------------------------">Legal</FooterLink>
+                            <FooterLink href="https://medium.com/about?autoplay=1&source=post_page-----a9e2b1986203--------------------------------">
+                                About
+                            </FooterLink>
+                            <FooterLink href="https://help.medium.com/hc/en-us?source=post_page-----a9e2b1986203--------------------------------">
+                                Help
+                            </FooterLink>
+                            <FooterLink href="https://policy.medium.com/medium-terms-of-service-9db0094a1e0f?source=post_page-----a9e2b1986203--------------------------------">
+                                Legal
+                            </FooterLink>
                         </FooterLinkBlock>
                     </FooterContentBlock>
+                    <MobileLetterBlock>
+                        <MobileLetter>Get the Wadium app</MobileLetter>
+                    </MobileLetterBlock>
+                    <MobileLogoBlock>
+                        <MobileLogo>
+                            <img
+                                alt="A button that says 'Download on the App Store', and if clicked it will lead you to the iOS App store"
+                                class=""
+                                src="https://miro.medium.com/max/270/1*Crl55Tm6yDNMoucPo1tvDg.png"
+                                width="135"
+                                height="41"
+                            />
+                        </MobileLogo>
+                        <MobileLogo>
+                            <img
+                                alt="A button that says 'Get it on, Google Play', and if clicked it will lead you to the Google Play store"
+                                class=""
+                                src="https://miro.medium.com/max/270/1*W_RAPQ62h0em559zluJLdQ.png"
+                                width="135"
+                                height="41"
+                            />
+                        </MobileLogo>
+                    </MobileLogoBlock>
                 </FooterContentWrapper>
             </FooterBlock>
         </FooterWrapper>
