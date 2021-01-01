@@ -1,5 +1,5 @@
 import styled from "styled-components"
 
-const DropdownButton = styled.button``
+const DropdownButton = styled.li``
 
 export default DropdownButton
