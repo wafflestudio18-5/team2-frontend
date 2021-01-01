@@ -1,12 +1,12 @@
 import styled from 'styled-components';
-import Color from '../../../../Constants/Color';
+import Color from '../../../../../Constants/Color';
 
-const Largest = styled.h3`
-    line-height: 36px;
-    margin-top: 1.95em;
-    font-size: 30px;
+const Large = styled.h4`
     letter-spacing: 0;
-    margin-bottom: -0.28em;
+    margin-top: 1.72em;
+    line-height: 28px;
+    font-size: 22px;
+    margin-bottom: -0.31em;
     font-weight: bold;
     font-style: normal;
     color: ${Color.borderBlack};
@@ -21,4 +21,4 @@ const Largest = styled.h3`
     }
 `;
 
-export default Largest;
+export default Large;

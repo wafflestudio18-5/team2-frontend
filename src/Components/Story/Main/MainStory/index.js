@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Color from '../../../Constants/Color';
+import Color from '../../../../Constants/Color';
 import Writer from './Writer'
 import Content from './Content'
 

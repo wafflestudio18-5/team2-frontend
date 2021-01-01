@@ -1,5 +1,5 @@
 import styled, { css } from 'styled-components';
-import Color from '../../../Constants/Color';
+import Color from '../../../../Constants/Color';
 import WriterInfo from './WriterInfo';
 
 const AboutWrapper = styled.div`

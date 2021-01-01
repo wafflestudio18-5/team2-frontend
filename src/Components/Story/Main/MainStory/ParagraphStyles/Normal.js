@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Color from '../../../../Constants/Color';
+import Color from '../../../../../Constants/Color';
 
 const Normal = styled.p`
     letter-spacing: -0.003em;

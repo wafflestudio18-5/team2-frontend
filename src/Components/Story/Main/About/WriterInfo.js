@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Color from '../../../Constants/Color';
+import Color from '../../../../Constants/Color';
 
 const WriterInfoBlock = styled.div`
     display: block;

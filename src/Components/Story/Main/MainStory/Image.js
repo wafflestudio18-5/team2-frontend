@@ -3,7 +3,7 @@ import Normal from './ImageStyles/Normal';
 import Large from './ImageStyles/Large';
 import Largest from './ImageStyles/Largest';
 import styled from 'styled-components';
-import Color from '../../../Constants/Color'
+import Color from '../../../../Constants/Color'
 
 const ImageStyle = ({ size, children }) => {
     switch (size) {

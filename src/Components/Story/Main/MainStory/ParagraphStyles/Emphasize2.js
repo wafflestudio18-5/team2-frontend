@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import Color from '../../../../Constants/Color';
+import Color from '../../../../../Constants/Color';
 
 const Emphasize2 = styled.blockquote`
   padding-left: 30px;
