@@ -10,7 +10,7 @@ const AboutWrapper = styled.div`
     will-change: opacity;
     top: 85.6px;
     position: fixed;
-    width: 25%;
+    width: 20%;
 
     ${props =>
         props.reachScrollCheckPoint &&
