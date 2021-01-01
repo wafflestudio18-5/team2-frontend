@@ -60,7 +60,7 @@ const StoryPage = () => {
         img: 'https://miro.medium.com/fit/c/56/56/1*dmbNkD5D-u45r44go_cf0g.png',
         name: 'UserName',
         userinfo: 'UserInfo',
-        url: 'https://medium.com/username',
+        url: '/user/0',
     };
     const storyinfo = {
         title: 'Title',
@@ -68,14 +68,14 @@ const StoryPage = () => {
         subtitle: 'Subtitle',
         clapnum: 0,
         responsenum: 0,
-        url: '/user/story',
+        url: '/story/0',
         date: 'Nov 30',
         time: '9 min'
     };
     const tag = [
-        { name: 'tag', url: 'https://medium.com/tag/tag' },
-        { name: 'long tag', url: 'https://medium.com/tag/long_tag' },
-        { name: 'long long tag', url: 'https://medium.com/tag/long_long_tag' },
+        { name: 'tag', url: '/tag/tag' },
+        { name: 'long tag', url: '/tag/long_tag' },
+        { name: 'long long tag', url: '/tag/long_long_tag' },
     ];
 
     return (
