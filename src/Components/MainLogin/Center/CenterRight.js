@@ -1,5 +1,10 @@
 import styled from "styled-components"
 
-const CenterRight = styled.div``
+const CenterRight = styled.div`
+  max-width: 50%;
+  flex-basis: 50%;
+  padding-left: 16px;
+  flex-grow: 0;
+`
 
 export default CenterRight

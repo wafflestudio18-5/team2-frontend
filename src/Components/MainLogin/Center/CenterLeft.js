@@ -6,6 +6,10 @@ const CenterLeft = styled.div`
   padding: 0 16px;
   flex-grow: 0;
   display: block;
+
+  @media (max-width: 727.98px) {
+    max-width: 100%;
+  }
 `
 
 export default CenterLeft

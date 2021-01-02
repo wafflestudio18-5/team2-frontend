@@ -5,7 +5,18 @@ import BigStory from "./BigStory"
 import SmallStory from "./SmallStory"
 
 const CenterWrapper = styled.div`
+  max-width: 1192px;
   display: flex;
+  margin: 0 64px;
+
+  @media (max-width: 903.98px) {
+    margin: 0 48px;
+  }
+
+  @media (max-width: 727.98px) {
+    flex-direction: column;
+    margin: 0 24px;
+  }
 `
 
 const Center = ({ stories }) => {
