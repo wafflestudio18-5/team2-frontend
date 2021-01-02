@@ -76,7 +76,7 @@ const StoryPage = () => {
         { name: 'long tag', url: '/tag/long_tag' },
         { name: 'long long tag', url: '/tag/long_long_tag' },
     ];
-    const logged_in = false; //react-cookie와 연동은 아직 X
+    const logged_in = true; //react-cookie와 연동은 아직 X
 
     const me = {
         name: 'MyName',

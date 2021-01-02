@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Color from '../../../Constants/Color';
 import ModalTypeConstants from '../../../Constants/ModalTypeConstants';
+import { useHistory } from 'react-router-dom';
 
 const HeaderRightWrapper = styled.div`
     display: flex;
@@ -139,6 +140,7 @@ const UserIconBlock = styled.div`
 `
 
 const HeaderRight = ({ showModal, logged_in, me }) => {
+    const history = useHistory();
     if(logged_in){
         return (
             <HeaderRightWrapper>
@@ -149,7 +151,7 @@ const HeaderRight = ({ showModal, logged_in, me }) => {
                         </Mobile>
                     </ButtonBlock>
                     <LoggedinBlock>
-                        <SearchBlock>
+                        <SearchBlock onClick={()=>history.push("/search")}>
                             <Button>
                                 <IconWrapper>
                                     <svg width="25" height="25" viewBox="0 0 25 25" class="dw">
