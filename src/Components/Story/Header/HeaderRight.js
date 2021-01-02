@@ -137,11 +137,11 @@ const UserIconBlock = styled.div`
         margin-right: 10px;
         margin-left: 0px;
     }
-`
+`;
 
 const HeaderRight = ({ showModal, logged_in, me }) => {
     const history = useHistory();
-    if(logged_in){
+    if (logged_in) {
         return (
             <HeaderRightWrapper>
                 <HeaderRightBlock>
@@ -151,8 +151,8 @@ const HeaderRight = ({ showModal, logged_in, me }) => {
                         </Mobile>
                     </ButtonBlock>
                     <LoggedinBlock>
-                        <SearchBlock onClick={()=>history.push("/search")}>
-                            <Button>
+                        <SearchBlock>
+                            <Button onClick={() => history.push('/search')}>
                                 <IconWrapper>
                                     <svg width="25" height="25" viewBox="0 0 25 25" class="dw">
                                         <path d="M20.07 18.93l-4.16-4.15a6 6 0 1 0-.88.88l4.15 4.16a.62.62 0 1 0 .89-.89zM6.5 11a4.75 4.75 0 1 1 9.5 0 4.75 4.75 0 0 1-9.5 0z"></path>
@@ -161,10 +161,10 @@ const HeaderRight = ({ showModal, logged_in, me }) => {
                             </Button>
                         </SearchBlock>
                         <UserIconBlock>
-                                <Button>
-                                    <img src={me.img} width="32px" height="32px" border-radius="50%" />
-                                </Button>
-                            </UserIconBlock>
+                            <Button onClick={() => history.push('/me/stories')}>
+                                <img src={me.img} width="32px" height="32px" border-radius="50%" />
+                            </Button>
+                        </UserIconBlock>
                     </LoggedinBlock>
                     <Logo href="/main">
                         <svg height="25px" viewBox="0 0 1043.63 592.71">
@@ -178,8 +178,7 @@ const HeaderRight = ({ showModal, logged_in, me }) => {
                 </HeaderRightBlock>
             </HeaderRightWrapper>
         );
-    }
-    else{
+    } else {
         return (
             <HeaderRightWrapper>
                 <HeaderRightBlock>
