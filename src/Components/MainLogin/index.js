@@ -40,7 +40,7 @@ const MainLogin = ({
         search={search}
         openDropdown={openDropdown}
       />
-      <Center centerArticles={centerArticles} />
+      <Center stories={centerArticles} />
       <Trending trendingPosts={TrendingPosts} />
       <BottomStyle>
         <BottomWrapper>

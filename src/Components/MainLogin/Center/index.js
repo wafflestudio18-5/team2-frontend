@@ -1,14 +1,21 @@
 import styled from "styled-components"
 import CenterLeft from "./CenterLeft"
 import CenterRight from "./CenterRight"
+import BigStory from "./BigStory"
+import SmallStory from "./SmallStory"
 
 const CenterWrapper = styled.div``
 
-const Center = () => {
+const Center = ({ stories }) => {
   return (
     <CenterWrapper>
       <CenterLeft>left</CenterLeft>
-      <CenterRight>right</CenterRight>
+      <CenterRight>
+        <SmallStory {...stories[1]} />
+        <SmallStory {...stories[2]} />
+        <SmallStory {...stories[3]} />
+        <SmallStory {...stories[4]} />
+      </CenterRight>
     </CenterWrapper>
   )
 }

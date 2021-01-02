@@ -21,7 +21,79 @@ const MainLoginPage = ({ token }) => {
     name: "Aibald Biak",
     profileImage: "",
   }
-  const centerArticles = {}
+  const centerArticles = [
+    {
+      user: {
+        id: 0,
+        username: "basdva",
+        profile_image: "",
+      },
+      story: {
+        id: 0,
+        uid: 0,
+        title: "Aflkba Sbilall",
+        subtitle: "Afblla skbial boal eibibia slaqbp sl",
+        created_at: "2020-12-31",
+      },
+    },
+    {
+      user: {
+        id: 1,
+        username: "tkbka",
+        profile_image: "",
+      },
+      story: {
+        id: 1,
+        uid: 1,
+        title: "Aov lals",
+        subtitle: "Afblla skbial boal eibibia slaqbp sl",
+        created_at: "2020-12-31",
+      },
+    },
+    {
+      user: {
+        id: 2,
+        username: "Wlbll",
+        profile_image: "",
+      },
+      story: {
+        id: 2,
+        uid: 2,
+        title: "Wbslb viqm viuqwu",
+        subtitle: "Afblla skbial boal eibibia slaqbp sl",
+        created_at: "2020-12-31",
+      },
+    },
+    {
+      user: {
+        id: 3,
+        username: "Vuwuqa",
+        profile_image: "",
+      },
+      story: {
+        id: 3,
+        uid: 3,
+        title:
+          "Htanvda iba bpasld Blbssd? Avc bislsl biewq Ac. Sdiblsi bi Ai igbasc",
+        subtitle: "Afblla skbial boal eibibia slaqbp sl",
+        created_at: "2020-12-31",
+      },
+    },
+    {
+      user: {
+        id: 3,
+        username: "Nmrial",
+        profile_image: "",
+      },
+      story: {
+        id: 3,
+        uid: 3,
+        title: "Tamriel sbaasc qboi",
+        subtitle: "Afblla skbial boal eibibia slaqbp sl",
+        created_at: "2020-12-31",
+      },
+    },
+  ]
 
   // 이후 api 추가되면 사용
   // const [user, setUser] = useState({})
