@@ -1,5 +1,16 @@
+import styled from "styled-components"
+import CenterLeft from "./CenterLeft"
+import CenterRight from "./CenterRight"
+
+const CenterWrapper = styled.div``
+
 const Center = () => {
-  return <div>CENTER</div>
+  return (
+    <CenterWrapper>
+      <CenterLeft>left</CenterLeft>
+      <CenterRight>right</CenterRight>
+    </CenterWrapper>
+  )
 }
 
 export default Center
