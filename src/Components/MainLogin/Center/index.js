@@ -7,20 +7,23 @@ import Color from "../../../Constants/Color"
 
 const CenterBorder = styled.div`
   border-bottom: 1px solid ${Color.lightGray};
+  display: flex;
+  justify-content: center;
 `
 
 const CenterWrapper = styled.div`
+  width: 100%;
   max-width: 1192px;
   display: flex;
-  margin: 0 48px;
+  margin: 0 64px;
 
   @media (max-width: 903.98px) {
-    margin: 0 24px;
+    margin: 0 48px;
   }
 
   @media (max-width: 727.98px) {
     flex-direction: column;
-    margin: 0 8px;
+    margin: 0 24px;
   }
 `
 

@@ -4,7 +4,7 @@ import Color from "../../../Constants/Color"
 const CenterLeft = styled.div`
   max-width: 50%;
   flex-basis: 50%;
-  padding: 0 16px;
+  padding-right: 16px;
   flex-grow: 0;
   display: block;
 
@@ -13,6 +13,7 @@ const CenterLeft = styled.div`
     border-bottom: 1px solid ${Color.lightGray};
     margin-bottom: 32px;
     padding-bottom: 32px;
+    padding-right: 0;
   }
 `
 
