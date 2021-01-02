@@ -138,61 +138,85 @@ const UserIconBlock = styled.div`
     }
 `
 
-const HeaderRight = ({ showModal, userinfo }) => {
-    return (
-        <HeaderRightWrapper>
-            <HeaderRightBlock>
-                <ButtonBlock>
-                    <SigninBlock>
-                        <Signin
-                            onClick={() => {
-                                showModal(ModalTypeConstants.LOG_IN);
-                            }}
-                        >
-                            Sign in
-                        </Signin>
-                    </SigninBlock>
-                    <GetstartedBlock>
-                        <Getstarted
-                            onClick={() => {
-                                showModal(ModalTypeConstants.SIGN_UP);
-                            }}
-                        >
-                            Get Started
-                        </Getstarted>
-                    </GetstartedBlock>
-                    <Mobile>
-                        <Signin>Open in app</Signin>
-                    </Mobile>
-                </ButtonBlock>
-                <LoggedinBlock>
-                    <SearchBlock>
-                        <Button>
-                            <IconWrapper>
-                                <svg width="25" height="25" viewBox="0 0 25 25" class="dw">
-                                    <path d="M20.07 18.93l-4.16-4.15a6 6 0 1 0-.88.88l4.15 4.16a.62.62 0 1 0 .89-.89zM6.5 11a4.75 4.75 0 1 1 9.5 0 4.75 4.75 0 0 1-9.5 0z"></path>
-                                </svg>
-                            </IconWrapper>
-                        </Button>
-                    </SearchBlock>
-                    <UserIconBlock>
+const HeaderRight = ({ showModal, logged_in, me }) => {
+    if(logged_in){
+        return (
+            <HeaderRightWrapper>
+                <HeaderRightBlock>
+                    <ButtonBlock>
+                        <Mobile>
+                            <Signin>Open in app</Signin>
+                        </Mobile>
+                    </ButtonBlock>
+                    <LoggedinBlock>
+                        <SearchBlock>
                             <Button>
-                                <img src={userinfo.img} width="32px" height="32px" border-radius="50%" />
+                                <IconWrapper>
+                                    <svg width="25" height="25" viewBox="0 0 25 25" class="dw">
+                                        <path d="M20.07 18.93l-4.16-4.15a6 6 0 1 0-.88.88l4.15 4.16a.62.62 0 1 0 .89-.89zM6.5 11a4.75 4.75 0 1 1 9.5 0 4.75 4.75 0 0 1-9.5 0z"></path>
+                                    </svg>
+                                </IconWrapper>
                             </Button>
-                        </UserIconBlock>
-                </LoggedinBlock>
-                <Logo href="/main">
-                    <svg height="25px" viewBox="0 0 1043.63 592.71">
-                        <g>
-                            <path d="M588.67,296.36c0,163.67-131.78,296.35-294.33,296.35S0,460,0,296.36,131.78,0,294.34,0,588.67,132.69,588.67,296.36"></path>
-                            <path d="M911.56,296.36c0,154.06-65.89,279-147.17,279s-147.17-124.94-147.17-279,65.88-279,147.16-279,147.17,124.9,147.17,279"></path>
-                            <path d="M1043.63,296.36c0,138-23.17,249.94-51.76,249.94s-51.75-111.91-51.75-249.94S963.29,46.42,991.87,46.42s51.76,111.9,51.76,249.94"></path>
-                        </g>
-                    </svg>
-                </Logo>
-            </HeaderRightBlock>
-        </HeaderRightWrapper>
-    );
+                        </SearchBlock>
+                        <UserIconBlock>
+                                <Button>
+                                    <img src={me.img} width="32px" height="32px" border-radius="50%" />
+                                </Button>
+                            </UserIconBlock>
+                    </LoggedinBlock>
+                    <Logo href="/main">
+                        <svg height="25px" viewBox="0 0 1043.63 592.71">
+                            <g>
+                                <path d="M588.67,296.36c0,163.67-131.78,296.35-294.33,296.35S0,460,0,296.36,131.78,0,294.34,0,588.67,132.69,588.67,296.36"></path>
+                                <path d="M911.56,296.36c0,154.06-65.89,279-147.17,279s-147.17-124.94-147.17-279,65.88-279,147.16-279,147.17,124.9,147.17,279"></path>
+                                <path d="M1043.63,296.36c0,138-23.17,249.94-51.76,249.94s-51.75-111.91-51.75-249.94S963.29,46.42,991.87,46.42s51.76,111.9,51.76,249.94"></path>
+                            </g>
+                        </svg>
+                    </Logo>
+                </HeaderRightBlock>
+            </HeaderRightWrapper>
+        );
+    }
+    else{
+        return (
+            <HeaderRightWrapper>
+                <HeaderRightBlock>
+                    <ButtonBlock>
+                        <SigninBlock>
+                            <Signin
+                                onClick={() => {
+                                    showModal(ModalTypeConstants.LOG_IN);
+                                }}
+                            >
+                                Sign in
+                            </Signin>
+                        </SigninBlock>
+                        <GetstartedBlock>
+                            <Getstarted
+                                onClick={() => {
+                                    showModal(ModalTypeConstants.SIGN_UP);
+                                }}
+                            >
+                                Get Started
+                            </Getstarted>
+                        </GetstartedBlock>
+                        <Mobile>
+                            <Signin>Open in app</Signin>
+                        </Mobile>
+                    </ButtonBlock>
+                    <Logo href="/main">
+                        <svg height="25px" viewBox="0 0 1043.63 592.71">
+                            <g>
+                                <path d="M588.67,296.36c0,163.67-131.78,296.35-294.33,296.35S0,460,0,296.36,131.78,0,294.34,0,588.67,132.69,588.67,296.36"></path>
+                                <path d="M911.56,296.36c0,154.06-65.89,279-147.17,279s-147.17-124.94-147.17-279,65.88-279,147.16-279,147.17,124.9,147.17,279"></path>
+                                <path d="M1043.63,296.36c0,138-23.17,249.94-51.76,249.94s-51.75-111.91-51.75-249.94S963.29,46.42,991.87,46.42s51.76,111.9,51.76,249.94"></path>
+                            </g>
+                        </svg>
+                    </Logo>
+                </HeaderRightBlock>
+            </HeaderRightWrapper>
+        );
+    }
 };
 
 export default HeaderRight;

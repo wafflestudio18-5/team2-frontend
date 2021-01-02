@@ -37,13 +37,13 @@ const HeaderBlock = styled.div`
 `;
 
 
-const Header = ({ showModal, userinfo }) => {
+const Header = ({ showModal, userinfo, logged_in, me }) => {
     console.log("width: "+window.innerWidth);
     return (
         <HeaderWrapper>
             <HeaderBlock>
                 <HeaderLeft userinfo={userinfo} />
-                <HeaderRight showModal={showModal} userinfo={userinfo} />
+                <HeaderRight showModal={showModal} logged_in={logged_in} me={me} />
             </HeaderBlock>
         </HeaderWrapper>
     );

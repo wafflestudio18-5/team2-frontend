@@ -76,6 +76,12 @@ const StoryPage = () => {
         { name: 'long tag', url: '/tag/long_tag' },
         { name: 'long long tag', url: '/tag/long_long_tag' },
     ];
+    const me = {
+        name: 'MyName',
+        img: 'https://avatars2.githubusercontent.com/u/28915633?s=60&v=4',
+    }
+
+    const logged_in = false;
 
     return (
         <div>
@@ -86,6 +92,8 @@ const StoryPage = () => {
                 storyinfo={storyinfo}
                 userinfo={userinfo}
                 tag={tag}
+                logged_in={logged_in}
+                me={me}
             />
             {modalShow && <AuthModalContainer hideModal={hideModal} modalVisible={modalVisible} ModalType={ModalType} />}
         </div>
