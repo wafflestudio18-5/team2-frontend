@@ -41,8 +41,10 @@ const Header = ({
   return (
     <HeaderStyle>
       <HeaderLeft>
-        <Logo />
-        <SmallLogo />
+        <a href="/main">
+          <Logo />
+          <SmallLogo />
+        </a>
         <Greeting />
       </HeaderLeft>
       <HeaderRight>

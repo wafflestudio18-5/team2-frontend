@@ -50,6 +50,8 @@ const StoryTitle = styled.a`
   cursor: pointer;
   letter-spacing: -0.03em;
   line-height: 20px;
+  text-decoration: none;
+  color: ${Color.black};
 `
 
 const StoryDate = styled.p`
@@ -79,15 +81,17 @@ const SmallStory = ({ user, story }) => {
     <SmallStoryStyle>
       <StoryInfo>
         <StoryUser>
-          <a>
+          <a href={"/user/" + user.id}>
             <StoryUserImage src={profile_image} />
           </a>
-          <StoryUserName>{user.username}</StoryUserName>
+          <StoryUserName href={"/user/" + user.id}>
+            {user.username}
+          </StoryUserName>
         </StoryUser>
-        <StoryTitle>{story.title}</StoryTitle>
+        <StoryTitle href={"/story/" + story.id}>{story.title}</StoryTitle>
         <StoryDate>{story.created_at}</StoryDate>
       </StoryInfo>
-      <StoryImageLink>
+      <StoryImageLink href={"/story/" + story.id}>
         <StoryImage src={featured_image} />
       </StoryImageLink>
     </SmallStoryStyle>

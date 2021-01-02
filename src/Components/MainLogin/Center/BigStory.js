@@ -52,6 +52,8 @@ const StoryTitle = styled.a`
   font-weight: 700;
   font-size: 24px;
   cursor: pointer;
+  text-decoration: none;
+  color: ${Color.black};
 `
 
 const StorySubtitle = styled.a`
@@ -65,6 +67,7 @@ const StorySubtitle = styled.a`
   color: ${Color.borderBlack};
   line-height: 28px;
   cursor: pointer;
+  text-decoration: none;
 `
 
 const StoryDate = styled.p`
@@ -85,17 +88,19 @@ const BigStory = ({ user, story }) => {
   }
   return (
     <BigStoryStyle>
-      <StoryImageLink>
+      <StoryImageLink href={"/story/" + story.id}>
         <StoryImage src={featured_image} />
       </StoryImageLink>
       <StoryUser>
-        <a>
+        <a href={"/user/" + user.id}>
           <StoryUserImage src={profile_image} />
         </a>
-        <StoryUserName>{user.username}</StoryUserName>
+        <StoryUserName href={"/user/" + user.id}>{user.username}</StoryUserName>
       </StoryUser>
-      <StoryTitle>{story.title}</StoryTitle>
-      <StorySubtitle>{story.subtitle}</StorySubtitle>
+      <StoryTitle href={"/story/" + story.id}>{story.title}</StoryTitle>
+      <StorySubtitle href={"/story/" + story.id}>
+        {story.subtitle}
+      </StorySubtitle>
       <StoryDate>{story.created_at}</StoryDate>
     </BigStoryStyle>
   )
