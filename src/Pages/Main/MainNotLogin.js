@@ -1,12 +1,17 @@
 import { useEffect, useState } from "react"
-import { Main } from "../../Components/Main"
+import Main from "../../Components/Main"
 import AuthModalContainer from "../../Container/AuthModal"
 import TrendingPosts from "../../Constants/TrendingPosts"
 import ModalTypeConstants from "../../Constants/ModalTypeConstants"
 import Articles from "../../Constants/Articles"
 import Topics from "../../Constants/Topics"
+import handleScroll from "./Functions/handleScroll"
+import hideModal from "./Functions/hideModal"
+import showModal from "./Functions/showModal"
 
-const MainPage = () => {
+const MainNotLoginPage = () => {
+  //로그인 하지 않았을 때 페이지
+
   // 스크롤 될 때 header 색 변하는 로직
   const [reachScrollCheckPoint, setReachScrollCheckPoint] = useState(false)
   window.addEventListener("scroll", () => {
@@ -22,22 +27,8 @@ const MainPage = () => {
   const [modalShow, setModalShow] = useState(false)
   // AuthModal이 사라질 때 애니메이션을 실행시키기 위한 state.
   const [modalVisible, setModalVisible] = useState(false)
-  //
+  // modal type을 결정하는 state
   const [ModalType, setModalType] = useState(ModalTypeConstants.LOG_IN)
-
-  // Modal 다시 숨김. hideModal이 호출되면 modalVisible이 false로 바뀌고,
-  // 이 때 100ms짜리 fadeOut 애니메이션이 실행, 100ms 이후 modalShow가 false가 되면서 실제로 modal이 사라짐.
-  const hideModal = () => {
-    setModalVisible(false)
-    setTimeout(() => setModalShow(false), 100)
-  }
-
-  // ModalType을 입력받아 이에 해당하는 Modal을 화면에 표시
-  const showModal = (ModalType) => {
-    setModalShow(true)
-    setModalVisible(true)
-    setModalType(ModalType)
-  }
 
   // Modal이 떠있는 동안 scroll 고정
   useEffect(() => {
@@ -54,34 +45,14 @@ const MainPage = () => {
   const [Article, setArticle] = useState(Articles)
   const [fetching, setFetching] = useState(false)
 
-  const fetchMoreArticle = () => {
-    setFetching(true)
-
-    const MergedArticle = Article.concat(Articles)
-    setArticle(MergedArticle)
-
-    setFetching(false)
-  }
-
-  const handleScroll = () => {
-    const scrollHeight = Math.max(
-      document.documentElement.scrollHeight,
-      document.body.scrollHeight
-    )
-    const scrollTop = Math.max(
-      document.documentElement.scrollTop,
-      document.body.scrollTop
-    )
-    const clientHeight = document.documentElement.clientHeight
-    if (scrollTop + clientHeight >= scrollHeight - 1 && fetching === false) {
-      fetchMoreArticle()
-    }
-  }
-
   useEffect(() => {
-    window.addEventListener("scroll", handleScroll)
+    window.addEventListener("scroll", () =>
+      handleScroll(fetching, setFetching, Article, setArticle)
+    )
     return () => {
-      window.removeEventListener("scroll", handleScroll)
+      window.removeEventListener("scroll", () =>
+        handleScroll(fetching, setFetching, Article, setArticle)
+      )
     }
   })
 
@@ -92,11 +63,13 @@ const MainPage = () => {
         reachScrollCheckPoint={reachScrollCheckPoint}
         Articles={Article}
         Topics={Topics}
-        showModal={showModal}
+        showModal={(modalType) =>
+          showModal(modalType, setModalShow, setModalVisible, setModalType)
+        }
       />
       {modalShow && (
         <AuthModalContainer
-          hideModal={hideModal}
+          hideModal={() => hideModal(setModalVisible, setModalShow)}
           modalVisible={modalVisible}
           ModalType={ModalType}
         />
@@ -105,4 +78,4 @@ const MainPage = () => {
   )
 }
 
-export default MainPage
+export default MainNotLoginPage
