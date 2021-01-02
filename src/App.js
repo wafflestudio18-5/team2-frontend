@@ -9,6 +9,7 @@ function App() {
       <BrowserRouter>
         <Fonts />
         <Switch>
+          <Route path={routes.story.path} component={routes.story.component} />
           <Route path={routes.main.path} component={routes.main.component} />
           <Route path={routes.edit.path} component={routes.edit.component} />
           <Route
@@ -22,4 +23,4 @@ function App() {
   )
 }
 
-export default App
+export default App;
