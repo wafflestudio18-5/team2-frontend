@@ -21,14 +21,13 @@ const Content = ({ section }) => {
                 </StoryBlock>
             );
         }
-        if (content.type === 'image') { //image가 들어있는 section에는 paragraph없이 image 하나만으로 구성 부탁드립니다.
+        if (content.type === 'image') {
+            //image가 들어있는 section에는 paragraph없이 image 하나만으로 구성 부탁드립니다.
             isimage = true;
-            contents.push(
-                <Image detail={content.detail} />
-            );
+            contents.push(<Image detail={content.detail} />);
         }
     });
-    if (isimage) {
+    /*if (isimage) {
         return (
             <MainWrapper>{contents}</MainWrapper>
         );
@@ -38,7 +37,12 @@ const Content = ({ section }) => {
                 <MainBlock>{contents}</MainBlock>
             </MainWrapper>
         );
-    }
+    }*/
+    return (
+        <MainWrapper>
+            <MainBlock>{contents}</MainBlock>
+        </MainWrapper>
+    );
 };
 
 export default Content;

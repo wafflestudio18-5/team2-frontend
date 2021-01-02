@@ -11,13 +11,19 @@ import StoryBlock from './StoryBlock';
 const ImageStyle = ({ size, children }) => {
     switch (size) {
         case 'normal':
-            return (
+            return <Normal>{children}</Normal>;
+        case 'large':
+            return <Normal>{children}</Normal>;
+        case 'largest':
+            return <Normal>{children}</Normal>;
+        /*return (
                 <NormalWrapper>
                     <StoryBlock>
                         <Normal>{children}</Normal>
                     </StoryBlock>
                 </NormalWrapper>
             );
+            
 
         case 'large':
             return (
@@ -35,8 +41,7 @@ const ImageStyle = ({ size, children }) => {
                         <Largest>{children}</Largest>
                     </StoryBlock>
                 </LargestWrapper>
-            );
-
+            );*/
         default:
             break;
     }
