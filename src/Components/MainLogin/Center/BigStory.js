@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import default_featured_image from "../../../Images/default_featured_image.png"
+import default_featured_image from "../../../Images/default_featured_image.jpeg"
 import default_profile_image from "../../../Images/default_profile_image.png"
 import Color from "../../../Constants/Color"
 

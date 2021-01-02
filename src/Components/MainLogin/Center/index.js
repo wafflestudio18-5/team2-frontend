@@ -3,6 +3,11 @@ import CenterLeft from "./CenterLeft"
 import CenterRight from "./CenterRight"
 import BigStory from "./BigStory"
 import SmallStory from "./SmallStory"
+import Color from "../../../Constants/Color"
+
+const CenterBorder = styled.div`
+  border-bottom: 1px solid ${Color.lightGray};
+`
 
 const CenterWrapper = styled.div`
   max-width: 1192px;
@@ -21,17 +26,19 @@ const CenterWrapper = styled.div`
 
 const Center = ({ stories }) => {
   return (
-    <CenterWrapper>
-      <CenterLeft>
-        <BigStory {...stories[0]} />
-      </CenterLeft>
-      <CenterRight>
-        <SmallStory {...stories[1]} />
-        <SmallStory {...stories[2]} />
-        <SmallStory {...stories[3]} />
-        <SmallStory {...stories[4]} />
-      </CenterRight>
-    </CenterWrapper>
+    <CenterBorder>
+      <CenterWrapper>
+        <CenterLeft>
+          <BigStory {...stories[0]} />
+        </CenterLeft>
+        <CenterRight>
+          <SmallStory {...stories[1]} />
+          <SmallStory {...stories[2]} />
+          <SmallStory {...stories[3]} />
+          <SmallStory {...stories[4]} />
+        </CenterRight>
+      </CenterWrapper>
+    </CenterBorder>
   )
 }
 
