@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import Greeting from "./Greeting"
 import Logo from "./Logo"
+import SmallLogo from "./SmallLogo"
 import Search from "./Search"
 import UserProfile from "./UserProfile"
 import HeaderLeft from "./HeaderLeft"
@@ -41,6 +42,7 @@ const Header = ({
     <HeaderStyle>
       <HeaderLeft>
         <Logo />
+        <SmallLogo />
         <Greeting />
       </HeaderLeft>
       <HeaderRight>

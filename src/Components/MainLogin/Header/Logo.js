@@ -4,6 +4,11 @@ import Color from "../../../Constants/Color"
 const LogoStyle = styled.svg`
   height: 32px;
   color: ${Color.black};
+  display: block;
+
+  @media (max-width: 727.98px) {
+    display: none;
+  }
 `
 
 const Logo = () => {
