@@ -26,14 +26,13 @@ const HeaderBlock = styled.div`
     min-height: 115px;
     flex-direction: row;
     align-items: center;
-    margin: 0 64px;
+    padding: 0 64px;
     @media (max-width: 728px){
-        margin: 0 24px;
+        padding: 0 24px;
         flex-direction: column;
-        padding: 0 20px;
     }
     @media (max-width: 904px) and (min-width: 728px){
-        margin: 0 48px;
+        padding: 0 48px;
     }
 `;
 

@@ -10,7 +10,7 @@ const HeaderRightWrapper = styled.div`
     align-items: center;
     justify-content: flex-end;
     margin-bottom: -8px;
-    @media (max-width: 728px){
+    @media (max-width: 728px) {
         background: white;
         width: 100%;
         order: 1;
@@ -27,17 +27,17 @@ const HeaderRightWrapper = styled.div`
 const HeaderRightBlock = styled.div`
     display: flex;
     width: 100%;
-    @media (max-width: 728px){
+    @media (max-width: 728px) {
         margin: 0 24px;
     }
-`
+`;
 
 const ButtonBlock = styled.div`
     display: flex;
     flex: 1 0 auto;
     flex-direction: row;
     align-items: center;
-`
+`;
 
 const SigninBlock = styled.div`
     display: flex;
@@ -82,17 +82,46 @@ const Getstarted = styled.button`
 `;
 
 const Logo = styled.a`
-    @media (max-width: 728px){
+    @media (max-width: 728px) {
         align-item: flex-end;
     }
-`
+`;
 
 const Mobile = styled.div`
     display: none;
-    @media (max-width: 728px){
+    @media (max-width: 728px) {
         display: flex;
     }
-`
+`;
+
+const LoggedinBlock = styled.div`
+    margin-right: 24px;
+    height: 32px;
+    align-items: center;
+    display: flex;
+`;
+
+const SearchBlock = styled.div`
+    display: block;
+    margin-right: 10px;
+    margin-left: 8px;
+    @media (max-width: 728px) {
+        display: none;
+    }
+`;
+
+const Search = styled.button`
+    margin: 0;
+    padding: 0;
+    border: 0;
+    background: 0;
+    fill: ${Color.gray};
+`;
+
+const IconWrapper = styled.div`
+    display: block;
+    padding: 4px;
+`;
 
 const HeaderRight = ({ showModal }) => {
     return (
@@ -118,11 +147,20 @@ const HeaderRight = ({ showModal }) => {
                         </Getstarted>
                     </GetstartedBlock>
                     <Mobile>
-                        <Signin>
-                            Open in app
-                        </Signin>
+                        <Signin>Open in app</Signin>
                     </Mobile>
                 </ButtonBlock>
+                <LoggedinBlock>
+                    <SearchBlock>
+                        <Search>
+                            <IconWrapper>
+                                <svg width="25" height="25" viewBox="0 0 25 25" class="dw">
+                                    <path d="M20.07 18.93l-4.16-4.15a6 6 0 1 0-.88.88l4.15 4.16a.62.62 0 1 0 .89-.89zM6.5 11a4.75 4.75 0 1 1 9.5 0 4.75 4.75 0 0 1-9.5 0z"></path>
+                                </svg>
+                            </IconWrapper>
+                        </Search>
+                    </SearchBlock>
+                </LoggedinBlock>
                 <Logo href="/main">
                     <svg height="25px" viewBox="0 0 1043.63 592.71">
                         <g>
