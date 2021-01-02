@@ -1,4 +1,6 @@
 import styled from "styled-components"
+import default_featured_image from "../../../Images/default_featured_image.png"
+import default_profile_image from "../../../Images/default_profile_image.png"
 
 const SmallStoryStyle = styled.div`
   padding-bottom: 32px;
@@ -26,18 +28,26 @@ const StoryImageLink = styled.a``
 const StoryImage = styled.img``
 
 const SmallStory = ({ user, story }) => {
+  let profile_image = user.profile_image
+  let featured_image = story.featured_image
+  if (profile_image === "") {
+    profile_image = default_profile_image
+  }
+  if (featured_image === "") {
+    featured_image = default_featured_image
+  }
   return (
     <SmallStoryStyle>
       <StoryInfo>
         <StoryUser>
-          <StoryUserImage src={user.profile_image} />
+          <StoryUserImage src={profile_image} />
           <StoryUserName>{user.username}</StoryUserName>
         </StoryUser>
         <StoryTitle>{story.title}</StoryTitle>
         <StoryDate>{story.created_at}</StoryDate>
       </StoryInfo>
       <StoryImageLink>
-        <StoryImage src={story.featured_image} />
+        <StoryImage src={featured_image} />
       </StoryImageLink>
     </SmallStoryStyle>
   )

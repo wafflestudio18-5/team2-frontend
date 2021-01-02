@@ -9,7 +9,9 @@ const CenterWrapper = styled.div``
 const Center = ({ stories }) => {
   return (
     <CenterWrapper>
-      <CenterLeft>left</CenterLeft>
+      <CenterLeft>
+        <BigStory {...stories[0]} />
+      </CenterLeft>
       <CenterRight>
         <SmallStory {...stories[1]} />
         <SmallStory {...stories[2]} />
