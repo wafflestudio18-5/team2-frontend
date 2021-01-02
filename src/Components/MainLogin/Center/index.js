@@ -4,7 +4,9 @@ import CenterRight from "./CenterRight"
 import BigStory from "./BigStory"
 import SmallStory from "./SmallStory"
 
-const CenterWrapper = styled.div``
+const CenterWrapper = styled.div`
+  display: flex;
+`
 
 const Center = ({ stories }) => {
   return (

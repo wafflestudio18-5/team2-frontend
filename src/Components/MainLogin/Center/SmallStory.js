@@ -4,7 +4,7 @@ import default_profile_image from "../../../Images/default_profile_image.png"
 
 const SmallStoryStyle = styled.div`
   padding-bottom: 32px;
-  display: flex;
+  display: none;
   flex: 1 1 auto;
   box-sizing: border-box;
   justify-content: space-between;
@@ -33,7 +33,7 @@ const SmallStory = ({ user, story }) => {
   if (profile_image === "") {
     profile_image = default_profile_image
   }
-  if (featured_image === "") {
+  if (featured_image === undefined) {
     featured_image = default_featured_image
   }
   return (
