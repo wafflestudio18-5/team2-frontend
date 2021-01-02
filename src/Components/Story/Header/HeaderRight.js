@@ -99,6 +99,9 @@ const LoggedinBlock = styled.div`
     height: 32px;
     align-items: center;
     display: flex;
+    @media (max-width: 728px) {
+        margin-right: 0px;
+    }
 `;
 
 const SearchBlock = styled.div`
@@ -110,12 +113,13 @@ const SearchBlock = styled.div`
     }
 `;
 
-const Search = styled.button`
+const Button = styled.button`
     margin: 0;
     padding: 0;
     border: 0;
     background: 0;
     fill: ${Color.gray};
+    cursor: pointer;
 `;
 
 const IconWrapper = styled.div`
@@ -123,7 +127,18 @@ const IconWrapper = styled.div`
     padding: 4px;
 `;
 
-const HeaderRight = ({ showModal }) => {
+const UserIconBlock = styled.div`
+    margin-right: 12px;
+    margin-left: 12px;
+    align-items: center;
+    display: flex;
+    @media (max-width: 728px) {
+        margin-right: 10px;
+        margin-left: 0px;
+    }
+`
+
+const HeaderRight = ({ showModal, userinfo }) => {
     return (
         <HeaderRightWrapper>
             <HeaderRightBlock>
@@ -152,14 +167,19 @@ const HeaderRight = ({ showModal }) => {
                 </ButtonBlock>
                 <LoggedinBlock>
                     <SearchBlock>
-                        <Search>
+                        <Button>
                             <IconWrapper>
                                 <svg width="25" height="25" viewBox="0 0 25 25" class="dw">
                                     <path d="M20.07 18.93l-4.16-4.15a6 6 0 1 0-.88.88l4.15 4.16a.62.62 0 1 0 .89-.89zM6.5 11a4.75 4.75 0 1 1 9.5 0 4.75 4.75 0 0 1-9.5 0z"></path>
                                 </svg>
                             </IconWrapper>
-                        </Search>
+                        </Button>
                     </SearchBlock>
+                    <UserIconBlock>
+                            <Button>
+                                <img src={userinfo.img} width="32px" height="32px" border-radius="50%" />
+                            </Button>
+                        </UserIconBlock>
                 </LoggedinBlock>
                 <Logo href="/main">
                     <svg height="25px" viewBox="0 0 1043.63 592.71">

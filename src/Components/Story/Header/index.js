@@ -43,7 +43,7 @@ const Header = ({ showModal, userinfo }) => {
         <HeaderWrapper>
             <HeaderBlock>
                 <HeaderLeft userinfo={userinfo} />
-                <HeaderRight showModal={showModal} />
+                <HeaderRight showModal={showModal} userinfo={userinfo} />
             </HeaderBlock>
         </HeaderWrapper>
     );
