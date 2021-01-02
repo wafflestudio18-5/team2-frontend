@@ -76,12 +76,12 @@ const StoryPage = () => {
         { name: 'long tag', url: '/tag/long_tag' },
         { name: 'long long tag', url: '/tag/long_long_tag' },
     ];
+    const logged_in = false; //react-cookie와 연동은 아직 X
+
     const me = {
         name: 'MyName',
         img: 'https://avatars2.githubusercontent.com/u/28915633?s=60&v=4',
     }
-
-    const logged_in = false;
 
     return (
         <div>
