@@ -45,7 +45,8 @@ const MainLoginPage = ({ token }) => {
       story: {
         id: 1,
         uid: 1,
-        title: "Aov lals",
+        title:
+          "5 Methods You Can Use to Grow and Learn as a Developer Every Day",
         subtitle: "Afblla skbial boal eibibia slaqbp sl",
         created_at: "2020-12-31",
       },

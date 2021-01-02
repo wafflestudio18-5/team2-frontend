@@ -48,10 +48,12 @@ const StoryTitle = styled.a`
   font-weight: 700;
   font-size: 16px;
   cursor: pointer;
+  letter-spacing: -0.03em;
+  line-height: 20px;
 `
 
 const StoryDate = styled.p`
-  margin-top: 16px;
+  margin-top: 8px;
   color: ${Color.gray};
   font-size: 13px;
   line-height: 20px;
