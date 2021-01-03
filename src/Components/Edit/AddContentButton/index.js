@@ -2,12 +2,13 @@ import styled from "styled-components"
 import ButtonSvg from "./ButtonSvg"
 import FunctionButton from "./FunctionButton"
 import MainButton from "./MainButton"
+import getIdOfCaretPlaced from "../../../Pages/Edit/Functions/getIdOfCaretPlaced"
 
 const ButtonWrapper = styled.div`
   position: absolute;
 `
 
-const AddContentButton = ({ id }) => {
+const AddContentButton = () => {
   const clickMainButton = () => {
     const mainButton = document.getElementById("mainbutton")
     const imageButton = document.getElementById("imagebutton")
@@ -23,8 +24,23 @@ const AddContentButton = ({ id }) => {
       dividerButton.classList.add("opened")
     }
   }
+
+  document.addEventListener("selectionchange", () => {
+    const buttons = document.getElementById("inline-tooltip")
+    const { target } = getIdOfCaretPlaced()
+
+    if (target.textContent === "") {
+      const rect = target.getBoundingClientRect()
+      buttons.style.top = rect.top + rect.height / 2 - 16 + "px"
+      buttons.style.left = rect.left - 40 + "px"
+      buttons.style.visibility = "visible"
+    } else {
+      buttons.style.visibility = "hidden"
+    }
+  })
+
   return (
-    <ButtonWrapper>
+    <ButtonWrapper id="inline-tooltip">
       <MainButton id="mainbutton" onClick={clickMainButton}>
         <ButtonSvg>
           <path d="M20 12h-7V5h-1v7H5v1h7v7h1v-7h7"></path>
