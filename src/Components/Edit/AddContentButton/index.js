@@ -40,6 +40,9 @@ const AddContentButton = ({ addImage, addDivider }) => {
     setId(id)
 
     if (target.textContent === "") {
+      if (target.nodeName === "BUTTON") {
+        return
+      }
       const rect = target.getBoundingClientRect()
       buttons.style.top =
         window.scrollY + rect.top + rect.height / 2 - 16 + "px"
