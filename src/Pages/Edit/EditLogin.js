@@ -1,6 +1,7 @@
 import Edit from "../../Components/Edit"
 import { useState, useEffect } from "react"
 import { useCookies } from "react-cookie"
+import SaveStatusConstants from "../../Constants/SaveStatusConstants"
 import findTitle from "./Functions/findTitle"
 import createNewContent from "./Functions/createNewContent"
 import onDeleteKeyPressed from "./Functions/onDeleteKeyPressed"
@@ -11,6 +12,8 @@ import moveCaret from "./Functions/moveCaret"
 import buttonFunctions from "./ButtonFunctions"
 import getCurrentUser from "../Main/Functions/getCurrentUser"
 import logout from "../Main/Functions/logout"
+import saveStory from "./Functions/saveStory"
+import publish from "./Functions/publish"
 
 const EditLoginPage = ({ token }) => {
   const user = {
@@ -36,6 +39,10 @@ const EditLoginPage = ({ token }) => {
 
   const removeCookie = useCookies(["auth"])[2]
 
+  // 글 저장 관련 state
+  const [saveStatus, setSaveStatus] = useState(SaveStatusConstants.NOT_SAVED)
+  const [id, setId] = useState(-1)
+
   const changeStateOnInput = () => {
     // 값에 변경 있을 시 state도 그에 맞게 변경
     const { id, target } = getIdOfCaretPlaced()
@@ -55,12 +62,8 @@ const EditLoginPage = ({ token }) => {
     }
   }
 
-  const publish = () => {
-    // publish 버튼을 눌렀을 때 실행되는 함수. 나중에 API 관련 추가 필요
-    console.log(JSON.stringify(story))
-  }
-
   const keyDownEventListener = (event) => {
+    setSaveStatus(SaveStatusConstants.NOT_SAVED)
     switch (event.key) {
       case "Enter":
         createNewContent(event, story, setStory, setCaret)
@@ -89,6 +92,15 @@ const EditLoginPage = ({ token }) => {
     moveCaret(caret)
   }, [caret, story])
 
+  useEffect(() => {
+    setTimeout(() => {
+      const { id, offsetList } = getIdOfCaretPlaced()
+      setSaveStatus(SaveStatusConstants.SAVED)
+      setCaret({ id, offset: offsetList })
+      console.log("saved")
+    }, 5000)
+  }, [saveStatus, caret])
+
   window.addEventListener("resize", () => {
     const dropdown = document.getElementById("dropdown")
     let left =
@@ -108,10 +120,12 @@ const EditLoginPage = ({ token }) => {
   return (
     <Edit
       user={user}
-      status="Saved"
+      status={saveStatus}
       story={findTitle(story)}
       changeStateOnInput={changeStateOnInput}
-      publish={publish}
+      publish={() =>
+        publish(token, story, saveStatus, setSaveStatus, id, setId)
+      }
       keyDownEventListener={keyDownEventListener}
       checkMultiLineSelected={(event) => {
         checkMultiLineSelected(event, story, setStory, setCaret)

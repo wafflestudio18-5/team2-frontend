@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import Color from "../../../Constants/Color"
+import SaveStatusConstants from "../../../Constants/SaveStatusConstants"
 
 const HeaderLeftStyle = styled.div`
   display: flex;
@@ -25,6 +26,19 @@ const Status = styled.span`
 `
 
 const HeaderLeft = ({ userName, status }) => {
+  let statusMessage = ""
+  switch (status) {
+    case SaveStatusConstants.SAVING:
+      statusMessage = "saving"
+      break
+
+    case SaveStatusConstants.SAVED:
+      statusMessage = "saved"
+      break
+
+    default:
+      break
+  }
   return (
     <HeaderLeftStyle>
       <HeaderLogo href="/main">
@@ -37,7 +51,7 @@ const HeaderLeft = ({ userName, status }) => {
         </svg>
       </HeaderLogo>
       <UserName>{userName}</UserName>
-      <Status>{status}</Status>
+      <Status>{statusMessage}</Status>
     </HeaderLeftStyle>
   )
 }

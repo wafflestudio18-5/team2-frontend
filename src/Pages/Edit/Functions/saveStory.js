@@ -2,7 +2,14 @@ import { postStory, putStoryStoryid } from "../../../api"
 import getStoryInfo from "./getStoryInfo"
 import SaveStatusConstants from "../../../Constants/SaveStatusConstants"
 
-const saveStory = async (token, story, saveStatus, setSaveStatus, id = -1) => {
+const saveStory = async (
+  token,
+  story,
+  saveStatus,
+  setSaveStatus,
+  id,
+  setId
+) => {
   if (saveStatus === SaveStatusConstants.SAVING) {
     return
   }
@@ -27,6 +34,7 @@ const saveStory = async (token, story, saveStatus, setSaveStatus, id = -1) => {
     try {
       const response = await postStory(token, body)
       await setSaveStatus(SaveStatusConstants.SAVED)
+      await setId(response.data.id)
       return response
     } catch (error) {
       console.log(error)

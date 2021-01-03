@@ -1,14 +1,15 @@
 import { postStoryStoryidPublish } from "../../../api"
 import saveStory from "./saveStory"
 
-const publish = async (token, story, saveStatus, setSaveStatus, id = -1) => {
+const publish = async (token, story, saveStatus, setSaveStatus, id, setId) => {
   try {
     const saveResponse = await saveStory(
       token,
       story,
       saveStatus,
       setSaveStatus,
-      id
+      id,
+      setId
     )
     const storyId = saveResponse.data.id
     const response = postStoryStoryidPublish(token, storyId)
