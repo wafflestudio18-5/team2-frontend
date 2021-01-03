@@ -4,7 +4,20 @@ const findTitle = (s) => {
   // index 관련 에러 발생
   let checker = true
   let result = JSON.parse(JSON.stringify(s))
-  const firstSection = s[0]
+  let firstSection = JSON.parse(JSON.stringify(s[0]))
+  firstSection = firstSection.map((content) => {
+    if (content.type !== "paragraph") {
+      return {
+        type: "paragraph",
+        detail: {
+          emphasizing: "normal",
+          content: "",
+        },
+      }
+    } else {
+      return content
+    }
+  })
 
   mainLoop: for (let i = 0; i < firstSection.length; i++) {
     if (!checker) {

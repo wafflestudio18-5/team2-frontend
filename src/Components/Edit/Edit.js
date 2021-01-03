@@ -8,6 +8,7 @@ import ImageUrlInput from "./ImageUrlInput"
 
 const EditStyle = styled.div`
   padding-top: 65px;
+  display: relative;
 `
 
 const Edit = ({
