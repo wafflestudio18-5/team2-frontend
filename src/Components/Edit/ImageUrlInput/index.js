@@ -24,13 +24,14 @@ const InputField = styled.input``
 
 const OKButton = styled.button``
 
-const ImageUrlInput = ({ onChangeUrl, createImage }) => {
+const ImageUrlInput = ({ onChangeUrl, createImage, hideInput }) => {
   return (
     <InputWrapper>
       <InputContent>
         <Message>Image URL</Message>
         <InputField onChange={onChangeUrl} />
         <OKButton onClick={createImage}>OK</OKButton>
+        <OKButton onClick={hideInput}>Cancel</OKButton>
       </InputContent>
     </InputWrapper>
   )

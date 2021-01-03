@@ -30,6 +30,7 @@ const Edit = ({
   showImageUrlInput,
   onChangeUrl,
   createImage,
+  hideInput,
 }) => {
   return (
     <EditStyle>
@@ -56,7 +57,11 @@ const Edit = ({
         />
       )}
       {showImageUrlInput && (
-        <ImageUrlInput onChangeUrl={onChangeUrl} createImage={createImage} />
+        <ImageUrlInput
+          onChangeUrl={onChangeUrl}
+          createImage={createImage}
+          hideInput={hideInput}
+        />
       )}
     </EditStyle>
   )

@@ -156,6 +156,10 @@ const EditLoginPage = ({ token }) => {
     setShowImageUrlInput(true)
     setIdImagePlaced(id)
   }
+  const hideInput = () => {
+    setImageUrl("")
+    setShowImageUrlInput(false)
+  }
 
   return (
     <Edit
@@ -192,6 +196,7 @@ const EditLoginPage = ({ token }) => {
         )
       }
       onChangeUrl={onChangeUrl}
+      hideInput={hideInput}
     />
   )
 }
