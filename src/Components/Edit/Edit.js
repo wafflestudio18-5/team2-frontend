@@ -2,6 +2,7 @@ import styled from "styled-components"
 import Header from "./Header"
 import Main from "./Main"
 import HighlightMenu from "./HighlightMenu"
+import UserDropdown from "../MainLogin/UserDropdown"
 
 const EditStyle = styled.div`
   padding-top: 65px;
@@ -16,10 +17,19 @@ const Edit = ({
   keyDownEventListener,
   checkMultiLineSelected,
   buttonFunctions,
+  signOut,
+  isDropdownOpened,
+  openDropdown,
+  hideDropdown,
 }) => {
   return (
     <EditStyle>
-      <Header user={user} status={status} publish={publish} />
+      <Header
+        user={user}
+        status={status}
+        publish={publish}
+        openDropdown={openDropdown}
+      />
       <Main
         story={story}
         changeStateOnInput={changeStateOnInput}
@@ -27,6 +37,13 @@ const Edit = ({
         checkMultiLineSelected={checkMultiLineSelected}
       />
       <HighlightMenu buttonFunctions={buttonFunctions} />
+      {isDropdownOpened && (
+        <UserDropdown
+          user={user}
+          signOut={signOut}
+          hideDropdown={hideDropdown}
+        />
+      )}
     </EditStyle>
   )
 }

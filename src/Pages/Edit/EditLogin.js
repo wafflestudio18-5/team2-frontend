@@ -8,13 +8,20 @@ import checkMultiLineSelected from "./Functions/checkMultiLineSelected"
 import getIdOfCaretPlaced from "./Functions/getIdOfCaretPlaced"
 import moveCaret from "./Functions/moveCaret"
 import buttonFunctions from "./ButtonFunctions"
+import getCurrentUser from "../Main/Functions/getCurrentUser"
+import logout from "../Main/Functions/logout"
 
-const EditLoginPage = () => {
+const EditLoginPage = ({ token }) => {
   const user = {
-    userName: "user Name",
-    profileUrl:
+    username: "user Name",
+    imageUrl:
       "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo4BQSpilYy5KuAptMxbOAxm4uKjFYDG6_wg&usqp=CAU",
   }
+  // const [user, setUser] = useState({})
+
+  // useEffect(() => {
+  //   getCurrentUser(token, setUser)
+  // }, [token])
 
   const [story, setStory] = useState([
     [
@@ -22,6 +29,9 @@ const EditLoginPage = () => {
       { type: "paragraph", detail: { content: "", emphasizing: "large" } },
     ],
   ])
+
+  // Dropdown 표시 여부
+  const [isDropdownOpened, setIsDropdownOpened] = useState(false)
 
   const changeStateOnInput = () => {
     // 값에 변경 있을 시 state도 그에 맞게 변경
@@ -76,6 +86,22 @@ const EditLoginPage = () => {
     moveCaret(caret)
   }, [caret, story])
 
+  window.addEventListener("resize", () => {
+    const dropdown = document.getElementById("dropdown")
+    let left =
+      document.getElementById("userProfile").getBoundingClientRect().left - 150
+    if (dropdown !== null) {
+      if (window.innerWidth < 904) {
+        if (window.innerWidth < 728) {
+          left -= 40
+        } else {
+          left -= 16
+        }
+      }
+      dropdown.style.left = left + "px"
+    }
+  })
+
   return (
     <Edit
       user={user}
@@ -88,6 +114,10 @@ const EditLoginPage = () => {
         checkMultiLineSelected(event, story, setStory, setCaret)
       }}
       buttonFunctions={buttonFunctions(story, setStory)}
+      signOut={logout}
+      isDropdownOpened={isDropdownOpened}
+      openDropdown={() => setIsDropdownOpened(true)}
+      hideDropdown={() => setIsDropdownOpened(false)}
     />
   )
 }

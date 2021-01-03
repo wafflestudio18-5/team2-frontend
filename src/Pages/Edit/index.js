@@ -14,7 +14,7 @@ const EditPage = () => {
       />
     )
   } else {
-    return <EditLoginPage />
+    return <EditLoginPage token={token} />
   }
 }
 
