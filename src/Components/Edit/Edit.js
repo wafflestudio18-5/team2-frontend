@@ -4,6 +4,7 @@ import Main from "./Main"
 import HighlightMenu from "./HighlightMenu"
 import UserDropdown from "../MainLogin/UserDropdown"
 import AddContentButton from "./AddContentButton"
+import ImageUrlInput from "./ImageUrlInput"
 
 const EditStyle = styled.div`
   padding-top: 65px;
@@ -24,6 +25,10 @@ const Edit = ({
   hideDropdown,
   startTimer,
   addDivider,
+  addImage,
+  showImageUrlInput,
+  onChangeUrl,
+  createImage,
 }) => {
   return (
     <EditStyle>
@@ -41,13 +46,16 @@ const Edit = ({
         startTimer={startTimer}
       />
       <HighlightMenu buttonFunctions={buttonFunctions} />
-      <AddContentButton addDivider={addDivider} />
+      <AddContentButton addDivider={addDivider} addImage={addImage} />
       {isDropdownOpened && (
         <UserDropdown
           user={user}
           signOut={signOut}
           hideDropdown={hideDropdown}
         />
+      )}
+      {showImageUrlInput && (
+        <ImageUrlInput onChangeUrl={onChangeUrl} createImage={createImage} />
       )}
     </EditStyle>
   )

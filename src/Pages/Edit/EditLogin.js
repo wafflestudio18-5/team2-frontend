@@ -17,6 +17,7 @@ import saveStory from "./Functions/saveStory"
 import publish from "./Functions/publish"
 import preserveCaret from "./Functions/preserveCaret"
 import addDivider from "./Functions/addDivider"
+import createImage from "./Functions/createImage"
 
 const EditLoginPage = ({ token }) => {
   const user = {
@@ -145,6 +146,16 @@ const EditLoginPage = ({ token }) => {
   })
 
   // Add content button 관련
+  const [showImageUrlInput, setShowImageUrlInput] = useState(false)
+  const [imageUrl, setImageUrl] = useState("")
+  const [idImagePlaced, setIdImagePlaced] = useState("0 0")
+  const onChangeUrl = (event) => {
+    setImageUrl(event.target.value)
+  }
+  const addImage = (id) => {
+    setShowImageUrlInput(true)
+    setIdImagePlaced(id)
+  }
 
   return (
     <Edit
@@ -169,6 +180,18 @@ const EditLoginPage = ({ token }) => {
       addDivider={(id) => {
         addDivider(id, story, setStory, setCaret)
       }}
+      addImage={addImage}
+      showImageUrlInput={showImageUrlInput}
+      createImage={() =>
+        createImage(
+          idImagePlaced,
+          imageUrl,
+          story,
+          setStory,
+          setShowImageUrlInput
+        )
+      }
+      onChangeUrl={onChangeUrl}
     />
   )
 }
