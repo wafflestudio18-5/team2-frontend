@@ -152,9 +152,10 @@ const EditLoginPage = ({ token }) => {
       status={saveStatus}
       story={findTitle(story)}
       changeStateOnInput={changeStateOnInput}
-      publish={() =>
+      publish={() => {
         publish(token, story, saveStatus, setSaveStatus, id, setId, history)
-      }
+        clearTimeout(typingTimer)
+      }}
       keyDownEventListener={keyDownEventListener}
       checkMultiLineSelected={(event) => {
         checkMultiLineSelected(event, story, setStory, setCaret)
