@@ -25,12 +25,12 @@ const ResponseWrapper = styled.div`
         `}
 `;
 
-const Response = ({ IsOpen, Response }) => {
+const Response = ({ IsOpen, Response, me }) => {
     return (
         <ResponseWrapper IsOpen={IsOpen}>
             <ResponseHeader ResponseNum={Response.length}/>
             <ResponseInput />
-            <ResponseBlock Response={Response}/>
+            <ResponseBlock Response={Response} me={me}/>
         </ResponseWrapper>
     );
 };

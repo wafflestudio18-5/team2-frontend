@@ -25,7 +25,7 @@ const Story = ({ showModal, reachScrollCheckPoint, story, storyinfo, userinfo, t
         <StoryStyle>
             <Header showModal={showModal} userinfo={userinfo} logged_in={logged_in} me={me} />
             <Main reachScrollCheckPoint={reachScrollCheckPoint} story={story} tag={tag} storyinfo={storyinfo} userinfo={userinfo} />
-            <Response IsOpen={true} Response={SampleResponse} />
+            <Response IsOpen={true} Response={SampleResponse} me={me} />
         </StoryStyle>
     );
 };

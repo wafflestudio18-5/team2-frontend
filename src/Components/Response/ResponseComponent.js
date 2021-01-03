@@ -14,11 +14,11 @@ const ResponseBlock = styled.div`
     border-bottom: 1px solid ${Color.lightGray};
 `
 
-const ResponseComponent = ({Response}) => {
+const ResponseComponent = ({Response, me}) => {
     return(
         <ResponseWrapper>
             <ResponseBlock>
-                <ResponseWriter Response={Response} />
+                <ResponseWriter Response={Response} me={me} />
             </ResponseBlock>
         </ResponseWrapper>
     );

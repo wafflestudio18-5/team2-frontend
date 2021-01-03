@@ -79,6 +79,7 @@ const StoryPage = () => {
     const logged_in = true; //react-cookie와 연동은 아직 X
 
     const me = {
+        id: 2,
         name: 'MyName',
         img: 'https://avatars2.githubusercontent.com/u/28915633?s=60&v=4',
     }

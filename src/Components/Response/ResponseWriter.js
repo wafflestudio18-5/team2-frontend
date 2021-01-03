@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Color from '../../Constants/Color';
 
 const ResponseWriterWrapper = styled.div`
@@ -56,9 +56,14 @@ const CloseButton = styled.button`
     background: 0;
     fill: rgba(61, 61, 61, 1);
     margin: 0;
+    ${(props) =>
+        props.writer_id !== props.me_id &&
+        css`
+            display: none;
+        `}
 `;
 
-const ResponseWriter = ({ Response }) => {
+const ResponseWriter = ({ Response, me }) => {
     const Writer = Response.writer;
     var isedited = Response.created_at === Response.updated_at ? '' : '(edited)';
     return (
@@ -74,7 +79,7 @@ const ResponseWriter = ({ Response }) => {
                     </WriterNameBlock>
                 </WriterInformationBlock>
             </ResponeWriterInformationBlock>
-            <CloseButton>
+            <CloseButton writer_id={Writer.id} me_id={me.id}>
                 <svg width="25" height="25" viewBox="0 0 25 25" class="dw">
                     <path d="M18.13 6.11l-5.61 5.61-5.6-5.61-.81.8 5.61 5.61-5.61 5.61.8.8 5.61-5.6 5.61 5.6.8-.8-5.6-5.6 5.6-5.62"></path>
                 </svg>
