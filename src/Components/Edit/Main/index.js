@@ -38,9 +38,11 @@ const Main = ({
       contentEditable="true"
       suppressContentEditableWarning={true}
       onKeyDown={keyDownEventListener}
-      onKeyPress={checkMultiLineSelected}
+      onKeyPress={() => {
+        checkMultiLineSelected()
+        startTimer()
+      }}
       onInput={changeStateOnInput}
-      onKeyUp={startTimer}
     >
       {article}
     </MainStyle>
