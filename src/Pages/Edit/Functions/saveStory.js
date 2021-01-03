@@ -14,19 +14,21 @@ const saveStory = async (
     return
   }
   await setSaveStatus(SaveStatusConstants.SAVING)
-  // const { title, subtitle, featured_image } = getStoryInfo(story)
-  // const body = {
-  //   title,
-  //   subtitle,
-  //   body: story,
-  //   featured_image,
-  // }
+  const { title, subtitle, featured_image } = getStoryInfo(story)
+  const body = {
+    title,
+    subtitle,
+    body: story,
+    featured_image,
+  }
   if (id !== -1) {
     try {
+      setTimeout(() => {
+        setSaveStatus(SaveStatusConstants.SAVED)
+        console.log(JSON.stringify(body))
+      }, 2000)
       // const response = await putStoryStoryid(token, body, id)
-      await setSaveStatus(SaveStatusConstants.SAVED)
       // return response
-      setTimeout(() => {}, 1000)
     } catch (error) {
       console.log(error)
       return error
@@ -34,11 +36,13 @@ const saveStory = async (
   } else {
     try {
       // const response = await postStory(token, body)
-      await setSaveStatus(SaveStatusConstants.SAVED)
+      setTimeout(() => {
+        setSaveStatus(SaveStatusConstants.SAVED)
+        setId(1)
+        console.log(JSON.stringify(body))
+      }, 2000)
       // await setId(response.data.id)
-      await setId(1)
       // return response
-      setTimeout(() => {}, 1000)
     } catch (error) {
       console.log(error)
       return error

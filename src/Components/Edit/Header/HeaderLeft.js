@@ -29,11 +29,11 @@ const HeaderLeft = ({ userName, status }) => {
   let statusMessage = ""
   switch (status) {
     case SaveStatusConstants.SAVING:
-      statusMessage = "saving"
+      statusMessage = "Saving..."
       break
 
     case SaveStatusConstants.SAVED:
-      statusMessage = "saved"
+      statusMessage = "Saved"
       break
 
     default:
