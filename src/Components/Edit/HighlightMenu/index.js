@@ -40,16 +40,20 @@ const HighlightMenuStyle = styled.div`
 const HighlightMenu = ({ ...props }) => {
   document.addEventListener("selectionchange", () => {
     var highlightMenu = document.getElementById("highlightMenu")
-    var range = window.getSelection().getRangeAt(0)
+    try {
+      var range = window.getSelection().getRangeAt(0)
 
-    if (range.collapsed) {
-      highlightMenu.style.display = "none"
-    } else {
-      var rect = range.getBoundingClientRect()
-      highlightMenu.style.top =
-        rect.top - 50 + document.documentElement.scrollTop + "px"
-      highlightMenu.style.left = rect.left + rect.width / 2 - 90 + "px"
-      highlightMenu.style.display = "inline-block"
+      if (range.collapsed) {
+        highlightMenu.style.display = "none"
+      } else {
+        var rect = range.getBoundingClientRect()
+        highlightMenu.style.top =
+          rect.top - 50 + document.documentElement.scrollTop + "px"
+        highlightMenu.style.left = rect.left + rect.width / 2 - 90 + "px"
+        highlightMenu.style.display = "inline-block"
+      }
+    } catch (error) {
+      console.log(error)
     }
   })
 

@@ -30,3 +30,25 @@ export const postUserLogout = async (token) => {
   const response = await axios.post("user/logout/", {}, config)
   return response
 }
+
+// story api
+export const postStory = async (token, body) => {
+  // POST /story/
+  const config = { Authorization: "Auth" + token }
+  const response = await axios.post("story/", body, config)
+  return response
+}
+
+export const postStoryStoryidPublish = async (token, id) => {
+  // POST /story/{story_id}/publish/
+  const config = { Authorization: "Auth" + token }
+  const response = await axios.post("story/" + id + "/publish/", {}, config)
+  return response
+}
+
+export const putStoryStoryid = async (token, body, id) => {
+  // PUT /story/{story_id}/
+  const config = { Authorization: "Auth" + token }
+  const response = await axios.put("story/" + id + "/", body, config)
+  return response
+}
