@@ -19,7 +19,7 @@ const EditPage = () => {
   const [story, setStory] = useState([
     [
       { type: "paragraph", detail: { content: "", emphasizing: "largest" } },
-      { type: "paragraph", detail: { content: "", emphasizing: "normal" } },
+      { type: "paragraph", detail: { content: "", emphasizing: "large" } },
     ],
   ])
 
