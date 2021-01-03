@@ -28,7 +28,7 @@ const ResponseWrapper = styled.div`
 const Response = ({ IsOpen, Response }) => {
     return (
         <ResponseWrapper IsOpen={IsOpen}>
-            <ResponseHeader />
+            <ResponseHeader ResponseNum={Response.length}/>
             <ResponseInput />
             <ResponseBlock Response={Response}/>
         </ResponseWrapper>

@@ -11,7 +11,7 @@ const ResponseHeaderWrapper = styled.div`
 
 const ResponseHeaderTitle = styled.h2`
     font-size: 20px;
-    font-weight: 500;
+    font-weight: bold;
     color: ${Color.borderblack};
     line-height: 24px;
     letter-spacing: 0;
@@ -45,10 +45,16 @@ const CloseButton = styled.button`
     height: 25px;
 `;
 
-const ResponseHeader = () => {
+const ResponseHeader = ({ ResponseNum }) => {
+    var ResponseText = '';
+    if (ResponseNum == 0) {
+        ResponseText = 'Responses';
+    } else {
+        ResponseText = 'Responses (' + ResponseNum + ')';
+    }
     return (
         <ResponseHeaderWrapper>
-            <ResponseHeaderTitle>Responses</ResponseHeaderTitle>
+            <ResponseHeaderTitle>{ResponseText}</ResponseHeaderTitle>
             <ResponseButtonBlock>
                 <DotButton>
                     <svg class="overflow-dots-filled-25px_svg__svgIcon-use" width="25" height="25">
