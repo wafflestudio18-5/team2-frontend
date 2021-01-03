@@ -28,7 +28,7 @@ const saveStory = async (
         console.log(JSON.stringify(body))
         return { data: { id: 1 } }
       }, 1000)
-      // const response = await putStoryStoryid(token, body, id)
+      //const response = await putStoryStoryid(token, body, id)
       // return response
     } catch (error) {
       console.log(error)
