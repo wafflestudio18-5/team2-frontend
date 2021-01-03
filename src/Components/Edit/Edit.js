@@ -21,6 +21,7 @@ const Edit = ({
   isDropdownOpened,
   openDropdown,
   hideDropdown,
+  startTimer,
 }) => {
   return (
     <EditStyle>
@@ -35,6 +36,7 @@ const Edit = ({
         changeStateOnInput={changeStateOnInput}
         keyDownEventListener={keyDownEventListener}
         checkMultiLineSelected={checkMultiLineSelected}
+        startTimer={startTimer}
       />
       <HighlightMenu buttonFunctions={buttonFunctions} />
       {isDropdownOpened && (

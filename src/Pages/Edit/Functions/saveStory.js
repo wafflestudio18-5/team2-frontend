@@ -26,7 +26,7 @@ const saveStory = async (
       setTimeout(() => {
         setSaveStatus(SaveStatusConstants.SAVED)
         console.log(JSON.stringify(body))
-      }, 2000)
+      }, 1000)
       // const response = await putStoryStoryid(token, body, id)
       // return response
     } catch (error) {
@@ -40,7 +40,7 @@ const saveStory = async (
         setSaveStatus(SaveStatusConstants.SAVED)
         setId(1)
         console.log(JSON.stringify(body))
-      }, 2000)
+      }, 1000)
       // await setId(response.data.id)
       // return response
     } catch (error) {

@@ -14,6 +14,7 @@ const Main = ({
   changeStateOnInput,
   keyDownEventListener,
   checkMultiLineSelected,
+  startTimer,
 }) => {
   let article = []
   const lastSection = story.length - 1
@@ -39,6 +40,7 @@ const Main = ({
       onKeyDown={keyDownEventListener}
       onKeyPress={checkMultiLineSelected}
       onInput={changeStateOnInput}
+      onKeyUp={startTimer}
     >
       {article}
     </MainStyle>

@@ -40,14 +40,28 @@ const EditLoginPage = ({ token }) => {
 
   const removeCookie = useCookies(["auth"])[2]
 
-  // 글 저장 관련 state
+  // 글 저장 관련
   const [saveStatus, setSaveStatus] = useState(SaveStatusConstants.INIT)
   const [id, setId] = useState(-1)
+  var typingTimer
+  const startTimer = () => {
+    clearTimeout(typingTimer)
+    typingTimer = setTimeout(() => {
+      preserveCaret(() => {
+        saveStory(token, story, saveStatus, setSaveStatus, id, setId)
+      })
+    }, 3000)
+  }
 
   const changeStateOnInput = (event) => {
     // 값에 변경 있을 시 state도 그에 맞게 변경
+    preserveCaret(() => {
+      if (saveStatus === SaveStatusConstants.SAVING) {
+        return
+      }
+      setSaveStatus(SaveStatusConstants.NOT_SAVED)
+    })
     const { id, target } = getIdOfCaretPlaced()
-    preserveCaret(() => setSaveStatus(SaveStatusConstants.NOT_SAVED))
 
     const [sectionIndex, contentIndex] = id.split(" ").map((e) => parseInt(e))
     let value = target.innerHTML
@@ -65,20 +79,36 @@ const EditLoginPage = ({ token }) => {
   }
 
   const keyDownEventListener = (event) => {
+    clearTimeout(typingTimer)
     switch (event.key) {
       case "Enter":
         createNewContent(event, story, setStory, setCaret)
-        preserveCaret(() => setSaveStatus(SaveStatusConstants.NOT_SAVED))
+        preserveCaret(() => {
+          if (saveStatus === SaveStatusConstants.SAVING) {
+            return
+          }
+          setSaveStatus(SaveStatusConstants.NOT_SAVED)
+        })
         break
 
       case "Delete":
         onDeleteKeyPressed(event, story, setStory, setCaret)
-        preserveCaret(() => setSaveStatus(SaveStatusConstants.NOT_SAVED))
+        preserveCaret(() => {
+          if (saveStatus === SaveStatusConstants.SAVING) {
+            return
+          }
+          setSaveStatus(SaveStatusConstants.NOT_SAVED)
+        })
         break
 
       case "Backspace":
         onBackspacePressed(event, story, setStory, setCaret)
-        preserveCaret(() => setSaveStatus(SaveStatusConstants.NOT_SAVED))
+        preserveCaret(() => {
+          if (saveStatus === SaveStatusConstants.SAVING) {
+            return
+          }
+          setSaveStatus(SaveStatusConstants.NOT_SAVED)
+        })
         break
 
       case "Control":
@@ -132,6 +162,7 @@ const EditLoginPage = ({ token }) => {
       isDropdownOpened={isDropdownOpened}
       openDropdown={() => setIsDropdownOpened(true)}
       hideDropdown={() => setIsDropdownOpened(false)}
+      startTimer={startTimer}
     />
   )
 }
