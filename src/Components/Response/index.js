@@ -1,4 +1,5 @@
 import styled, { css } from 'styled-components';
+import ResponseHeader from './ResponseHeader';
 
 const ResponseWrapper = styled.div`
     transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0s, opacity 0.6s cubic-bezier(0.23, 1, 0.32, 1) 0s;
@@ -23,7 +24,9 @@ const ResponseWrapper = styled.div`
 `;
 
 const Response = ({ IsOpen }) => {
-    return <ResponseWrapper IsOpen={IsOpen}>ResponseBlock</ResponseWrapper>;
+    return <ResponseWrapper IsOpen={IsOpen}>
+        <ResponseHeader />
+    </ResponseWrapper>;
 };
 
 export default Response;
