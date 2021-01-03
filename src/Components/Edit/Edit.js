@@ -23,6 +23,7 @@ const Edit = ({
   openDropdown,
   hideDropdown,
   startTimer,
+  addDivider,
 }) => {
   return (
     <EditStyle>
@@ -40,7 +41,7 @@ const Edit = ({
         startTimer={startTimer}
       />
       <HighlightMenu buttonFunctions={buttonFunctions} />
-      <AddContentButton />
+      <AddContentButton addDivider={addDivider} />
       {isDropdownOpened && (
         <UserDropdown
           user={user}

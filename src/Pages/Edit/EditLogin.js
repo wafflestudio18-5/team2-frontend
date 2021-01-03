@@ -16,6 +16,7 @@ import logout from "../Main/Functions/logout"
 import saveStory from "./Functions/saveStory"
 import publish from "./Functions/publish"
 import preserveCaret from "./Functions/preserveCaret"
+import addDivider from "./Functions/addDivider"
 
 const EditLoginPage = ({ token }) => {
   const user = {
@@ -111,9 +112,7 @@ const EditLoginPage = ({ token }) => {
         break
 
       case "Control":
-        preserveCaret(() =>
-          saveStory(token, story, saveStatus, setSaveStatus, id, setId)
-        )
+        // For testing
         break
 
       default:
@@ -125,7 +124,7 @@ const EditLoginPage = ({ token }) => {
 
   useEffect(() => {
     moveCaret(caret)
-  }, [caret, story])
+  }, [caret])
 
   // Dropdown 관련
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
@@ -167,6 +166,9 @@ const EditLoginPage = ({ token }) => {
       openDropdown={() => setIsDropdownOpened(true)}
       hideDropdown={() => setIsDropdownOpened(false)}
       startTimer={startTimer}
+      addDivider={(id) => {
+        addDivider(id, story, setStory, setCaret)
+      }}
     />
   )
 }

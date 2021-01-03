@@ -24,10 +24,15 @@ const AddContentButton = ({ addImage, addDivider }) => {
       dividerButton.classList.add("opened")
     }
   }
+  var targetId
+  const setId = (id) => {
+    targetId = id
+  }
 
   document.addEventListener("selectionchange", () => {
     const buttons = document.getElementById("inline-tooltip")
-    const { target } = getIdOfCaretPlaced()
+    const { target, id } = getIdOfCaretPlaced()
+    setId(id)
 
     if (target.textContent === "") {
       const rect = target.getBoundingClientRect()
@@ -54,7 +59,13 @@ const AddContentButton = ({ addImage, addDivider }) => {
           </g>
         </ButtonSvg>
       </FunctionButton>
-      <FunctionButton id="dividerbutton" onClick={addDivider}>
+      <FunctionButton
+        id="dividerbutton"
+        onClick={() => {
+          addDivider(targetId)
+          clickMainButton()
+        }}
+      >
         <ButtonSvg>
           <g>
             <path d="M8.45 12H5.3c-.247 0-.45.224-.45.5 0 .274.203.5.45.5h5.4c.247 0 .45-.226.45-.5 0-.276-.203-.5-.45-.5H8.45z"></path>
