@@ -10,7 +10,7 @@ const EditPage = () => {
       <AuthModalContainer
         hideModal={() => {}}
         modalVisible={true}
-        ModalType={ModalTypeConstants.SIGN_UP}
+        ModalType={ModalTypeConstants.LOG_IN}
       />
     )
   } else {
