@@ -1,6 +1,7 @@
 import Edit from "../../Components/Edit"
 import { useState, useEffect } from "react"
 import { useCookies } from "react-cookie"
+import { useHistory } from "react-router-dom"
 import SaveStatusConstants from "../../Constants/SaveStatusConstants"
 import findTitle from "./Functions/findTitle"
 import createNewContent from "./Functions/createNewContent"
@@ -39,6 +40,7 @@ const EditLoginPage = ({ token }) => {
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
 
   const removeCookie = useCookies(["auth"])[2]
+  const history = useHistory()
 
   // 글 저장 관련
   const [saveStatus, setSaveStatus] = useState(SaveStatusConstants.INIT)
@@ -151,7 +153,7 @@ const EditLoginPage = ({ token }) => {
       story={findTitle(story)}
       changeStateOnInput={changeStateOnInput}
       publish={() =>
-        publish(token, story, saveStatus, setSaveStatus, id, setId)
+        publish(token, story, saveStatus, setSaveStatus, id, setId, history)
       }
       keyDownEventListener={keyDownEventListener}
       checkMultiLineSelected={(event) => {
