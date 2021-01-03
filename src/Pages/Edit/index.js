@@ -6,7 +6,13 @@ import { useCookies } from "react-cookie"
 const EditPage = () => {
   const token = useCookies(["auth"])[0].auth
   if (token === undefined) {
-    return <AuthModalContainer modalType={ModalTypeConstants.SIGN_UP} />
+    return (
+      <AuthModalContainer
+        hideModal={() => {}}
+        modalVisible={true}
+        ModalType={ModalTypeConstants.SIGN_UP}
+      />
+    )
   } else {
     return <EditLoginPage />
   }
