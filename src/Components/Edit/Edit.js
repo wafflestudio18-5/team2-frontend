@@ -3,6 +3,7 @@ import Header from "./Header"
 import Main from "./Main"
 import HighlightMenu from "./HighlightMenu"
 import UserDropdown from "../MainLogin/UserDropdown"
+import AddContentButton from "./AddContentButton"
 
 const EditStyle = styled.div`
   padding-top: 65px;
@@ -39,6 +40,7 @@ const Edit = ({
         startTimer={startTimer}
       />
       <HighlightMenu buttonFunctions={buttonFunctions} />
+      <AddContentButton />
       {isDropdownOpened && (
         <UserDropdown
           user={user}

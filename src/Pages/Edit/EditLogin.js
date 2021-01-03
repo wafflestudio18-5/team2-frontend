@@ -36,9 +36,6 @@ const EditLoginPage = ({ token }) => {
     ],
   ])
 
-  // Dropdown 표시 여부
-  const [isDropdownOpened, setIsDropdownOpened] = useState(false)
-
   const removeCookie = useCookies(["auth"])[2]
   const history = useHistory()
 
@@ -130,6 +127,8 @@ const EditLoginPage = ({ token }) => {
     moveCaret(caret)
   }, [caret, story])
 
+  // Dropdown 관련
+  const [isDropdownOpened, setIsDropdownOpened] = useState(false)
   window.addEventListener("resize", () => {
     const dropdown = document.getElementById("dropdown")
     let left =
@@ -145,6 +144,8 @@ const EditLoginPage = ({ token }) => {
       dropdown.style.left = left + "px"
     }
   })
+
+  // Add content button 관련
 
   return (
     <Edit
