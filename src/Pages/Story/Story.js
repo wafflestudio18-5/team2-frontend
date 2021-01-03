@@ -44,7 +44,6 @@ const StoryPage = () => {
         let scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
         let scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
         let clientHeight = document.documentElement.clientHeight;
-        console.log(scrollTop, scrollTop + clientHeight - scrollHeight);
         if (scrollTop >= 300 && scrollTop + clientHeight < scrollHeight - 10) {
             setReachScrollCheckPoint(true);
         } else {
@@ -53,7 +52,6 @@ const StoryPage = () => {
     });
 
     const { story_id } = useParams(); //이용해서 해당하는 유저, 스토리 가져오기
-    console.log( story_id );
 
     //sample
     const userinfo = {

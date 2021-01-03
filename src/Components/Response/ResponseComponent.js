@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 import Color from '../../Constants/Color'
 import ResponseWriter from './ResponseWriter';
+import ResponseContent from './ResponseContent';
 
 const ResponseWrapper = styled.div`
     display: block;
@@ -19,6 +20,7 @@ const ResponseComponent = ({Response, me}) => {
         <ResponseWrapper>
             <ResponseBlock>
                 <ResponseWriter Response={Response} me={me} />
+                <ResponseContent Response={Response} />
             </ResponseBlock>
         </ResponseWrapper>
     );
