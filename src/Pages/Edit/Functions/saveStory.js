@@ -14,28 +14,31 @@ const saveStory = async (
     return
   }
   await setSaveStatus(SaveStatusConstants.SAVING)
-  const { title, subtitle, featured_image } = getStoryInfo(story)
-  const body = {
-    title,
-    subtitle,
-    body: story,
-    featured_image,
-  }
+  // const { title, subtitle, featured_image } = getStoryInfo(story)
+  // const body = {
+  //   title,
+  //   subtitle,
+  //   body: story,
+  //   featured_image,
+  // }
   if (id !== -1) {
     try {
-      const response = await putStoryStoryid(token, body, id)
+      // const response = await putStoryStoryid(token, body, id)
       await setSaveStatus(SaveStatusConstants.SAVED)
-      return response
+      // return response
+      setTimeout(() => {}, 1000)
     } catch (error) {
       console.log(error)
       return error
     }
   } else {
     try {
-      const response = await postStory(token, body)
+      // const response = await postStory(token, body)
       await setSaveStatus(SaveStatusConstants.SAVED)
-      await setId(response.data.id)
-      return response
+      // await setId(response.data.id)
+      await setId(1)
+      // return response
+      setTimeout(() => {}, 1000)
     } catch (error) {
       console.log(error)
       return error

@@ -33,6 +33,7 @@ const Main = ({
 
   return (
     <MainStyle
+      id="main"
       contentEditable="true"
       suppressContentEditableWarning={true}
       onKeyDown={keyDownEventListener}

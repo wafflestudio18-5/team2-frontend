@@ -14,6 +14,7 @@ import getCurrentUser from "../Main/Functions/getCurrentUser"
 import logout from "../Main/Functions/logout"
 import saveStory from "./Functions/saveStory"
 import publish from "./Functions/publish"
+import preserveCaret from "./Functions/preserveCaret"
 
 const EditLoginPage = ({ token }) => {
   const user = {
@@ -40,12 +41,13 @@ const EditLoginPage = ({ token }) => {
   const removeCookie = useCookies(["auth"])[2]
 
   // 글 저장 관련 state
-  const [saveStatus, setSaveStatus] = useState(SaveStatusConstants.NOT_SAVED)
+  const [saveStatus, setSaveStatus] = useState(SaveStatusConstants.INIT)
   const [id, setId] = useState(-1)
 
-  const changeStateOnInput = () => {
+  const changeStateOnInput = (event) => {
     // 값에 변경 있을 시 state도 그에 맞게 변경
     const { id, target } = getIdOfCaretPlaced()
+    preserveCaret(() => setSaveStatus(SaveStatusConstants.NOT_SAVED))
 
     const [sectionIndex, contentIndex] = id.split(" ").map((e) => parseInt(e))
     let value = target.innerHTML
@@ -63,22 +65,26 @@ const EditLoginPage = ({ token }) => {
   }
 
   const keyDownEventListener = (event) => {
-    setSaveStatus(SaveStatusConstants.NOT_SAVED)
     switch (event.key) {
       case "Enter":
         createNewContent(event, story, setStory, setCaret)
+        preserveCaret(() => setSaveStatus(SaveStatusConstants.NOT_SAVED))
         break
 
       case "Delete":
         onDeleteKeyPressed(event, story, setStory, setCaret)
+        preserveCaret(() => setSaveStatus(SaveStatusConstants.NOT_SAVED))
         break
 
       case "Backspace":
         onBackspacePressed(event, story, setStory, setCaret)
+        preserveCaret(() => setSaveStatus(SaveStatusConstants.NOT_SAVED))
         break
 
       case "Control":
-        getIdOfCaretPlaced(true)
+        preserveCaret(() =>
+          saveStory(token, story, saveStatus, setSaveStatus, id, setId)
+        )
         break
 
       default:
@@ -91,15 +97,6 @@ const EditLoginPage = ({ token }) => {
   useEffect(() => {
     moveCaret(caret)
   }, [caret, story])
-
-  useEffect(() => {
-    setTimeout(() => {
-      const { id, offsetList } = getIdOfCaretPlaced()
-      setSaveStatus(SaveStatusConstants.SAVED)
-      setCaret({ id, offset: offsetList })
-      console.log("saved")
-    }, 5000)
-  }, [saveStatus, caret])
 
   window.addEventListener("resize", () => {
     const dropdown = document.getElementById("dropdown")
