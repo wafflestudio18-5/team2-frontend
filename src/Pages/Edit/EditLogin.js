@@ -1,5 +1,6 @@
 import Edit from "../../Components/Edit"
 import { useState, useEffect } from "react"
+import { useCookies } from "react-cookie"
 import findTitle from "./Functions/findTitle"
 import createNewContent from "./Functions/createNewContent"
 import onDeleteKeyPressed from "./Functions/onDeleteKeyPressed"
@@ -32,6 +33,8 @@ const EditLoginPage = ({ token }) => {
 
   // Dropdown 표시 여부
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
+
+  const removeCookie = useCookies(["auth"])[2]
 
   const changeStateOnInput = () => {
     // 값에 변경 있을 시 state도 그에 맞게 변경
@@ -114,7 +117,7 @@ const EditLoginPage = ({ token }) => {
         checkMultiLineSelected(event, story, setStory, setCaret)
       }}
       buttonFunctions={buttonFunctions(story, setStory)}
-      signOut={logout}
+      signOut={() => logout(token, removeCookie)}
       isDropdownOpened={isDropdownOpened}
       openDropdown={() => setIsDropdownOpened(true)}
       hideDropdown={() => setIsDropdownOpened(false)}
