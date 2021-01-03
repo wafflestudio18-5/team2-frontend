@@ -9,7 +9,7 @@ import getIdOfCaretPlaced from "./Functions/getIdOfCaretPlaced"
 import moveCaret from "./Functions/moveCaret"
 import buttonFunctions from "./ButtonFunctions"
 
-const EditPage = () => {
+const EditLoginPage = () => {
   const user = {
     userName: "user Name",
     profileUrl:
@@ -92,4 +92,4 @@ const EditPage = () => {
   )
 }
 
-export default EditPage
+export default EditLoginPage
