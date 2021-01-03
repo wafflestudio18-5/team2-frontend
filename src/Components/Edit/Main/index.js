@@ -14,6 +14,7 @@ const Main = ({
   changeStateOnInput,
   keyDownEventListener,
   checkMultiLineSelected,
+  startTimer,
 }) => {
   let article = []
   const lastSection = story.length - 1
@@ -33,10 +34,14 @@ const Main = ({
 
   return (
     <MainStyle
+      id="main"
       contentEditable="true"
       suppressContentEditableWarning={true}
       onKeyDown={keyDownEventListener}
-      onKeyPress={checkMultiLineSelected}
+      onKeyPress={() => {
+        checkMultiLineSelected()
+        startTimer()
+      }}
       onInput={changeStateOnInput}
     >
       {article}

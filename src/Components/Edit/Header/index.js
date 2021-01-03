@@ -20,12 +20,16 @@ const HeaderContent = styled.div`
   justify-content: space-between;
 `
 
-const Header = ({ user, status, publish }) => {
+const Header = ({ user, status, publish, openDropdown }) => {
   return (
     <HeaderWrapper>
       <HeaderContent>
-        <HeaderLeft userName={user.userName} status={status} />
-        <HeaderRight profileUrl={user.profileUrl} publish={publish} />
+        <HeaderLeft userName={user.username} status={status} />
+        <HeaderRight
+          profileUrl={user.imageUrl}
+          publish={publish}
+          openDropdown={openDropdown}
+        />
       </HeaderContent>
     </HeaderWrapper>
   )

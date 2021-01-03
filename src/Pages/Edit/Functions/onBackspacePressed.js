@@ -8,6 +8,9 @@ const onBackspacePressed = (event, story, setStory, setCaret) => {
   if (window.getSelection().getRangeAt(0).collapsed) {
     // range.collapsed === false
     const { id, frontContent } = getIdOfCaretPlaced()
+    if (id === "main") {
+      return
+    }
     const [sectionIndex, contentIndex] = id.split(" ").map((e) => parseInt(e))
 
     if (frontContent !== "") {
@@ -15,7 +18,6 @@ const onBackspacePressed = (event, story, setStory, setCaret) => {
       return
     }
     event.preventDefault()
-
     if (contentIndex === 0) {
       if (sectionIndex !== 0) {
         // caret이 위치한 content가 속한 section의 첫번째 content인 경우 section 간의 경계를 지움

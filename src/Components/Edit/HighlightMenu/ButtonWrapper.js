@@ -15,6 +15,11 @@ const ButtonWrapperStyle = styled.div`
 
 const ButtonWrapper = ({ buttonFunctions }) => {
   document.addEventListener("selectionchange", () => {
+    try {
+      window.getSelection().getRangeAt(0)
+    } catch (error) {
+      return
+    }
     if (!window.getSelection().getRangeAt(0).collapsed) {
       const { startTarget, endTarget } = getIdOfCaretPlaced(false)
       let emphasize = startTarget.getAttribute("data-emphasizing")
