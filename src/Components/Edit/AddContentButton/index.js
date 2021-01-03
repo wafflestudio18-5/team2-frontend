@@ -30,6 +30,11 @@ const AddContentButton = ({ addImage, addDivider }) => {
   }
 
   document.addEventListener("selectionchange", () => {
+    try {
+      document.getSelection().getRangeAt(0)
+    } catch {
+      return
+    }
     const buttons = document.getElementById("inline-tooltip")
     const { target, id } = getIdOfCaretPlaced()
     setId(id)
