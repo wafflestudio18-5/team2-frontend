@@ -17,6 +17,7 @@ const ResponseWrapper = styled.div`
     box-sizing: border-box;
     position: fixed;
     display: block;
+    overflow-y: auto;
     ${props =>
         props.IsOpen &&
         css`
