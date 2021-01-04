@@ -1,7 +1,9 @@
 import styled from "styled-components"
+import BigStoryNotLoaded from "./BigStoryNotLoaded"
 import default_featured_image from "../../../Images/default_featured_image.jpeg"
 import default_profile_image from "../../../Images/default_profile_image.png"
 import Color from "../../../Constants/Color"
+import changeDate from "../../../Pages/Main/Functions/changeDate"
 
 const BigStoryStyle = styled.div`
   width: 100%;
@@ -12,14 +14,21 @@ const BigStoryStyle = styled.div`
 
 const StoryImageLink = styled.a`
   margin: 0;
-  padding: 0;
+  position: relative;
+  width: 100%;
+  padding-top: 75%;
   cursor: pointer;
 `
 
-const StoryImage = styled.img`
-  width: 100%;
-  height: auto;
+const StoryImage = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   vertical-align: middle;
+  background-image: ${(props) => "url(" + props.src + ")"};
+  background-size: cover;
 `
 
 const StoryUser = styled.div`
@@ -77,8 +86,12 @@ const StoryDate = styled.p`
   line-height: 20px;
 `
 
-const BigStory = ({ user, story }) => {
-  let profile_image = user.profile_image
+const BigStory = ({ story }) => {
+  if (story === undefined) {
+    return <BigStoryNotLoaded />
+  }
+  const writer = story.writer
+  let profile_image = writer.profile_image
   let featured_image = story.featured_image
   if (profile_image === "") {
     profile_image = default_profile_image
@@ -92,16 +105,16 @@ const BigStory = ({ user, story }) => {
         <StoryImage src={featured_image} />
       </StoryImageLink>
       <StoryUser>
-        <a href={"/user/" + user.id}>
+        <a href={"/user/" + writer.id}>
           <StoryUserImage src={profile_image} />
         </a>
-        <StoryUserName href={"/user/" + user.id}>{user.username}</StoryUserName>
+        <StoryUserName href={"/user/" + writer.id}>{writer.name}</StoryUserName>
       </StoryUser>
       <StoryTitle href={"/story/" + story.id}>{story.title}</StoryTitle>
       <StorySubtitle href={"/story/" + story.id}>
         {story.subtitle}
       </StorySubtitle>
-      <StoryDate>{story.created_at}</StoryDate>
+      <StoryDate>{changeDate(story.published_at)}</StoryDate>
     </BigStoryStyle>
   )
 }

@@ -7,6 +7,11 @@ const onDeleteKeyPressed = (event, story, setStory, setCaret) => {
 
   if (window.getSelection().getRangeAt(0).collapsed) {
     const { id, backContent, offsetList } = getIdOfCaretPlaced()
+    if (id === "main") {
+      // prevent error
+      event.preventDefault()
+      return
+    }
     const [sectionIndex, contentIndex] = id.split(" ").map((e) => parseInt(e))
 
     if (backContent !== "") {

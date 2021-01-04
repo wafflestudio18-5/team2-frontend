@@ -6,6 +6,7 @@ import Search from "./Search"
 import UserProfile from "./UserProfile"
 import HeaderLeft from "./HeaderLeft"
 import HeaderRight from "./HeaderRight"
+import default_profile_image from "../../../Images/default_profile_image.png"
 
 const HeaderStyle = styled.nav`
   width: 100%;
@@ -38,6 +39,10 @@ const Header = ({
   search,
   openDropdown,
 }) => {
+  let { profileImage } = user
+  if (profileImage === "" || profileImage === undefined) {
+    profileImage = default_profile_image
+  }
   return (
     <HeaderStyle>
       <HeaderLeft>
@@ -54,10 +59,7 @@ const Header = ({
           onChangeSearchbox={onChangeSearchbox}
           search={search}
         />
-        <UserProfile
-          profileImage={user.profileImage}
-          openDropdown={openDropdown}
-        />
+        <UserProfile profileImage={profileImage} openDropdown={openDropdown} />
       </HeaderRight>
     </HeaderStyle>
   )

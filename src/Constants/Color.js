@@ -12,6 +12,7 @@ const Color = {
   white: `rgba(255, 255, 255, 1)`,
   Footerblack: `rgba(0, 0, 0, 0.9)`,
   mobilegray: `rgba(255, 255, 255, 0.7)`,
+  placeholder: `rgba(245, 245, 245, 1)`,
 }
 
 export default Color

@@ -17,7 +17,7 @@ const MainStyle = styled.div`
 `
 
 const MainLogin = ({
-  TrendingPosts,
+  trendingPosts,
   Articles,
   user,
   centerArticles,
@@ -41,7 +41,7 @@ const MainLogin = ({
         openDropdown={openDropdown}
       />
       <Center stories={centerArticles} />
-      <Trending trendingPosts={TrendingPosts} />
+      <Trending trendingPosts={trendingPosts} />
       <BottomStyle>
         <BottomWrapper>
           <BottomLeftStyle>
