@@ -18,7 +18,7 @@ const CenterImageWrapper = styled.div`
 
 const CenterImageStyle = styled.img`
   position: absolute;
-  top: 50%;
+  top: 40%;
   right: -20%;
   width: 400px;
   height: auto;
