@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import CenterLeft from "./CenterLeft"
 import CenterRight from "./CenterRight"
+import CenterImage from "./CenterImage"
 import BigStory from "./BigStory"
 import SmallStory from "./SmallStory"
 import Color from "../../../Constants/Color"
@@ -41,6 +42,7 @@ const Center = ({ stories }) => {
           <SmallStory story={stories[3]} />
           <SmallStory story={stories[4]} />
         </CenterRight>
+        <CenterImage />
       </CenterWrapper>
     </CenterBorder>
   )
