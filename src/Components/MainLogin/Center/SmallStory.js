@@ -91,7 +91,7 @@ const SmallStory = ({ story }) => {
             <StoryUserImage src={profile_image} />
           </a>
           <StoryUserName href={"/user/" + writer.id}>
-            {writer.username}
+            {writer.name}
           </StoryUserName>
         </StoryUser>
         <StoryTitle href={"/story/" + story.id}>{story.title}</StoryTitle>

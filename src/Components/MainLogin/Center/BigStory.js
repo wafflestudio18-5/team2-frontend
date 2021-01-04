@@ -100,9 +100,7 @@ const BigStory = ({ story }) => {
         <a href={"/user/" + writer.id}>
           <StoryUserImage src={profile_image} />
         </a>
-        <StoryUserName href={"/user/" + writer.id}>
-          {writer.username}
-        </StoryUserName>
+        <StoryUserName href={"/user/" + writer.id}>{writer.name}</StoryUserName>
       </StoryUser>
       <StoryTitle href={"/story/" + story.id}>{story.title}</StoryTitle>
       <StorySubtitle href={"/story/" + story.id}>

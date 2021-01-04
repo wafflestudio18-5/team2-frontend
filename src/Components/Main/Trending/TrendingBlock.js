@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import Color from "../../../Constants/Color"
+import default_profile_image from "../../../Images/default_profile_image.png"
 
 const TrendingBlockStyle = styled.div`
   box-sizing: border-box;
@@ -83,13 +84,17 @@ const TrendingBlockDateAndTime = styled.p`
 
 const TrendingBlock = ({ index, story }) => {
   const writer = story.writer
+  let { name, profile_image } = writer
+  if (profile_image === "") {
+    profile_image = default_profile_image
+  }
   return (
     <TrendingBlockStyle>
       <TrendingBlockNumber>0{index + 1}</TrendingBlockNumber>
       <div>
         <TrendingBlockWriter>
-          <TrendingBlockProfile src={writer.profile_image} />
-          {writer.username}
+          <TrendingBlockProfile src={profile_image} />
+          {name}
         </TrendingBlockWriter>
         <TrendingBlockTitle>{story.title}</TrendingBlockTitle>
         <TrendingBlockDateAndTime>
