@@ -27,10 +27,7 @@ const EditLoginPage = ({ token }) => {
   }, [token])
 
   const [story, setStory] = useState([
-    [
-      { type: "paragraph", detail: { content: "", emphasizing: "largest" } },
-      { type: "paragraph", detail: { content: "", emphasizing: "large" } },
-    ],
+    [{ type: "paragraph", detail: { content: "", emphasizing: "largest" } }],
   ])
 
   const removeCookie = useCookies(["auth"])[2]
