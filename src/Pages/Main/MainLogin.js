@@ -15,82 +15,6 @@ import TrendingPosts from "../../Constants/TrendingPosts"
 const MainLoginPage = ({ token }) => {
   //로그인 하지 않았을 때 페이지
 
-  // 임시 데이터
-  // const centerArticles = [
-  //   {
-  //     user: {
-  //       id: 0,
-  //       username: "basdva",
-  //       profile_image: "",
-  //     },
-  //     story: {
-  //       id: 0,
-  //       uid: 0,
-  //       title: "Aflkba Sbilall",
-  //       subtitle: "Afblla skbial boal eibibia slaqbp sl",
-  //       created_at: "2020-12-31",
-  //     },
-  //   },
-  //   {
-  //     user: {
-  //       id: 1,
-  //       username: "tkbka",
-  //       profile_image: "",
-  //     },
-  //     story: {
-  //       id: 1,
-  //       uid: 1,
-  //       title:
-  //         "5 Methods You Can Use to Grow and Learn as a Developer Every Day",
-  //       subtitle: "Afblla skbial boal eibibia slaqbp sl",
-  //       created_at: "2020-12-31",
-  //     },
-  //   },
-  //   {
-  //     user: {
-  //       id: 2,
-  //       username: "Wlbll",
-  //       profile_image: "",
-  //     },
-  //     story: {
-  //       id: 2,
-  //       uid: 2,
-  //       title: "Wbslb viqm viuqwu",
-  //       subtitle: "Afblla skbial boal eibibia slaqbp sl",
-  //       created_at: "2020-12-31",
-  //     },
-  //   },
-  //   {
-  //     user: {
-  //       id: 3,
-  //       username: "Vuwuqa",
-  //       profile_image: "",
-  //     },
-  //     story: {
-  //       id: 3,
-  //       uid: 3,
-  //       title:
-  //         "Htanvda iba bpasld Blbssd? Avc bislsl biewq Ac. Sdiblsi bi Ai igbasc",
-  //       subtitle: "Afblla skbial boal eibibia slaqbp sl",
-  //       created_at: "2020-12-31",
-  //     },
-  //   },
-  //   {
-  //     user: {
-  //       id: 3,
-  //       username: "Nmrial",
-  //       profile_image: "",
-  //     },
-  //     story: {
-  //       id: 3,
-  //       uid: 3,
-  //       title: "Tamriel sbaasc qboi",
-  //       subtitle: "Afblla skbial boal eibibia slaqbp sl",
-  //       created_at: "2020-12-31",
-  //     },
-  //   },
-  // ]
-
   const [user, setUser] = useState({})
   const [centerArticles, setCenterArticles] = useState([])
   // const [trendingPosts, setTrendingPosts] = useState([])
@@ -98,14 +22,7 @@ const MainLoginPage = ({ token }) => {
   useEffect(() => {
     getCurrentUser(token, setUser)
     // getMainTrending(true, setTrendingPosts, setCenterArticles, token)
-    getMainTrending(
-      true,
-      (data) => {
-        console.log(data)
-      },
-      setCenterArticles,
-      token
-    )
+    getMainTrending(true, (data) => {}, setCenterArticles, token)
   }, [token])
 
   // states

@@ -8,15 +8,14 @@ const getMainTrending = async (
 ) => {
   // Main page에서 main, trending stories를 불러오는 함수.
   // login: Boolean
-  try {
-    const trendingResponse = await getStoryTrending(token)
-    setTrendingPosts(trendingResponse.data)
-    if (login) {
-      const centerResponse = await getStoryMain(token)
-      setCenterArticles(centerResponse.data)
-    }
-  } catch (error) {
-    console.log(error)
+  getStoryTrending(token)
+    .then((response) => setTrendingPosts(response.data))
+    .catch((error) => console.log(error))
+
+  if (login) {
+    getStoryMain(token)
+      .then((response) => setCenterArticles(response.data))
+      .catch((error) => console.log(error))
   }
 }
 
