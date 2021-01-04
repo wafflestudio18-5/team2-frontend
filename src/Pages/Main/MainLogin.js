@@ -6,6 +6,7 @@ import onClickSearchButton from "./Functions/onClickSearchButton"
 import onChangeSearchbox from "./Functions/onChangeSearchbox"
 import search from "./Functions/search"
 import getCurrentUser from "./Functions/getCurrentUser"
+import getMainTrending from "./Functions/getMainTrending"
 import logout from "./Functions/logout"
 import MainLogin from "../../Components/MainLogin"
 import Articles from "../../Constants/Articles"
@@ -92,10 +93,11 @@ const MainLoginPage = ({ token }) => {
 
   const [user, setUser] = useState({})
   const [centerArticles, setCenterArticles] = useState([])
+  // const [trendingPosts, setTrendingPosts] = useState([])
 
   useEffect(() => {
     getCurrentUser(token, setUser)
-    // TODO: 글 불러오는 작업 추가
+    // getMainTrending(true, setTrendingPosts, setCenterArticles, token)
   }, [token])
 
   // states
