@@ -13,12 +13,12 @@ const MainWrapper = styled.div`
     flex-direction: column;
 `;
 
-const Main = ({ reachScrollCheckPoint, story, tag, storyinfo, userinfo, setOpen }) => {
+const Main = ({ reachScrollCheckPoint, story, tag, storyinfo, userinfo, setOpen, ResponseNum }) => {
     return (
         <MainWrapper>
-            <About reachScrollCheckPoint={reachScrollCheckPoint} userinfo={userinfo} storyinfo={storyinfo} setOpen={setOpen} />
+            <About reachScrollCheckPoint={reachScrollCheckPoint} userinfo={userinfo} storyinfo={storyinfo} setOpen={setOpen} ResponseNum={ResponseNum} />
             <MainStory story={story} userinfo={userinfo} storyinfo={storyinfo} />
-            <StoryEnd storyinfo={storyinfo} tag={tag} userinfo={userinfo} setOpen={setOpen} />
+            <StoryEnd storyinfo={storyinfo} tag={tag} userinfo={userinfo} setOpen={setOpen} ResponseNum={ResponseNum}/>
             <Footer />
         </MainWrapper>
     );

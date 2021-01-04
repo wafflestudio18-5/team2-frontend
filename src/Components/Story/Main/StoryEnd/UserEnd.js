@@ -97,7 +97,7 @@ const ResponseNumber = styled.p`
     margin: 0;
 `;
 
-const UserEnd = ({storyinfo, setOpen}) => {
+const UserEnd = ({storyinfo, setOpen, ResponseNum}) => {
     return (
         <UserEndWrapper>
             <UserEndBlock>
@@ -124,7 +124,7 @@ const UserEnd = ({storyinfo, setOpen}) => {
                                     d="M24.28 25.5l.32-.29c2.11-1.94 3.4-4.61 3.4-7.56C28 11.83 22.92 7 16.5 7S5 11.83 5 17.65s5.08 10.66 11.5 10.66c1.22 0 2.4-.18 3.5-.5l.5-.15.41.33a8.86 8.86 0 0 0 4.68 2.1 7.34 7.34 0 0 1-1.3-4.15v-.43zm1 .45c0 1.5.46 2.62 1.69 4.44.22.32.01.75-.38.75a9.69 9.69 0 0 1-6.31-2.37c-1.2.35-2.46.54-3.78.54C9.6 29.3 4 24.09 4 17.65 4 11.22 9.6 6 16.5 6S29 11.22 29 17.65c0 3.25-1.42 6.18-3.72 8.3z"
                                 ></path>
                                 </svg>
-                            <ResponseNumber>{storyinfo.responsenum}</ResponseNumber>
+                            <ResponseNumber>{ResponseNum}</ResponseNumber>
                         </ResponseWrapper>
                     </Button>
                 </EndLeftBlock>

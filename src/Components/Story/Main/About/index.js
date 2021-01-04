@@ -125,7 +125,7 @@ const Bookmark = styled.button`
     }
 `;
 
-const About = ({ reachScrollCheckPoint, userinfo, storyinfo, setOpen }) => {
+const About = ({ reachScrollCheckPoint, userinfo, storyinfo, setOpen, ResponseNum }) => {
     return (
         <AboutWrapper reachScrollCheckPoint={reachScrollCheckPoint}>
             <AboutBlock>
@@ -152,7 +152,7 @@ const About = ({ reachScrollCheckPoint, userinfo, storyinfo, setOpen }) => {
                                         fill-rule="evenodd"
                                     ></path>
                                 </svg>
-                                <ResponseNumber>{storyinfo.responsenum}</ResponseNumber>
+                                <ResponseNumber>{ResponseNum}</ResponseNumber>
                             </ResponseWrapper>
                         </Response>
                     </ResponseBlock>

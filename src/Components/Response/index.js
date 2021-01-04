@@ -49,7 +49,6 @@ const ResponseWrapper = styled.div`
 `;
 
 const Response = ({ IsOpen, setOpen, Response, me }) => {
-    console.log(IsOpen)
     return (
         <ResponseModal>
             <ResponseWrapper IsOpen={IsOpen}>
