@@ -9,6 +9,7 @@ const onBackspacePressed = (event, story, setStory, setCaret) => {
     // when range is collapsed
     const { id, frontContent } = getIdOfCaretPlaced()
     if (id === "main") {
+      // prevent error
       event.preventDefault()
       return
     }
