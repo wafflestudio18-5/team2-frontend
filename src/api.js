@@ -55,14 +55,24 @@ export const putStoryStoryid = async (token, body, id) => {
 
 export const getStoryMain = async (token) => {
   // GET /story/main/
-  const config = { headers: { Authorization: "Token " + token } }
-  const response = await axios.get("story/main/", {}, config)
+  var response
+  if (token === "") {
+    response = await axios.get("story/main/")
+  } else {
+    const config = { headers: { Authorization: "Token " + token } }
+    response = await axios.get("story/main/", {}, config)
+  }
   return response
 }
 
 export const getStoryTrending = async (token) => {
   // GET /story/main/
-  const config = { headers: { Authorization: "Token " + token } }
-  const response = await axios.get("story/trending/", {}, config)
+  var response
+  if (token === "") {
+    response = await axios.get("story/trending/")
+  } else {
+    const config = { headers: { Authorization: "Token " + token } }
+    response = await axios.get("story/trending/", {}, config)
+  }
   return response
 }
