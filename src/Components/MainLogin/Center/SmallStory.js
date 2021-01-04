@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import SmallStoryNotLoaded from "./SmallStoryNotLoaded"
 import Color from "../../../Constants/Color"
 import default_featured_image from "../../../Images/default_featured_image.jpeg"
 import default_profile_image from "../../../Images/default_profile_image.png"
@@ -69,6 +70,9 @@ const StoryImage = styled.img`
 `
 
 const SmallStory = ({ user, story }) => {
+  if (user === undefined) {
+    return <SmallStoryNotLoaded />
+  }
   let profile_image = user.profile_image
   let featured_image = story.featured_image
   if (profile_image === "") {
