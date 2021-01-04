@@ -22,7 +22,14 @@ const MainLoginPage = ({ token }) => {
   useEffect(() => {
     getCurrentUser(token, setUser)
     // getMainTrending(true, setTrendingPosts, setCenterArticles, token)
-    getMainTrending(true, (data) => {}, setCenterArticles, token)
+    getMainTrending(
+      true,
+      (data) => {
+        console.log(data)
+      },
+      setCenterArticles,
+      token
+    )
   }, [token])
 
   // states

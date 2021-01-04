@@ -32,13 +32,13 @@ const Center = ({ stories }) => {
     <CenterBorder>
       <CenterWrapper>
         <CenterLeft>
-          <BigStory {...stories[0]} />
+          <BigStory story={stories[0]} />
         </CenterLeft>
         <CenterRight>
-          <SmallStory {...stories[1]} />
-          <SmallStory {...stories[2]} />
-          <SmallStory {...stories[3]} />
-          <SmallStory {...stories[4]} />
+          <SmallStory story={stories[1]} />
+          <SmallStory story={stories[2]} />
+          <SmallStory story={stories[3]} />
+          <SmallStory story={stories[4]} />
         </CenterRight>
       </CenterWrapper>
     </CenterBorder>

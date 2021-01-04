@@ -69,11 +69,12 @@ const StoryImage = styled.img`
   height: 100px;
 `
 
-const SmallStory = ({ user, story }) => {
-  if (user === undefined) {
+const SmallStory = ({ story }) => {
+  if (story === undefined) {
     return <SmallStoryNotLoaded />
   }
-  let profile_image = user.profile_image
+  const writer = story.writer
+  let profile_image = writer.profile_image
   let featured_image = story.featured_image
   if (profile_image === "") {
     profile_image = default_profile_image
@@ -85,11 +86,11 @@ const SmallStory = ({ user, story }) => {
     <SmallStoryStyle>
       <StoryInfo>
         <StoryUser>
-          <a href={"/user/" + user.id}>
+          <a href={"/user/" + writer.id}>
             <StoryUserImage src={profile_image} />
           </a>
-          <StoryUserName href={"/user/" + user.id}>
-            {user.username}
+          <StoryUserName href={"/user/" + writer.id}>
+            {writer.username}
           </StoryUserName>
         </StoryUser>
         <StoryTitle href={"/story/" + story.id}>{story.title}</StoryTitle>
