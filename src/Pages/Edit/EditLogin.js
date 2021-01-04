@@ -109,6 +109,7 @@ const EditLoginPage = ({ token }) => {
 
       case "Control":
         // For testing
+        console.log(JSON.stringify(story))
         break
 
       default:

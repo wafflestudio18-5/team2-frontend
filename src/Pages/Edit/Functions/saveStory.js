@@ -15,7 +15,6 @@ const saveStory = async (
   }
   await setSaveStatus(SaveStatusConstants.SAVING)
   const { title, subtitle, featured_image } = getStoryInfo(story)
-  console.log(title, subtitle, featured_image)
   const body = {
     title,
     subtitle,

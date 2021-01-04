@@ -8,7 +8,7 @@ axios.defaults.baseURL = baseUrl
 export const getUserMeAbout = async (token) => {
   // GET /user/me/about
   const config = { headers: { Authorization: "Token " + token } }
-  const response = await axios.get("user/me/about", config)
+  const response = await axios.get("user/me/about/", config)
   return response
 }
 
