@@ -95,7 +95,7 @@ const SmallStory = ({ story }) => {
           </StoryUserName>
         </StoryUser>
         <StoryTitle href={"/story/" + story.id}>{story.title}</StoryTitle>
-        <StoryDate>{story.created_at}</StoryDate>
+        <StoryDate>{story.published_at}</StoryDate>
       </StoryInfo>
       <StoryImageLink href={"/story/" + story.id}>
         <StoryImage src={featured_image} />

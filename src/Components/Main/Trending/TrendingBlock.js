@@ -81,21 +81,19 @@ const TrendingBlockDateAndTime = styled.p`
   letter-spacing: 0.03em;
 `
 
-const TrendingBlock = ({ index, post }) => {
+const TrendingBlock = ({ index, story }) => {
+  const writer = story.writer
   return (
     <TrendingBlockStyle>
       <TrendingBlockNumber>0{index + 1}</TrendingBlockNumber>
       <div>
         <TrendingBlockWriter>
-          <TrendingBlockProfile src={post.profileurl} />
-          {post.writer}
+          <TrendingBlockProfile src={writer.profile_image} />
+          {writer.username}
         </TrendingBlockWriter>
-        <TrendingBlockTitle>{post.title}</TrendingBlockTitle>
+        <TrendingBlockTitle>{story.title}</TrendingBlockTitle>
         <TrendingBlockDateAndTime>
-          {post.date}
-          &nbsp;&middot;&nbsp;
-          {post.time}
-          &nbsp;read
+          {story.published_at}
         </TrendingBlockDateAndTime>
       </div>
     </TrendingBlockStyle>

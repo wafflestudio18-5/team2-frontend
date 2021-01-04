@@ -108,7 +108,7 @@ const BigStory = ({ story }) => {
       <StorySubtitle href={"/story/" + story.id}>
         {story.subtitle}
       </StorySubtitle>
-      <StoryDate>{story.created_at}</StoryDate>
+      <StoryDate>{story.published_at}</StoryDate>
     </BigStoryStyle>
   )
 }

@@ -10,26 +10,18 @@ import getMainTrending from "./Functions/getMainTrending"
 import logout from "./Functions/logout"
 import MainLogin from "../../Components/MainLogin"
 import Articles from "../../Constants/Articles"
-import TrendingPosts from "../../Constants/TrendingPosts"
 
 const MainLoginPage = ({ token }) => {
   //로그인 하지 않았을 때 페이지
 
   const [user, setUser] = useState({})
   const [centerArticles, setCenterArticles] = useState([])
-  // const [trendingPosts, setTrendingPosts] = useState([])
+  const [trendingPosts, setTrendingPosts] = useState([])
 
   useEffect(() => {
     getCurrentUser(token, setUser)
-    // getMainTrending(true, setTrendingPosts, setCenterArticles, token)
-    getMainTrending(
-      true,
-      (data) => {
-        console.log(data)
-      },
-      setCenterArticles,
-      token
-    )
+    getMainTrending(true, setTrendingPosts, setCenterArticles, token)
+    // getMainTrending(true, (data) => {}, setCenterArticles, token)
   }, [token])
 
   // states
@@ -75,7 +67,7 @@ const MainLoginPage = ({ token }) => {
 
   return (
     <MainLogin
-      TrendingPosts={TrendingPosts}
+      trendingPosts={trendingPosts}
       Articles={Article}
       user={user}
       centerArticles={centerArticles}
