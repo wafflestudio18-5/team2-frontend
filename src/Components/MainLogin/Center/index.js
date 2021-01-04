@@ -9,6 +9,7 @@ const CenterBorder = styled.div`
   border-bottom: 1px solid ${Color.lightGray};
   display: flex;
   justify-content: center;
+  padding-bottom: 16px;
 `
 
 const CenterWrapper = styled.div`
