@@ -67,6 +67,7 @@ const StoryImageLink = styled.a``
 const StoryImage = styled.img`
   width: 100px;
   height: 100px;
+  object-fit: cover;
 `
 
 const SmallStory = ({ story }) => {
