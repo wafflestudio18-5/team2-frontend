@@ -15,12 +15,6 @@ const MainLoginPage = ({ token }) => {
   //로그인 하지 않았을 때 페이지
 
   // 임시 데이터
-  const user = {
-    id: 0,
-    username: "boqm123",
-    name: "Aibald Biak",
-    profileImage: "",
-  }
   const centerArticles = [
     {
       user: {
@@ -96,13 +90,12 @@ const MainLoginPage = ({ token }) => {
     },
   ]
 
-  // 이후 api 추가되면 사용
-  // const [user, setUser] = useState({})
+  const [user, setUser] = useState({})
 
-  // useEffect(() => {
-  //   getCurrentUser(token, setUser)
-  //   // TODO: 글 불러오는 작업 추가
-  // }, [token])
+  useEffect(() => {
+    getCurrentUser(token, setUser)
+    // TODO: 글 불러오는 작업 추가
+  }, [token])
 
   // states
   // 헤더의 검색창이 열려있는지 닫혀있는지
