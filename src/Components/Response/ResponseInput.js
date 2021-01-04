@@ -118,6 +118,46 @@ const ResponseInputter = styled(TextareaAutosize)`
     overflow-wrap: break-word;
 `;
 
+const ResponseButtonBlock = styled.div`
+    max-height: 100px;
+    transition: opacity 400ms ease 0s, max-height 400ms ease 0s;
+    align-self: flex-end;
+    padding: 0px 14px;
+    display: flex;
+`
+
+const CancelButton = styled.button`
+    cursor: pointer;
+    border: none;
+    padding: 4px 12px 6px;
+    color: ${Color.borderBlack};
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+    background: 0;
+    line-height: 20px;
+    font-size: 14px;
+    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+`
+
+const RespondButton = styled.button`
+    cursor: pointer;
+    background: rgb(26, 137, 23);
+    color: rgb(255,255,255);
+    padding: 4px 12px 6px;
+    text-decoration: none;
+    display: inline-block;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: rgba(26, 137, 23, 1);
+    line-height: 20px;
+    font-size: 14px;
+    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-weight: 400;
+`
+
 const ResponseInput = ({ responseInput, setResponseInput, me, InputValue, setInputValue }) => {
     if (!responseInput) {
         return (
@@ -145,8 +185,14 @@ const ResponseInput = ({ responseInput, setResponseInput, me, InputValue, setInp
 
         const onReset = () => {
             setInputValue('');
+            setResponseInput(false);
         };
-
+        const SubmitRespond = () => {
+            console.log(InputValue);
+            //post {RespondInput} with other information
+            setInputValue('');
+            setResponseInput(false);
+        }
         return (
             <ResponseInputWrapper>
                 <ResponseInputBlockClicked>
@@ -170,6 +216,10 @@ const ResponseInput = ({ responseInput, setResponseInput, me, InputValue, setInp
                             </ResponseInputterBlock>
                         </ResponseInputterWrapper>
                     </ResponseInputInnerBlockClicked>
+                    <ResponseButtonBlock>
+                        <CancelButton onClick={onReset}>Cancel</CancelButton>
+                        <RespondButton onClick={SubmitRespond}>Respond</RespondButton>
+                    </ResponseButtonBlock>
                 </ResponseInputBlockClicked>
             </ResponseInputWrapper>
         );
