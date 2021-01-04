@@ -56,8 +56,8 @@ const CloseButton = styled.button`
     background: 0;
     fill: rgba(61, 61, 61, 1);
     margin: 0;
-    ${(props) =>
-        props.writer_id !== props.me_id &&
+    ${props =>
+        !props.idcmp &&
         css`
             display: none;
         `}
@@ -79,7 +79,7 @@ const ResponseWriter = ({ Response, me }) => {
                     </WriterNameBlock>
                 </WriterInformationBlock>
             </ResponeWriterInformationBlock>
-            <CloseButton writer_id={Writer.id} me_id={me.id}>
+            <CloseButton idcmp={Writer.id === me.id}>
                 <svg width="25" height="25" viewBox="0 0 25 25" class="dw">
                     <path d="M18.13 6.11l-5.61 5.61-5.6-5.61-.81.8 5.61 5.61-5.61 5.61.8.8 5.61-5.6 5.61 5.6.8-.8-5.6-5.6 5.6-5.62"></path>
                 </svg>
