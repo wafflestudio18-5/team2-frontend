@@ -6,9 +6,10 @@ const onBackspacePressed = (event, story, setStory, setCaret) => {
   let newStory = JSON.parse(JSON.stringify(story))
 
   if (window.getSelection().getRangeAt(0).collapsed) {
-    // range.collapsed === false
+    // when range is collapsed
     const { id, frontContent } = getIdOfCaretPlaced()
     if (id === "main") {
+      event.preventDefault()
       return
     }
     const [sectionIndex, contentIndex] = id.split(" ").map((e) => parseInt(e))
