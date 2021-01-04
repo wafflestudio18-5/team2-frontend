@@ -14,14 +14,21 @@ const BigStoryStyle = styled.div`
 
 const StoryImageLink = styled.a`
   margin: 0;
-  padding: 0;
+  position: relative;
+  width: 100%;
+  padding-top: 75%;
   cursor: pointer;
 `
 
-const StoryImage = styled.img`
-  width: 100%;
-  height: auto;
+const StoryImage = styled.div`
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
   vertical-align: middle;
+  background-image: ${(props) => "url(" + props.src + ")"};
+  background-size: cover;
 `
 
 const StoryUser = styled.div`
