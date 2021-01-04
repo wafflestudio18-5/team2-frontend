@@ -20,7 +20,7 @@ const MainLoginPage = ({ token }) => {
 
   useEffect(() => {
     getCurrentUser(token, setUser)
-    getMainTrending(true, setTrendingPosts, setCenterArticles, token)
+    // getMainTrending(true, setTrendingPosts, setCenterArticles, token)
     // getMainTrending(true, (data) => {}, setCenterArticles, token)
   }, [token])
 

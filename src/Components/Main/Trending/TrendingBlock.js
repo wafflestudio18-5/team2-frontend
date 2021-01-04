@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import Color from "../../../Constants/Color"
+import TrendingNotLoaded from "./TrendingNotLoaded"
 import default_profile_image from "../../../Images/default_profile_image.png"
 import changeDate from "../../../Pages/Main/Functions/changeDate"
 
@@ -84,6 +85,14 @@ const TrendingBlockDateAndTime = styled.p`
 `
 
 const TrendingBlock = ({ index, story }) => {
+  if (story === undefined) {
+    return (
+      <TrendingBlockStyle>
+        <TrendingBlockNumber>0{index + 1}</TrendingBlockNumber>
+        <TrendingNotLoaded />
+      </TrendingBlockStyle>
+    )
+  }
   const writer = story.writer
   let { name, profile_image } = writer
   if (profile_image === "") {

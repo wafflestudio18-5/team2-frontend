@@ -12,6 +12,12 @@ const TrendingListStyle = styled.div`
 const TrendingList = ({ trendingPosts }) => {
   return (
     <TrendingListStyle>
+      <TrendingBlock index={0} story={trendingPosts[0]} />
+      <TrendingBlock index={1} story={trendingPosts[1]} />
+      <TrendingBlock index={2} story={trendingPosts[2]} />
+      <TrendingBlock index={3} story={trendingPosts[3]} />
+      <TrendingBlock index={4} story={trendingPosts[4]} />
+      <TrendingBlock index={5} story={trendingPosts[5]} />
       {trendingPosts.map((story, index) => {
         return <TrendingBlock index={index} story={story} key={index} />
       })}
