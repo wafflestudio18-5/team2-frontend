@@ -1,7 +1,9 @@
 import styled from "styled-components"
+import SmallStoryNotLoaded from "./SmallStoryNotLoaded"
 import Color from "../../../Constants/Color"
 import default_featured_image from "../../../Images/default_featured_image.jpeg"
 import default_profile_image from "../../../Images/default_profile_image.png"
+import changeDate from "../../../Pages/Main/Functions/changeDate"
 
 const SmallStoryStyle = styled.div`
   padding-bottom: 32px;
@@ -66,10 +68,15 @@ const StoryImageLink = styled.a``
 const StoryImage = styled.img`
   width: 100px;
   height: 100px;
+  object-fit: cover;
 `
 
-const SmallStory = ({ user, story }) => {
-  let profile_image = user.profile_image
+const SmallStory = ({ story }) => {
+  if (story === undefined) {
+    return <SmallStoryNotLoaded />
+  }
+  const writer = story.writer
+  let profile_image = writer.profile_image
   let featured_image = story.featured_image
   if (profile_image === "") {
     profile_image = default_profile_image
@@ -81,15 +88,15 @@ const SmallStory = ({ user, story }) => {
     <SmallStoryStyle>
       <StoryInfo>
         <StoryUser>
-          <a href={"/user/" + user.id}>
+          <a href={"/user/" + writer.id}>
             <StoryUserImage src={profile_image} />
           </a>
-          <StoryUserName href={"/user/" + user.id}>
-            {user.username}
+          <StoryUserName href={"/user/" + writer.id}>
+            {writer.name}
           </StoryUserName>
         </StoryUser>
         <StoryTitle href={"/story/" + story.id}>{story.title}</StoryTitle>
-        <StoryDate>{story.created_at}</StoryDate>
+        <StoryDate>{changeDate(story.published_at)}</StoryDate>
       </StoryInfo>
       <StoryImageLink href={"/story/" + story.id}>
         <StoryImage src={featured_image} />

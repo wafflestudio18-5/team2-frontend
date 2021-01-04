@@ -9,6 +9,11 @@ const createNewContent = (event, story, setStory, setCaret) => {
   const { startId, endId, frontContent, backContent } = getIdOfCaretPlaced(
     false
   )
+  if (startId === "main") {
+    // prevent error
+    event.preventDefault()
+    return
+  }
 
   if (startId !== endId) {
     createNewContentMultiLineSelected(

@@ -1,7 +1,7 @@
 import axios from "axios"
 
 // set base url
-const baseUrl = "https://api.wadium.shop/"
+const baseUrl = "http://localhost:8000/"
 axios.defaults.baseURL = baseUrl
 
 // user api
@@ -50,5 +50,29 @@ export const putStoryStoryid = async (token, body, id) => {
   // PUT /story/{story_id}/
   const config = { headers: { Authorization: "Token " + token } }
   const response = await axios.put("story/" + id + "/", body, config)
+  return response
+}
+
+export const getStoryMain = async (token) => {
+  // GET /story/main/
+  var response
+  if (token === "") {
+    response = await axios.get("story/main/")
+  } else {
+    const config = { headers: { Authorization: "Token " + token } }
+    response = await axios.get("story/main/", {}, config)
+  }
+  return response
+}
+
+export const getStoryTrending = async (token) => {
+  // GET /story/main/
+  var response
+  if (token === "") {
+    response = await axios.get("story/trending/")
+  } else {
+    const config = { headers: { Authorization: "Token " + token } }
+    response = await axios.get("story/trending/", {}, config)
+  }
   return response
 }

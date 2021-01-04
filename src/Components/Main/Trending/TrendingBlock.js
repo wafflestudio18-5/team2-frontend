@@ -1,5 +1,8 @@
 import styled from "styled-components"
 import Color from "../../../Constants/Color"
+import TrendingNotLoaded from "./TrendingNotLoaded"
+import default_profile_image from "../../../Images/default_profile_image.png"
+import changeDate from "../../../Pages/Main/Functions/changeDate"
 
 const TrendingBlockStyle = styled.div`
   box-sizing: border-box;
@@ -81,21 +84,31 @@ const TrendingBlockDateAndTime = styled.p`
   letter-spacing: 0.03em;
 `
 
-const TrendingBlock = ({ index, post }) => {
+const TrendingBlock = ({ index, story }) => {
+  if (story === undefined) {
+    return (
+      <TrendingBlockStyle>
+        <TrendingBlockNumber>0{index + 1}</TrendingBlockNumber>
+        <TrendingNotLoaded />
+      </TrendingBlockStyle>
+    )
+  }
+  const writer = story.writer
+  let { name, profile_image } = writer
+  if (profile_image === "") {
+    profile_image = default_profile_image
+  }
   return (
     <TrendingBlockStyle>
       <TrendingBlockNumber>0{index + 1}</TrendingBlockNumber>
       <div>
         <TrendingBlockWriter>
-          <TrendingBlockProfile src={post.profileurl} />
-          {post.writer}
+          <TrendingBlockProfile src={profile_image} />
+          {name}
         </TrendingBlockWriter>
-        <TrendingBlockTitle>{post.title}</TrendingBlockTitle>
+        <TrendingBlockTitle>{story.title}</TrendingBlockTitle>
         <TrendingBlockDateAndTime>
-          {post.date}
-          &nbsp;&middot;&nbsp;
-          {post.time}
-          &nbsp;read
+          {changeDate(story.published_at)}
         </TrendingBlockDateAndTime>
       </div>
     </TrendingBlockStyle>

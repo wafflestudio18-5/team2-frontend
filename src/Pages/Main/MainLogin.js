@@ -6,95 +6,21 @@ import onClickSearchButton from "./Functions/onClickSearchButton"
 import onChangeSearchbox from "./Functions/onChangeSearchbox"
 import search from "./Functions/search"
 import getCurrentUser from "./Functions/getCurrentUser"
+import getMainTrending from "./Functions/getMainTrending"
 import logout from "./Functions/logout"
 import MainLogin from "../../Components/MainLogin"
 import Articles from "../../Constants/Articles"
-import TrendingPosts from "../../Constants/TrendingPosts"
 
 const MainLoginPage = ({ token }) => {
   //로그인 하지 않았을 때 페이지
 
-  // 임시 데이터
-  const centerArticles = [
-    {
-      user: {
-        id: 0,
-        username: "basdva",
-        profile_image: "",
-      },
-      story: {
-        id: 0,
-        uid: 0,
-        title: "Aflkba Sbilall",
-        subtitle: "Afblla skbial boal eibibia slaqbp sl",
-        created_at: "2020-12-31",
-      },
-    },
-    {
-      user: {
-        id: 1,
-        username: "tkbka",
-        profile_image: "",
-      },
-      story: {
-        id: 1,
-        uid: 1,
-        title:
-          "5 Methods You Can Use to Grow and Learn as a Developer Every Day",
-        subtitle: "Afblla skbial boal eibibia slaqbp sl",
-        created_at: "2020-12-31",
-      },
-    },
-    {
-      user: {
-        id: 2,
-        username: "Wlbll",
-        profile_image: "",
-      },
-      story: {
-        id: 2,
-        uid: 2,
-        title: "Wbslb viqm viuqwu",
-        subtitle: "Afblla skbial boal eibibia slaqbp sl",
-        created_at: "2020-12-31",
-      },
-    },
-    {
-      user: {
-        id: 3,
-        username: "Vuwuqa",
-        profile_image: "",
-      },
-      story: {
-        id: 3,
-        uid: 3,
-        title:
-          "Htanvda iba bpasld Blbssd? Avc bislsl biewq Ac. Sdiblsi bi Ai igbasc",
-        subtitle: "Afblla skbial boal eibibia slaqbp sl",
-        created_at: "2020-12-31",
-      },
-    },
-    {
-      user: {
-        id: 3,
-        username: "Nmrial",
-        profile_image: "",
-      },
-      story: {
-        id: 3,
-        uid: 3,
-        title: "Tamriel sbaasc qboi",
-        subtitle: "Afblla skbial boal eibibia slaqbp sl",
-        created_at: "2020-12-31",
-      },
-    },
-  ]
-
   const [user, setUser] = useState({})
+  const [centerArticles, setCenterArticles] = useState([])
+  const [trendingPosts, setTrendingPosts] = useState([])
 
   useEffect(() => {
     getCurrentUser(token, setUser)
-    // TODO: 글 불러오는 작업 추가
+    getMainTrending(true, setTrendingPosts, setCenterArticles, token)
   }, [token])
 
   // states
@@ -140,7 +66,7 @@ const MainLoginPage = ({ token }) => {
 
   return (
     <MainLogin
-      TrendingPosts={TrendingPosts}
+      trendingPosts={trendingPosts}
       Articles={Article}
       user={user}
       centerArticles={centerArticles}

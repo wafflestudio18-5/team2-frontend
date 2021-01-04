@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import CenterLeft from "./CenterLeft"
 import CenterRight from "./CenterRight"
+import CenterImage from "./CenterImage"
 import BigStory from "./BigStory"
 import SmallStory from "./SmallStory"
 import Color from "../../../Constants/Color"
@@ -9,6 +10,7 @@ const CenterBorder = styled.div`
   border-bottom: 1px solid ${Color.lightGray};
   display: flex;
   justify-content: center;
+  padding-bottom: 16px;
 `
 
 const CenterWrapper = styled.div`
@@ -32,14 +34,15 @@ const Center = ({ stories }) => {
     <CenterBorder>
       <CenterWrapper>
         <CenterLeft>
-          <BigStory {...stories[0]} />
+          <BigStory story={stories[0]} />
         </CenterLeft>
         <CenterRight>
-          <SmallStory {...stories[1]} />
-          <SmallStory {...stories[2]} />
-          <SmallStory {...stories[3]} />
-          <SmallStory {...stories[4]} />
+          <SmallStory story={stories[1]} />
+          <SmallStory story={stories[2]} />
+          <SmallStory story={stories[3]} />
+          <SmallStory story={stories[4]} />
         </CenterRight>
+        <CenterImage />
       </CenterWrapper>
     </CenterBorder>
   )
