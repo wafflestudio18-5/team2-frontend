@@ -97,7 +97,7 @@ const ResponseNumber = styled.p`
     margin: 0;
 `;
 
-const UserEnd = ({storyinfo}) => {
+const UserEnd = ({storyinfo, setOpen}) => {
     return (
         <UserEndWrapper>
             <UserEndBlock>
@@ -116,7 +116,7 @@ const UserEnd = ({storyinfo}) => {
                         </ClapNumberBlock>
                     </ClapBlock>
                     <Blank />
-                    <Button>
+                    <Button onClick={()=>setOpen(true)}>
                         <ResponseWrapper>
                             <svg width="33" height="33" viewBox="0 0 33 33" class="r" aria-label="responses">
                                 <path

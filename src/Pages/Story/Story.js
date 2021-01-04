@@ -82,6 +82,7 @@ const StoryPage = () => {
         img: 'https://avatars2.githubusercontent.com/u/28915633?s=60&v=4',
     }
 
+    const [ResponseOpen, setResponseOpen] = useState(false);
     return (
         <div>
             <Story
@@ -93,6 +94,8 @@ const StoryPage = () => {
                 tag={tag}
                 logged_in={logged_in}
                 me={me}
+                ResponseOpen={ResponseOpen}
+                setResponseOpen={setResponseOpen}
             />
             {modalShow && <AuthModalContainer hideModal={hideModal} modalVisible={modalVisible} ModalType={ModalType} />}
         </div>

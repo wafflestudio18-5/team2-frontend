@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Color from '../../Constants/Color';
 
 const ResponseInputWrapper = styled.div`
     margin-bottom: 20px;

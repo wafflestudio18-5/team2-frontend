@@ -45,9 +45,9 @@ const CloseButton = styled.button`
     height: 25px;
 `;
 
-const ResponseHeader = ({ ResponseNum }) => {
+const ResponseHeader = ({ ResponseNum, setOpen }) => {
     var ResponseText = '';
-    if (ResponseNum == 0) {
+    if (ResponseNum === 0) {
         ResponseText = 'Responses';
     } else {
         ResponseText = 'Responses (' + ResponseNum + ')';
@@ -64,7 +64,7 @@ const ResponseHeader = ({ ResponseNum }) => {
                         ></path>
                     </svg>
                 </DotButton>
-                <CloseButton>
+                <CloseButton onClick={()=>setOpen(false)}>
                     <svg width="25" height="25" viewBox="0 0 25 25" class="dw">
                         <path d="M18.13 6.11l-5.61 5.61-5.6-5.61-.81.8 5.61 5.61-5.61 5.61.8.8 5.61-5.6 5.61 5.6.8-.8-5.6-5.6 5.6-5.62"></path>
                     </svg>

@@ -125,7 +125,7 @@ const Bookmark = styled.button`
     }
 `;
 
-const About = ({ reachScrollCheckPoint, userinfo, storyinfo }) => {
+const About = ({ reachScrollCheckPoint, userinfo, storyinfo, setOpen }) => {
     return (
         <AboutWrapper reachScrollCheckPoint={reachScrollCheckPoint}>
             <AboutBlock>
@@ -144,7 +144,7 @@ const About = ({ reachScrollCheckPoint, userinfo, storyinfo }) => {
                         </ClapNumberBlock>
                     </ClapBlock>
                     <ResponseBlock>
-                        <Response>
+                        <Response onClick={()=>setOpen(true)}>
                             <ResponseWrapper>
                                 <svg width="25" height="25" class="r" aria-label="responses">
                                     <path
