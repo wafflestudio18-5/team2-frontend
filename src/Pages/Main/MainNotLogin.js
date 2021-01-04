@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react"
 import Main from "../../Components/Main"
 import AuthModalContainer from "../../Container/AuthModal"
-import TrendingPosts from "../../Constants/TrendingPosts"
 import ModalTypeConstants from "../../Constants/ModalTypeConstants"
 import Articles from "../../Constants/Articles"
 import Topics from "../../Constants/Topics"
 import handleScroll from "./Functions/handleScroll"
 import hideModal from "./Functions/hideModal"
 import showModal from "./Functions/showModal"
+import getMainTrending from "./Functions/getMainTrending"
 
 const MainNotLoginPage = () => {
   //로그인 하지 않았을 때 페이지
@@ -56,10 +56,15 @@ const MainNotLoginPage = () => {
     }
   })
 
+  const [trendingPosts, setTrendingPosts] = useState([])
+  useEffect(() => {
+    getMainTrending(false, setTrendingPosts)
+  }, [])
+
   return (
     <div>
       <Main
-        TrendingPosts={TrendingPosts}
+        trendingPosts={trendingPosts}
         reachScrollCheckPoint={reachScrollCheckPoint}
         Articles={Article}
         Topics={Topics}
