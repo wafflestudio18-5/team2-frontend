@@ -11,20 +11,17 @@ const publish = async (
   history
 ) => {
   try {
-    // const saveResponse = await saveStory(
-    //   token,
-    //   story,
-    //   saveStatus,
-    //   setSaveStatus,
-    //   id,
-    //   setId
-    // )
-    // const response = postStoryStoryidPublish(token, storyId)
-    // return response
-    setTimeout(() => {
-      console.log(JSON.stringify(story))
-      history.push("/story/1")
-    }, 1000)
+    const saveResponse = await saveStory(
+      token,
+      story,
+      saveStatus,
+      setSaveStatus,
+      id,
+      setId
+    )
+    const storyId = saveResponse.data.id
+    await postStoryStoryidPublish(token, storyId)
+    history.push("/story/" + storyId)
   } catch (error) {
     console.log(error)
     return error
