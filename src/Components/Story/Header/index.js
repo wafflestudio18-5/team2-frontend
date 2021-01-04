@@ -38,7 +38,6 @@ const HeaderBlock = styled.div`
 
 
 const Header = ({ showModal, userinfo, logged_in, me }) => {
-    console.log("width: "+window.innerWidth);
     return (
         <HeaderWrapper>
             <HeaderBlock>
