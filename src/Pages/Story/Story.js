@@ -115,9 +115,9 @@ const StoryPage = () => {
         },
     ];
 
-
-    const [Response, SetResponse] = useState(SampleResponse);
-
+    const [InputValue, setInputValue] = useState('');
+    const [Response, setResponse] = useState(SampleResponse);
+    const [ResponseInput, setResponseInput] = useState(false);
     const [ResponseOpen, setResponseOpen] = useState(false);
     return (
         <div>
@@ -133,6 +133,10 @@ const StoryPage = () => {
                 response={Response}
                 ResponseOpen={ResponseOpen}
                 setResponseOpen={setResponseOpen}
+                ResponseInput={ResponseInput}
+                setResponseInput={setResponseInput}
+                InputValue={InputValue}
+                setInputValue={setInputValue}
             />
             {modalShow && <AuthModalContainer hideModal={hideModal} modalVisible={modalVisible} ModalType={ModalType} />}
         </div>
