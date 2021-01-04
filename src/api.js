@@ -52,3 +52,17 @@ export const putStoryStoryid = async (token, body, id) => {
   const response = await axios.put("story/" + id + "/", body, config)
   return response
 }
+
+export const getStoryMain = async (token) => {
+  // GET /story/main/
+  const config = { headers: { Authorization: "Token " + token } }
+  const response = await axios.get("story/main/", {}, config)
+  return response
+}
+
+export const getStoryTrending = async (token) => {
+  // GET /story/main/
+  const config = { headers: { Authorization: "Token " + token } }
+  const response = await axios.get("story/trending/", {}, config)
+  return response
+}
