@@ -24,7 +24,7 @@ const EditLoginPage = ({ token }) => {
 
   useEffect(() => {
     getCurrentUser(token, setUser)
-  }, [token, user])
+  }, [token])
 
   const [story, setStory] = useState([
     [
