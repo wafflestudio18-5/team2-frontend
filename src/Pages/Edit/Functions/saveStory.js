@@ -15,6 +15,7 @@ const saveStory = async (
   }
   await setSaveStatus(SaveStatusConstants.SAVING)
   const { title, subtitle, featured_image } = getStoryInfo(story)
+  console.log(title, subtitle, featured_image)
   const body = {
     title,
     subtitle,
@@ -23,28 +24,36 @@ const saveStory = async (
   }
   if (id !== -1) {
     try {
-      setTimeout(() => {
-        setSaveStatus(SaveStatusConstants.SAVED)
-        console.log(JSON.stringify(body))
-        return { data: { id: 1 } }
-      }, 1000)
-      //const response = await putStoryStoryid(token, body, id)
-      // return response
+      // 임시 save 로직, api 연결 후 삭제
+      // setTimeout(() => {
+      //   setSaveStatus(SaveStatusConstants.SAVED)
+      //   console.log(JSON.stringify(body))
+      //   return { data: { id: 1 } }
+      // }, 1000)
+
+      // api 추가되면 사용
+      const response = await putStoryStoryid(token, body, id)
+      setSaveStatus(SaveStatusConstants.SAVED)
+      return response
     } catch (error) {
       console.log(error)
       return error
     }
   } else {
     try {
-      // const response = await postStory(token, body)
-      setTimeout(() => {
-        setSaveStatus(SaveStatusConstants.SAVED)
-        setId(1)
-        console.log(JSON.stringify(body))
-        return { data: { id: 1 } }
-      }, 1000)
-      // await setId(response.data.id)
-      // return response
+      // 임시 save 로직, api 연결 후 삭제
+      // setTimeout(() => {
+      //   setSaveStatus(SaveStatusConstants.SAVED)
+      //   setId(1)
+      //   console.log(JSON.stringify(body))
+      //   return { data: { id: 1 } }
+      // }, 1000)
+
+      // api 추가되면 사용
+      const response = await postStory(token, body)
+      setId(response.data.id)
+      setSaveStatus(SaveStatusConstants.SAVED)
+      return response
     } catch (error) {
       console.log(error)
       return error

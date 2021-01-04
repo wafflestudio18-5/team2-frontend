@@ -20,16 +20,11 @@ import addDivider from "./Functions/addDivider"
 import createImage from "./Functions/createImage"
 
 const EditLoginPage = ({ token }) => {
-  const user = {
-    username: "user Name",
-    imageUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo4BQSpilYy5KuAptMxbOAxm4uKjFYDG6_wg&usqp=CAU",
-  }
-  // const [user, setUser] = useState({})
+  const [user, setUser] = useState({})
 
-  // useEffect(() => {
-  //   getCurrentUser(token, setUser)
-  // }, [token])
+  useEffect(() => {
+    getCurrentUser(token, setUser)
+  }, [token, user])
 
   const [story, setStory] = useState([
     [
