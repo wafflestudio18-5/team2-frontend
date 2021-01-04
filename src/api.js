@@ -1,7 +1,7 @@
 import axios from "axios"
 
 // set base url
-const baseUrl = "http://api.wadium.shop/"
+const baseUrl = "http://localhost:8000/"
 axios.defaults.baseURL = baseUrl
 
 // user api

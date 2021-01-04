@@ -13,7 +13,7 @@ const TrendingList = ({ trendingPosts }) => {
   return (
     <TrendingListStyle>
       {trendingPosts.map((post, index) => {
-        return <TrendingBlock index={index} post={post} />
+        return <TrendingBlock index={index} post={post} key={index} />
       })}
     </TrendingListStyle>
   )
