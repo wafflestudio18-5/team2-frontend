@@ -20,22 +20,14 @@ import addDivider from "./Functions/addDivider"
 import createImage from "./Functions/createImage"
 
 const EditLoginPage = ({ token }) => {
-  const user = {
-    username: "user Name",
-    imageUrl:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQo4BQSpilYy5KuAptMxbOAxm4uKjFYDG6_wg&usqp=CAU",
-  }
-  // const [user, setUser] = useState({})
+  const [user, setUser] = useState({})
 
-  // useEffect(() => {
-  //   getCurrentUser(token, setUser)
-  // }, [token])
+  useEffect(() => {
+    getCurrentUser(token, setUser)
+  }, [token])
 
   const [story, setStory] = useState([
-    [
-      { type: "paragraph", detail: { content: "", emphasizing: "largest" } },
-      { type: "paragraph", detail: { content: "", emphasizing: "large" } },
-    ],
+    [{ type: "paragraph", detail: { content: "", emphasizing: "largest" } }],
   ])
 
   const removeCookie = useCookies(["auth"])[2]
@@ -114,6 +106,7 @@ const EditLoginPage = ({ token }) => {
 
       case "Control":
         // For testing
+        console.log(JSON.stringify(story))
         break
 
       default:

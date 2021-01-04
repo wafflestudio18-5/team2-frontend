@@ -42,7 +42,7 @@ const Username = styled.a`
 
 const DropdownUserProfile = ({ user }) => {
   let { id, name, username, profileImage } = user
-  if (profileImage === "") {
+  if (profileImage === "" || profileImage === undefined) {
     profileImage = default_profile_image
   }
 

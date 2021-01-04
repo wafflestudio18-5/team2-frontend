@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import HeaderLeft from "./HeaderLeft"
 import HeaderRight from "./HeaderRight"
+import default_profile_image from "../../../Images/default_profile_image.png"
 
 const HeaderWrapper = styled.div`
   position: fixed;
@@ -21,12 +22,16 @@ const HeaderContent = styled.div`
 `
 
 const Header = ({ user, status, publish, openDropdown }) => {
+  let profileUrl = user.imageUrl
+  if (profileUrl === "" || profileUrl === undefined) {
+    profileUrl = default_profile_image
+  }
   return (
     <HeaderWrapper>
       <HeaderContent>
-        <HeaderLeft userName={user.username} status={status} />
+        <HeaderLeft userName={user.name} status={status} />
         <HeaderRight
-          profileUrl={user.imageUrl}
+          profileUrl={profileUrl}
           publish={publish}
           openDropdown={openDropdown}
         />
