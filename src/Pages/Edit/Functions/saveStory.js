@@ -23,14 +23,6 @@ const saveStory = async (
   }
   if (id !== -1) {
     try {
-      // 임시 save 로직, api 연결 후 삭제
-      // setTimeout(() => {
-      //   setSaveStatus(SaveStatusConstants.SAVED)
-      //   console.log(JSON.stringify(body))
-      //   return { data: { id: 1 } }
-      // }, 1000)
-
-      // api 추가되면 사용
       const response = await putStoryStoryid(token, body, id)
       setSaveStatus(SaveStatusConstants.SAVED)
       return response
@@ -40,15 +32,6 @@ const saveStory = async (
     }
   } else {
     try {
-      // 임시 save 로직, api 연결 후 삭제
-      // setTimeout(() => {
-      //   setSaveStatus(SaveStatusConstants.SAVED)
-      //   setId(1)
-      //   console.log(JSON.stringify(body))
-      //   return { data: { id: 1 } }
-      // }, 1000)
-
-      // api 추가되면 사용
       const response = await postStory(token, body)
       setId(response.data.id)
       setSaveStatus(SaveStatusConstants.SAVED)
