@@ -3,6 +3,7 @@ import SmallStoryNotLoaded from "./SmallStoryNotLoaded"
 import Color from "../../../Constants/Color"
 import default_featured_image from "../../../Images/default_featured_image.jpeg"
 import default_profile_image from "../../../Images/default_profile_image.png"
+import changeDate from "../../../Pages/Main/Functions/changeDate"
 
 const SmallStoryStyle = styled.div`
   padding-bottom: 32px;
@@ -95,7 +96,7 @@ const SmallStory = ({ story }) => {
           </StoryUserName>
         </StoryUser>
         <StoryTitle href={"/story/" + story.id}>{story.title}</StoryTitle>
-        <StoryDate>{story.published_at}</StoryDate>
+        <StoryDate>{changeDate(story.published_at)}</StoryDate>
       </StoryInfo>
       <StoryImageLink href={"/story/" + story.id}>
         <StoryImage src={featured_image} />

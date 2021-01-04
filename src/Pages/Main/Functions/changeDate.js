@@ -16,12 +16,7 @@ const changeDate = (date) => {
     "Dec",
   ]
   month = months[parseInt(month) - 1]
-  var yearNow = new Date().getFullYear().toString()
-  if (yearNow === year) {
-    return day + " " + month
-  } else {
-    return day + " " + month + ", " + year
-  }
+  return day + " " + month + ", " + year
 }
 
 export default changeDate

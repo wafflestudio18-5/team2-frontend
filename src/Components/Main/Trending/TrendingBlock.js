@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import Color from "../../../Constants/Color"
 import default_profile_image from "../../../Images/default_profile_image.png"
+import changeDate from "../../../Pages/Main/Functions/changeDate"
 
 const TrendingBlockStyle = styled.div`
   box-sizing: border-box;
@@ -98,7 +99,7 @@ const TrendingBlock = ({ index, story }) => {
         </TrendingBlockWriter>
         <TrendingBlockTitle>{story.title}</TrendingBlockTitle>
         <TrendingBlockDateAndTime>
-          {story.published_at}
+          {changeDate(story.published_at)}
         </TrendingBlockDateAndTime>
       </div>
     </TrendingBlockStyle>

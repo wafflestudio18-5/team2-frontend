@@ -3,6 +3,7 @@ import BigStoryNotLoaded from "./BigStoryNotLoaded"
 import default_featured_image from "../../../Images/default_featured_image.jpeg"
 import default_profile_image from "../../../Images/default_profile_image.png"
 import Color from "../../../Constants/Color"
+import changeDate from "../../../Pages/Main/Functions/changeDate"
 
 const BigStoryStyle = styled.div`
   width: 100%;
@@ -106,7 +107,7 @@ const BigStory = ({ story }) => {
       <StorySubtitle href={"/story/" + story.id}>
         {story.subtitle}
       </StorySubtitle>
-      <StoryDate>{story.published_at}</StoryDate>
+      <StoryDate>{changeDate(story.published_at)}</StoryDate>
     </BigStoryStyle>
   )
 }
