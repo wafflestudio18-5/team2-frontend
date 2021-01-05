@@ -50,7 +50,6 @@ const MainNotLoginPage = () => {
     useEffect(() => {
         if (StopFetch === false) {
             window.addEventListener('scroll', () => handleScroll(fetching, setFetching, Article, setArticle, setStopFetch));
-
             return () => {
                 window.removeEventListener('scroll', () => handleScroll(fetching, setFetching, Article, setArticle, setStopFetch));
             };
