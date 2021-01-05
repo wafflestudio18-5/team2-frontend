@@ -56,14 +56,12 @@ const MainLoginPage = ({ token }) => {
   })
 
   useEffect(() => {
-    window.addEventListener("scroll", () =>
-      handleScroll(fetching, setFetching, Article, setArticle, StopFetch, setStopFetch, token)
-    )
-    return () => {
-      window.removeEventListener("scroll", () =>
-        handleScroll(fetching, setFetching, Article, setArticle, StopFetch, setStopFetch, token)
-      )
-    }
+    if (StopFetch === false) {
+      window.addEventListener('scroll', () => handleScroll(fetching, setFetching, Article, setArticle, setStopFetch, token));
+      return () => {
+          window.removeEventListener('scroll', () => handleScroll(fetching, setFetching, Article, setArticle, setStopFetch, token));
+      };
+  }
   })
 
   return (
