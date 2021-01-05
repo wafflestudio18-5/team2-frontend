@@ -6,12 +6,12 @@ import Color from "../../../Constants/Color"
 const StoryWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  max-width: 600px;
   width: 100%;
   box-sizing: border-box;
 
   @media (min-width: 992px) {
-    width: calc(75% - 10px);
+    width: calc(75% + 10px);
+    padding-right: 20px;
   }
 `
 

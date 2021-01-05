@@ -9,6 +9,7 @@ const StoryBlockStyle = styled.div`
   flex-direction: column;
   padding-top: 25px;
   padding-bottom: 25px;
+  max-width: 600px;
   border-top: ${(props) => !props.first && "1px solid rgba(0, 0, 0, 0.05)"};
 `
 
