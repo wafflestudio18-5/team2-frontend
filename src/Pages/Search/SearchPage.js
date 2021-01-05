@@ -20,11 +20,16 @@ const SearchPage = () => {
   const token = cookie.auth
   const history = useHistory()
 
+  // states
+  // current user
   const [user, setUser] = useState(undefined)
+  // story 검색 결과
   const [stories, setStories] = useState([])
+  // people 검색 결과
   const [people, setPeople] = useState([])
+  // 검색창 값
   const [inputValue, setInputValue] = useState("")
-  const [showStories, setShowStories] = useState()
+  // dropdown 표시 여부
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
   // AuthModal 화면 표시 여부 관리하는 state
   const [modalShow, setModalShow] = useState(false)
@@ -33,6 +38,7 @@ const SearchPage = () => {
   // modal type을 결정하는 state
   const [ModalType, setModalType] = useState(ModalTypeConstants.LOG_IN)
 
+  // 처음 서버로부터 검색 결과 받아옴
   useEffect(() => {
     if (token !== undefined) {
       getCurrentUser(token, setUser)
