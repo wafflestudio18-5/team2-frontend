@@ -10,6 +10,12 @@ const StoryWrapper = styled.div`
 const UserWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  padding-top: 10px;
+
+  @media (min-width: 992px) {
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    padding-top: 35px;
+  }
 `
 
 const Main = ({ type, stories, people }) => {

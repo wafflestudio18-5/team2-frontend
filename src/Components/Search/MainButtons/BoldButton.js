@@ -8,6 +8,7 @@ const BoldButton = styled.a`
   text-decoration: none;
   cursor: pointer;
   font-size: 15px;
+  line-height: 25px;
 `
 
 export default BoldButton

@@ -7,6 +7,7 @@ const Button = styled.a`
   text-decoration: none;
   cursor: pointer;
   font-size: 15px;
+  line-height: 25px;
 
   &:hover {
     color: rgba(0, 0, 0, 0.9);

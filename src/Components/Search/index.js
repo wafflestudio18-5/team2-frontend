@@ -30,6 +30,11 @@ const SearchWrapper = styled.div`
   }
 `
 
+const ResultWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+
 const Search = ({
   type,
   searchWord,
@@ -54,13 +59,13 @@ const Search = ({
           enter={enter}
         />
         {searchWord !== "" && searchWord !== undefined && (
-          <div>
+          <ResultWrapper>
             <MainButtons type={type} searchWord={searchWord} />
             {type === "story" && (
               <SearchStory stories={stories} people={people} />
             )}
             {type === "user" && <SearchUser people={people} />}
-          </div>
+          </ResultWrapper>
         )}
       </SearchWrapper>
       {isDropdownOpened && (
