@@ -5,7 +5,7 @@ const fetchStories = async (searchWord, setStories, page = 1) => {
   try {
     const response = await getStory({ page, title: searchWord })
     setStories((stories) => {
-      return [...stories, ...response.data]
+      return [...stories, ...response.data.stories]
     })
   } catch (error) {
     console.log(error)

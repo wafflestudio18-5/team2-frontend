@@ -66,7 +66,7 @@ const StorySearchPage = () => {
         user={user}
         people={people}
         onChangeInput={(event) => onChangeInput(event, setInputValue)}
-        enter={(event) => enter(event, inputValue, history)}
+        enter={(event) => enter(event, inputValue, history, true)}
         isDropdownOpened={isDropdownOpened}
         openDropdown={() => setIsDropdownOpened(true)}
         hideDropdown={() => setIsDropdownOpened(false)}

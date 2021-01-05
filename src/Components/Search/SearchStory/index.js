@@ -7,7 +7,7 @@ const DivStyle = styled.div``
 const SearchStory = ({ stories, people }) => {
   return (
     <DivStyle>
-      <Main stories={stories} />
+      <Main stories={stories} type="story" />
       <Sidebar people={people} />
     </DivStyle>
   )

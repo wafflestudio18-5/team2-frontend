@@ -6,7 +6,7 @@ const DivStyle = styled.div``
 const SearchUser = ({ people }) => {
   return (
     <DivStyle>
-      <Main people={people} />
+      <Main people={people} type="user" />
     </DivStyle>
   )
 }

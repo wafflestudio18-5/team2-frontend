@@ -95,6 +95,7 @@ export const getStory = async ({ page, title, tag }) => {
   if (tag) {
     queryString += "tag=" + tag + "&"
   }
-  const response = await axios.get("story" + queryString)
+  queryString = queryString.slice(0, -1)
+  const response = await axios.get("story/" + queryString)
   return response
 }
