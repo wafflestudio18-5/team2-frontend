@@ -2,9 +2,7 @@ import styled from "styled-components"
 import Main from "../Main"
 import Sidebar from "../Sidebar"
 
-const DivStyle = styled.div`
-  margin-top: 10px;
-`
+const DivStyle = styled.div``
 
 const SearchStory = ({ stories, people }) => {
   return (
