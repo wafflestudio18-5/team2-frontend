@@ -6,11 +6,9 @@ const updateArticle = (setArticle, Article, setStopFetch, token = '') => {
             setArticle(article => {
                 if (response.data.next === null) setStopFetch(true);
                 var stories = response.data.stories;
-                stories[stories.length-1].next = response.data.next;
-                if (article[article.length - 1].next !== null)
-                    return [...article, ...stories];
-                else 
-                    return article;
+                stories[stories.length - 1].next = response.data.next;
+                if (article[article.length - 1].next !== null) return [...article, ...stories];
+                else return article;
             });
         })
         .catch(error => console.log(error));
