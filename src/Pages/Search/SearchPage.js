@@ -16,7 +16,7 @@ const SearchPage = () => {
   const token = cookie.auth
   const history = useHistory()
 
-  const [user, setUser] = useState({})
+  const [user, setUser] = useState(undefined)
   const [stories, setStories] = useState([])
   const [people, setPeople] = useState([])
   const [inputValue, setInputValue] = useState("")
