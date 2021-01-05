@@ -29,6 +29,7 @@ const StoryImage = styled.div`
   vertical-align: middle;
   background-image: ${(props) => "url(" + props.src + ")"};
   background-size: cover;
+  background-position: center center;
 `
 
 const StoryUser = styled.div`
