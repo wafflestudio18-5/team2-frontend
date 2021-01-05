@@ -13,7 +13,7 @@ const ArticleList = ({ Articles, history }) => {
   return (
     <ArticleListStyle>
       {Articles.map((article, index) => {
-        return <ArticleBlock article={article} history={history} />
+        return <ArticleBlock article={article} history={history} key={index} />
       })}
     </ArticleListStyle>
   )
