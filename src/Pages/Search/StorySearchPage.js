@@ -14,7 +14,7 @@ import enter from "./Functions/enter"
 import onChangeInput from "./Functions/onChangeInput"
 import ModalTypeConstants from "../../Constants/ModalTypeConstants"
 
-const SearchPage = () => {
+const StorySearchPage = () => {
   const searchWord = queryString.parse(useLocation().search).q
   const [cookie, , removeCookie] = useCookies(["auth"])
   const token = cookie.auth
@@ -66,6 +66,7 @@ const SearchPage = () => {
   return (
     <div>
       <Search
+        type="story"
         searchWord={searchWord}
         user={user}
         stories={stories}
@@ -91,4 +92,4 @@ const SearchPage = () => {
   )
 }
 
-export default SearchPage
+export default StorySearchPage
