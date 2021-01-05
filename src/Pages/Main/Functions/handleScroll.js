@@ -11,7 +11,8 @@ const handleScroll = (fetching, setFetching, Article, setArticle) => {
     document.body.scrollTop
   )
   const clientHeight = document.documentElement.clientHeight
-  if (scrollTop + clientHeight >= scrollHeight - 1 && fetching === false) {
+  console.log(scrollTop + clientHeight - (scrollHeight - 100))
+  if (scrollTop + clientHeight >= scrollHeight - 100 && fetching === false) {
     fetchMoreArticle(setFetching, Article, setArticle)
   }
 }
