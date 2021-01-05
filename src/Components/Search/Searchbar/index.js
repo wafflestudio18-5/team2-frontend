@@ -12,9 +12,22 @@ const SearchbarStyle = styled.input`
   outline: 0;
 `
 
-const Searchbar = () => {
+const Searchbar = ({ searchWord, onChangeInput, enter }) => {
   let placeholder = "Search Wadium"
-  return <SearchbarStyle placeholder={placeholder} />
+  let value = ""
+  if (searchWord !== "" && searchWord !== undefined) {
+    placeholder = searchWord
+    value = searchWord
+  }
+  return (
+    <SearchbarStyle
+      placeholder={placeholder}
+      defaultValue={value}
+      type="text"
+      onChange={onChangeInput}
+      onKeyDown={enter}
+    />
+  )
 }
 
 export default Searchbar

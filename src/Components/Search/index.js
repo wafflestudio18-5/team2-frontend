@@ -30,15 +30,26 @@ const SearchWrapper = styled.div`
 
 const SearchResult = styled.div``
 
-const Search = () => {
+const Search = ({
+  searchWord,
+  user,
+  stories,
+  people,
+  onChangeInput,
+  enter,
+}) => {
   return (
     <SearchStyle>
-      <Header />
+      <Header user={user} />
       <SearchWrapper>
-        <Searchbar />
+        <Searchbar
+          searchWord={searchWord}
+          onChangeInput={onChangeInput}
+          enter={enter}
+        />
         <SearchResult>
-          <Main />
-          <Sidebar />
+          <Main stories={stories} people={people} />
+          <Sidebar people={people} />
         </SearchResult>
       </SearchWrapper>
     </SearchStyle>

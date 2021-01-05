@@ -1,5 +1,5 @@
-const Sidebar = () => {
-  return <div>sidebar</div>
+const Sidebar = ({ people }) => {
+  return <div>{JSON.stringify(people)}</div>
 }
 
 export default Sidebar
