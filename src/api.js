@@ -1,8 +1,8 @@
 import axios from 'axios';
 
 // set base url
-//const baseUrl = 'https://api.wadium.shop/';
-const baseUrl = 'http://localhost:8000/';
+const baseUrl = 'https://api.wadium.shop/';
+//const baseUrl = 'http://localhost:8000/';
 axios.defaults.baseURL = baseUrl;
 // user api
 export const getUserMeAbout = async token => {

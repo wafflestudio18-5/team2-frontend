@@ -13,6 +13,7 @@ const ArticleTextBlock = styled.div`
 `;
 
 const ArticleBlockWriter = styled.div`
+    cursor: pointer;
     padding-bottom: 8px;
     display: flex;
     align-items: center;
@@ -35,6 +36,7 @@ const ArticleBlockProfile = styled.img`
 
 const ArticleBlockTitle = styled.p`
     width: 100%;
+    cursor: pointer;
     max-height: 56px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -53,6 +55,7 @@ const ArticleBlockTitle = styled.p`
 
 const ArticleBlockSubtitle = styled.p`
     width: 100%;
+    cursor: pointer;
     max-height: 40px;
     display: -webkit-box;
     -webkit-line-clamp: 2;
@@ -89,6 +92,7 @@ const ArticleBlockDateAndTime = styled.p`
 `;
 
 const ArticleImageBlock = styled.img`
+    cursor: pointer;
     width: 200px;
     height: 133px;
     vertical-align: middle;

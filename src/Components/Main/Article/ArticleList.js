@@ -9,11 +9,11 @@ const ArticleListStyle = styled.div`
   }
 `
 
-const ArticleList = ({ Articles }) => {
+const ArticleList = ({ Articles, history }) => {
   return (
     <ArticleListStyle>
       {Articles.map((article, index) => {
-        return <ArticleBlock article={article} key={index} />
+        return <ArticleBlock article={article} history={history} />
       })}
     </ArticleListStyle>
   )
