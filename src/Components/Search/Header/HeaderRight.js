@@ -1,8 +1,17 @@
 import styled from "styled-components"
+import GetStartedButton from "./GetStartedButton"
+import SignInButton from "./SigninButton"
+
+const Wrapper = styled.div``
 
 const HeaderRight = ({ user }) => {
   if (user === undefined) {
-    return <div>a</div>
+    return (
+      <Wrapper>
+        <SignInButton />
+        <GetStartedButton />
+      </Wrapper>
+    )
   }
 }
 
