@@ -82,23 +82,26 @@ const MainLoginPage = ({ token }) => {
   })
 
   return (
-    <MainLogin
-      trendingPosts={trendingPosts}
-      Articles={Article}
-      user={user}
-      centerArticles={centerArticles}
-      isSearchboxOpen={isSearchboxOpen}
-      onClickSearchButton={() =>
-        onClickSearchButton(isSearchboxOpen, setIsSearchboxOpen, history)
-      }
-      onChangeSearchbox={(event) => onChangeSearchbox(event, setSearchValue)}
-      search={(event) => search(event, searchValue, history)}
-      isDropdownOpened={isDropdownOpened}
-      openDropdown={() => setIsDropdownOpened(true)}
-      hideDropdown={() => setIsDropdownOpened(false)}
-      signOut={() => logout(token, removeCookie)}
-      history={history}
-    />
+    <div>
+      <MainLogin
+        trendingPosts={trendingPosts}
+        Articles={Article}
+        user={user}
+        centerArticles={centerArticles}
+        isSearchboxOpen={isSearchboxOpen}
+        onClickSearchButton={() =>
+          onClickSearchButton(isSearchboxOpen, setIsSearchboxOpen, history)
+        }
+        onChangeSearchbox={(event) => onChangeSearchbox(event, setSearchValue)}
+        search={(event) => search(event, searchValue, history)}
+        isDropdownOpened={isDropdownOpened}
+        openDropdown={() => setIsDropdownOpened(true)}
+        hideDropdown={() => setIsDropdownOpened(false)}
+        signOut={() => logout(token, removeCookie)}
+        history={history}
+      />
+      <div ref={targetRef} />
+    </div>
   )
 }
 
