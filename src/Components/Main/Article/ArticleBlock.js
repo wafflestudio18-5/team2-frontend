@@ -129,7 +129,7 @@ const ArticleBlock = ({ article, history }) => {
                     </svg>
                 </ArticleBottomBlock>
             </ArticleTextBlock>
-            <ArticleImageBlock src={article.featured_image} onClick={()=>{history.push("/story/"+article.id)}}/>
+            <ArticleImageBlock src={featuredimage} onClick={()=>{history.push("/story/"+article.id)}}/>
         </ArticleBlockStyle>
     );
 };
