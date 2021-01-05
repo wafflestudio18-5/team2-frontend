@@ -1,6 +1,6 @@
 import { getStoryPage } from '../../../api';
 
-const getArticle = async (setArticle, setStopFetch, token = '') => {
+const getArticle = (setArticle, setStopFetch, token = '') => {
     getStoryPage(token, 1)
         .then(response => {
             if (response.data.next === null) setStopFetch(true);
