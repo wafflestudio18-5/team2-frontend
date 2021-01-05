@@ -4,6 +4,7 @@ import { useLocation, useHistory } from "react-router-dom"
 import { useState, useEffect } from "react"
 import queryString from "query-string"
 import getCurrentUser from "../Main/Functions/getCurrentUser"
+import logout from "../Main/Functions/logout"
 import fetchPeople from "./Functions/fetchPeople"
 import fetchStories from "./Functions/fetchStories"
 import enter from "./Functions/enter"
@@ -11,13 +12,16 @@ import onChangeInput from "./Functions/onChangeInput"
 
 const SearchPage = () => {
   const searchWord = queryString.parse(useLocation().search).q
-  const token = useCookies(["auth"])[0].auth
+  const [cookie, , removeCookie] = useCookies(["auth"])
+  const token = cookie.auth
   const history = useHistory()
 
   const [user, setUser] = useState({})
   const [stories, setStories] = useState([])
   const [people, setPeople] = useState([])
   const [inputValue, setInputValue] = useState("")
+  const [showStories, setShowStories] = useState()
+  const [isDropdownOpened, setIsDropdownOpened] = useState(false)
 
   useEffect(() => {
     if (token !== undefined) {
@@ -39,6 +43,10 @@ const SearchPage = () => {
       people={people}
       onChangeInput={(event) => onChangeInput(event, setInputValue)}
       enter={(event) => enter(event, inputValue, history)}
+      isDropdownOpened={isDropdownOpened}
+      openDropdown={() => setIsDropdownOpened(true)}
+      hideDropdown={() => setIsDropdownOpened(false)}
+      signOut={() => logout(token, removeCookie)}
     />
   )
 }

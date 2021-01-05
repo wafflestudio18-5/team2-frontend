@@ -3,6 +3,7 @@ import Header from "./Header"
 import Main from "./Main"
 import Searchbar from "./Searchbar"
 import Sidebar from "./Sidebar"
+import UserDropdown from "../MainLogin/UserDropdown"
 
 const SearchStyle = styled.div`
   position: relative;
@@ -37,21 +38,34 @@ const Search = ({
   people,
   onChangeInput,
   enter,
+  signOut,
+  isDropdownOpened,
+  openDropdown,
+  hideDropdown,
 }) => {
   return (
     <SearchStyle>
-      <Header user={user} />
+      <Header user={user} openDropdown={openDropdown} />
       <SearchWrapper>
         <Searchbar
           searchWord={searchWord}
           onChangeInput={onChangeInput}
           enter={enter}
         />
-        <SearchResult>
-          <Main stories={stories} people={people} />
-          <Sidebar people={people} />
-        </SearchResult>
+        {searchWord !== "" && searchWord !== undefined && (
+          <SearchResult>
+            <Main stories={stories} people={people} />
+            <Sidebar people={people} />
+          </SearchResult>
+        )}
       </SearchWrapper>
+      {isDropdownOpened && (
+        <UserDropdown
+          user={user}
+          signOut={signOut}
+          hideDropdown={hideDropdown}
+        />
+      )}
     </SearchStyle>
   )
 }

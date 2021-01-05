@@ -23,7 +23,7 @@ const HeaderStyle = styled.div`
   justify-content: space-between;
 `
 
-const Header = ({ user }) => {
+const Header = (props) => {
   return (
     <HeaderShadow>
       <HeaderStyle>
@@ -31,7 +31,7 @@ const Header = ({ user }) => {
           <Logo />
           <SmallLogo />
         </a>
-        <HeaderRight user={user} />
+        <HeaderRight {...props} />
       </HeaderStyle>
     </HeaderShadow>
   )
