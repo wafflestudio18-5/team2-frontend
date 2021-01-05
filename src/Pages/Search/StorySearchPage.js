@@ -10,7 +10,7 @@ import showModal from "../Main/Functions/showModal"
 import hideModal from "../Main/Functions/hideModal"
 import fetchPeople from "./Functions/fetchPeople"
 import fetchStories from "./Functions/fetchStories"
-import enter from "./Functions/enter"
+import search from "./Functions/search"
 import onChangeInput from "./Functions/onChangeInput"
 import ModalTypeConstants from "../../Constants/ModalTypeConstants"
 
@@ -72,7 +72,7 @@ const StorySearchPage = () => {
         stories={stories}
         people={people}
         onChangeInput={(event) => onChangeInput(event, setInputValue)}
-        enter={(event) => enter(event, inputValue, history)}
+        enter={(event) => search(event, inputValue, history)}
         isDropdownOpened={isDropdownOpened}
         openDropdown={() => setIsDropdownOpened(true)}
         hideDropdown={() => setIsDropdownOpened(false)}
