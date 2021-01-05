@@ -1,7 +1,6 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useRef, useCallback } from "react"
 import { useHistory } from "react-router-dom"
 import { useCookies } from "react-cookie"
-import handleScroll from "./Functions/handleScroll"
 import onClickSearchButton from "./Functions/onClickSearchButton"
 import onChangeSearchbox from "./Functions/onChangeSearchbox"
 import search from "../Search/Functions/search"
@@ -9,7 +8,8 @@ import getCurrentUser from "./Functions/getCurrentUser"
 import getMainTrending from "./Functions/getMainTrending"
 import logout from "./Functions/logout"
 import MainLogin from "../../Components/MainLogin"
-import getArticle from "./Functions/getArticle"
+import fetchArticles from './Functions/fetchArticles';
+import useIntersectionObserver from '../Search/Functions/useIntersectionObserver';
 
 const MainLoginPage = ({ token }) => {
   //로그인 하지 않았을 때 페이지
@@ -18,12 +18,11 @@ const MainLoginPage = ({ token }) => {
   const [centerArticles, setCenterArticles] = useState([])
   const [trendingPosts, setTrendingPosts] = useState([])
   const [Article, setArticle] = useState([])
-  const [StopFetch, setStopFetch] = useState(false);
 
   useEffect(() => {
     getCurrentUser(token, setUser)
     getMainTrending(true, setTrendingPosts, setCenterArticles, token)
-    getArticle(setArticle, setStopFetch, token)
+    fetchArticles(setArticle, setIsEnd);
   }, [token])
 
   // states
@@ -34,7 +33,34 @@ const MainLoginPage = ({ token }) => {
   // Dropdown 표시 여부
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
 
-  const [fetching, setFetching] = useState(false)
+  // request state
+  const [fetching, setFetching] = useState(false);
+  // check current page is end
+  const [isEnd, setIsEnd] = useState(false);
+  // 현재 검색된 마지막 페이지
+  const page = useRef(1);
+  // target
+  const targetRef = useRef(null);
+
+  // 다음 페이지 로드
+  const loadNextPage = useCallback(async () => {
+      if (Article.length > 0) {
+          setFetching(true);
+          page.current++;
+          await fetchArticles(setArticle, setIsEnd, page.current);
+          setFetching(false);
+      }
+  }, [Article]);
+
+  // 스크롤이 끝에 닿으면 다음 페이지 요청
+  useIntersectionObserver({
+      target: targetRef.current,
+      onIntersect: ([{ isIntersecting }]) => {
+          if (isIntersecting && !fetching && !isEnd) {
+              loadNextPage();
+          }
+      },
+  });
 
   const history = useHistory()
   const removeCookie = useCookies(["auth"])[2]
@@ -53,15 +79,6 @@ const MainLoginPage = ({ token }) => {
       }
       dropdown.style.left = left + "px"
     }
-  })
-
-  useEffect(() => {
-    if (StopFetch === false) {
-      window.addEventListener('scroll', () => handleScroll(fetching, setFetching, Article, setArticle, setStopFetch, token));
-      return () => {
-          window.removeEventListener('scroll', () => handleScroll(fetching, setFetching, Article, setArticle, setStopFetch, token));
-      };
-  }
   })
 
   return (

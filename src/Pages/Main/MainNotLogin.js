@@ -1,14 +1,14 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useCallback, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import Main from '../../Components/Main';
 import AuthModalContainer from '../../Container/AuthModal';
 import ModalTypeConstants from '../../Constants/ModalTypeConstants';
 import Topics from '../../Constants/Topics';
-import handleScroll from './Functions/handleScroll';
 import hideModal from './Functions/hideModal';
 import showModal from './Functions/showModal';
 import getMainTrending from './Functions/getMainTrending';
-import getArticle from './Functions/getArticle';
+import fetchArticles from './Functions/fetchArticles';
+import useIntersectionObserver from '../Search/Functions/useIntersectionObserver';
 
 const MainNotLoginPage = () => {
     //로그인 하지 않았을 때 페이지
@@ -31,6 +31,7 @@ const MainNotLoginPage = () => {
     const [modalVisible, setModalVisible] = useState(false);
     // modal type을 결정하는 state
     const [ModalType, setModalType] = useState(ModalTypeConstants.LOG_IN);
+    const [trendingPosts, setTrendingPosts] = useState([]);
 
     // Modal이 떠있는 동안 scroll 고정
     useEffect(() => {
@@ -44,23 +45,38 @@ const MainNotLoginPage = () => {
         }
     }, [modalVisible]);
 
+    // request state
     const [fetching, setFetching] = useState(false);
-    const [StopFetch, setStopFetch] = useState(false);
+    // check current page is end
+    const [isEnd, setIsEnd] = useState(false);
+    // 현재 검색된 마지막 페이지
+    const page = useRef(1);
+    // target
+    const targetRef = useRef(null);
 
-    useEffect(() => {
-        if (StopFetch === false) {
-            window.addEventListener('scroll', () => handleScroll(fetching, setFetching, Article, setArticle, setStopFetch));
-            return () => {
-                window.removeEventListener('scroll', () => handleScroll(fetching, setFetching, Article, setArticle, setStopFetch));
-            };
+    // 다음 페이지 로드
+    const loadNextPage = useCallback(async () => {
+        if (Article.length > 0) {
+            setFetching(true);
+            page.current++;
+            await fetchArticles(setArticle, setIsEnd, page.current);
+            setFetching(false);
         }
-    });
+    }, [Article]);
 
-    const [trendingPosts, setTrendingPosts] = useState([]);
+    // 스크롤이 끝에 닿으면 다음 페이지 요청
+    useIntersectionObserver({
+        target: targetRef.current,
+        onIntersect: ([{ isIntersecting }]) => {
+            if (isIntersecting && !fetching && !isEnd) {
+                loadNextPage();
+            }
+        },
+    });
 
     useEffect(() => {
         getMainTrending(false, setTrendingPosts);
-        getArticle(setArticle, setStopFetch);
+        fetchArticles(setArticle, setIsEnd);
     }, []);
 
     const history = useHistory();
@@ -75,6 +91,7 @@ const MainNotLoginPage = () => {
                 showModal={modalType => showModal(modalType, setModalShow, setModalVisible, setModalType)}
                 history={history}
             />
+            <div ref={targetRef} />
             {modalShow && (
                 <AuthModalContainer
                     hideModal={() => hideModal(setModalVisible, setModalShow)}
