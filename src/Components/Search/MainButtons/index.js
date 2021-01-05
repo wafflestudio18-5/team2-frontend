@@ -4,6 +4,7 @@ import BoldButton from "./BoldButton"
 
 const ButtonWrapper = styled.div`
   display: flex;
+  margin-bottom: 20px;
 `
 
 const MainButtons = ({ type, searchWord }) => {
