@@ -1,13 +1,14 @@
 import { useEffect, useState } from "react"
+import { useHistory } from "react-router-dom"
 import Main from "../../Components/Main"
 import AuthModalContainer from "../../Container/AuthModal"
 import ModalTypeConstants from "../../Constants/ModalTypeConstants"
-import Articles from "../../Constants/Articles"
 import Topics from "../../Constants/Topics"
 import handleScroll from "./Functions/handleScroll"
 import hideModal from "./Functions/hideModal"
 import showModal from "./Functions/showModal"
 import getMainTrending from "./Functions/getMainTrending"
+import getArticle from "./Functions/getArticle"
 
 const MainNotLoginPage = () => {
   //로그인 하지 않았을 때 페이지
@@ -23,6 +24,7 @@ const MainNotLoginPage = () => {
     }
   })
 
+  const [Article, setArticle] = useState([])
   // AuthModal 화면 표시 여부 관리하는 state
   const [modalShow, setModalShow] = useState(false)
   // AuthModal이 사라질 때 애니메이션을 실행시키기 위한 state.
@@ -42,7 +44,6 @@ const MainNotLoginPage = () => {
     }
   }, [modalVisible])
 
-  const [Article, setArticle] = useState(Articles)
   const [fetching, setFetching] = useState(false)
 
   useEffect(() => {
@@ -57,9 +58,13 @@ const MainNotLoginPage = () => {
   })
 
   const [trendingPosts, setTrendingPosts] = useState([])
+
   useEffect(() => {
     getMainTrending(false, setTrendingPosts)
+    getArticle(setArticle)
   }, [])
+
+  const history=useHistory();
 
   return (
     <div>
@@ -71,6 +76,7 @@ const MainNotLoginPage = () => {
         showModal={(modalType) =>
           showModal(modalType, setModalShow, setModalVisible, setModalType)
         }
+        history={history}
       />
       {modalShow && (
         <AuthModalContainer

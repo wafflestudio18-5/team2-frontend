@@ -1,6 +1,6 @@
 import fetchMoreArticle from "./fetchMoreArticle"
 
-const handleScroll = (fetching, setFetching, Article, setArticle) => {
+const handleScroll = (fetching, setFetching, Article, setArticle, token="") => {
   // scroll이 끝에 도달하면 다음 article 가져옴
   const scrollHeight = Math.max(
     document.documentElement.scrollHeight,
@@ -11,9 +11,8 @@ const handleScroll = (fetching, setFetching, Article, setArticle) => {
     document.body.scrollTop
   )
   const clientHeight = document.documentElement.clientHeight
-  console.log(scrollTop + clientHeight - (scrollHeight - 100))
   if (scrollTop + clientHeight >= scrollHeight - 100 && fetching === false) {
-    fetchMoreArticle(setFetching, Article, setArticle)
+    fetchMoreArticle(setFetching, Article, setArticle, token)
   }
 }
 

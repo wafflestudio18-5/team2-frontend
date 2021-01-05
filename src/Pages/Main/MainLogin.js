@@ -9,7 +9,7 @@ import getCurrentUser from "./Functions/getCurrentUser"
 import getMainTrending from "./Functions/getMainTrending"
 import logout from "./Functions/logout"
 import MainLogin from "../../Components/MainLogin"
-import Articles from "../../Constants/Articles"
+import getArticle from "./Functions/getArticle"
 
 const MainLoginPage = ({ token }) => {
   //로그인 하지 않았을 때 페이지
@@ -17,10 +17,12 @@ const MainLoginPage = ({ token }) => {
   const [user, setUser] = useState({})
   const [centerArticles, setCenterArticles] = useState([])
   const [trendingPosts, setTrendingPosts] = useState([])
+  const [Article, setArticle] = useState([])
 
   useEffect(() => {
     getCurrentUser(token, setUser)
     getMainTrending(true, setTrendingPosts, setCenterArticles, token)
+    getArticle(setArticle, token)
   }, [token])
 
   // states
@@ -31,7 +33,6 @@ const MainLoginPage = ({ token }) => {
   // Dropdown 표시 여부
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
 
-  const [Article, setArticle] = useState(Articles)
   const [fetching, setFetching] = useState(false)
 
   const history = useHistory()
@@ -55,11 +56,11 @@ const MainLoginPage = ({ token }) => {
 
   useEffect(() => {
     window.addEventListener("scroll", () =>
-      handleScroll(fetching, setFetching, Article, setArticle)
+      handleScroll(fetching, setFetching, Article, setArticle, token)
     )
     return () => {
       window.removeEventListener("scroll", () =>
-        handleScroll(fetching, setFetching, Article, setArticle)
+        handleScroll(fetching, setFetching, Article, setArticle, token)
       )
     }
   })
@@ -80,6 +81,7 @@ const MainLoginPage = ({ token }) => {
       openDropdown={() => setIsDropdownOpened(true)}
       hideDropdown={() => setIsDropdownOpened(false)}
       signOut={() => logout(token, removeCookie)}
+      history={history}
     />
   )
 }

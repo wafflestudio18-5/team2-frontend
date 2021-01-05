@@ -76,3 +76,15 @@ export const getStoryTrending = async (token) => {
   }
   return response
 }
+
+export const getStoryPage = async (token, pagenum) => {
+  // GET /story/?page={page_number}
+  var response
+  if (token === "") {
+    response = await axios.get("story/",{params:{page: pagenum}})
+  } else {
+    const config = { headers: {Authorization: "Token " + token} }
+    response = await axios.get("story/",{params:{page: pagenum}},config)
+  }
+  return response
+}

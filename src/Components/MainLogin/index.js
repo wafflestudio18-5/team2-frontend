@@ -29,6 +29,7 @@ const MainLogin = ({
   isDropdownOpened,
   openDropdown,
   hideDropdown,
+  history,
 }) => {
   return (
     <MainStyle>
@@ -45,7 +46,7 @@ const MainLogin = ({
       <BottomStyle>
         <BottomWrapper>
           <BottomLeftStyle>
-            <Article Articles={Articles} />
+            <Article Articles={Articles} history={history}/>
           </BottomLeftStyle>
           <BottomRightStyle>
             <Footer />
