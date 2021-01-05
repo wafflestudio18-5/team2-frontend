@@ -1,6 +1,8 @@
 import styled from 'styled-components';
 import Color from '../../../Constants/Color';
 import changeDate from "../../../Pages/Main/Functions/changeDate"
+import default_profile_image from "../../../Images/default_profile_image.png"
+import default_featured_image from "../../../Images/default_featured_image.jpeg"
 
 const ArticleBlockStyle = styled.div`
     margin-bottom: 48px;
@@ -107,11 +109,13 @@ const ArticleImageBlock = styled.img`
     }
 `;
 const ArticleBlock = ({ article, history }) => {
+    const profileimage = article.writer.profile_image==="" ? default_profile_image : article.writer.profile_image;
+    const featuredimage = article.featured_image==="" ? default_featured_image : article.featured_image;
     return (
         <ArticleBlockStyle>
             <ArticleTextBlock>
                 <ArticleBlockWriter onClick={()=>history.push("/user/"+article.writer.id)} >
-                    <ArticleBlockProfile src={article.writer.profile_image} />
+                    <ArticleBlockProfile src={profileimage} />
                     {article.writer.name}
                 </ArticleBlockWriter>
                 <ArticleBlockTitle onClick={()=>{history.push("/story/"+article.id)}} >{article.title}</ArticleBlockTitle>
