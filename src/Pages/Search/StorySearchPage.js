@@ -12,6 +12,7 @@ import fetchPeople from "./Functions/fetchPeople"
 import fetchStories from "./Functions/fetchStories"
 import search from "./Functions/search"
 import onChangeInput from "./Functions/onChangeInput"
+import runOnEndOfScroll from "./Functions/runOnEndOfScroll"
 import ModalTypeConstants from "../../Constants/ModalTypeConstants"
 
 const StorySearchPage = () => {
@@ -37,6 +38,13 @@ const StorySearchPage = () => {
   const [modalVisible, setModalVisible] = useState(false)
   // modal type을 결정하는 state
   const [ModalType, setModalType] = useState(ModalTypeConstants.LOG_IN)
+  // 현재 검색된 마지막 페이지
+  const [page, setPage] = useState(1)
+  // 스크롤로 인해 이미 요청이 보내졌는지
+  let fetching = false
+  const setFetching = (v) => {
+    fetching = v
+  }
 
   // 처음 서버로부터 검색 결과 받아옴
   useEffect(() => {
@@ -62,6 +70,32 @@ const StorySearchPage = () => {
       }
     }
   }, [modalVisible])
+
+  // 스크롤이 끝에 닿으면 다음 페이지 요청
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      runOnEndOfScroll(
+        () => {
+          fetchStories(searchWord, setStories, page)
+          setPage(page + 1)
+        },
+        fetching,
+        setFetching
+      )
+    })
+    return () => {
+      window.addEventListener("scroll", () => {
+        runOnEndOfScroll(
+          () => {
+            fetchStories(searchWord, setStories, page)
+            setPage(page + 1)
+          },
+          fetching,
+          setFetching
+        )
+      })
+    }
+  }, [fetching, page, searchWord])
 
   return (
     <div>
