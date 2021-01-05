@@ -28,7 +28,7 @@ const StorySearchPage = () => {
   // people 검색 결과
   const [people, setPeople] = useState([])
   // 검색창 값
-  const [inputValue, setInputValue] = useState("")
+  const [inputValue, setInputValue] = useState(searchWord)
   // dropdown 표시 여부
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
   // AuthModal 화면 표시 여부 관리하는 state
