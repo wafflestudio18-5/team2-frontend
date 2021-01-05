@@ -4,6 +4,7 @@ import Searchbar from "./Searchbar"
 import UserDropdown from "../MainLogin/UserDropdown"
 import SearchStory from "./SearchStory"
 import SearchUser from "./SearchUser"
+import MainButtons from "./MainButtons"
 
 const SearchStyle = styled.div`
   position: relative;
@@ -54,6 +55,7 @@ const Search = ({
         />
         {searchWord !== "" && searchWord !== undefined && (
           <div>
+            <MainButtons type={type} searchWord={searchWord} />
             {type === "story" && (
               <SearchStory stories={stories} people={people} />
             )}
