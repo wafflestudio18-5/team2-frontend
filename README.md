@@ -7,3 +7,4 @@ Team2 프론트엔드입니다. Medium을 클론코딩한 [**Wadium**](https://w
 - `/main` 메인 페이지
 - `/edit` 글 작성 페이지
 - `/story/:storyid` 글 보는 페이지
+- `/search` 검색 페이지

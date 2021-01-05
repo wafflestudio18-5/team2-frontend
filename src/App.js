@@ -13,6 +13,10 @@ function App() {
           <Route path={routes.main.path} component={routes.main.component} />
           <Route path={routes.edit.path} component={routes.edit.component} />
           <Route
+            path={routes.search.path}
+            component={routes.search.component}
+          />
+          <Route
             path={routes.callback.path}
             component={routes.callback.component}
           />
@@ -23,4 +27,4 @@ function App() {
   )
 }
 
-export default App;
+export default App

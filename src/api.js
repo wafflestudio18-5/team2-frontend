@@ -1,16 +1,23 @@
 import axios from 'axios';
 
 // set base url
-const baseUrl = 'https://api.wadium.shop/';
-//const baseUrl = 'http://localhost:8000/';
-axios.defaults.baseURL = baseUrl;
+// const baseUrl = "http://localhost:8000/"
+const baseUrl = "https://api.wadium.shop/"
+axios.defaults.baseURL = baseUrl
+
 // user api
-export const getUserMeAbout = async token => {
-    // GET /user/me/about
-    const config = { headers: { Authorization: 'Token ' + token } };
-    const response = await axios.get('user/me/about/', config);
-    return response;
-};
+export const getUser = async (username) => {
+  // GET /user?username={username}
+  const response = await axios.get("user/?username=" + username)
+  return response
+}
+
+export const getUserMeAbout = async (token) => {
+  // GET /user/me/about
+  const config = { headers: { Authorization: "Token " + token } }
+  const response = await axios.get("user/me/about/", config)
+  return response
+}
 
 export const postUser = async body => {
     // POST /user/
@@ -88,3 +95,21 @@ export const getStoryPage = async (token, pagenum) => {
     }
     return response;
 };
+
+export const getStory = async ({ page, title, tag }) => {
+  // GET /story?page={page#}&title={title}&tag={tag}
+  let queryString = "?"
+  if (page) {
+    queryString += "page=" + page + "&"
+  }
+  if (title) {
+    queryString += "title=" + title + "&"
+  }
+  if (tag) {
+    queryString += "tag=" + tag + "&"
+  }
+  queryString = queryString.slice(0, -1)
+  const response = await axios.get("story/" + queryString)
+  return response
+};
+
