@@ -38,7 +38,6 @@ const Main = ({
             <Article Articles={Articles} history={history} />
           </BottomLeftStyle>
           <BottomRightStyle>
-            <Topic Topics={Topics} />
             <Footer />
           </BottomRightStyle>
         </BottomWrapper>
