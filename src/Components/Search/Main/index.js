@@ -45,9 +45,30 @@ const UserWrapper = styled.div`
   }
 `
 
+const NotFoundMessage = styled.p`
+  padding-top: 100px;
+  padding-bottom: 100px;
+  margin: 0%;
+  font-family: "Noto Sans";
+  font-size: 18px;
+  text-align: center;
+
+  @media (min-width: 992px) {
+    padding-top: 125px;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+  }
+`
+
 const Main = ({ type, stories, people }) => {
   switch (type) {
     case "story":
+      if (stories.length === 0) {
+        return (
+          <StoryWrapper>
+            <NotFoundMessage>We couldn't find any posts.</NotFoundMessage>
+          </StoryWrapper>
+        )
+      }
       return (
         <StoryWrapper>
           <StoryHeader>STORIES</StoryHeader>
@@ -58,6 +79,13 @@ const Main = ({ type, stories, people }) => {
       )
 
     case "user":
+      if (people.length === 0) {
+        return (
+          <StoryWrapper>
+            <NotFoundMessage>We couldn't find any people.</NotFoundMessage>
+          </StoryWrapper>
+        )
+      }
       return (
         <UserWrapper>
           {people.map((user, index) => {
