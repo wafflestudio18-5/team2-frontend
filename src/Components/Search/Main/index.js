@@ -6,6 +6,7 @@ import Color from "../../../Constants/Color"
 const StoryWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  max-width: 600px;
   width: 100%;
   box-sizing: border-box;
 
@@ -51,7 +52,7 @@ const Main = ({ type, stories, people }) => {
         <StoryWrapper>
           <StoryHeader>STORIES</StoryHeader>
           {stories.map((story, index) => {
-            return <StoryBlock story={story} key={index} />
+            return <StoryBlock story={story} key={index} first={index === 0} />
           })}
         </StoryWrapper>
       )

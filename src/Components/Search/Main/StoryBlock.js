@@ -9,6 +9,7 @@ const StoryBlockStyle = styled.div`
   flex-direction: column;
   padding-top: 25px;
   padding-bottom: 25px;
+  border-top: ${(props) => !props.first && "1px solid rgba(0, 0, 0, 0.05)"};
 `
 
 const UserInfo = styled.div`
@@ -47,13 +48,13 @@ const Date = styled.a`
   font-size: 13px;
 `
 
-const StoryBlock = ({ story }) => {
+const StoryBlock = ({ story, first }) => {
   let { id, name, profile_image } = story.writer
   if (profile_image === "" || profile_image === undefined) {
     profile_image = default_profile_image
   }
   return (
-    <StoryBlockStyle>
+    <StoryBlockStyle first={first}>
       <UserInfo>
         <a href={"/user/" + id}>
           <UserProfile src={profile_image} />
