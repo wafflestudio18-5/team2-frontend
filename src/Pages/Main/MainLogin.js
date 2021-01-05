@@ -18,11 +18,12 @@ const MainLoginPage = ({ token }) => {
   const [centerArticles, setCenterArticles] = useState([])
   const [trendingPosts, setTrendingPosts] = useState([])
   const [Article, setArticle] = useState([])
+  const [StopFetch, setStopFetch] = useState(false);
 
   useEffect(() => {
     getCurrentUser(token, setUser)
     getMainTrending(true, setTrendingPosts, setCenterArticles, token)
-    getArticle(setArticle, token)
+    getArticle(setArticle, setStopFetch, token)
   }, [token])
 
   // states
@@ -56,11 +57,11 @@ const MainLoginPage = ({ token }) => {
 
   useEffect(() => {
     window.addEventListener("scroll", () =>
-      handleScroll(fetching, setFetching, Article, setArticle, token)
+      handleScroll(fetching, setFetching, Article, setArticle, StopFetch, setStopFetch, token)
     )
     return () => {
       window.removeEventListener("scroll", () =>
-        handleScroll(fetching, setFetching, Article, setArticle, token)
+        handleScroll(fetching, setFetching, Article, setArticle, StopFetch, setStopFetch, token)
       )
     }
   })

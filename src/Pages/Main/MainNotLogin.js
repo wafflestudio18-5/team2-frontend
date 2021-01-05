@@ -45,14 +45,15 @@ const MainNotLoginPage = () => {
   }, [modalVisible])
 
   const [fetching, setFetching] = useState(false)
+  const [StopFetch, setStopFetch] = useState(false)
 
   useEffect(() => {
     window.addEventListener("scroll", () =>
-      handleScroll(fetching, setFetching, Article, setArticle)
+      handleScroll(fetching, setFetching, Article, setArticle, StopFetch, setStopFetch)
     )
     return () => {
       window.removeEventListener("scroll", () =>
-        handleScroll(fetching, setFetching, Article, setArticle)
+        handleScroll(fetching, setFetching, Article, setArticle, StopFetch, setStopFetch)
       )
     }
   })
@@ -61,10 +62,11 @@ const MainNotLoginPage = () => {
 
   useEffect(() => {
     getMainTrending(false, setTrendingPosts)
-    getArticle(setArticle)
+    getArticle(setArticle, setStopFetch)
   }, [])
 
   const history=useHistory();
+
 
   return (
     <div>
