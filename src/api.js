@@ -5,6 +5,12 @@ const baseUrl = "http://localhost:8000/"
 axios.defaults.baseURL = baseUrl
 
 // user api
+export const getUser = async (username) => {
+  // GET /user?username={username}
+  const response = await axios.get("user/?username=" + username)
+  return response
+}
+
 export const getUserMeAbout = async (token) => {
   // GET /user/me/about
   const config = { headers: { Authorization: "Token " + token } }
@@ -74,5 +80,21 @@ export const getStoryTrending = async (token) => {
     const config = { headers: { Authorization: "Token " + token } }
     response = await axios.get("story/trending/", {}, config)
   }
+  return response
+}
+
+export const getStory = async ({ page, title, tag }) => {
+  // GET /story?page={page#}&title={title}&tag={tag}
+  let queryString = "?"
+  if (page) {
+    queryString += "page=" + page + "&"
+  }
+  if (title) {
+    queryString += "title=" + title + "&"
+  }
+  if (tag) {
+    queryString += "tag=" + tag + "&"
+  }
+  const response = await axios.get("story" + queryString)
   return response
 }
