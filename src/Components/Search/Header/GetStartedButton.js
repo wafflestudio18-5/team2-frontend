@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import Color from "../../../Constants/Color"
+import ModalTypeConstants from "../../../Constants/ModalTypeConstants"
 
 const ButtonStyle = styled.button`
   background: none;
@@ -27,8 +28,12 @@ const ButtonStyle = styled.button`
   }
 `
 
-const GetStartedButton = () => {
-  return <ButtonStyle>Get started</ButtonStyle>
+const GetStartedButton = ({ showModal }) => {
+  return (
+    <ButtonStyle onClick={() => showModal(ModalTypeConstants.SIGN_UP)}>
+      Get started
+    </ButtonStyle>
+  )
 }
 
 export default GetStartedButton

@@ -42,10 +42,11 @@ const Search = ({
   isDropdownOpened,
   openDropdown,
   hideDropdown,
+  showModal,
 }) => {
   return (
     <SearchStyle>
-      <Header user={user} openDropdown={openDropdown} />
+      <Header user={user} openDropdown={openDropdown} showModal={showModal} />
       <SearchWrapper>
         <Searchbar
           searchWord={searchWord}

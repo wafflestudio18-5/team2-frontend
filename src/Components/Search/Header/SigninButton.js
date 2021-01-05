@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import Color from "../../../Constants/Color"
+import ModalTypeConstants from "../../../Constants/ModalTypeConstants"
 
 const ButtonStyle = styled.button`
   border: none;
@@ -19,8 +20,12 @@ const ButtonStyle = styled.button`
   }
 `
 
-const SignInButton = () => {
-  return <ButtonStyle>Sign in</ButtonStyle>
+const SignInButton = ({ showModal }) => {
+  return (
+    <ButtonStyle onClick={() => showModal(ModalTypeConstants.LOG_IN)}>
+      Sign in
+    </ButtonStyle>
+  )
 }
 
 export default SignInButton

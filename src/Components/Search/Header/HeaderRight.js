@@ -6,12 +6,12 @@ import default_profile_image from "../../../Images/default_profile_image.png"
 
 const Wrapper = styled.div``
 
-const HeaderRight = ({ user, openDropdown }) => {
+const HeaderRight = ({ user, openDropdown, showModal }) => {
   if (user === undefined) {
     return (
       <Wrapper>
-        <SignInButton />
-        <GetStartedButton />
+        <SignInButton showModal={showModal} />
+        <GetStartedButton showModal={showModal} />
       </Wrapper>
     )
   } else {
