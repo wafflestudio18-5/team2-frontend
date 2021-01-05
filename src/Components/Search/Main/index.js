@@ -10,11 +10,14 @@ const StoryWrapper = styled.div`
 const UserWrapper = styled.div`
   display: flex;
   flex-direction: column;
+  width: 100%;
+  box-sizing: border-box;
   padding-top: 10px;
 
   @media (min-width: 992px) {
     border-top: 1px solid rgba(0, 0, 0, 0.05);
     padding-top: 35px;
+    width: calc(75% - 10px);
   }
 `
 
@@ -33,7 +36,7 @@ const Main = ({ type, stories, people }) => {
       return (
         <UserWrapper>
           {people.map((user, index) => {
-            return <UserBlock user={user} key={index} />
+            return <UserBlock user={user} key={index} first={index === 0} />
           })}
         </UserWrapper>
       )
