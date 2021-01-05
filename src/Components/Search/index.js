@@ -1,9 +1,10 @@
 import styled from "styled-components"
+import { Switch, Route } from "react-router-dom"
 import Header from "./Header"
-import Main from "./Main"
 import Searchbar from "./Searchbar"
-import Sidebar from "./Sidebar"
 import UserDropdown from "../MainLogin/UserDropdown"
+import SearchUser from "./SearchUser"
+import SearchStory from "./SearchStory"
 
 const SearchStyle = styled.div`
   position: relative;
@@ -29,8 +30,6 @@ const SearchWrapper = styled.div`
   }
 `
 
-const SearchResult = styled.div``
-
 const Search = ({
   searchWord,
   user,
@@ -54,10 +53,10 @@ const Search = ({
           enter={enter}
         />
         {searchWord !== "" && searchWord !== undefined && (
-          <SearchResult>
-            <Main stories={stories} people={people} />
-            <Sidebar people={people} />
-          </SearchResult>
+          <Switch>
+            <Route exact path="/search/users" component={SearchUser} />
+            <Route exact path="/search" component={SearchStory} />
+          </Switch>
         )}
       </SearchWrapper>
       {isDropdownOpened && (
