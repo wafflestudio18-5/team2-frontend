@@ -124,6 +124,6 @@ export const getStory = async ({ page, title, tag }) => {
 };
 
 export const getStoryById = async (storyid) => {
-  const response = await axios.get("story/" + storyid + "/")
+  const response = await axios.get("story/" + storyid)
   return response
 }
