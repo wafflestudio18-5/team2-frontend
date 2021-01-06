@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import Color from '../../../../Constants/Color';
+import changeDate from '../../../../Pages/Main/Functions/changeDate'
+import default_profile_image from '../../../../Images/default_profile_image.png'
 
 const WriterWrapper = styled.div`
     margin-top: 32px;
@@ -99,23 +101,7 @@ const IconButtonAType = styled.a`
     cursor: pointer;
 `;
 
-const Writer = ({userinfo, storyinfo}) => {
-    return (
-        <WriterWrapper>
-            <WriterBlock>
-                <WriterLeft>
-                    <a href={userinfo.url}>
-                        <WriterPicture src={userinfo.img} />
-                    </a>
-                    <WriterInfoBlock>
-                        <WriterNameBlock>
-                            <WriterName href={userinfo.url}>{userinfo.name}</WriterName>
-                        </WriterNameBlock>
-                        <DateAndTimeSpan>
-                            <DateAndTime href={storyinfo.url}>&nbsp;&nbsp;{storyinfo.date}&nbsp;&middot;&nbsp;{storyinfo.time} read</DateAndTime>
-                        </DateAndTimeSpan>
-                    </WriterInfoBlock>
-                </WriterLeft>
+/*
                 <WriterRight>
                     <IconBlock>
                         <IconButtonStyle>
@@ -140,6 +126,30 @@ const Writer = ({userinfo, storyinfo}) => {
                         </IconButtonStyle>
                     </IconBlock>
                 </WriterRight>
+                */
+
+const Writer = ({userinfo, storyinfo}) => {
+    var profileimg
+    if(userinfo.profile_image === "")
+        profileimg = default_profile_image
+    else
+        profileimg = userinfo.profile_image
+    return (
+        <WriterWrapper>
+            <WriterBlock>
+                <WriterLeft>
+                    <a href={userinfo.url}>
+                        <WriterPicture src={profileimg} />
+                    </a>
+                    <WriterInfoBlock>
+                        <WriterNameBlock>
+                            <WriterName href={userinfo.url}>{userinfo.name}</WriterName>
+                        </WriterNameBlock>
+                        <DateAndTimeSpan>
+                            <DateAndTime href={storyinfo.url}>&nbsp;&nbsp;{changeDate(storyinfo.published_at+'')}</DateAndTime>
+                        </DateAndTimeSpan>
+                    </WriterInfoBlock>
+                </WriterLeft>
             </WriterBlock>
         </WriterWrapper>
     );
