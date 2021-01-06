@@ -20,11 +20,11 @@ const ResponseBlock = styled.div`
     border-bottom: 1px solid ${Color.lightGray};
 `;
 
-const ResponseComponent = ({ Response, me }) => {
+const ResponseComponent = ({ Response, me, deleteResponse }) => {
     return (
         <ResponseWrapper idcmp={Response.writer.id === me.id}>
             <ResponseBlock>
-                <ResponseWriter Response={Response} me={me} />
+                <ResponseWriter Response={Response} me={me} deleteResponse={deleteResponse} />
                 <ResponseContent Response={Response} />
             </ResponseBlock>
         </ResponseWrapper>

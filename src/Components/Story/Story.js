@@ -20,6 +20,7 @@ const Story = ({
     ResponseInput,
     setResponseInput,
     postResponse,
+    deleteResponse,
     InputValue,
     setInputValue,
     targetRef
@@ -50,6 +51,7 @@ const Story = ({
                 targetRef={targetRef}
                 ResponseNum={responseNum}
                 postResponse={postResponse}
+                deleteResponse={deleteResponse}
             />
         </StoryStyle>
     );
