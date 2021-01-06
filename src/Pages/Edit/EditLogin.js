@@ -34,7 +34,7 @@ const EditLoginPage = ({ token }) => {
   const history = useHistory()
 
   // 글 저장 관련
-  const saveStatus = useRef(SaveStatusConstants.INIT)
+  const [saveStatus, setSaveStatus] = useState(SaveStatusConstants.INIT)
   const id = useRef(-1)
 
   var typingTimer
@@ -43,7 +43,7 @@ const EditLoginPage = ({ token }) => {
     clearTimeout(typingTimer)
     typingTimer = setTimeout(() => {
       preserveCaret(() => {
-        saveStory(token, story, saveStatus, id)
+        saveStory(token, story, saveStatus, setSaveStatus, id)
       })
     }, 3000)
   }
@@ -51,10 +51,10 @@ const EditLoginPage = ({ token }) => {
   const changeStateOnInput = () => {
     // 값에 변경 있을 시 state도 그에 맞게 변경
     preserveCaret(() => {
-      if (saveStatus.current === SaveStatusConstants.SAVING) {
+      if (saveStatus === SaveStatusConstants.SAVING) {
         return
       }
-      saveStatus.current = SaveStatusConstants.NOT_SAVED
+      setSaveStatus(SaveStatusConstants.NOT_SAVED)
     })
     const { id, target } = getIdOfCaretPlaced()
 
@@ -79,30 +79,30 @@ const EditLoginPage = ({ token }) => {
       case "Enter":
         createNewContent(event, story, setStory, setCaret)
         preserveCaret(() => {
-          if (saveStatus.current === SaveStatusConstants.SAVING) {
+          if (saveStatus === SaveStatusConstants.SAVING) {
             return
           }
-          saveStatus.current = SaveStatusConstants.NOT_SAVED
+          setSaveStatus(SaveStatusConstants.NOT_SAVED)
         })
         break
 
       case "Delete":
         onDeleteKeyPressed(event, story, setStory, setCaret)
         preserveCaret(() => {
-          if (saveStatus.current === SaveStatusConstants.SAVING) {
+          if (saveStatus === SaveStatusConstants.SAVING) {
             return
           }
-          saveStatus.current = SaveStatusConstants.NOT_SAVED
+          setSaveStatus(SaveStatusConstants.NOT_SAVED)
         })
         break
 
       case "Backspace":
         onBackspacePressed(event, story, setStory, setCaret)
         preserveCaret(() => {
-          if (saveStatus.current === SaveStatusConstants.SAVING) {
+          if (saveStatus === SaveStatusConstants.SAVING) {
             return
           }
-          saveStatus.current = SaveStatusConstants.NOT_SAVED
+          setSaveStatus(SaveStatusConstants.NOT_SAVED)
         })
         break
 
@@ -163,7 +163,7 @@ const EditLoginPage = ({ token }) => {
       story={findTitle(story)}
       changeStateOnInput={changeStateOnInput}
       publish={() => {
-        publish(token, story, saveStatus, id, history)
+        publish(token, story, saveStatus, setSaveStatus, id, history)
         clearTimeout(typingTimer)
       }}
       keyDownEventListener={keyDownEventListener}
