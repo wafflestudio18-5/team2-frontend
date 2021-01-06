@@ -1,6 +1,6 @@
 import { getUserMeAbout } from '../../../api';
 
-const getCurrentUser = async (token, setme) => {
+const getMe = async (token, setme) => {
     getUserMeAbout(token)
         .then(response => {
             setme(response.data)
@@ -8,4 +8,4 @@ const getCurrentUser = async (token, setme) => {
         .catch(error => console.log(error));
 };
 
-export default getCurrentUser;
+export default getMe;

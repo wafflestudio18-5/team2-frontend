@@ -8,6 +8,7 @@ import { useCookies } from 'react-cookie';
 import hideModal from './Functions/hideModal';
 import showModal from './Functions/showModal';
 import getStory from './Functions/getStory';
+import getMe from './Functions/getMe';
 
 const StoryPage = () => {
     const token = useCookies(['auth'])[0].auth;
@@ -45,19 +46,19 @@ const StoryPage = () => {
     });
 
     const { story_id } = useParams(); //이용해서 해당하는 유저, 스토리 가져오기
-    console.log(story_id, setuserinfo, setstoryinfo);
+    console.log(story_id);
 
-    const [userinfo, setuserinfo] = useState();
-    const [storyinfo, setstoryinfo] = useState();
+    const [userinfo, setuserinfo] = useState(null);
+    const [storyinfo, setstoryinfo] = useState(null);
     const [tag, settag] = useState([]);
-    const [me, setme] = useState();
+    const [me, setme] = useState(null);
 
     useEffect(() => {
         getStory(story_id, setuserinfo, setstoryinfo);
     });
 
     useEffect(() => {
-        getme(token, setme);
+        getMe(token, setme);
     }, [token]);
 
     //sample
