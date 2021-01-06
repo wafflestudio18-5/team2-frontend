@@ -14,7 +14,7 @@ import postResponse from './Functions/postResponse';
 import deleteResponse from './Functions/deleteResponse';
 
 const StoryPage = () => {
-
+/*
     const sampleme = {
         id: 2,
         username: 'MyName',
@@ -51,7 +51,7 @@ const StoryPage = () => {
             updated_at: '2021-01-02T14:40:17.751885Z',
         },
     ];
-
+*/
     const history = useHistory();
     const token = useCookies(['auth'])[0].auth;
     const logged_in = token !== undefined;
@@ -177,8 +177,8 @@ const StoryPage = () => {
                     userinfo={userinfo}
                     tag={[]}
                     logged_in={logged_in}
-                    me={sampleme}
-                    response={SampleResponse}
+                    me={me}
+                    response={Response}
                     responseNum={ResponseNum}
                     ResponseOpen={ResponseOpen}
                     setResponseOpen={setResponseOpen}

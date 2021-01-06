@@ -7,7 +7,6 @@ const publish = async (
   saveStatus,
   setSaveStatus,
   id,
-  setId,
   history
 ) => {
   try {
@@ -16,14 +15,14 @@ const publish = async (
       story,
       saveStatus,
       setSaveStatus,
-      id,
-      setId
+      id
     )
     const storyId = saveResponse.data.id
     await postStoryStoryidPublish(token, storyId)
     history.push("/story/" + storyId)
   } catch (error) {
     console.log(error)
+    console.log(error.response.data)
     return error
   }
 }
