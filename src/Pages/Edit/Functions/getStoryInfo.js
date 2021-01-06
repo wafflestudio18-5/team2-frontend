@@ -24,6 +24,12 @@ const getStoryInfo = (story) => {
     storyInfo.subtitle = storyInfo.title
   }
   storyInfo.subtitle = storyInfo.subtitle.split(".")[0]
+  if (storyInfo.subtitle.length > 140) {
+    storyInfo.subtitle = ""
+  }
+  if (storyInfo.title.length > 140) {
+    storyInfo.title = ""
+  }
 
   return storyInfo
 }

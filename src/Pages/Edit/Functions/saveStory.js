@@ -15,6 +15,16 @@ const saveStory = async (
   }
   await setSaveStatus(SaveStatusConstants.SAVING)
   const { title, subtitle, featured_image } = getStoryInfo(story)
+
+  if (title === "") {
+    setSaveStatus(SaveStatusConstants.INVALID_TITLE)
+    return
+  }
+  if (subtitle === "") {
+    setSaveStatus(SaveStatusConstants.INVALID_SUBTITLE)
+    return
+  }
+
   const body = {
     title,
     subtitle,
