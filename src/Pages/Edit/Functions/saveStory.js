@@ -2,22 +2,15 @@ import { postStory, putStoryStoryid } from "../../../api"
 import getStoryInfo from "./getStoryInfo"
 import SaveStatusConstants from "../../../Constants/SaveStatusConstants"
 
-const saveStory = async (
-  token,
-  story,
-  saveStatus,
-  setSaveStatus,
-  id,
-  setId
-) => {
-  if (saveStatus === SaveStatusConstants.SAVING) {
+const saveStory = async (token, story, saveStatus, id) => {
+  if (saveStatus.current === SaveStatusConstants.SAVING) {
     return
   }
-  await setSaveStatus(SaveStatusConstants.SAVING)
+  saveStatus.current = SaveStatusConstants.SAVING
   const { title, subtitle, featured_image } = getStoryInfo(story)
 
   if (title === "") {
-    setSaveStatus(SaveStatusConstants.INVALID_TITLE)
+    saveStatus.current = SaveStatusConstants.INVALID_TITLE
     return
   }
 
@@ -27,27 +20,27 @@ const saveStory = async (
     body: story,
     featured_image,
   }
-  if (id !== -1) {
+  if (id.current !== -1) {
     try {
-      const response = await putStoryStoryid(token, body, id)
-      setSaveStatus(SaveStatusConstants.SAVED)
+      const response = await putStoryStoryid(token, body, id.current)
+      saveStatus.current = SaveStatusConstants.SAVED
       return response
     } catch (error) {
       console.log(error)
       console.log(error.response.data)
-      setSaveStatus(SaveStatusConstants.SAVE_FAILED)
+      saveStatus.current = SaveStatusConstants.SAVE_FAILED
       return error
     }
   } else {
     try {
       const response = await postStory(token, body)
-      setId(response.data.id)
-      setSaveStatus(SaveStatusConstants.SAVED)
+      id.current = response.data.id
+      saveStatus.current = SaveStatusConstants.SAVED
       return response
     } catch (error) {
       console.log(error)
       console.log(error.response.data)
-      setSaveStatus(SaveStatusConstants.SAVE_FAILED)
+      saveStatus.current = SaveStatusConstants.SAVE_FAILED
       return error
     }
   }

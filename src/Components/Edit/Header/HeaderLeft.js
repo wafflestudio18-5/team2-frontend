@@ -27,7 +27,7 @@ const Status = styled.span`
 
 const HeaderLeft = ({ userName, status }) => {
   let statusMessage = ""
-  switch (status) {
+  switch (status.current) {
     case SaveStatusConstants.SAVING:
       statusMessage = "Saving..."
       break
