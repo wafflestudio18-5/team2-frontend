@@ -52,9 +52,10 @@ const StoryPage = () => {
     const [storyinfo, setstoryinfo] = useState(null);
     const [tag, settag] = useState([]);
     const [me, setme] = useState(null);
+    const [Story, setStory] = useState([]);
 
     useEffect(() => {
-        getStory(story_id, setuserinfo, setstoryinfo);
+        getStory(story_id, setuserinfo, setstoryinfo, setStory);
     });
 
     useEffect(() => {
@@ -131,7 +132,7 @@ const StoryPage = () => {
             <Story
                 showModal={modalType => showModal(modalType, setModalShow, setModalVisible, setModalType)}
                 reachScrollCheckPoint={reachScrollCheckPoint}
-                story={storyinfo.body}
+                story={Story}
                 storyinfo={storyinfo}
                 userinfo={userinfo}
                 tag={[]}
