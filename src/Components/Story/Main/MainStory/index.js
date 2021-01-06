@@ -88,7 +88,6 @@ const MainStory = ( {story, userinfo, storyinfo} ) => {
             <MainWrapper>
                 <MainBlock>
                     <Blank />
-                    <Kicker>{storyinfo.kicker}</Kicker>
                     <Title>{storyinfo.title}</Title>
                     <SubTitle>{storyinfo.subtitle}</SubTitle>
                     <Writer userinfo={userinfo} storyinfo={storyinfo} />

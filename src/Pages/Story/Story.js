@@ -48,15 +48,26 @@ const StoryPage = () => {
     const { story_id } = useParams(); //이용해서 해당하는 유저, 스토리 가져오기
     console.log(story_id);
 
-    const [userinfo, setuserinfo] = useState(null);
-    const [storyinfo, setstoryinfo] = useState(null);
+    const [userinfo, setuserinfo] = useState({
+        profileimg: null,
+        name: null,
+        userinfo: null,
+        id: null,
+    });
+    const [storyinfo, setstoryinfo] = useState({
+        title: null,
+        subtitle: null,
+        id: null,
+    });
     const [tag, settag] = useState([]);
-    const [me, setme] = useState(null);
-    const [Story, setStory] = useState([]);
+    const [me, setme] = useState({
+        id: null,
+    });
+    const [story, setstory] = useState([]);
 
     useEffect(() => {
-        getStory(story_id, setuserinfo, setstoryinfo, setStory);
-    });
+        getStory(story_id, setuserinfo, setstoryinfo, setstory);
+    }, []);
 
     useEffect(() => {
         getMe(token, setme);
@@ -132,7 +143,7 @@ const StoryPage = () => {
             <Story
                 showModal={modalType => showModal(modalType, setModalShow, setModalVisible, setModalType)}
                 reachScrollCheckPoint={reachScrollCheckPoint}
-                story={Story}
+                story={story}
                 storyinfo={storyinfo}
                 userinfo={userinfo}
                 tag={[]}
