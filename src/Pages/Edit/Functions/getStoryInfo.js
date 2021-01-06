@@ -23,6 +23,7 @@ const getStoryInfo = (story) => {
   if (storyInfo.subtitle === "") {
     storyInfo.subtitle = storyInfo.title
   }
+  storyInfo.subtitle = storyInfo.subtitle.split(".")[0]
 
   return storyInfo
 }

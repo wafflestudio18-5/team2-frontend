@@ -27,7 +27,7 @@ const saveStory = async (
       return response
     } catch (error) {
       console.log(error)
-      console.log(error.data)
+      console.log(error.response.data)
       return error
     } finally {
       setSaveStatus(SaveStatusConstants.SAVED)
@@ -39,7 +39,7 @@ const saveStory = async (
       return response
     } catch (error) {
       console.log(error)
-      console.log(error.data)
+      console.log(error.response.data)
       return error
     } finally {
       setSaveStatus(SaveStatusConstants.SAVED)
