@@ -5,6 +5,9 @@ import ResponseBlock from './ResponseBlock';
 
 const ResponseModal = styled.div`
     display: block;
+    @media (max-width: 727.98px) {
+        display: none
+    }
 `;
 
 const ResponseCloser = styled.div`
