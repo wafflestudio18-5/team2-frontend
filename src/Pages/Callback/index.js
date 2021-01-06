@@ -9,6 +9,11 @@ const CallbackPage = () => {
         path={routes.email.path}
         component={routes.email.component}
       />
+      <Route
+        exact
+        path={routes.google.path}
+        component={routes.google.component}
+      />
     </>
   )
 }
