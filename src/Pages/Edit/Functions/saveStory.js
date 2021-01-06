@@ -24,21 +24,25 @@ const saveStory = async (
   if (id !== -1) {
     try {
       const response = await putStoryStoryid(token, body, id)
-      setSaveStatus(SaveStatusConstants.SAVED)
       return response
     } catch (error) {
       console.log(error)
+      console.log(error.data)
       return error
+    } finally {
+      setSaveStatus(SaveStatusConstants.SAVED)
     }
   } else {
     try {
       const response = await postStory(token, body)
       setId(response.data.id)
-      setSaveStatus(SaveStatusConstants.SAVED)
       return response
     } catch (error) {
       console.log(error)
+      console.log(error.data)
       return error
+    } finally {
+      setSaveStatus(SaveStatusConstants.SAVED)
     }
   }
 }
