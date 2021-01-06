@@ -19,6 +19,7 @@ const Story = ({
     setResponseOpen,
     ResponseInput,
     setResponseInput,
+    postResponse,
     InputValue,
     setInputValue,
     targetRef
@@ -48,6 +49,7 @@ const Story = ({
                 setInputValue={setInputValue}
                 targetRef={targetRef}
                 ResponseNum={responseNum}
+                postResponse={postResponse}
             />
         </StoryStyle>
     );

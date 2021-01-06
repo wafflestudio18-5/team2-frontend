@@ -10,6 +10,7 @@ import getStory from './Functions/getStory';
 import getMe from './Functions/getMe';
 import useIntersectionObserver from '../Search/Functions/useIntersectionObserver';
 import fetchResponse from './Functions/fetchResponse';
+import postResponse from './Functions/postResponse';
 
 const StoryPage = () => {
     const history = useHistory();
@@ -94,6 +95,7 @@ const StoryPage = () => {
         fetchResponse(setResponse, setResponseNum, setIsEnd, story_id);
         getMe(token, setme);
     }, [token]);
+
 
 
     //sample
@@ -183,6 +185,7 @@ const StoryPage = () => {
                     setResponseOpen={setResponseOpen}
                     ResponseInput={ResponseInput}
                     setResponseInput={setResponseInput}
+                    postResponse={(response)=>postResponse(token,response,story_id,setResponse,setResponseNum)}
                     InputValue={InputValue}
                     setInputValue={setInputValue}
                     targetRef={targetRef}

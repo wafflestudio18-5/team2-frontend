@@ -6,7 +6,7 @@ import ResponseBlock from './ResponseBlock';
 const ResponseModal = styled.div`
     display: block;
     @media (max-width: 727.98px) {
-        display: none
+        display: none;
     }
 `;
 
@@ -50,7 +50,21 @@ const ResponseWrapper = styled.div`
         `}
 `;
 
-const Response = ({ logged_in, showModal, IsOpen, setOpen, Response, me, responseInput, setResponseInput, InputValue, setInputValue, targetRef, ResponseNum }) => {
+const Response = ({
+    logged_in,
+    showModal,
+    IsOpen,
+    setOpen,
+    Response,
+    me,
+    responseInput,
+    setResponseInput,
+    InputValue,
+    setInputValue,
+    targetRef,
+    ResponseNum,
+    postResponse,
+}) => {
     return (
         <ResponseModal>
             <ResponseWrapper IsOpen={IsOpen}>
@@ -63,6 +77,7 @@ const Response = ({ logged_in, showModal, IsOpen, setOpen, Response, me, respons
                     me={me}
                     InputValue={InputValue}
                     setInputValue={setInputValue}
+                    postResponse={postResponse}
                 />
                 <ResponseBlock Response={Response} me={me} />
                 <div ref={targetRef} />

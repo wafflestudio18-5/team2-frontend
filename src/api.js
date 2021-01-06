@@ -136,14 +136,15 @@ export const getResponse = async (storyid, pagenum) => {
 };
 
 
-export const postResponse = async (token, body, storyid) => {
+export const postComment = async (token, body, storyid) => {
   // POST /story/{story_id}/comment/
-  
+
   const config = {
     headers: {
       Authorization: "Token " + token,
     },
   }
   const response = await axios.post("story/"+storyid+"/comment/", body, config)
+  console.log(response)
   return response
 };

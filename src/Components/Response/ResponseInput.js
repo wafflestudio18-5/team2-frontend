@@ -165,7 +165,7 @@ const RespondButton = styled.button`
     font-weight: 400;
 `;
 
-const ResponseInput = ({ logged_in, showModal, responseInput, setResponseInput, me, InputValue, setInputValue }) => {
+const ResponseInput = ({ logged_in, showModal, responseInput, setResponseInput, me, InputValue, setInputValue, postResponse }) => {
     if (!responseInput) {
         return (
             <ResponseInputWrapper>
@@ -196,7 +196,7 @@ const ResponseInput = ({ logged_in, showModal, responseInput, setResponseInput, 
         };
         const SubmitRespond = () => {
             console.log(InputValue);
-            //post {RespondInput} with other information
+            postResponse(InputValue);
             setInputValue('');
             setResponseInput(false);
         };
