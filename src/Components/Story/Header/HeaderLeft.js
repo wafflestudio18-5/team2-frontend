@@ -107,6 +107,13 @@ const FollowButton = styled.button`
     cursor: pointer;
 `;
 
+/*
+
+                        <FollowBlock>
+                            <FollowButton>Follow</FollowButton>
+                        </FollowBlock>
+*/
+
 const HeaderLeft = ( {userinfo} ) => {
     return (
         <HeaderLeftWrapper>
@@ -117,9 +124,6 @@ const HeaderLeft = ( {userinfo} ) => {
                 <UserInfoWrapper>
                     <UserInfoBlock>
                         <About href={"/user/"+userinfo.id+"/about"}>About</About>
-                        <FollowBlock>
-                            <FollowButton>Follow</FollowButton>
-                        </FollowBlock>
                     </UserInfoBlock>
                 </UserInfoWrapper>
             </HeaderLeftBox>
