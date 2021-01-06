@@ -22,6 +22,7 @@ const Main = ({
   showModal,
   Articles,
   Topics,
+  history,
 }) => {
   return (
     <MainStyle>
@@ -34,10 +35,9 @@ const Main = ({
       <BottomStyle>
         <BottomWrapper>
           <BottomLeftStyle>
-            <Article Articles={Articles} />
+            <Article Articles={Articles} history={history} />
           </BottomLeftStyle>
           <BottomRightStyle>
-            <Topic Topics={Topics} />
             <Footer />
           </BottomRightStyle>
         </BottomWrapper>
