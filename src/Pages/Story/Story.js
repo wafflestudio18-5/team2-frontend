@@ -1,14 +1,15 @@
 import Story from '../../Components/Story';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import ModalTypeConstants from '../../Constants/ModalTypeConstants';
 import AuthModalContainer from '../../Container/AuthModal';
-import StoryExample from '../../Constants/StoryExample';
 import { useCookies } from 'react-cookie';
 import hideModal from './Functions/hideModal';
 import showModal from './Functions/showModal';
 import getStory from './Functions/getStory';
 import getMe from './Functions/getMe';
+import useIntersectionObserver from '../Search/Functions/useIntersectionObserver';
+import fetchResponse from './Functions/fetchResponse';
 
 const StoryPage = () => {
     const token = useCookies(['auth'])[0].auth;
@@ -45,6 +46,38 @@ const StoryPage = () => {
         }
     });
 
+    const [Response, setResponse] = useState([]);
+    const [ResponseNum, setResponseNum] = useState(0);
+    const [fetching, setFetching] = useState(false);
+    // check current page is end
+    const [isEnd, setIsEnd] = useState(false);
+    // 현재 검색된 마지막 페이지
+    const page = useRef(1);
+    // target
+    const targetRef = useRef(null);
+
+    // 다음 페이지 로드
+    const loadNextPage = useCallback(async () => {
+        if (Response.length > 0) {
+            setFetching(true);
+            page.current++;
+            fetchResponse(setResponse, setResponseNum, setIsEnd, story_id, page.current);
+            setFetching(false);
+        }
+    }, [Response]);
+
+    // 스크롤이 끝에 닿으면 다음 페이지 요청
+    useIntersectionObserver({
+        target: targetRef.current,
+        onIntersect: ([{ isIntersecting }]) => {
+            if (isIntersecting && !fetching && !isEnd) {
+                loadNextPage();
+            }
+        },
+    });
+
+
+
     const { story_id } = useParams(); //이용해서 해당하는 유저, 스토리 가져오기
 
     const [userinfo, setuserinfo] = useState({
@@ -66,11 +99,10 @@ const StoryPage = () => {
 
     useEffect(() => {
         getStory(story_id, setuserinfo, setstoryinfo, setstory);
-    }, []);
-
-    useEffect(() => {
+        fetchResponse(setResponse, setResponseNum, setIsEnd, story_id);
         getMe(token, setme);
     }, [token]);
+
 
     //sample
     /*const userinfo = {
@@ -100,6 +132,7 @@ const StoryPage = () => {
         img: 'https://avatars2.githubusercontent.com/u/28915633?s=60&v=4',
     }
 */
+/*
     const SampleResponse = [
         {
             id: 11,
@@ -131,10 +164,9 @@ const StoryPage = () => {
             updated_at: '2021-01-02T14:40:17.751885Z',
             time: '1 month',
         },
-    ];
+    ];*/
 
     const [InputValue, setInputValue] = useState('');
-    const [Response, setResponse] = useState(SampleResponse);
     const [ResponseInput, setResponseInput] = useState(false);
     const [ResponseOpen, setResponseOpen] = useState(false);
     return (
@@ -149,12 +181,14 @@ const StoryPage = () => {
                 logged_in={logged_in}
                 me={me}
                 response={Response}
+                responseNum={ResponseNum}
                 ResponseOpen={ResponseOpen}
                 setResponseOpen={setResponseOpen}
                 ResponseInput={ResponseInput}
                 setResponseInput={setResponseInput}
                 InputValue={InputValue}
                 setInputValue={setInputValue}
+                targetRef={targetRef}
             />
             {modalShow && (
                 <AuthModalContainer

@@ -1,5 +1,6 @@
 import styled, { css } from 'styled-components';
 import Color from '../../Constants/Color';
+import default_profile_image from '../../Images/default_profile_image.png'
 
 const ResponseWriterWrapper = styled.div`
     display: flex;
@@ -68,10 +69,15 @@ const Button = styled.button`
 const ResponseWriter = ({ Response, me }) => {
     const Writer = Response.writer;
     var isedited = Response.created_at === Response.updated_at ? '' : '(edited)';
+    var profileimg
+    if(Writer.profile_image === "")
+        profileimg = default_profile_image
+    else
+        profileimg = Writer.profile_image
     return (
         <ResponseWriterWrapper>
             <ResponeWriterInformationBlock>
-                <WriterImage src={Writer.profile_image} />
+                <WriterImage src={profileimg} />
                 <WriterInformationBlock>
                     <WriterNameBlock>
                         <WriterName href={'/user/' + Writer.id}>{Writer.name}</WriterName>

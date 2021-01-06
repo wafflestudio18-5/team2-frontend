@@ -47,12 +47,14 @@ const ResponseWrapper = styled.div`
         `}
 `;
 
-const Response = ({ IsOpen, setOpen, Response, me, responseInput, setResponseInput, InputValue, setInputValue }) => {
+const Response = ({ logged_in, showModal, IsOpen, setOpen, Response, me, responseInput, setResponseInput, InputValue, setInputValue, targetRef, ResponseNum }) => {
     return (
         <ResponseModal>
             <ResponseWrapper IsOpen={IsOpen}>
-                <ResponseHeader ResponseNum={Response.length} setOpen={setOpen} />
+                <ResponseHeader ResponseNum={ResponseNum} setOpen={setOpen} />
                 <ResponseInput
+                    logged_in={logged_in}
+                    showModal={showModal}
                     responseInput={responseInput}
                     setResponseInput={setResponseInput}
                     me={me}
@@ -60,6 +62,7 @@ const Response = ({ IsOpen, setOpen, Response, me, responseInput, setResponseInp
                     setInputValue={setInputValue}
                 />
                 <ResponseBlock Response={Response} me={me} />
+                <div ref={targetRef} />
             </ResponseWrapper>
             <ResponseCloser IsOpen={IsOpen} onClick={() => setOpen(false)} />
         </ResponseModal>

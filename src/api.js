@@ -127,3 +127,8 @@ export const getStoryById = async (storyid) => {
   const response = await axios.get("story/" + storyid)
   return response
 }
+
+export const getResponse = async (storyid, pagenum) => {
+  const response = await axios.get('story/'+storyid+'/comment/?page='+pagenum);
+  return response;
+};

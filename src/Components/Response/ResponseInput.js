@@ -1,6 +1,8 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import Color from '../../Constants/Color';
 import TextareaAutosize from 'react-autosize-textarea';
+import ModalTypeConstants from '../../Constants/ModalTypeConstants'
+import default_profile_image from '../../Images/default_profile_image.png'
 
 const ResponseInputWrapper = styled.div`
     margin-bottom: 20px;
@@ -66,6 +68,11 @@ const ResponseInputWriterBlock = styled.div`
     position: relative;
     align-items: center;
     display: flex;
+    ${props =>
+        !props.logged_in &&
+        css`
+            display: none;
+        `}
 `;
 
 const ResponseInputWriterInfo = styled.div`
@@ -124,7 +131,7 @@ const ResponseButtonBlock = styled.div`
     align-self: flex-end;
     padding: 0px 14px;
     display: flex;
-`
+`;
 
 const CancelButton = styled.button`
     cursor: pointer;
@@ -137,14 +144,14 @@ const CancelButton = styled.button`
     background: 0;
     line-height: 20px;
     font-size: 14px;
-    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: sohne, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 400;
-`
+`;
 
 const RespondButton = styled.button`
     cursor: pointer;
     background: rgb(26, 137, 23);
-    color: rgb(255,255,255);
+    color: rgb(255, 255, 255);
     padding: 4px 12px 6px;
     text-decoration: none;
     display: inline-block;
@@ -154,11 +161,11 @@ const RespondButton = styled.button`
     border-color: rgba(26, 137, 23, 1);
     line-height: 20px;
     font-size: 14px;
-    font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: sohne, 'Helvetica Neue', Helvetica, Arial, sans-serif;
     font-weight: 400;
-`
+`;
 
-const ResponseInput = ({ responseInput, setResponseInput, me, InputValue, setInputValue }) => {
+const ResponseInput = ({ logged_in, showModal, responseInput, setResponseInput, me, InputValue, setInputValue }) => {
     if (!responseInput) {
         return (
             <ResponseInputWrapper>
@@ -192,13 +199,18 @@ const ResponseInput = ({ responseInput, setResponseInput, me, InputValue, setInp
             //post {RespondInput} with other information
             setInputValue('');
             setResponseInput(false);
-        }
+        };
+        var profile
+        if(me.img === "")
+            profile = default_profile_image
+        else
+            profile = me.img
         return (
             <ResponseInputWrapper>
                 <ResponseInputBlockClicked>
-                    <ResponseInputWriterBlock>
+                    <ResponseInputWriterBlock logged_in={logged_in}>
                         <ResponseInputWriterInfo>
-                            <img src={me.img} width="32" height="32" />
+                            <img src={profile} width="32" height="32" />
                             <ResponseInputWriterNameBlock>
                                 <ResponseInputWriterName>{me.name}</ResponseInputWriterName>
                             </ResponseInputWriterNameBlock>
