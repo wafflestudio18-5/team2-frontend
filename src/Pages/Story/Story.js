@@ -15,7 +15,6 @@ import deleteResponse from './Functions/deleteResponse';
 
 const StoryPage = () => {
 
-    
     const sampleme = {
         id: 2,
         username: 'MyName',

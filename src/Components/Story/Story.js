@@ -39,7 +39,6 @@ const Story = ({
             />
             <Response
                 logged_in={logged_in}
-                showModal={showModal}
                 IsOpen={ResponseOpen}
                 setOpen={setResponseOpen}
                 Response={response}

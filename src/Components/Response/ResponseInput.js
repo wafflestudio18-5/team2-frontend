@@ -1,7 +1,6 @@
 import styled, { css } from 'styled-components';
 import Color from '../../Constants/Color';
 import TextareaAutosize from 'react-autosize-textarea';
-import ModalTypeConstants from '../../Constants/ModalTypeConstants'
 import default_profile_image from '../../Images/default_profile_image.png'
 
 const ResponseInputWrapper = styled.div`
@@ -165,7 +164,7 @@ const RespondButton = styled.button`
     font-weight: 400;
 `;
 
-const ResponseInput = ({ logged_in, showModal, responseInput, setResponseInput, me, InputValue, setInputValue, postResponse }) => {
+const ResponseInput = ({ logged_in, responseInput, setResponseInput, me, InputValue, setInputValue, postResponse }) => {
     if (!responseInput) {
         return (
             <ResponseInputWrapper>

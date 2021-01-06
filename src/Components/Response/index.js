@@ -72,7 +72,6 @@ const Response = ({
                 <ResponseHeader ResponseNum={ResponseNum} setOpen={setOpen} />
                 <ResponseInput
                     logged_in={logged_in}
-                    showModal={showModal}
                     responseInput={responseInput}
                     setResponseInput={setResponseInput}
                     me={me}
