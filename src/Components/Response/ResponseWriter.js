@@ -1,6 +1,7 @@
 import styled, { css } from 'styled-components';
 import Color from '../../Constants/Color';
 import default_profile_image from '../../Images/default_profile_image.png'
+import changeDate from '../../Pages/Main/Functions/changeDate'
 
 const ResponseWriterWrapper = styled.div`
     display: flex;
@@ -82,7 +83,7 @@ const ResponseWriter = ({ Response, me, deleteResponse }) => {
                     <WriterNameBlock>
                         <WriterName href={'/user/' + Writer.id}>{Writer.name}</WriterName>
                         <ResponseTime>
-                            about {Response.time} ago {isedited}
+                            {changeDate(Response.updated_at+'')} {isedited}
                         </ResponseTime>
                     </WriterNameBlock>
                 </WriterInformationBlock>
