@@ -124,11 +124,26 @@ export const getStory = async ({ page, title, tag }) => {
 };
 
 export const getStoryById = async (storyid) => {
+  //GET /story/{story_id}
   const response = await axios.get("story/" + storyid)
   return response
 }
 
 export const getResponse = async (storyid, pagenum) => {
+  //GET /story/{story_id}/comment/?page={pagenum}
   const response = await axios.get('story/'+storyid+'/comment/?page='+pagenum);
   return response;
+};
+
+
+export const postResponse = async (token, body, storyid) => {
+  // POST /story/{story_id}/comment/
+  
+  const config = {
+    headers: {
+      Authorization: "Token " + token,
+    },
+  }
+  const response = await axios.post("story/"+storyid+"/comment/", body, config)
+  return response
 };

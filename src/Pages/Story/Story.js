@@ -1,6 +1,6 @@
 import Story from '../../Components/Story';
 import { useState, useEffect, useCallback, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useHistory } from 'react-router-dom';
 import ModalTypeConstants from '../../Constants/ModalTypeConstants';
 import AuthModalContainer from '../../Container/AuthModal';
 import { useCookies } from 'react-cookie';
@@ -12,6 +12,7 @@ import useIntersectionObserver from '../Search/Functions/useIntersectionObserver
 import fetchResponse from './Functions/fetchResponse';
 
 const StoryPage = () => {
+    const history = useHistory();
     const token = useCookies(['auth'])[0].auth;
     const logged_in = token !== undefined;
     // AuthModal 화면 표시 여부 관리하는 state
@@ -89,7 +90,7 @@ const StoryPage = () => {
     const [story, setstory] = useState([]);
 
     useEffect(() => {
-        getStory(story_id, setuserinfo, setstoryinfo, setstory);
+        getStory(story_id, setuserinfo, setstoryinfo, setstory, history);
         fetchResponse(setResponse, setResponseNum, setIsEnd, story_id);
         getMe(token, setme);
     }, [token]);
@@ -117,13 +118,15 @@ const StoryPage = () => {
         { name: 'long long tag', url: '/tag/long_long_tag' },
     ];
 
-    const me = {
+    
+*/
+
+    const sampleme = {
         id: 2,
+        username: 'MyName',
         name: 'MyName',
         img: 'https://avatars2.githubusercontent.com/u/28915633?s=60&v=4',
     }
-*/
-/*
     const SampleResponse = [
         {
             id: 11,
@@ -155,7 +158,7 @@ const StoryPage = () => {
             updated_at: '2021-01-02T14:40:17.751885Z',
             time: '1 month',
         },
-    ];*/
+    ];
 
     const [InputValue, setInputValue] = useState('');
     const [ResponseInput, setResponseInput] = useState(false);
@@ -173,8 +176,8 @@ const StoryPage = () => {
                     userinfo={userinfo}
                     tag={[]}
                     logged_in={logged_in}
-                    me={me}
-                    response={Response}
+                    me={sampleme}
+                    response={SampleResponse}
                     responseNum={ResponseNum}
                     ResponseOpen={ResponseOpen}
                     setResponseOpen={setResponseOpen}
