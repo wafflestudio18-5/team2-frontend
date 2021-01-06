@@ -98,10 +98,10 @@ export const getStoryPage = async (token, pagenum) => {
     // GET /story/?page={page_number}
     var response;
     if (token === '') {
-        response = await axios.get('story/', { params: { page: pagenum } });
+        response = await axios.get('story/?page='+pagenum);
     } else {
         const config = { headers: { Authorization: 'Token ' + token } };
-        response = await axios.get('story/', { params: { page: pagenum } }, config);
+        response = await axios.get('story/?page='+pagenum, {}, config);
     }
     return response;
 };
@@ -123,3 +123,7 @@ export const getStory = async ({ page, title, tag }) => {
   return response
 };
 
+export const getStoryById = async (storyid) => {
+  const response = await axios.get("story/" + storyid + "/")
+  return response
+}

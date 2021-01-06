@@ -4,8 +4,14 @@ import { useParams } from 'react-router-dom';
 import ModalTypeConstants from '../../Constants/ModalTypeConstants';
 import AuthModalContainer from '../../Container/AuthModal';
 import StoryExample from '../../Constants/StoryExample';
+import { useCookies } from 'react-cookie';
+import hideModal from './Functions/hideModal';
+import showModal from './Functions/showModal';
+import getStory from './Functions/getStory';
 
 const StoryPage = () => {
+    const token = useCookies(['auth'])[0].auth;
+    const logged_in = token !== undefined;
     // AuthModal 화면 표시 여부 관리하는 state
     const [modalShow, setModalShow] = useState(false);
 
@@ -13,19 +19,6 @@ const StoryPage = () => {
     const [modalVisible, setModalVisible] = useState(false);
 
     const [ModalType, setModalType] = useState(ModalTypeConstants.LOG_IN);
-    // Modal 다시 숨김. hideModal이 호출되면 modalVisible이 false로 바뀌고,
-    // 이 때 100ms짜리 fadeOut 애니메이션이 실행, 100ms 이후 modalShow가 false가 되면서 실제로 modal이 사라짐.
-    const hideModal = () => {
-        setModalVisible(false);
-        setTimeout(() => setModalShow(false), 100);
-    };
-
-    // ModalType을 입력받아 이에 해당하는 Modal을 화면에 표시
-    const showModal = ModalType => {
-        setModalShow(true);
-        setModalVisible(true);
-        setModalType(ModalType);
-    };
 
     // Modal이 떠있는 동안 scroll 고정
     useEffect(() => {
@@ -52,9 +45,23 @@ const StoryPage = () => {
     });
 
     const { story_id } = useParams(); //이용해서 해당하는 유저, 스토리 가져오기
+    console.log(story_id, setuserinfo, setstoryinfo);
+
+    const [userinfo, setuserinfo] = useState();
+    const [storyinfo, setstoryinfo] = useState();
+    const [tag, settag] = useState([]);
+    const [me, setme] = useState();
+
+    useEffect(() => {
+        getStory(story_id, setuserinfo, setstoryinfo);
+    });
+
+    useEffect(() => {
+        getme(token, setme);
+    }, [token]);
 
     //sample
-    const userinfo = {
+    /*const userinfo = {
         img: 'https://miro.medium.com/fit/c/56/56/1*dmbNkD5D-u45r44go_cf0g.png',
         name: 'UserName',
         userinfo: 'UserInfo',
@@ -74,14 +81,13 @@ const StoryPage = () => {
         { name: 'long tag', url: '/tag/long_tag' },
         { name: 'long long tag', url: '/tag/long_long_tag' },
     ];
-    const logged_in = true; //react-cookie와 연동은 아직 X
 
     const me = {
         id: 2,
         name: 'MyName',
         img: 'https://avatars2.githubusercontent.com/u/28915633?s=60&v=4',
     }
-
+*/
     const SampleResponse = [
         {
             id: 11,
@@ -122,12 +128,12 @@ const StoryPage = () => {
     return (
         <div>
             <Story
-                showModal={showModal}
+                showModal={modalType => showModal(modalType, setModalShow, setModalVisible, setModalType)}
                 reachScrollCheckPoint={reachScrollCheckPoint}
-                story={StoryExample}
+                story={storyinfo.body}
                 storyinfo={storyinfo}
                 userinfo={userinfo}
-                tag={tag}
+                tag={[]}
                 logged_in={logged_in}
                 me={me}
                 response={Response}
@@ -138,7 +144,13 @@ const StoryPage = () => {
                 InputValue={InputValue}
                 setInputValue={setInputValue}
             />
-            {modalShow && <AuthModalContainer hideModal={hideModal} modalVisible={modalVisible} ModalType={ModalType} />}
+            {modalShow && (
+                <AuthModalContainer
+                    hideModal={() => hideModal(setModalVisible, setModalShow)}
+                    modalVisible={modalVisible}
+                    ModalType={ModalType}
+                />
+            )}
         </div>
     );
 };

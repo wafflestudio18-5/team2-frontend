@@ -112,11 +112,11 @@ const HeaderLeft = ( {userinfo} ) => {
         <HeaderLeftWrapper>
             <HeaderLeftBox>
                 <UserNameBlock>
-                    <UserName href={userinfo.url}>{userinfo.name}</UserName>
+                    <UserName href={"/user/"+userinfo.id}>{userinfo.name}</UserName>
                 </UserNameBlock>
                 <UserInfoWrapper>
                     <UserInfoBlock>
-                        <About href={userinfo.url.concat("/about")}>About</About>
+                        <About href={"/user/"+userinfo.id+"/about"}>About</About>
                         <FollowBlock>
                             <FollowButton>Follow</FollowButton>
                         </FollowBlock>
