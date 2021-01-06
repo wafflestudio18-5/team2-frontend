@@ -1,6 +1,6 @@
 import { getStoryById } from '../../../api';
 
-const getCurrentUser = async (story_id, setuserinfo, setstoryinfo, setstory) => {
+const getStory = async (story_id, setuserinfo, setstoryinfo, setstory) => {
     getStoryById(story_id)
         .then(response => {
             setuserinfo(response.data.writer)
@@ -10,4 +10,4 @@ const getCurrentUser = async (story_id, setuserinfo, setstoryinfo, setstory) => 
         .catch(error => console.log(error));
 };
 
-export default getCurrentUser;
+export default getStory;
