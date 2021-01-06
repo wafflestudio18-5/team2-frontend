@@ -1,8 +1,8 @@
-import axios from 'axios';
+import axios from "axios"
 
 // set base url
-// const baseUrl = "http://localhost:8000/"
-const baseUrl = "https://api.wadium.shop/"
+const baseUrl = "http://localhost:8000/"
+// const baseUrl = "https://api.wadium.shop/"
 axios.defaults.baseURL = baseUrl
 
 // user api
@@ -19,82 +19,82 @@ export const getUserMeAbout = async (token) => {
   return response
 }
 
-export const postUser = async body => {
-    // POST /user/
-    const response = await axios.post('user/', body);
-    return response;
-};
+export const postUser = async (body) => {
+  // POST /user/
+  const response = await axios.post("user/", body)
+  return response
+}
 
-export const postUserLogin = async body => {
-    // POST /user/login/
-    const response = await axios.post('user/login/', body);
-    return response;
-};
+export const postUserLogin = async (body) => {
+  // POST /user/login/
+  const response = await axios.post("user/login/", body)
+  return response
+}
 
-export const postUserLogout = async token => {
-    // POST /user/logout/
-    const config = { headers: { Authorization: 'Token ' + token } };
-    const response = await axios.post('user/logout/', {}, config);
-    return response;
-};
+export const postUserLogout = async (token) => {
+  // POST /user/logout/
+  const config = { headers: { Authorization: "Token " + token } }
+  const response = await axios.post("user/logout/", {}, config)
+  return response
+}
 
 // story api
 export const postStory = async (token, body) => {
-    // POST /story/
-    const config = { headers: { Authorization: 'Token ' + token } };
-    const response = await axios.post('story/', body, config);
-    return response;
-};
+  // POST /story/
+  const config = { headers: { Authorization: "Token " + token } }
+  const response = await axios.post("story/", body, config)
+  return response
+}
 
 export const postStoryStoryidPublish = async (token, id) => {
-    // POST /story/{story_id}/publish/
-    const config = { headers: { Authorization: 'Token ' + token } };
-    const response = await axios.post('story/' + id + '/publish/', {}, config);
-    return response;
-};
+  // POST /story/{story_id}/publish/
+  const config = { headers: { Authorization: "Token " + token } }
+  const response = await axios.post("story/" + id + "/publish/", {}, config)
+  return response
+}
 
 export const putStoryStoryid = async (token, body, id) => {
-    // PUT /story/{story_id}/
-    const config = { headers: { Authorization: 'Token ' + token } };
-    const response = await axios.put('story/' + id + '/', body, config);
-    return response;
-};
+  // PUT /story/{story_id}/
+  const config = { headers: { Authorization: "Token " + token } }
+  const response = await axios.put("story/" + id + "/", body, config)
+  return response
+}
 
-export const getStoryMain = async token => {
-    // GET /story/main/
-    var response;
-    if (token === '') {
-        response = await axios.get('story/main/');
-    } else {
-        const config = { headers: { Authorization: 'Token ' + token } };
-        response = await axios.get('story/main/', {}, config);
-    }
-    return response;
-};
+export const getStoryMain = async (token) => {
+  // GET /story/main/
+  var response
+  if (token === "") {
+    response = await axios.get("story/main/")
+  } else {
+    const config = { headers: { Authorization: "Token " + token } }
+    response = await axios.get("story/main/", {}, config)
+  }
+  return response
+}
 
-export const getStoryTrending = async token => {
-    // GET /story/main/
-    var response;
-    if (token === '') {
-        response = await axios.get('story/trending/');
-    } else {
-        const config = { headers: { Authorization: 'Token ' + token } };
-        response = await axios.get('story/trending/', {}, config);
-    }
-    return response;
-};
+export const getStoryTrending = async (token) => {
+  // GET /story/main/
+  var response
+  if (token === "") {
+    response = await axios.get("story/trending/")
+  } else {
+    const config = { headers: { Authorization: "Token " + token } }
+    response = await axios.get("story/trending/", {}, config)
+  }
+  return response
+}
 
 export const getStoryPage = async (token, pagenum) => {
-    // GET /story/?page={page_number}
-    var response;
-    if (token === '') {
-        response = await axios.get('story/', { params: { page: pagenum } });
-    } else {
-        const config = { headers: { Authorization: 'Token ' + token } };
-        response = await axios.get('story/', { params: { page: pagenum } }, config);
-    }
-    return response;
-};
+  // GET /story/?page={page_number}
+  var response
+  if (token === "") {
+    response = await axios.get("story/", { params: { page: pagenum } })
+  } else {
+    const config = { headers: { Authorization: "Token " + token } }
+    response = await axios.get("story/", { params: { page: pagenum } }, config)
+  }
+  return response
+}
 
 export const getStory = async ({ page, title, tag }) => {
   // GET /story?page={page#}&title={title}&tag={tag}
@@ -111,5 +111,4 @@ export const getStory = async ({ page, title, tag }) => {
   queryString = queryString.slice(0, -1)
   const response = await axios.get("story/" + queryString)
   return response
-};
-
+}
