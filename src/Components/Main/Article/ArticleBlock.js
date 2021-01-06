@@ -10,6 +10,7 @@ const ArticleBlockStyle = styled.div`
 `;
 
 const ArticleTextBlock = styled.div`
+    overflow: hidden;
     margin-right: 20px;
     width: 100%;
 `;
@@ -46,6 +47,7 @@ const ArticleBlockTitle = styled.p`
     margin: 0;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
     font-weight: 700;
     line-height: 28px;
     font-size: 22px;
@@ -65,6 +67,7 @@ const ArticleBlockSubtitle = styled.p`
     margin: 0;
     overflow: hidden;
     text-overflow: ellipsis;
+    white-space: nowrap;
     font-weight: 400;
     line-height: 20px;
     font-size: 16px;
