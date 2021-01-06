@@ -80,17 +80,8 @@ const StoryPage = () => {
 
     const { story_id } = useParams(); //이용해서 해당하는 유저, 스토리 가져오기
 
-    const [userinfo, setuserinfo] = useState({
-        profileimg: null,
-        name: null,
-        userinfo: null,
-        id: null,
-    });
-    const [storyinfo, setstoryinfo] = useState({
-        title: null,
-        subtitle: null,
-        id: null,
-    });
+    const [userinfo, setuserinfo] = useState(null);
+    const [storyinfo, setstoryinfo] = useState(null);
     const [tag, settag] = useState([]);
     const [me, setme] = useState({
         id: null,
@@ -169,36 +160,39 @@ const StoryPage = () => {
     const [InputValue, setInputValue] = useState('');
     const [ResponseInput, setResponseInput] = useState(false);
     const [ResponseOpen, setResponseOpen] = useState(false);
-    return (
-        <div>
-            <Story
-                showModal={modalType => showModal(modalType, setModalShow, setModalVisible, setModalType)}
-                reachScrollCheckPoint={reachScrollCheckPoint}
-                story={story}
-                storyinfo={storyinfo}
-                userinfo={userinfo}
-                tag={[]}
-                logged_in={logged_in}
-                me={me}
-                response={Response}
-                responseNum={ResponseNum}
-                ResponseOpen={ResponseOpen}
-                setResponseOpen={setResponseOpen}
-                ResponseInput={ResponseInput}
-                setResponseInput={setResponseInput}
-                InputValue={InputValue}
-                setInputValue={setInputValue}
-                targetRef={targetRef}
-            />
-            {modalShow && (
-                <AuthModalContainer
-                    hideModal={() => hideModal(setModalVisible, setModalShow)}
-                    modalVisible={modalVisible}
-                    ModalType={ModalType}
+    if(userinfo === null || storyinfo === null)
+        return(<div />)
+    else
+        return (
+            <div>
+                <Story
+                    showModal={modalType => showModal(modalType, setModalShow, setModalVisible, setModalType)}
+                    reachScrollCheckPoint={reachScrollCheckPoint}
+                    story={story}
+                    storyinfo={storyinfo}
+                    userinfo={userinfo}
+                    tag={[]}
+                    logged_in={logged_in}
+                    me={me}
+                    response={Response}
+                    responseNum={ResponseNum}
+                    ResponseOpen={ResponseOpen}
+                    setResponseOpen={setResponseOpen}
+                    ResponseInput={ResponseInput}
+                    setResponseInput={setResponseInput}
+                    InputValue={InputValue}
+                    setInputValue={setInputValue}
+                    targetRef={targetRef}
                 />
-            )}
-        </div>
-    );
+                {modalShow && (
+                    <AuthModalContainer
+                        hideModal={() => hideModal(setModalVisible, setModalShow)}
+                        modalVisible={modalVisible}
+                        ModalType={ModalType}
+                    />
+                )}
+            </div>
+        );
 };
 
 export default StoryPage;
