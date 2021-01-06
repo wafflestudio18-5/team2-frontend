@@ -20,10 +20,6 @@ const saveStory = async (
     setSaveStatus(SaveStatusConstants.INVALID_TITLE)
     return
   }
-  if (subtitle === "") {
-    setSaveStatus(SaveStatusConstants.INVALID_SUBTITLE)
-    return
-  }
 
   const body = {
     title,
@@ -34,25 +30,25 @@ const saveStory = async (
   if (id !== -1) {
     try {
       const response = await putStoryStoryid(token, body, id)
+      setSaveStatus(SaveStatusConstants.SAVED)
       return response
     } catch (error) {
       console.log(error)
       console.log(error.response.data)
+      setSaveStatus(SaveStatusConstants.SAVE_FAILED)
       return error
-    } finally {
-      setSaveStatus(SaveStatusConstants.SAVED)
     }
   } else {
     try {
       const response = await postStory(token, body)
       setId(response.data.id)
+      setSaveStatus(SaveStatusConstants.SAVED)
       return response
     } catch (error) {
       console.log(error)
       console.log(error.response.data)
+      setSaveStatus(SaveStatusConstants.SAVE_FAILED)
       return error
-    } finally {
-      setSaveStatus(SaveStatusConstants.SAVED)
     }
   }
 }

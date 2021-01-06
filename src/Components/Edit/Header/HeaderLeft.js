@@ -40,8 +40,8 @@ const HeaderLeft = ({ userName, status }) => {
       statusMessage = "Save failed. Your title is too long or empty."
       break
 
-    case SaveStatusConstants.INVALID_SUBTITLE:
-      statusMessage = "Save failed. Your subtitle is too long."
+    case SaveStatusConstants.SAVE_FAILED:
+      statusMessage = "Save failed"
       break
 
     default:
