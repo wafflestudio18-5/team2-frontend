@@ -38,6 +38,21 @@ export const postUserLogout = async (token) => {
   return response
 }
 
+// Google Login api
+export const getAccountsGoogleLogin = async () => {
+  // GET /accounts/google/login/
+  const response = await axios.get("accounts/google/login/")
+  return response
+}
+
+export const getAccountsGoogleLoginCallback = async (queryString) => {
+  // GET /accounts/google/login/callback/
+  const response = await axios.get(
+    "accounts/google/login/callback/" + queryString
+  )
+  return response
+}
+
 // story api
 export const postStory = async (token, body) => {
   // POST /story/
