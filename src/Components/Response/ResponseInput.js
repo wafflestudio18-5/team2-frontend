@@ -1,7 +1,7 @@
 import styled, { css } from 'styled-components';
 import Color from '../../Constants/Color';
 import TextareaAutosize from 'react-autosize-textarea';
-import default_profile_image from '../../Images/default_profile_image.png'
+import default_profile_image from '../../Images/default_profile_image.png';
 
 const ResponseInputWrapper = styled.div`
     margin-bottom: 20px;
@@ -165,11 +165,19 @@ const RespondButton = styled.button`
 `;
 
 const ResponseInput = ({ logged_in, responseInput, setResponseInput, me, InputValue, setInputValue, postResponse }) => {
-    if (!responseInput) {
+    console.log(responseInput);
+    if (!responseInput || !logged_in) {
         return (
             <ResponseInputWrapper>
                 <ResponseInputBlock>
-                    <ResponseInputInnerBlock onClick={() => setResponseInput(true)}>
+                    <ResponseInputInnerBlock
+                        onClick={() =>
+                            setResponseInput(() => {
+                                if (logged_in) return true;
+                                else return false;
+                            })
+                        }
+                    >
                         <ResponseInputWindow
                             data-gramm="false"
                             role="textbox"
@@ -199,11 +207,9 @@ const ResponseInput = ({ logged_in, responseInput, setResponseInput, me, InputVa
             setInputValue('');
             setResponseInput(false);
         };
-        var profile
-        if(me.img === "")
-            profile = default_profile_image
-        else
-            profile = me.img
+        var profile;
+        if (me.img === '') profile = default_profile_image;
+        else profile = me.img;
         return (
             <ResponseInputWrapper>
                 <ResponseInputBlockClicked>
