@@ -27,6 +27,7 @@ const MeStories = ({
   isActionButtonOpen,
   deleteStory,
   selectedStoryId,
+  startEdit,
 }) => {
   return (
     <MeStoriesStyle>
@@ -45,6 +46,7 @@ const MeStories = ({
         selectedStoryId={selectedStoryId}
         type={type}
         isActionButtonOpen={isActionButtonOpen}
+        startEdit={startEdit}
       />
       {isDropdownOpened && (
         <UserDropdown

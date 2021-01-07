@@ -43,18 +43,6 @@ const ActionButtonMenu = styled.div`
   padding: 8px 0;
 `
 
-const Link = styled.a`
-  padding: 8px 20px;
-  text-decoration: none;
-  cursor: pointer;
-  color: ${Color.gray};
-  line-height: 20px;
-  font-size: 14px;
-  &:hover {
-    color: ${Color.borderBlack};
-  }
-`
-
 const Button = styled.button`
   padding: 8px 20px;
   border: 0;
@@ -74,6 +62,7 @@ const ActionButton = ({
   type,
   closeActionButton,
   isActionButtonOpen,
+  startEdit,
 }) => {
   var word
   if (type === "drafts") {
@@ -89,7 +78,7 @@ const ActionButton = ({
       <ActionButtonWrapper id="action">
         <Arrow />
         <ActionButtonMenu>
-          <Link href={"/edit/" + selectedStoryId}>{"Edit " + word}</Link>
+          <Button onClick={startEdit}>{"Edit " + word}</Button>
           <Button onClick={deleteStory}>{"Delete " + word}</Button>
         </ActionButtonMenu>
       </ActionButtonWrapper>

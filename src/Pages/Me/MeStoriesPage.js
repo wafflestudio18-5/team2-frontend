@@ -11,6 +11,7 @@ import useIntersectionObserver from "../Search/Functions/useIntersectionObserver
 import fetchStories from "./Functions/fetchStories"
 import deleteStory from "./Functions/deleteStory"
 import openActionButton from "./Functions/openActionButton"
+import startEdit from "./Functions/startEdit"
 
 const MeStoriesPage = () => {
   const [cookie, , removeCookie] = useCookies(["auth"])
@@ -102,6 +103,9 @@ const MeStoriesPage = () => {
           deleteStory(token, selectedStoryId)
         }}
         selectedStoryId={selectedStoryId}
+        startEdit={() => {
+          startEdit(token, type, selectedStoryId, history)
+        }}
       />
       <div ref={targetRef} />
     </div>
