@@ -79,9 +79,6 @@ const WriterInfo = ({userinfo}) => {
             <UserInfoBlock>
                 <UserInfo>{userinfo.userinfo}</UserInfo>
             </UserInfoBlock>
-            <FollowBlock>
-                <FollowButton>Follow</FollowButton>
-            </FollowBlock>
         </WriterInfoBlock>
     );
 };

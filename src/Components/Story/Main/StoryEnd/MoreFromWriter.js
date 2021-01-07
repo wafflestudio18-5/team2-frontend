@@ -72,7 +72,6 @@ const MoreFromWriter = ({userinfo}) => {
             <MoreFromWriterBlock>
                 <WriterNameBlock>
                     <WriterName href={userinfo.url}>{userinfo.name}</WriterName>
-                    <FollowButton>Follow</FollowButton>
                 </WriterNameBlock>
                 <WriterInfoBlock>
                     <WriterInfo>{userinfo.userinfo}</WriterInfo>
