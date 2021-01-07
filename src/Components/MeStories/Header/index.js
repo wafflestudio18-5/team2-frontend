@@ -8,6 +8,8 @@ const HeaderShadow = styled.div`
   width: 100%;
   height: 65px;
   box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.05) !important;
+  display: flex;
+  justify-content: center;
   @media (max-width: 767px) {
     height: 56px;
   }
@@ -15,6 +17,7 @@ const HeaderShadow = styled.div`
 
 const HeaderStyle = styled.div`
   max-width: 1192px;
+  width: 100%;
   margin: 0 64px;
   height: 100%;
   display: flex;
