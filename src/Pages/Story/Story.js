@@ -99,7 +99,6 @@ const StoryPage = () => {
 
     // 다음 페이지 로드
     const loadNextPage = useCallback(async () => {
-        console.log(Response)
         if (Response.length > 0) {
             setFetching(true);
             page.current++;
@@ -112,6 +111,7 @@ const StoryPage = () => {
     useIntersectionObserver({
         target: targetRef.current,
         onIntersect: ([{ isIntersecting }]) => {
+            console.log(isIntersecting, fetching, isEnd)
             if (isIntersecting && !fetching && !isEnd) {
                 loadNextPage();
             }
