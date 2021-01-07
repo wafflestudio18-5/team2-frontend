@@ -33,7 +33,6 @@ const Link = styled.a`
 `
 
 const MainTab = ({ type }) => {
-  console.log(type === "public")
   return (
     <MainTabWrapper>
       <LinkWrapper>

@@ -12,12 +12,12 @@ const Link = styled.a``
 
 const Button = styled.button``
 
-const ActionButton = (
+const ActionButton = ({
   deleteStory,
   selectedStoryId,
   type,
-  closeActionButton
-) => {
+  closeActionButton,
+}) => {
   var word
   if (type === "drafts") {
     word = "draft"
