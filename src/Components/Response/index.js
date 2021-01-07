@@ -5,6 +5,9 @@ import ResponseBlock from './ResponseBlock';
 
 const ResponseModal = styled.div`
     display: block;
+    @media (max-width: 727.98px) {
+        display: none;
+    }
 `;
 
 const ResponseCloser = styled.div`
@@ -47,19 +50,37 @@ const ResponseWrapper = styled.div`
         `}
 `;
 
-const Response = ({ IsOpen, setOpen, Response, me, responseInput, setResponseInput, InputValue, setInputValue }) => {
+const Response = ({
+    logged_in,
+    showModal,
+    IsOpen,
+    setOpen,
+    Response,
+    me,
+    responseInput,
+    setResponseInput,
+    InputValue,
+    setInputValue,
+    targetRef,
+    ResponseNum,
+    postResponse,
+    deleteResponse,
+}) => {
     return (
         <ResponseModal>
             <ResponseWrapper IsOpen={IsOpen}>
-                <ResponseHeader ResponseNum={Response.length} setOpen={setOpen} />
+                <ResponseHeader ResponseNum={ResponseNum} setOpen={setOpen} />
                 <ResponseInput
+                    logged_in={logged_in}
                     responseInput={responseInput}
                     setResponseInput={setResponseInput}
                     me={me}
                     InputValue={InputValue}
                     setInputValue={setInputValue}
+                    postResponse={postResponse}
                 />
-                <ResponseBlock Response={Response} me={me} />
+                <ResponseBlock Response={Response} me={me} deleteResponse={deleteResponse}/>
+                <div ref={targetRef}/>
             </ResponseWrapper>
             <ResponseCloser IsOpen={IsOpen} onClick={() => setOpen(false)} />
         </ResponseModal>

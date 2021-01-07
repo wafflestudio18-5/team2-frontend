@@ -1,5 +1,7 @@
 import styled, { css } from 'styled-components';
 import Color from '../../Constants/Color';
+import default_profile_image from '../../Images/default_profile_image.png'
+import changeDate from '../../Pages/Main/Functions/changeDate'
 
 const ResponseWriterWrapper = styled.div`
     display: flex;
@@ -65,18 +67,24 @@ const Button = styled.button`
         `}
 `;
 
-const ResponseWriter = ({ Response, me }) => {
+const ResponseWriter = ({ Response, me, deleteResponse }) => {
     const Writer = Response.writer;
-    var isedited = Response.created_at === Response.updated_at ? '' : '(edited)';
+    //var isedited = Response.created_at === Response.updated_at ? '' : '(edited)';
+    var isedited = ''
+    var profileimg
+    if(Writer.profile_image === "")
+        profileimg = default_profile_image
+    else
+        profileimg = Writer.profile_image
     return (
         <ResponseWriterWrapper>
             <ResponeWriterInformationBlock>
-                <WriterImage src={Writer.profile_image} />
+                <WriterImage src={profileimg} />
                 <WriterInformationBlock>
                     <WriterNameBlock>
                         <WriterName href={'/user/' + Writer.id}>{Writer.name}</WriterName>
                         <ResponseTime>
-                            about {Response.time} ago {isedited}
+                            {changeDate(Response.updated_at+'')} {isedited}
                         </ResponseTime>
                     </WriterNameBlock>
                 </WriterInformationBlock>
@@ -90,7 +98,7 @@ const ResponseWriter = ({ Response, me }) => {
                         ></path>
                     </svg>
                 </Button>
-                <Button idcmp={Writer.id === me.id}>
+                <Button idcmp={Writer.id === me.id} onClick = {() => deleteResponse(Response.id)}>
                     <svg width="25" height="25" viewBox="0 0 25 25" class="dw">
                         <path d="M18.13 6.11l-5.61 5.61-5.6-5.61-.81.8 5.61 5.61-5.61 5.61.8.8 5.61-5.6 5.61 5.6.8-.8-5.6-5.6 5.6-5.62"></path>
                     </svg>

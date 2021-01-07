@@ -5,13 +5,14 @@ const ResponseListWrapper = styled.div`
     display: block;
 `
 
-const ResponseListBlock = ( {Response, me} ) => {
+
+const ResponseListBlock = ( {Response, me, deleteResponse} ) => {
     let ResponseList = []
     Response.forEach(response => {
-        ResponseList.push(<ResponseComponent Response={response} me={me} />)
+        ResponseList.push(<ResponseComponent Response={response} me={me} deleteResponse={deleteResponse} />)
     });
     return(
-        <ResponseListWrapper>
+        <ResponseListWrapper class = "target">
             {ResponseList}
         </ResponseListWrapper>
     );
