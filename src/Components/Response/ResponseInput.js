@@ -208,8 +208,8 @@ const ResponseInput = ({ logged_in, responseInput, setResponseInput, me, InputVa
             setResponseInput(false);
         };
         var profile;
-        if (me.img === '') profile = default_profile_image;
-        else profile = me.img;
+        if (me.profile_image === '') profile = default_profile_image;
+        else profile = me.profile_image;
         return (
             <ResponseInputWrapper>
                 <ResponseInputBlockClicked>

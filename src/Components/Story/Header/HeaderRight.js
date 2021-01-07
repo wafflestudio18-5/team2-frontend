@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Color from '../../../Constants/Color';
 import ModalTypeConstants from '../../../Constants/ModalTypeConstants';
 import { useHistory } from 'react-router-dom';
+import default_profile_image from '../../../Images/default_profile_image.png'
 
 const HeaderRightWrapper = styled.div`
     display: flex;
@@ -141,6 +142,12 @@ const UserIconBlock = styled.div`
 
 const HeaderRight = ({ showModal, logged_in, me }) => {
     const history = useHistory();
+    console.log(me, me.profile_image==='')
+    var profile
+    if(me.profile_image === '')
+        profile = default_profile_image
+    else
+        profile = me.profile_image
     if (logged_in) {
         return (
             <HeaderRightWrapper>
@@ -162,7 +169,7 @@ const HeaderRight = ({ showModal, logged_in, me }) => {
                         </SearchBlock>
                         <UserIconBlock>
                             <Button onClick={() => history.push('/me/stories')}>
-                                <img src={me.profileImage} width="32px" height="32px" border-radius="50%" />
+                                <img src={profile} width="32px" height="32px" border-radius="50%" />
                             </Button>
                         </UserIconBlock>
                     </LoggedinBlock>
