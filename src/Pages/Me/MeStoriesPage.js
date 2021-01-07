@@ -10,7 +10,7 @@ import logout from "../Main/Functions/logout"
 import useIntersectionObserver from "../Search/Functions/useIntersectionObserver"
 import fetchStories from "./Functions/fetchStories"
 
-const MeStiresDraft = () => {
+const MeStoriesPage = () => {
   const [cookie, , removeCookie] = useCookies(["auth"])
   const token = cookie.auth
   const history = useHistory()
@@ -91,4 +91,4 @@ const MeStiresDraft = () => {
   )
 }
 
-export default MeStiresDraft
+export default MeStoriesPage

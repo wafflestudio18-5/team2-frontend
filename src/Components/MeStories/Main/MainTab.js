@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import Color from "../../../Constants/Color"
 
 const MainTabWrapper = styled.div`
   border-bottom: 1px solid rgba(230, 230, 230);

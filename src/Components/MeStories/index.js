@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import Header from "./Header"
 import Main from "./Main"
+import ActionButton from "./ActionButton"
 import UserDropdown from "../MainLogin/UserDropdown"
 
 const MeStoriesStyle = styled.div`
@@ -21,6 +22,11 @@ const MeStories = ({
   search,
   stories,
   type,
+  openActionButton,
+  closeActionButton,
+  isActionButtonOpen,
+  deleteStory,
+  selectedStoryId,
 }) => {
   return (
     <MeStoriesStyle>
@@ -32,7 +38,15 @@ const MeStories = ({
         onChangeSearchbox={onChangeSearchbox}
         search={search}
       />
-      <Main stories={stories} type={type} />
+      <Main stories={stories} type={type} openActionButton={openActionButton} />
+      {isActionButtonOpen && (
+        <ActionButton
+          closeActionButton={closeActionButton}
+          deleteStory={deleteStory}
+          selectedStoryId={selectedStoryId}
+          type={type}
+        />
+      )}
       {isDropdownOpened && (
         <UserDropdown
           user={user}
