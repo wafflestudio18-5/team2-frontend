@@ -39,6 +39,7 @@ const WriterInfoBlock = styled.div`
 const WriterNameBlock = styled.div`
     display: block;
     flex: 1;
+    line-height: 20px;
 `;
 
 const WriterName = styled.a`
@@ -142,8 +143,12 @@ const Writer = ({userinfo, storyinfo}) => {
                         <WriterPicture src={profileimg} />
                     </a>
                     <WriterInfoBlock>
-                        <WriterName href={userinfo.url}>{userinfo.name}</WriterName>
-                        <DateAndTime href={storyinfo.url}>&nbsp;&nbsp;{changeDate(storyinfo.published_at+'')}</DateAndTime>
+                        <WriterNameBlock>
+                            <WriterName href={userinfo.url}>{userinfo.name}</WriterName>
+                        </WriterNameBlock>
+                        <DateAndTimeSpan>
+                            <DateAndTime href={storyinfo.url}>&nbsp;&nbsp;{changeDate(storyinfo.published_at+'')}</DateAndTime>
+                        </DateAndTimeSpan>
                     </WriterInfoBlock>
                 </WriterLeft>
             </WriterBlock>
