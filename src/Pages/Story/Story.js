@@ -132,6 +132,7 @@ const StoryPage = () => {
 
     useEffect(() => {
         getStory(story_id, setuserinfo, setstoryinfo, setstory, history);
+        fetchResponse(setResponse, setResponseNum, setIsEnd, story_id);
         getMe(token, setme);
     }, [token]);
 
