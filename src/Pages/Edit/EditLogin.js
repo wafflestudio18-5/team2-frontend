@@ -1,7 +1,7 @@
 import Edit from "../../Components/Edit"
 import { useState, useEffect, useRef } from "react"
 import { useCookies } from "react-cookie"
-import { useHistory } from "react-router-dom"
+import { useHistory, useLocation } from "react-router-dom"
 import SaveStatusConstants from "../../Constants/SaveStatusConstants"
 import findTitle from "./Functions/findTitle"
 import createNewContent from "./Functions/createNewContent"
@@ -18,13 +18,10 @@ import publish from "./Functions/publish"
 import preserveCaret from "./Functions/preserveCaret"
 import addDivider from "./Functions/addDivider"
 import createImage from "./Functions/createImage"
+import getStory from "./Functions/getStory"
 
 const EditLoginPage = ({ token }) => {
   const [user, setUser] = useState({})
-
-  useEffect(() => {
-    getCurrentUser(token, setUser)
-  }, [token])
 
   const [story, setStory] = useState([
     [{ type: "paragraph", detail: { content: "", emphasizing: "largest" } }],
@@ -32,10 +29,18 @@ const EditLoginPage = ({ token }) => {
 
   const removeCookie = useCookies(["auth"])[2]
   const history = useHistory()
+  const storyId = useLocation().pathname.split("/")[2]
+
+  useEffect(() => {
+    getCurrentUser(token, setUser)
+    if (storyId !== "" && storyId !== undefined) {
+      getStory(storyId, setStory)
+    }
+  }, [token, storyId])
 
   // 글 저장 관련
   const [saveStatus, setSaveStatus] = useState(SaveStatusConstants.INIT)
-  const id = useRef(-1)
+  const id = useRef(storyId)
 
   var typingTimer
 
