@@ -20,6 +20,7 @@ const MeStories = ({
   onChangeSearchbox,
   search,
   stories,
+  type,
 }) => {
   return (
     <MeStoriesStyle>
@@ -31,7 +32,7 @@ const MeStories = ({
         onChangeSearchbox={onChangeSearchbox}
         search={search}
       />
-      <Main stories={stories} />
+      <Main stories={stories} type={type} />
       {isDropdownOpened && (
         <UserDropdown
           user={user}
