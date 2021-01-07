@@ -20,6 +20,7 @@ function App() {
             path={routes.callback.path}
             component={routes.callback.component}
           />
+          <Route path={routes.me.path} component={routes.me.component} />
           <Redirect to={routes.main.path} />
         </Switch>
       </BrowserRouter>

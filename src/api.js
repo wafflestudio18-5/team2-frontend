@@ -19,6 +19,16 @@ export const getUserMeAbout = async (token) => {
   return response
 }
 
+export const getUserMeStory = async (token, publish, page) => {
+  // GET /user/me/story/?publish=[true|false]&page={page}
+  const config = { headers: { Authorization: "Token " + token } }
+  const response = await axios.get(
+    "user/me/story/?public=" + publish + "&page=" + page,
+    config
+  )
+  return response
+}
+
 export const postUser = async (body) => {
   // POST /user/
   const response = await axios.post("user/", body)
@@ -135,5 +145,18 @@ export const getStory = async ({ page, title, tag }) => {
   }
   queryString = queryString.slice(0, -1)
   const response = await axios.get("story/" + queryString)
+  return response
+}
+
+export const getStoryById = async (storyid) => {
+  //GET /story/{story_id}
+  const response = await axios.get("story/" + storyid)
+  return response
+}
+
+export const deleteStoryStoryId = async (token, id) => {
+  // DELETE /story/{story_id}
+  const config = { headers: { Authorization: "Token " + token } }
+  const response = await axios.delete("story/" + id + "/", config)
   return response
 }

@@ -1,7 +1,7 @@
 import Edit from "../../Components/Edit"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useCookies } from "react-cookie"
-import { useHistory } from "react-router-dom"
+import { useHistory, useLocation } from "react-router-dom"
 import SaveStatusConstants from "../../Constants/SaveStatusConstants"
 import findTitle from "./Functions/findTitle"
 import createNewContent from "./Functions/createNewContent"
@@ -18,35 +18,43 @@ import publish from "./Functions/publish"
 import preserveCaret from "./Functions/preserveCaret"
 import addDivider from "./Functions/addDivider"
 import createImage from "./Functions/createImage"
+import getStory from "./Functions/getStory"
 
 const EditLoginPage = ({ token }) => {
   const [user, setUser] = useState({})
 
-  useEffect(() => {
-    getCurrentUser(token, setUser)
-  }, [token])
-
   const [story, setStory] = useState([
     [{ type: "paragraph", detail: { content: "", emphasizing: "largest" } }],
   ])
+  const id = useRef(-1)
 
   const removeCookie = useCookies(["auth"])[2]
   const history = useHistory()
+  const storyId = useLocation().pathname.split("/")[2]
+
+  useEffect(() => {
+    getCurrentUser(token, setUser)
+    if (storyId !== "" && storyId !== undefined) {
+      getStory(storyId, setStory)
+      id.current = storyId
+    }
+  }, [token, storyId])
 
   // 글 저장 관련
   const [saveStatus, setSaveStatus] = useState(SaveStatusConstants.INIT)
-  const [id, setId] = useState(-1)
+
   var typingTimer
+
   const startTimer = () => {
     clearTimeout(typingTimer)
     typingTimer = setTimeout(() => {
       preserveCaret(() => {
-        saveStory(token, story, saveStatus, setSaveStatus, id, setId)
+        saveStory(token, story, saveStatus, setSaveStatus, id)
       })
     }, 3000)
   }
 
-  const changeStateOnInput = (event) => {
+  const changeStateOnInput = () => {
     // 값에 변경 있을 시 state도 그에 맞게 변경
     preserveCaret(() => {
       if (saveStatus === SaveStatusConstants.SAVING) {
@@ -161,7 +169,7 @@ const EditLoginPage = ({ token }) => {
       story={findTitle(story)}
       changeStateOnInput={changeStateOnInput}
       publish={() => {
-        publish(token, story, saveStatus, setSaveStatus, id, setId, history)
+        publish(token, story, saveStatus, setSaveStatus, id, history)
         clearTimeout(typingTimer)
       }}
       keyDownEventListener={keyDownEventListener}
