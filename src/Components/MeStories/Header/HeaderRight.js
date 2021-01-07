@@ -3,7 +3,10 @@ import UserProfile from "../../MainLogin/Header/UserProfile"
 import Search from "../../MainLogin/Header/Search"
 import default_profile_image from "../../../Images/default_profile_image.png"
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+`
 
 const HeaderRight = ({
   user,
