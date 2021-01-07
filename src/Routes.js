@@ -3,6 +3,7 @@ import EditPage from "./Pages/Edit"
 import CallbackPage from "./Pages/Callback"
 import StoryPage from "./Pages/Story/Story"
 import SearchPage from "./Pages/Search"
+import MePage from "./Pages/Me"
 
 const routes = {
   main: { path: "/main", component: MainPage },
@@ -10,5 +11,6 @@ const routes = {
   story: { path: "/story/:story_id", component: StoryPage },
   callback: { path: "/callback", component: CallbackPage },
   search: { path: "/search", component: SearchPage },
+  me: { path: "/me", component: MePage },
 }
 export { routes }
