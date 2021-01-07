@@ -39,14 +39,13 @@ const MeStories = ({
         search={search}
       />
       <Main stories={stories} type={type} openActionButton={openActionButton} />
-      {isActionButtonOpen && (
-        <ActionButton
-          closeActionButton={closeActionButton}
-          deleteStory={deleteStory}
-          selectedStoryId={selectedStoryId}
-          type={type}
-        />
-      )}
+      <ActionButton
+        closeActionButton={closeActionButton}
+        deleteStory={deleteStory}
+        selectedStoryId={selectedStoryId}
+        type={type}
+        isActionButtonOpen={isActionButtonOpen}
+      />
       {isDropdownOpened && (
         <UserDropdown
           user={user}

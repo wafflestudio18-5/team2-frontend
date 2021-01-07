@@ -91,8 +91,8 @@ const MeStoriesPage = () => {
         signOut={() => logout(token, removeCookie)}
         history={history}
         stories={stories}
-        openActionButton={(id) => {
-          openActionButton(setIsActionButtonOpen, setSelectedStoryId, id)
+        openActionButton={(event, id) => {
+          openActionButton(event, setIsActionButtonOpen, setSelectedStoryId, id)
         }}
         closeActionButton={() => {
           setIsActionButtonOpen(false)

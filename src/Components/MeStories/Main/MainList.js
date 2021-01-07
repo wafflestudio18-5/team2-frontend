@@ -7,8 +7,7 @@ const MainListWrapper = styled.div`
 `
 
 const StoryBlock = styled.div`
-  display: flex;
-  flex-direction: column;
+  display: block;
   padding: 20px 0;
   border-bottom: 1px solid rgb(230, 230, 230);
 `
@@ -91,8 +90,8 @@ const MainList = ({ stories, type, openActionButton }) => {
             <LastLine>
               <Time>{story.updated_at}</Time>
               <ActionButton
-                onClick={() => {
-                  openActionButton(story.id)
+                onClick={(event) => {
+                  openActionButton(event, story.id)
                 }}
               >
                 <SvgStyle>
