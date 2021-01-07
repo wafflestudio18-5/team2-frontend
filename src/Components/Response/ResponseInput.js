@@ -201,7 +201,6 @@ const ResponseInput = ({ logged_in, responseInput, setResponseInput, me, InputVa
             setResponseInput(false);
         };
         const SubmitRespond = () => {
-            console.log(InputValue);
             postResponse(InputValue);
             setInputValue('');
             setResponseInput(false);

@@ -4,7 +4,6 @@ const fetchResponse = async (setResponse, setResponseNum, setIsEnd, storyid, pag
     console.log(page);
     try {
         const response = await getResponse(storyid, page)
-        console.log(response);
         setResponseNum(response.data.count)
         setResponse(responses => {
             return [...responses, ...response.data.stories];

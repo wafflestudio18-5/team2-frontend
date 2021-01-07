@@ -145,14 +145,11 @@ export const postComment = async (token, body, storyid) => {
     },
   }
   const response = await axios.post("story/"+storyid+"/comment/", body, config)
-  console.log(response)
   return response
 };
 
 export const deleteComment = async (token, storyid, commentid) => {
   //DELETE /story/{story_id}/comment/?id={comment_id}
-
-  console.log(token, storyid, commentid)
   const config = {
     headers: {
       Authorization: "Token " + token,

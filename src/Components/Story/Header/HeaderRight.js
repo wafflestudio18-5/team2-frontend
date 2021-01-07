@@ -142,7 +142,6 @@ const UserIconBlock = styled.div`
 
 const HeaderRight = ({ showModal, logged_in, me }) => {
     const history = useHistory();
-    console.log(me, me.profile_image==='')
     var profile
     if(me.profile_image === '')
         profile = default_profile_image

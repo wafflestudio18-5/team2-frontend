@@ -81,7 +81,7 @@ const MainStory = ( {story, userinfo, storyinfo, history} ) => {
     var title, subtitle, storylist
     if(story[0] !== undefined){
         title = story[0][0].detail.content
-        if(story[0][1].detail.content === storyinfo.subtitle)
+        if(story[0][1] !== undefined && story[0][1].detail.content === storyinfo.subtitle)
             subtitle = story[0][1].detail.content
         else
             subtitle = null
