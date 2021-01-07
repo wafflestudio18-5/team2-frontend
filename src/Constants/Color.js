@@ -13,6 +13,8 @@ const Color = {
   Footerblack: `rgba(0, 0, 0, 0.9)`,
   mobilegray: `rgba(255, 255, 255, 0.7)`,
   placeholder: `rgba(245, 245, 245, 1)`,
+  red: `rgb(201, 74, 74)`,
+  hoverRed: `rgb(180, 44, 44)`,
 }
 
 export default Color

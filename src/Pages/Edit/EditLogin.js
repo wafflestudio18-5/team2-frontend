@@ -26,6 +26,7 @@ const EditLoginPage = ({ token }) => {
   const [story, setStory] = useState([
     [{ type: "paragraph", detail: { content: "", emphasizing: "largest" } }],
   ])
+  const id = useRef(-1)
 
   const removeCookie = useCookies(["auth"])[2]
   const history = useHistory()
@@ -35,12 +36,12 @@ const EditLoginPage = ({ token }) => {
     getCurrentUser(token, setUser)
     if (storyId !== "" && storyId !== undefined) {
       getStory(storyId, setStory)
+      id.current = storyId
     }
   }, [token, storyId])
 
   // 글 저장 관련
   const [saveStatus, setSaveStatus] = useState(SaveStatusConstants.INIT)
-  const id = useRef(storyId)
 
   var typingTimer
 
