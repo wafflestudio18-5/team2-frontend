@@ -6,10 +6,15 @@ const MePage = () => {
     <Switch>
       <Route
         exact
-        path={routes.stories.path}
-        component={routes.stories.component}
+        path={routes.draft.path}
+        component={routes.draft.component}
       />
-      <Redirect to={routes.stories.path} />
+      <Route
+        exact
+        path={routes.publish.path}
+        component={routes.publish.component}
+      />
+      <Redirect to={routes.draft.path} />
     </Switch>
   )
 }

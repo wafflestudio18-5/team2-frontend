@@ -1,7 +1,9 @@
-import MeStoriesPage from "./MeStoriesPage"
+import MeStoriesDraft from "./MeStoriesDraft"
+import MeStoriesPublish from "./MeStoriesPublish"
 
 const routes = {
-  stories: { path: "/me/stories", component: MeStoriesPage },
+  draft: { path: "/me/stories/drafts", component: MeStoriesDraft },
+  publish: { path: "/me/stories/public", component: MeStoriesPublish },
 }
 
 export { routes }

@@ -1,7 +1,7 @@
 import MeStories from "../../Components/MeStories"
 
-const MeStoriesPage = () => {
+const MeStiresDraft = () => {
   return <MeStories />
 }
 
-export default MeStoriesPage
+export default MeStiresDraft
