@@ -4,7 +4,7 @@ const googleLogin = async () => {
   try {
     const response = await getAccountsGoogleLogin()
     const queryString = response.data.url.split("&")
-    const redirect_uri = "https://www.wadium.shop/callback/google/"
+    const redirect_uri = "https://wadium.shop/callback/google/"
     const url = [
       queryString[0],
       "redirect_uri=" + encodeURIComponent(redirect_uri),

@@ -5,10 +5,10 @@ const googleLogin = async (queryString, setCookie, history) => {
     const response = await getAccountsGoogleLoginCallback(queryString)
     const { token } = response.data
     await setCookie("auth", token, { path: "/", sameSite: "Lax" })
+    history.push("/")
   } catch (error) {
     console.log(error)
-  } finally {
-    history.push("/")
+    console.log(error.response.data)
   }
 }
 
