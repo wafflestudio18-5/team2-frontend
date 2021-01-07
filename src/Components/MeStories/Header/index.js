@@ -14,13 +14,25 @@ const HeaderShadow = styled.div`
 `
 
 const HeaderStyle = styled.div`
-  max-width: 1032px;
-  padding: 0 20px;
-  margin: 0 auto;
+  max-width: 1192px;
+  margin: 0 64px;
   height: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  @media (max-width: 903.98px) {
+    margin-right: 48px;
+    margin-left: 48px;
+  }
+
+  @media (max-width: 767px) {
+    margin-bottom: 24px;
+  }
+
+  @media (max-width: 552px) {
+    margin-right: 24px;
+    margin-left: 24px;
+  }
 `
 
 const Header = (props) => {
