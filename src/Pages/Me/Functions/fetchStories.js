@@ -1,9 +1,9 @@
-import { getStory } from "../../../api"
+import { getUserMeStory } from "../../../api"
 
-const fetchStories = async (searchWord, setStories, setIsEnd, page = 1) => {
-  // story 검색 결과를 패치
+const fetchStories = async (token, type, setStories, setIsEnd, page = 1) => {
+  const typeBool = type === "public"
   try {
-    const response = await getStory({ page, title: searchWord })
+    const response = await getUserMeStory(token, typeBool, page)
     setStories((stories) => {
       return [...stories, ...response.data.stories]
     })

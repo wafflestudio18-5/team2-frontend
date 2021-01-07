@@ -1,8 +1,8 @@
 import axios from "axios"
 
 // set base url
-//const baseUrl = "http://localhost:8000/"
- const baseUrl = "https://api.wadium.shop/"
+// const baseUrl = "http://localhost:8000/"
+const baseUrl = "https://api.wadium.shop/"
 axios.defaults.baseURL = baseUrl
 
 // user api
@@ -16,6 +16,16 @@ export const getUserMeAbout = async (token) => {
   // GET /user/me/about
   const config = { headers: { Authorization: "Token " + token } }
   const response = await axios.get("user/me/about/", config)
+  return response
+}
+
+export const getUserMeStory = async (token, publish, page) => {
+  // GET /user/me/story/?publish=[true|false]&page={page}
+  const config = { headers: { Authorization: "Token " + token } }
+  const response = await axios.get(
+    "user/me/story/?public=" + publish + "&page=" + page,
+    config
+  )
   return response
 }
 
@@ -156,5 +166,18 @@ export const deleteComment = async (token, storyid, commentid) => {
     },
   }
   const response = await axios.delete("story/"+storyid+"/comment/?id="+commentid,config)
+  return response
+}
+
+export const getStoryById = async (storyid) => {
+  //GET /story/{story_id}
+  const response = await axios.get("story/" + storyid)
+  return response
+}
+
+export const deleteStoryStoryId = async (token, id) => {
+  // DELETE /story/{story_id}
+  const config = { headers: { Authorization: "Token " + token } }
+  const response = await axios.delete("story/" + id + "/", config)
   return response
 }
