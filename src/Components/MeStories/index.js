@@ -1,8 +1,13 @@
 import styled from "styled-components"
 import Header from "./Header"
+import Main from "./Main"
 import UserDropdown from "../MainLogin/UserDropdown"
 
-const MeStoriesStyle = styled.div``
+const MeStoriesStyle = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+`
 
 const MeStories = ({
   user,
@@ -14,6 +19,7 @@ const MeStories = ({
   onClickSearchButton,
   onChangeSearchbox,
   search,
+  stories,
 }) => {
   return (
     <MeStoriesStyle>
@@ -25,6 +31,7 @@ const MeStories = ({
         onChangeSearchbox={onChangeSearchbox}
         search={search}
       />
+      <Main stories={stories} />
       {isDropdownOpened && (
         <UserDropdown
           user={user}
