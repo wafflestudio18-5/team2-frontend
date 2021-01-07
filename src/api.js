@@ -169,12 +169,6 @@ export const deleteComment = async (token, storyid, commentid) => {
   return response
 }
 
-export const getStoryById = async (storyid) => {
-  //GET /story/{story_id}
-  const response = await axios.get("story/" + storyid)
-  return response
-}
-
 export const deleteStoryStoryId = async (token, id) => {
   // DELETE /story/{story_id}
   const config = { headers: { Authorization: "Token " + token } }
