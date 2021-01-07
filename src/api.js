@@ -155,6 +155,6 @@ export const deleteComment = async (token, storyid, commentid) => {
       Authorization: "Token " + token,
     },
   }
-  const response = await axios.delete("story/"+storyid+"/comment/?id="+commentid,{},config)
+  const response = await axios.delete("story/"+storyid+"/comment/?id="+commentid,config)
   return response
 }
