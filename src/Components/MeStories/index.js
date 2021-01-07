@@ -3,6 +3,7 @@ import Header from "./Header"
 import Main from "./Main"
 import ActionButton from "./ActionButton"
 import UserDropdown from "../MainLogin/UserDropdown"
+import ConfirmModal from "./ConfirmModal"
 
 const MeStoriesStyle = styled.div`
   position: relative;
@@ -28,6 +29,9 @@ const MeStories = ({
   deleteStory,
   selectedStoryId,
   startEdit,
+  showConfirmModal,
+  openConfirmModal,
+  hideConfirmModal,
 }) => {
   return (
     <MeStoriesStyle>
@@ -42,7 +46,7 @@ const MeStories = ({
       <Main stories={stories} type={type} openActionButton={openActionButton} />
       <ActionButton
         closeActionButton={closeActionButton}
-        deleteStory={deleteStory}
+        openConfirmModal={openConfirmModal}
         selectedStoryId={selectedStoryId}
         type={type}
         isActionButtonOpen={isActionButtonOpen}
@@ -53,6 +57,12 @@ const MeStories = ({
           user={user}
           signOut={signOut}
           hideDropdown={hideDropdown}
+        />
+      )}
+      {showConfirmModal && (
+        <ConfirmModal
+          deleteStory={deleteStory}
+          hideConfirmModal={hideConfirmModal}
         />
       )}
     </MeStoriesStyle>

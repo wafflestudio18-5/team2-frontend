@@ -57,8 +57,7 @@ const Button = styled.button`
 `
 
 const ActionButton = ({
-  deleteStory,
-  selectedStoryId,
+  openConfirmModal,
   type,
   closeActionButton,
   isActionButtonOpen,
@@ -79,7 +78,7 @@ const ActionButton = ({
         <Arrow />
         <ActionButtonMenu>
           <Button onClick={startEdit}>{"Edit " + word}</Button>
-          <Button onClick={deleteStory}>{"Delete " + word}</Button>
+          <Button onClick={openConfirmModal}>{"Delete " + word}</Button>
         </ActionButtonMenu>
       </ActionButtonWrapper>
     </ActionButtonBackground>

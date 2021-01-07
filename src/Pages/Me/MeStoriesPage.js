@@ -43,6 +43,8 @@ const MeStoriesPage = () => {
   const [isActionButtonOpen, setIsActionButtonOpen] = useState(false)
   // action button을 눌렀을 때 버튼이 포함된 story id
   const [selectedStoryId, setSelectedStoryId] = useState(-1)
+  // confirm Modal
+  const [showConfirmModal, setShowConfirmModal] = useState(false)
 
   // refs
   // 현재 검색된 마지막 페이지
@@ -106,6 +108,9 @@ const MeStoriesPage = () => {
         startEdit={() => {
           startEdit(token, type, selectedStoryId, history)
         }}
+        showConfirmModal={showConfirmModal}
+        openConfirmModal={() => setShowConfirmModal(true)}
+        hideConfirmModal={() => setShowConfirmModal(false)}
       />
       <div ref={targetRef} />
     </div>
