@@ -1,7 +1,7 @@
 import { postComment } from '../../../api';
 
 const postResponse = async (token, response, storyid, setResponse, setResponseNum) => {
-    postComment(token, response, storyid)
+    postComment(token, {body: response}, storyid)
         .then(postrespond => {
             setResponse(responses => {
                 console.log(...responses);
