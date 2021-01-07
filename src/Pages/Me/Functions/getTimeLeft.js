@@ -4,7 +4,6 @@ const getTimeLeft = (editTime, type) => {
   if (type === "public") {
     m = "Published about "
   }
-  console.log(editTime)
   const currentDate = new Date()
   const [date, time] = editTime.split("T")
   const [year, month, day] = date.split("-").map((element) => parseInt(element))
@@ -12,7 +11,6 @@ const getTimeLeft = (editTime, type) => {
     .slice(0, 8)
     .split(":")
     .map((element) => parseInt(element))
-  console.log(time)
 
   const yearDiff = currentDate.getUTCFullYear() - year
   if (yearDiff > 0) {
