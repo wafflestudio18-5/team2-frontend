@@ -132,3 +132,10 @@ export const getStory = async ({ page, title, tag }) => {
   const response = await axios.get("story/" + queryString)
   return response
 }
+
+export const deleteStoryStoryId = async (token, id) => {
+  // DELETE /story/{story_id}
+  const config = { headers: { Authorization: "Token " + token } }
+  const response = await axios.delete("story/" + id + "/", config)
+  return response
+}

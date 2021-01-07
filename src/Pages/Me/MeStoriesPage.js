@@ -9,6 +9,8 @@ import search from "../Main/Functions/search"
 import logout from "../Main/Functions/logout"
 import useIntersectionObserver from "../Search/Functions/useIntersectionObserver"
 import fetchStories from "./Functions/fetchStories"
+import deleteStory from "./Functions/deleteStory"
+import openActionButton from "./Functions/openActionButton"
 
 const MeStoriesPage = () => {
   const [cookie, , removeCookie] = useCookies(["auth"])
@@ -36,6 +38,10 @@ const MeStoriesPage = () => {
   const [fetching, setFetching] = useState(false)
   // check current page is end
   const [isEnd, setIsEnd] = useState(false)
+  // Action Menu가 열려있는지
+  const [isActionButtonOpen, setIsActionButtonOpen] = useState(false)
+  // action button을 눌렀을 때 버튼이 포함된 story id
+  const [selectedStoryId, setSelectedStoryId] = useState(-1)
 
   // refs
   // 현재 검색된 마지막 페이지
@@ -85,6 +91,17 @@ const MeStoriesPage = () => {
         signOut={() => logout(token, removeCookie)}
         history={history}
         stories={stories}
+        openActionButton={(id) => {
+          openActionButton(setIsActionButtonOpen, setSelectedStoryId, id)
+        }}
+        closeActionButton={() => {
+          setIsActionButtonOpen(false)
+        }}
+        isActionButtonOpen={isActionButtonOpen}
+        deleteStory={() => {
+          deleteStory(token, selectedStoryId)
+        }}
+        selectedStoryId={selectedStoryId}
       />
       <div ref={targetRef} />
     </div>
