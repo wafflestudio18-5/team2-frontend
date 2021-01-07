@@ -1,7 +1,7 @@
 import MeStories from "../../Components/MeStories"
 import { useEffect, useState } from "react"
 import { useCookies } from "react-cookie"
-import { useHistory } from "react-router-dom"
+import { useHistory, useLocation } from "react-router-dom"
 import getCurrentUser from "../Main/Functions/getCurrentUser"
 import onClickSearchButton from "../Main/Functions/onClickSearchButton"
 import onChangeSearchbox from "../Main/Functions/onChangeSearchbox"
@@ -12,7 +12,11 @@ const MeStiresDraft = () => {
   const [cookie, , removeCookie] = useCookies(["auth"])
   const token = cookie.auth
   const history = useHistory()
+  const type = useLocation().pathname.split("/")[2]
+  // drafts | public
+
   if (token === "" || token === undefined) {
+    // 로그인 하지 않았으면 main page로 redirect
     history.push("/")
   }
   // states
@@ -31,6 +35,7 @@ const MeStiresDraft = () => {
 
   return (
     <MeStories
+      type={type}
       user={user}
       isDropdownOpened={isDropdownOpened}
       openDropdown={() => setIsDropdownOpened(true)}

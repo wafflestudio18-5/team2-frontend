@@ -19,6 +19,13 @@ export const getUserMeAbout = async (token) => {
   return response
 }
 
+export const getUserMeStory = async (token, publish) => {
+  // GET /user/me/story/?publish=[true|false]
+  const config = { headers: { Authorization: "Token " + token } }
+  const response = await axios.get("user/me/story/?publish=" + publish, config)
+  return response
+}
+
 export const postUser = async (body) => {
   // POST /user/
   const response = await axios.post("user/", body)
