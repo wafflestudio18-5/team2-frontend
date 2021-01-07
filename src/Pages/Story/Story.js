@@ -102,7 +102,7 @@ const StoryPage = () => {
         if (Response.length > 0) {
             setFetching(true);
             page.current++;
-            fetchResponse(setResponse, setResponseNum, setIsEnd, story_id, page.current);
+            await fetchResponse(setResponse, setResponseNum, setIsEnd, story_id, page.current);
             setFetching(false);
         }
     }, [Response]);
@@ -111,13 +111,11 @@ const StoryPage = () => {
     useIntersectionObserver({
         target: targetRef.current,
         onIntersect: ([{ isIntersecting }]) => {
-            console.log(isIntersecting, fetching, isEnd)
             if (isIntersecting && !fetching && !isEnd) {
                 loadNextPage();
             }
         },
     });
-
 
 
     const { story_id } = useParams(); //이용해서 해당하는 유저, 스토리 가져오기

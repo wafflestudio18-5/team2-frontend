@@ -79,7 +79,8 @@ const Response = ({
                     setInputValue={setInputValue}
                     postResponse={postResponse}
                 />
-                <ResponseBlock Response={Response} me={me} deleteResponse={deleteResponse} targetRef={targetRef}/>
+                <ResponseBlock Response={Response} me={me} deleteResponse={deleteResponse}/>
+                <div ref={targetRef}/>
             </ResponseWrapper>
             <ResponseCloser IsOpen={IsOpen} onClick={() => setOpen(false)} />
         </ResponseModal>
