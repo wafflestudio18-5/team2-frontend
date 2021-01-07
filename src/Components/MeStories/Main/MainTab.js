@@ -43,7 +43,7 @@ const MainTab = ({ type }) => {
         </LinkBox>
         <LinkBox active={type === "public"}>
           <Link href="/me/stories/public" active={type === "public"}>
-            Publised
+            Published
           </Link>
         </LinkBox>
       </LinkWrapper>
