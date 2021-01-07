@@ -54,15 +54,14 @@ const UserName = styled.a`
 `;
 
 const UserInfoWrapper = styled.div`
-    margin-top: 36px;
     display: block;
+    margin-bottom: 7px;
 `;
 
 const UserInfoBlock = styled.div`
     align-items: center;
     display: flex;
     margin-bottom: -10px;
-    margin-top: -6px;
 `;
 
 const About = styled.a`
