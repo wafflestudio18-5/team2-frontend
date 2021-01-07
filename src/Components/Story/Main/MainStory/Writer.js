@@ -142,12 +142,8 @@ const Writer = ({userinfo, storyinfo}) => {
                         <WriterPicture src={profileimg} />
                     </a>
                     <WriterInfoBlock>
-                        <WriterNameBlock>
-                            <WriterName href={userinfo.url}>{userinfo.name}</WriterName>
-                        </WriterNameBlock>
-                        <DateAndTimeSpan>
-                            <DateAndTime href={storyinfo.url}>&nbsp;&nbsp;{changeDate(storyinfo.published_at+'')}</DateAndTime>
-                        </DateAndTimeSpan>
+                        <WriterName href={userinfo.url}>{userinfo.name}</WriterName>
+                        <DateAndTime href={storyinfo.url}>&nbsp;&nbsp;{changeDate(storyinfo.published_at+'')}</DateAndTime>
                     </WriterInfoBlock>
                 </WriterLeft>
             </WriterBlock>
