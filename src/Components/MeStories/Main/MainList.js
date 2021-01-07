@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import Color from "../../../Constants/Color"
+import getTimeLeft from "../../../Pages/Me/Functions/getTimeLeft"
 
 const MainListWrapper = styled.div`
   display: flex;
@@ -88,7 +89,7 @@ const MainList = ({ stories, type, openActionButton }) => {
             <Title href={link + story.id}>{story.title}</Title>
             <Subtitle href={link + story.id}>{story.subtitle}</Subtitle>
             <LastLine>
-              <Time>{story.updated_at}</Time>
+              <Time>{getTimeLeft(story.updated_at)}</Time>
               <ActionButton
                 onClick={(event) => {
                   openActionButton(event, story.id)
