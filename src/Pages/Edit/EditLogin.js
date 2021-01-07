@@ -35,7 +35,11 @@ const EditLoginPage = ({ token }) => {
   useEffect(() => {
     getCurrentUser(token, setUser)
     if (storyId !== "" && storyId !== undefined) {
-      getStory(storyId, setStory)
+      try {
+        getStory(storyId, setStory)
+      } catch {
+        history.push("/error")
+      }
       id.current = storyId
     }
   }, [token, storyId])
