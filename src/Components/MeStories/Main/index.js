@@ -38,12 +38,16 @@ const MainWrapper = styled.div`
   }
 `
 
-const Main = ({ stories, type, deleteStory }) => {
+const Main = ({ stories, type, openActionButton }) => {
   return (
     <MainWrapper>
       <MainHeader />
       <MainTab type={type} />
-      <MainList stories={stories} type={type} deleteStory={deleteStory} />
+      <MainList
+        stories={stories}
+        type={type}
+        openActionButton={openActionButton}
+      />
     </MainWrapper>
   )
 }
