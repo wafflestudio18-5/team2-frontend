@@ -78,7 +78,18 @@ const SubTitle = styled.h2`
 
 const MainStory = ( {story, userinfo, storyinfo, history} ) => {
     let article = []
-    story.forEach((section) => {
+    var title, subtitle, storylist
+    if(story[0] !== undefined){
+        title = story[0][0].detail.content
+        if(story[0][1].detail.content === storyinfo.subtitle)
+            subtitle = story[0][1].detail.content
+        else
+            subtitle = null
+        storylist = Array(story[0].slice(2)).concat(story.slice(1))
+    }
+    else
+        storylist = story
+    storylist.forEach((section) => {
         article.push(
             <Content section={section} />
         )
@@ -88,8 +99,8 @@ const MainStory = ( {story, userinfo, storyinfo, history} ) => {
             <MainWrapper>
                 <MainBlock>
                     <Blank />
-                    <Title>{storyinfo.title}</Title>
-                    <SubTitle>{storyinfo.subtitle}</SubTitle>
+                    <Title>{title}</Title>
+                    <SubTitle>{subtitle}</SubTitle>
                     <Writer userinfo={userinfo} storyinfo={storyinfo} history={history} />
                 </MainBlock>    
             </MainWrapper>
