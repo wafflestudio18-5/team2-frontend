@@ -2,7 +2,6 @@ import { getStory } from "../../../api"
 
 const fetchStories = async (searchWord, setStories, setIsEnd, page = 1) => {
   // story 검색 결과를 패치
-  console.log(page)
   try {
     const response = await getStory({ page, title: searchWord })
     setStories((stories) => {

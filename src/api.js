@@ -19,10 +19,13 @@ export const getUserMeAbout = async (token) => {
   return response
 }
 
-export const getUserMeStory = async (token, publish) => {
-  // GET /user/me/story/?publish=[true|false]
+export const getUserMeStory = async (token, publish, page) => {
+  // GET /user/me/story/?publish=[true|false]&page={page}
   const config = { headers: { Authorization: "Token " + token } }
-  const response = await axios.get("user/me/story/?publish=" + publish, config)
+  const response = await axios.get(
+    "user/me/story/?public=" + publish + "&page=" + page,
+    config
+  )
   return response
 }
 
