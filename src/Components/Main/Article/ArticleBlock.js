@@ -1,8 +1,7 @@
-import styled from 'styled-components';
+import styled, {css} from 'styled-components';
 import Color from '../../../Constants/Color';
 import changeDate from "../../../Pages/Main/Functions/changeDate"
 import default_profile_image from "../../../Images/default_profile_image.png"
-import default_featured_image from "../../../Images/default_featured_image.jpeg"
 
 const ArticleBlockStyle = styled.div`
     margin-bottom: 48px;
@@ -10,6 +9,7 @@ const ArticleBlockStyle = styled.div`
 `;
 
 const ArticleTextBlock = styled.div`
+    overflow: hidden;
     margin-right: 20px;
     width: 100%;
 `;
@@ -59,7 +59,7 @@ const ArticleBlockSubtitle = styled.p`
     width: 100%;
     cursor: pointer;
     max-height: 40px;
-    display: -webkit-box;
+    display: block;
     -webkit-line-clamp: 2;
     -webkit-box-orient: vertical;
     margin: 0;
@@ -99,6 +99,12 @@ const ArticleImageBlock = styled.img`
     height: 133px;
     vertical-align: middle;
     object-fit: cover;
+    ${(props) =>
+        props.src === '' &&
+        css`
+          display: none;
+        `}
+
     @media (max-width: 900px) and (min-width: 728px) {
         width: 172px;
         height: 129px;
@@ -110,7 +116,6 @@ const ArticleImageBlock = styled.img`
 `;
 const ArticleBlock = ({ article, history, key}) => {
     const profileimage = article.writer.profile_image==="" ? default_profile_image : article.writer.profile_image;
-    const featuredimage = article.featured_image==="" ? default_featured_image : article.featured_image;
     return (
         <ArticleBlockStyle>
             <ArticleTextBlock>
@@ -126,7 +131,7 @@ const ArticleBlock = ({ article, history, key}) => {
                     </ArticleBlockDateAndTime>
                 </ArticleBottomBlock>
             </ArticleTextBlock>
-            <ArticleImageBlock src={featuredimage} onClick={()=>{history.push("/story/"+article.id)}}/>
+            <ArticleImageBlock src={article.featured_image} onClick={()=>{history.push("/story/"+article.id)}}/>
         </ArticleBlockStyle>
     );
 };

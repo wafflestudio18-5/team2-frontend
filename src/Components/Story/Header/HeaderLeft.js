@@ -54,15 +54,14 @@ const UserName = styled.a`
 `;
 
 const UserInfoWrapper = styled.div`
-    margin-top: 36px;
     display: block;
+    margin-bottom: 7px;
 `;
 
 const UserInfoBlock = styled.div`
     align-items: center;
     display: flex;
     margin-bottom: -10px;
-    margin-top: -6px;
 `;
 
 const About = styled.a`
@@ -107,19 +106,23 @@ const FollowButton = styled.button`
     cursor: pointer;
 `;
 
+/*
+
+                        <FollowBlock>
+                            <FollowButton>Follow</FollowButton>
+                        </FollowBlock>
+*/
+
 const HeaderLeft = ( {userinfo} ) => {
     return (
         <HeaderLeftWrapper>
             <HeaderLeftBox>
                 <UserNameBlock>
-                    <UserName href={userinfo.url}>{userinfo.name}</UserName>
+                    <UserName href={"/user/"+userinfo.id}>{userinfo.name}</UserName>
                 </UserNameBlock>
                 <UserInfoWrapper>
                     <UserInfoBlock>
-                        <About href={userinfo.url.concat("/about")}>About</About>
-                        <FollowBlock>
-                            <FollowButton>Follow</FollowButton>
-                        </FollowBlock>
+                        <About href={"/user/"+userinfo.id+"/about"}>About</About>
                     </UserInfoBlock>
                 </UserInfoWrapper>
             </HeaderLeftBox>

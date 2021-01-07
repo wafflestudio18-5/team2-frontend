@@ -14,12 +14,17 @@ const Story = ({
     logged_in,
     me,
     response,
+    responseNum,
     ResponseOpen,
     setResponseOpen,
     ResponseInput,
     setResponseInput,
+    postResponse,
+    deleteResponse,
     InputValue,
     setInputValue,
+    targetRef,
+    history
 }) => {
     return (
         <StoryStyle>
@@ -31,9 +36,11 @@ const Story = ({
                 storyinfo={storyinfo}
                 userinfo={userinfo}
                 setOpen={setResponseOpen}
-                ResponseNum={response.length}
+                ResponseNum={responseNum}
+                history={history}
             />
             <Response
+                logged_in={logged_in}
                 IsOpen={ResponseOpen}
                 setOpen={setResponseOpen}
                 Response={response}
@@ -42,6 +49,10 @@ const Story = ({
                 setResponseInput={setResponseInput}
                 InputValue={InputValue}
                 setInputValue={setInputValue}
+                targetRef={targetRef}
+                ResponseNum={responseNum}
+                postResponse={postResponse}
+                deleteResponse={deleteResponse}
             />
         </StoryStyle>
     );
