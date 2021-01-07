@@ -1,5 +1,7 @@
 import styled from 'styled-components';
 import Color from '../../../../Constants/Color';
+import changeDate from '../../../../Pages/Main/Functions/changeDate';
+import default_profile_image from '../../../../Images/default_profile_image.png';
 
 const WriterWrapper = styled.div`
     margin-top: 32px;
@@ -25,6 +27,7 @@ const WriterPicture = styled.img`
     display: block;
     vertical-align: middle;
     margin: 0;
+    cursor: pointer;
 `;
 
 const WriterInfoBlock = styled.div`
@@ -37,6 +40,7 @@ const WriterInfoBlock = styled.div`
 const WriterNameBlock = styled.div`
     display: block;
     flex: 1;
+    line-height: 20px;
 `;
 
 const WriterName = styled.a`
@@ -61,6 +65,7 @@ const DateAndTime = styled.a`
     font-weight: 400;
     letter-spacing: 0.03em;
     margin: 0;
+    cursor: pointer;
 `;
 
 const WriterRight = styled.div`
@@ -99,23 +104,7 @@ const IconButtonAType = styled.a`
     cursor: pointer;
 `;
 
-const Writer = ({userinfo, storyinfo}) => {
-    return (
-        <WriterWrapper>
-            <WriterBlock>
-                <WriterLeft>
-                    <a href={userinfo.url}>
-                        <WriterPicture src={userinfo.img} />
-                    </a>
-                    <WriterInfoBlock>
-                        <WriterNameBlock>
-                            <WriterName href={userinfo.url}>{userinfo.name}</WriterName>
-                        </WriterNameBlock>
-                        <DateAndTimeSpan>
-                            <DateAndTime href={storyinfo.url}>&nbsp;&nbsp;{storyinfo.date}&nbsp;&middot;&nbsp;{storyinfo.time} read</DateAndTime>
-                        </DateAndTimeSpan>
-                    </WriterInfoBlock>
-                </WriterLeft>
+/*
                 <WriterRight>
                     <IconBlock>
                         <IconButtonStyle>
@@ -140,6 +129,31 @@ const Writer = ({userinfo, storyinfo}) => {
                         </IconButtonStyle>
                     </IconBlock>
                 </WriterRight>
+                */
+
+const Writer = ({ userinfo, storyinfo, history }) => {
+    var profileimg;
+    if (userinfo.profile_image === '') profileimg = default_profile_image;
+    else profileimg = userinfo.profile_image;
+    return (
+        <WriterWrapper>
+            <WriterBlock>
+                <WriterLeft>
+                    <WriterPicture
+                        src={profileimg}
+                        onClick={() => {history.push('/user/' + userinfo.id)}}
+                    />
+                    <WriterInfoBlock>
+                        <WriterNameBlock>
+                            <WriterName onClick={() => { history.push('/user/' + userinfo.id)}} >{userinfo.name}</WriterName>
+                        </WriterNameBlock>
+                        <DateAndTimeSpan>
+                            <DateAndTime onClick={() => {history.push('/story/' + storyinfo.id)}} >
+                                &nbsp;&nbsp;{changeDate(storyinfo.published_at + '')}
+                            </DateAndTime>
+                        </DateAndTimeSpan>
+                    </WriterInfoBlock>
+                </WriterLeft>
             </WriterBlock>
         </WriterWrapper>
     );

@@ -2,27 +2,16 @@ const StoryExample = [
   //각 글은 여러 section의 list로 이루어짐.
   [
     {
-      type: "image",
-      detail: {
-        size: "normal", 
-        imgsrc:
-          "https://miro.medium.com/max/2363/1*G7_pAKAKTmM9bjob5OSTDA.jpeg",
-        content: "normal", 
-      },
-    },
-  ],
-  [
-    {
       type: "paragraph",
       detail: {
-        content: "<a href='/main' color=#292929>This is Sample Text.</a> <em>This is Sample Text.</em> <strong>This is Sample Text.</strong> This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. ",
+        content: "Title ",
         emphasizing: "largest",
       }
     },
     {
       type: "paragraph",
       detail: {
-        content: "<a href='/main' color=#292929>This is Sample Text.</a> <em>This is Sample Text.</em> <strong>This is Sample Text.</strong> This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. This is Sample Text. ",
+        content: "asdf",
         emphasizing: "large",
       }
     },
@@ -34,6 +23,18 @@ const StoryExample = [
       }
     },
   ],
+  [
+    {
+      type: "image",
+      detail: {
+        size: "normal", 
+        imgsrc:
+          "https://miro.medium.com/max/2363/1*G7_pAKAKTmM9bjob5OSTDA.jpeg",
+        content: "normal", 
+      },
+    },
+  ],
+  
   [
     {
       type: "image",
