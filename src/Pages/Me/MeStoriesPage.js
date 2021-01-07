@@ -62,7 +62,7 @@ const MeStoriesPage = () => {
     if (stories.length > 0) {
       setFetching(true)
       page.current++
-      await fetchStories(token, type, setStories, setIsEnd, page)
+      await fetchStories(token, type, setStories, setIsEnd, page.current)
       setFetching(false)
     }
   }, [stories, token, type])
