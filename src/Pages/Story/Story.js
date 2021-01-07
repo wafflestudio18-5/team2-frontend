@@ -189,6 +189,7 @@ const StoryPage = () => {
                     InputValue={InputValue}
                     setInputValue={setInputValue}
                     targetRef={targetRef}
+                    history={history}
                 />
                 {modalShow && (
                     <AuthModalContainer

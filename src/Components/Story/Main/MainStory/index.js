@@ -76,7 +76,7 @@ const SubTitle = styled.h2`
     box-sizing: border-box;
 `
 
-const MainStory = ( {story, userinfo, storyinfo} ) => {
+const MainStory = ( {story, userinfo, storyinfo, history} ) => {
     let article = []
     story.forEach((section) => {
         article.push(
@@ -90,7 +90,7 @@ const MainStory = ( {story, userinfo, storyinfo} ) => {
                     <Blank />
                     <Title>{storyinfo.title}</Title>
                     <SubTitle>{storyinfo.subtitle}</SubTitle>
-                    <Writer userinfo={userinfo} storyinfo={storyinfo} />
+                    <Writer userinfo={userinfo} storyinfo={storyinfo} history={history} />
                 </MainBlock>    
             </MainWrapper>
             {article}

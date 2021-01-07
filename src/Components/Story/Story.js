@@ -23,7 +23,8 @@ const Story = ({
     deleteResponse,
     InputValue,
     setInputValue,
-    targetRef
+    targetRef,
+    history
 }) => {
     return (
         <StoryStyle>
@@ -36,6 +37,7 @@ const Story = ({
                 userinfo={userinfo}
                 setOpen={setResponseOpen}
                 ResponseNum={responseNum}
+                history={history}
             />
             <Response
                 logged_in={logged_in}

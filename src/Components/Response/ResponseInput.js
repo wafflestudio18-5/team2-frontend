@@ -165,7 +165,6 @@ const RespondButton = styled.button`
 `;
 
 const ResponseInput = ({ logged_in, responseInput, setResponseInput, me, InputValue, setInputValue, postResponse }) => {
-    console.log(responseInput);
     if (!responseInput || !logged_in) {
         return (
             <ResponseInputWrapper>

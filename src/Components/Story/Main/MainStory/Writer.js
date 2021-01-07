@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import Color from '../../../../Constants/Color';
-import changeDate from '../../../../Pages/Main/Functions/changeDate'
-import default_profile_image from '../../../../Images/default_profile_image.png'
+import changeDate from '../../../../Pages/Main/Functions/changeDate';
+import default_profile_image from '../../../../Images/default_profile_image.png';
 
 const WriterWrapper = styled.div`
     margin-top: 32px;
@@ -27,6 +27,7 @@ const WriterPicture = styled.img`
     display: block;
     vertical-align: middle;
     margin: 0;
+    cursor: pointer;
 `;
 
 const WriterInfoBlock = styled.div`
@@ -64,6 +65,7 @@ const DateAndTime = styled.a`
     font-weight: 400;
     letter-spacing: 0.03em;
     margin: 0;
+    cursor: pointer;
 `;
 
 const WriterRight = styled.div`
@@ -129,25 +131,26 @@ const IconButtonAType = styled.a`
                 </WriterRight>
                 */
 
-const Writer = ({userinfo, storyinfo}) => {
-    var profileimg
-    if(userinfo.profile_image === "")
-        profileimg = default_profile_image
-    else
-        profileimg = userinfo.profile_image
+const Writer = ({ userinfo, storyinfo, history }) => {
+    var profileimg;
+    if (userinfo.profile_image === '') profileimg = default_profile_image;
+    else profileimg = userinfo.profile_image;
     return (
         <WriterWrapper>
             <WriterBlock>
                 <WriterLeft>
-                    <a href={userinfo.url}>
-                        <WriterPicture src={profileimg} />
-                    </a>
+                    <WriterPicture
+                        src={profileimg}
+                        onClick={() => {history.push('/user/' + userinfo.id)}}
+                    />
                     <WriterInfoBlock>
                         <WriterNameBlock>
-                            <WriterName href={userinfo.url}>{userinfo.name}</WriterName>
+                            <WriterName onClick={() => { history.push('/user/' + userinfo.id)}} >{userinfo.name}</WriterName>
                         </WriterNameBlock>
                         <DateAndTimeSpan>
-                            <DateAndTime href={storyinfo.url}>&nbsp;&nbsp;{changeDate(storyinfo.published_at+'')}</DateAndTime>
+                            <DateAndTime onClick={() => {history.push('/story/' + storyinfo.id)}} >
+                                &nbsp;&nbsp;{changeDate(storyinfo.published_at + '')}
+                            </DateAndTime>
                         </DateAndTimeSpan>
                     </WriterInfoBlock>
                 </WriterLeft>
