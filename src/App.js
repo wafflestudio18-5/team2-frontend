@@ -21,7 +21,8 @@ function App() {
             component={routes.callback.component}
           />
           <Route path={routes.me.path} component={routes.me.component} />
-          <Redirect to={routes.main.path} />
+          <Route path={routes.error.path} component={routes.error.component} />
+          <Redirect to={routes.error.path} />
         </Switch>
       </BrowserRouter>
     </CookiesProvider>
