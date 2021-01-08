@@ -2,6 +2,17 @@ import Header from '../Story/Header';
 import Footer from '../Story/Main/Footer';
 import UserDropdown from '../MainLogin/UserDropdown';
 import Main from './Main'
+import styled from 'styled-components'
+
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`
+
+const InnerWrapper = styled.div`
+    flex: 1 0 auto;
+`
 
 const User = ({
     showModal,
@@ -21,7 +32,8 @@ const User = ({
     targetRef,
 }) => {
     return (
-        <div>
+        <Wrapper>
+            <InnerWrapper>
             <Header
                 showModal={showModal}
                 userinfo={userinfo}
@@ -34,9 +46,10 @@ const User = ({
                 openDropdown={openDropdown}
             />
             <Main reachScrollCheckPoint={reachScrollCheckPoint} userinfo={userinfo} targetRef={targetRef} UserStory={UserStory} />
-            <Footer />
             {isDropdownOpened && <UserDropdown user={me} signOut={signOut} hideDropdown={hideDropdown} />}
-        </div>
+            </InnerWrapper>
+            <Footer />
+        </Wrapper>
     );
 };
 

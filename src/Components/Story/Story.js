@@ -5,7 +5,15 @@ import Response from '../Response';
 import UserDropdown from "../MainLogin/UserDropdown"
 
 const StoryStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 `;
+
+const StoryWrapper = styled.div`
+    flex: 1 0 auto;
+`
+
 const Story = ({
     showModal,
     reachScrollCheckPoint,
@@ -40,6 +48,7 @@ const Story = ({
 }) => {
     return (
         <StoryStyle>
+            <StoryWrapper>
             <Header
                 showModal={showModal}
                 userinfo={userinfo}
@@ -51,6 +60,13 @@ const Story = ({
                 search={search}
                 openDropdown={openDropdown}
             />
+            {isDropdownOpened && (
+                <UserDropdown
+                  user={me}
+                  signOut={signOut}
+                  hideDropdown={hideDropdown}
+                />
+              )}
             <Main
                 reachScrollCheckPoint={reachScrollCheckPoint}
                 story={story}
@@ -80,13 +96,7 @@ const Story = ({
                 postResponse={postResponse}
                 deleteResponse={deleteResponse}
             />
-            {isDropdownOpened && (
-                <UserDropdown
-                  user={me}
-                  signOut={signOut}
-                  hideDropdown={hideDropdown}
-                />
-              )}
+            </StoryWrapper>
         </StoryStyle>
     );
 };
