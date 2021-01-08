@@ -6,9 +6,25 @@ const baseUrl = "https://api.wadium.shop/"
 axios.defaults.baseURL = baseUrl
 
 // user api
-export const getUser = async (username) => {
+export const getUser = async (username, page) => {
   // GET /user?username={username}
-  const response = await axios.get("user/?username=" + username)
+  const response = await axios.get(
+    "user/?username=" + username + "&page=" + page
+  )
+  return response
+}
+
+export const getUserMe = async (token) => {
+  // GET /user/me/
+  const config = { headers: { Authorization: "Token " + token } }
+  const response = await axios.get("user/me/", config)
+  return response
+}
+
+export const putUserMe = async (token, body) => {
+  /// PUT /user/me
+  const config = { headers: { Authorization: "Token " + token } }
+  const response = await axios.put("user/me/", body, config)
   return response
 }
 

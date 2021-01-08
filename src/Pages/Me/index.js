@@ -6,6 +6,11 @@ const MePage = () => {
     <Switch>
       <Route
         exact
+        path={routes.settings.path}
+        component={routes.settings.component}
+      />
+      <Route
+        exact
         path={routes.drafts.path}
         component={routes.drafts.component}
       />
