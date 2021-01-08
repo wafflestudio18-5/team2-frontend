@@ -35,7 +35,8 @@ const EditLoginPage = ({ token }) => {
   useEffect(() => {
     getCurrentUser(token, setUser)
     if (storyId !== "" && storyId !== undefined) {
-      getStory(storyId, setStory)
+      console.log(token)
+      getStory(storyId, setStory, token)
       id.current = storyId
     }
   }, [token, storyId])
