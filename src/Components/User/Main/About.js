@@ -22,7 +22,7 @@ const AboutWrapper = styled.div`
 
 const AboutBlock = styled.div`
     display: block;
-    margin-left: 50%;
+    margin-left: 30%;
     min-width: 0;
     max-width: 1192px;
     width: 100%;

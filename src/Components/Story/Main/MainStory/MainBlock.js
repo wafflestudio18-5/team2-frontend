@@ -19,6 +19,12 @@ const MainBlock = styled.div`
         props.marginzero &&
         css`
           margin: 0;
+          @media (max-width: 728px){
+            margin: 0;
+            }
+            @media (max-width: 904px) and (min-width: 728px){
+                margin: 0;
+            }
         `}
 `;
 

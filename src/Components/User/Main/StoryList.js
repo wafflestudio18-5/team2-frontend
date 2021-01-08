@@ -5,6 +5,12 @@ const StoryListStyle = styled.div`
     margin: 0 64px;
     max-width: 680px;
     width: 100%;
+    @media (max-width: 728px) {
+        margin: 0 24px;
+    }
+    @media (max-width: 904px) and (min-width: 728px) {
+        margin: 0 48px;
+    }
 `;
 
 const EmptyText = styled.h4`

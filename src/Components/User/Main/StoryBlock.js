@@ -53,6 +53,11 @@ const Title = styled.a`
     width: 100%;
     box-sizing: border-box;
     text-decoration: none;
+    @media (max-width: 728px) {
+        letter-spacing: 0;
+        line-height: 28px;
+        font-size: 22px;
+    }
 `;
 
 const SubTitle = styled.h2`
@@ -67,6 +72,10 @@ const SubTitle = styled.h2`
     font-weight: 400;
     width: 100%;
     box-sizing: border-box;
+    @media (max-width: 728px) {
+        line-height: 24px;
+        font-size: 18px;
+    }
 `;
 
 const ArticleWrapper = styled.div`
