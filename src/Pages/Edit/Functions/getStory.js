@@ -10,7 +10,7 @@ const getStory = async (id, setStory, token, userId, history) => {
     setStory(response.data.body)
     return response
   } catch (error) {
-    console.log(error.response.data)
+    history.push("/")
     return error
   }
 }
