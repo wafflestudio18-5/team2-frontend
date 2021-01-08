@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { keyframes } from "styled-components"
 import Color from "../../../Constants/Color"
 
 const Wrapper = styled.div`
@@ -67,10 +67,24 @@ const Button = styled.button`
   }
 `
 
+const fadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+`
+
 const ErrorMessage = styled.p`
   font-size: 14px;
   margin: 0;
   color: ${(props) => (props.errorStatus && Color.green) || Color.red};
+
+  &.run {
+    animation: 600ms cubic-bezier(0.25, 0.1, 0.25, 1) 0s 1 normal forwards
+      running ${fadeIn};
+  }
 `
 
 const Main = ({ userSpec, onChangeInput, save, errorMessage }) => {
@@ -119,7 +133,9 @@ const Main = ({ userSpec, onChangeInput, save, errorMessage }) => {
       </Block>
       <ButtonWrapper>
         <Button onClick={save}>Save</Button>
-        <ErrorMessage errorStatus={errorStatus}>{errorMessage}</ErrorMessage>
+        <ErrorMessage id="error" errorStatus={errorStatus}>
+          {errorMessage}
+        </ErrorMessage>
       </ButtonWrapper>
     </Wrapper>
   )
