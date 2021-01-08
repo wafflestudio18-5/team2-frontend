@@ -58,8 +58,8 @@ const UserPage = () => {
     useEffect(() => {
         setlogged_in(token !== undefined);
         getMe(token, setme);
-        getUserAbout(user_id, setuser, history);
         getUserStory(user_id, setStory, setIsEnd, history);
+        getUserAbout(user_id, setuser, history);
     }, [token]);
 
     const [InputValue, setInputValue] = useState('');
@@ -78,40 +78,42 @@ const UserPage = () => {
             setReachScrollCheckPoint(false);
         }
     });
-
-    return (
-        <div>
-            <User
-                showModal={modalType => showModal(modalType, setModalShow, setModalVisible, setModalType)}
-                userinfo={user}
-                logged_in={logged_in}
-                me={me}
-                InputValue={InputValue}
-                setInputValue={setInputValue}
-                history={history}
-                isSearchboxOpen={isSearchboxOpen}
-                onClickSearchButton={() =>
-                    onClickSearchButton(isSearchboxOpen, setIsSearchboxOpen, history)
-                }
-                onChangeSearchbox={(event) => onChangeSearchbox(event, setSearchValue)}
-                search={(event) => search(event, searchValue, history)}
-                isDropdownOpened={isDropdownOpened}
-                openDropdown={() => setIsDropdownOpened(true)}
-                hideDropdown={() => setIsDropdownOpened(false)}
-                signOut={() => logout(token, removeCookie)}
-                reachScrollCheckPoint={reachScrollCheckPoint}
-                UserStory={Story}
-                targetRef={targetRef}
-            />
-            {modalShow && (
-                <AuthModalContainer
-                    hideModal={() => hideModal(setModalVisible, setModalShow)}
-                    modalVisible={modalVisible}
-                    ModalType={ModalType}
+    if(user.id === null)
+        return(<div />)
+    else
+        return (
+            <div>
+                <User
+                    showModal={modalType => showModal(modalType, setModalShow, setModalVisible, setModalType)}
+                    userinfo={user}
+                    logged_in={logged_in}
+                    me={me}
+                    InputValue={InputValue}
+                    setInputValue={setInputValue}
+                    history={history}
+                    isSearchboxOpen={isSearchboxOpen}
+                    onClickSearchButton={() =>
+                        onClickSearchButton(isSearchboxOpen, setIsSearchboxOpen, history)
+                    }
+                    onChangeSearchbox={(event) => onChangeSearchbox(event, setSearchValue)}
+                    search={(event) => search(event, searchValue, history)}
+                    isDropdownOpened={isDropdownOpened}
+                    openDropdown={() => setIsDropdownOpened(true)}
+                    hideDropdown={() => setIsDropdownOpened(false)}
+                    signOut={() => logout(token, removeCookie)}
+                    reachScrollCheckPoint={reachScrollCheckPoint}
+                    UserStory={Story}
+                    targetRef={targetRef}
                 />
-            )}
-        </div>
-    );
+                {modalShow && (
+                    <AuthModalContainer
+                        hideModal={() => hideModal(setModalVisible, setModalShow)}
+                        modalVisible={modalVisible}
+                        ModalType={ModalType}
+                    />
+                )}
+            </div>
+        );
 };
 
 export default UserPage;

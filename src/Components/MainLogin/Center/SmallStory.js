@@ -1,7 +1,6 @@
 import styled from "styled-components"
 import SmallStoryNotLoaded from "./SmallStoryNotLoaded"
 import Color from "../../../Constants/Color"
-import default_featured_image from "../../../Images/default_featured_image.jpeg"
 import default_profile_image from "../../../Images/default_profile_image.png"
 import changeDate from "../../../Pages/Main/Functions/changeDate"
 
@@ -80,9 +79,6 @@ const SmallStory = ({ story }) => {
   let featured_image = story.featured_image
   if (profile_image === "") {
     profile_image = default_profile_image
-  }
-  if (featured_image === undefined) {
-    featured_image = default_featured_image
   }
   return (
     <SmallStoryStyle>
