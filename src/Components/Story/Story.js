@@ -4,7 +4,8 @@ import Main from './Main';
 import Response from '../Response';
 import UserDropdown from "../MainLogin/UserDropdown"
 
-const StoryStyle = styled.div``;
+const StoryStyle = styled.div`
+`;
 const Story = ({
     showModal,
     reachScrollCheckPoint,

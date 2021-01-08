@@ -5,6 +5,7 @@ const StoryListStyle = styled.div`
     margin: 0 64px;
     max-width: 680px;
     width: 100%;
+    min-height: 67vh;
     @media (max-width: 728px) {
         margin: 0 24px;
     }
@@ -39,7 +40,7 @@ const StoryList = ({ UserStory, targetRef }) => {
         return (
             <StoryListStyle>
                 <EmptyText>
-                    Have something to share?
+                    Have something to share?&nbsp;
                     <WriteText href="/edit">Write your first story</WriteText>
                 </EmptyText>
             </StoryListStyle>
