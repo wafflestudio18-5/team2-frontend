@@ -46,6 +46,11 @@ const Message = styled.p`
   margin-top: 4px;
 `
 
+const ButtonWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`
+
 const Button = styled.button`
   cursor: pointer;
   background: none;
@@ -54,6 +59,7 @@ const Button = styled.button`
   border: 1px solid ${Color.lightGray};
   color: ${Color.gray};
   border-radius: 4px;
+  margin-right: 20px;
 
   &:hover {
     border-color: ${Color.gray};
@@ -61,9 +67,14 @@ const Button = styled.button`
   }
 `
 
-const ErrorMessage = styled.p``
+const ErrorMessage = styled.p`
+  font-size: 14px;
+  margin: 0;
+  color: ${(props) => (props.errorStatus && Color.green) || Color.red};
+`
 
 const Main = ({ userSpec, onChangeInput, save, errorMessage }) => {
+  const errorStatus = errorMessage === "Saved"
   return (
     <Wrapper>
       <Block>
@@ -106,8 +117,10 @@ const Main = ({ userSpec, onChangeInput, save, errorMessage }) => {
           JPG, PNG or GIF.
         </Message>
       </Block>
-      <Button onClick={save}>Save</Button>
-      <ErrorMessage>{errorMessage}</ErrorMessage>
+      <ButtonWrapper>
+        <Button onClick={save}>Save</Button>
+        <ErrorMessage errorStatus={errorStatus}>{errorMessage}</ErrorMessage>
+      </ButtonWrapper>
     </Wrapper>
   )
 }
