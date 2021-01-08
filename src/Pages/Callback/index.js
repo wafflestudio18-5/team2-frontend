@@ -1,4 +1,4 @@
-import { Route } from "react-router-dom"
+import { Route, Redirect } from "react-router-dom"
 import { routes } from "./Routes"
 
 const CallbackPage = () => {
@@ -14,6 +14,12 @@ const CallbackPage = () => {
         path={routes.google.path}
         component={routes.google.component}
       />
+      <Route
+        exact
+        path={routes.facebook.path}
+        component={routes.facebook.component}
+      />
+      <Redirect to="/error" />
     </>
   )
 }
