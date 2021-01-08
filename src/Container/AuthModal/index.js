@@ -2,6 +2,7 @@ import AuthModal from "../../Components/AuthModal"
 import clickContinueButton from "./Functions/clickContinueButton"
 import changeModal from "./Functions/changeModal"
 import googleLogin from "./Functions/googleLogin"
+import facebookLogin from "./Functions/facebookLogin"
 import { useState } from "react"
 
 const AuthModalContainer = ({ hideModal, modalVisible, ModalType }) => {
@@ -37,6 +38,7 @@ const AuthModalContainer = ({ hideModal, modalVisible, ModalType }) => {
       alertWrongEmail={alertWrongEmail}
       email={email}
       googleLogin={googleLogin}
+      facebookLogin={facebookLogin}
     />
   )
 }

@@ -23,7 +23,13 @@ const ModalButtonStyle = styled.button`
   }
 `
 
-const ModalButton = ({ ModalType, Logo, changeModal, googleLogin }) => {
+const ModalButton = ({
+  ModalType,
+  Logo,
+  changeModal,
+  googleLogin,
+  facebookLogin,
+}) => {
   switch (Logo) {
     case "Google":
       return (
@@ -37,7 +43,7 @@ const ModalButton = ({ ModalType, Logo, changeModal, googleLogin }) => {
     case "Facebook":
       return (
         <ModalButtonStyle>
-          <Facebook />
+          <Facebook onClick={facebookLogin} />
           {ModalType === ModalTypeConstants.LOG_IN && "Sign in with " + Logo}
           {ModalType === ModalTypeConstants.SIGN_UP && "Sign up with " + Logo}
         </ModalButtonStyle>

@@ -103,6 +103,7 @@ const ModalTemplete = ({
   alertWrongEmail,
   email,
   googleLogin,
+  facebookLogin,
 }) => {
   return (
     <ModalTempleteStyle modalVisible={modalVisible}>
@@ -121,7 +122,11 @@ const ModalTemplete = ({
               ModalType={ModalType}
               googleLogin={googleLogin}
             />
-            <ModalButton Logo="Facebook" ModalType={ModalType} />
+            <ModalButton
+              Logo="Facebook"
+              ModalType={ModalType}
+              facebookLogin={facebookLogin}
+            />
             <ModalButton
               Logo="email"
               ModalType={ModalType}
