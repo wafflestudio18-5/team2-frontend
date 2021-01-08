@@ -6,6 +6,8 @@ import getCurrentUser from "../Main/Functions/getCurrentUser"
 import onClickSearchButton from "../Main/Functions/onClickSearchButton"
 import onChangeSearchbox from "../Main/Functions/onChangeSearchbox"
 import search from "../Main/Functions/search"
+import logout from "../Main/Functions/logout"
+import getUserSpec from "./Functions/getUserSpec"
 
 const MeSettingsPage = () => {
   const [cookie, , removeCookie] = useCookies(["auth"])
@@ -19,11 +21,18 @@ const MeSettingsPage = () => {
 
   useEffect(() => {
     getCurrentUser(token, setUser)
+    getUserSpec(token, setUserSpec)
   }, [token])
 
   // states
-  // user
+  // GET user/me/about/으로 가져온 user. header에 사용
   const [user, setUser] = useState({})
+  // GET user/me/로 가져온 user. main에 사용
+  const [userSpec, setUserSpec] = useState({
+    name: "",
+    bio: "",
+    profile_image: "",
+  })
   // 헤더의 검색창이 열려있는지 닫혀있는지
   const [isSearchboxOpen, setIsSearchboxOpen] = useState(false)
   // 검색창의 value
@@ -43,6 +52,8 @@ const MeSettingsPage = () => {
       }
       onChangeSearchbox={(event) => onChangeSearchbox(event, setSearchValue)}
       search={(event) => search(event, searchValue, history)}
+      signOut={() => logout(token, removeCookie)}
+      userSpec={userSpec}
     />
   )
 }

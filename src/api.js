@@ -12,10 +12,17 @@ export const getUser = async (username) => {
   return response
 }
 
+export const getUserMe = async (token) => {
+  // GET /user/me/
+  const config = { headers: { Authorization: "Token " + token } }
+  const response = await axios.get("user/me/", config)
+  return response
+}
+
 export const putUserMe = async (token, body) => {
   /// PUT /user/me
   const config = { headers: { Authorization: "Token " + token } }
-  const response = await axios.put("user/me/about/", body, config)
+  const response = await axios.put("user/me/", body, config)
   return response
 }
 
