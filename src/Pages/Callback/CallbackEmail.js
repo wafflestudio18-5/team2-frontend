@@ -47,6 +47,7 @@ const CallbackEmailPage = () => {
         break
 
       default:
+        history.push("/error")
         break
     }
   }, [queryStrings.operation, queryStrings.token, history, setCookie])

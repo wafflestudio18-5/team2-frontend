@@ -9,6 +9,9 @@ function App() {
       <BrowserRouter>
         <Fonts />
         <Switch>
+          <Route exact path="/">
+            <Redirect to={routes.main.path} />
+          </Route>
           <Route path={routes.story.path} component={routes.story.component} />
           <Route path={routes.main.path} component={routes.main.component} />
           <Route path={routes.edit.path} component={routes.edit.component} />
@@ -21,7 +24,8 @@ function App() {
             component={routes.callback.component}
           />
           <Route path={routes.me.path} component={routes.me.component} />
-          <Redirect to={routes.main.path} />
+          <Route path={routes.error.path} component={routes.error.component} />
+          <Redirect to={routes.error.path} />
         </Switch>
       </BrowserRouter>
     </CookiesProvider>
