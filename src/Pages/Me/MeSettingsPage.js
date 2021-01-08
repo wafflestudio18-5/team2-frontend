@@ -8,6 +8,7 @@ import onChangeSearchbox from "../Main/Functions/onChangeSearchbox"
 import search from "../Main/Functions/search"
 import logout from "../Main/Functions/logout"
 import getUserSpec from "./Functions/getUserSpec"
+import changeMyInfo from "./Functions/changeMyInfo"
 
 const MeSettingsPage = () => {
   const [cookie, , removeCookie] = useCookies(["auth"])
@@ -40,6 +41,16 @@ const MeSettingsPage = () => {
   // Dropdown 표시 여부
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
 
+  const onChangeInput = (event) => {
+    const { name, value } = event.target
+    setUserSpec((state) => {
+      return {
+        ...state,
+        [name]: value,
+      }
+    })
+  }
+
   return (
     <MeSettings
       user={user}
@@ -54,6 +65,12 @@ const MeSettingsPage = () => {
       search={(event) => search(event, searchValue, history)}
       signOut={() => logout(token, removeCookie)}
       userSpec={userSpec}
+      onChangeInput={onChangeInput}
+      save={() => {
+        changeMyInfo(token, userSpec, setUserSpec)
+        getCurrentUser(token, setUser)
+        getUserSpec(token, setUserSpec)
+      }}
     />
   )
 }

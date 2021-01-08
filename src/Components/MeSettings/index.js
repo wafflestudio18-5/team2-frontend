@@ -3,7 +3,11 @@ import Header from "./Header"
 import Main from "./Main"
 import UserDropdown from "../MainLogin/UserDropdown"
 
-const SettingsStyle = styled.div``
+const SettingsStyle = styled.div`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+`
 
 const MeSettings = ({
   user,
@@ -16,6 +20,8 @@ const MeSettings = ({
   onChangeSearchbox,
   search,
   userSpec,
+  onChangeInput,
+  save,
 }) => {
   return (
     <SettingsStyle>
@@ -27,7 +33,7 @@ const MeSettings = ({
         onChangeSearchbox={onChangeSearchbox}
         search={search}
       />
-      <Main userSpec={userSpec} />
+      <Main userSpec={userSpec} onChangeInput={onChangeInput} save={save} />
       {isDropdownOpened && (
         <UserDropdown
           user={user}
