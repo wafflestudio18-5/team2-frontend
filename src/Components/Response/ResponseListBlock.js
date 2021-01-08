@@ -12,7 +12,7 @@ const ResponseListBlock = ( {Response, me, deleteResponse} ) => {
         ResponseList.push(<ResponseComponent Response={response} me={me} deleteResponse={deleteResponse} />)
     });
     return(
-        <ResponseListWrapper class = "target">
+        <ResponseListWrapper>
             {ResponseList}
         </ResponseListWrapper>
     );
