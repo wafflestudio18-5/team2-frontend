@@ -25,7 +25,12 @@ const UserAboutPage = () => {
   const [me, setme] = useState({
     id: null,
   })
-  const [user, setuser] = useState({ id: null })
+  const [user, setuser] = useState({
+    name: "",
+    profile_image: "",
+    created_at: "",
+    bio: "",
+  })
   const [isSearchboxOpen, setIsSearchboxOpen] = useState(false)
   const [searchValue, setSearchValue] = useState("")
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
