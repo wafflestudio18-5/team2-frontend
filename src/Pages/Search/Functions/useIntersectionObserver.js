@@ -4,7 +4,7 @@ const useIntersectionObserver = ({
   target,
   onIntersect,
   threshold = 1,
-  rootMargin = "0px",
+  rootMargin = "1px",
 }) => {
   useEffect(() => {
     const observer = new IntersectionObserver(onIntersect, {

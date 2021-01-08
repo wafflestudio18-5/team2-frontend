@@ -22,7 +22,7 @@ const MainLoginPage = ({ token }) => {
   useEffect(() => {
     getCurrentUser(token, setUser)
     getMainTrending(true, setTrendingPosts, setCenterArticles, token)
-    fetchArticles(setArticle, setIsEnd);
+    fetchArticles(setArticle, setIsEnd, 1, token);
   }, [token])
 
   // states
@@ -47,7 +47,7 @@ const MainLoginPage = ({ token }) => {
       if (Article.length > 0) {
           setFetching(true);
           page.current++;
-          await fetchArticles(setArticle, setIsEnd, page.current);
+          await fetchArticles(setArticle, setIsEnd, page.current, token);
           setFetching(false);
       }
   }, [Article]);

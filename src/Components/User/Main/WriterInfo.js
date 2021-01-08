@@ -1,10 +1,23 @@
 import styled from "styled-components"
-import Color from "../../../../Constants/Color"
+import Color from "../../../Constants/Color"
+import default_profile_image from "../../../Images/default_profile_image.png"
 
 const WriterInfoBlock = styled.div`
   display: block;
   padding-bottom: 28px;
-  border-bottom: 1px solid ${Color.lightGray};
+`
+
+const UserImageBlock = styled.div`
+  max-width: 131px;
+  max-height: 131px;
+  margin-bottom: 32px;
+  overflow: hidden;
+  display: block;
+`
+
+const UserImage = styled.img`
+  vertical-align: middle;
+  width: 131px;
 `
 
 const WrittenBy = styled.p`
@@ -50,11 +63,18 @@ const UserInfo = styled.p`
 `
 
 const WriterInfo = ({ userinfo }) => {
+  var profile
+  if (userinfo.profile_image === "" || userinfo.profile_image === undefined)
+    profile = default_profile_image
+  else profile = userinfo.profile_image
   return (
     <WriterInfoBlock>
-      <WrittenBy>written by</WrittenBy>
+      <UserImageBlock>
+        <UserImage src={profile} />
+      </UserImageBlock>
+      <WrittenBy>About</WrittenBy>
       <UserNameBlock>
-        <UserName href={userinfo.url}>{userinfo.name}</UserName>
+        <UserName href={"/user/" + userinfo.id}>{userinfo.name}</UserName>
       </UserNameBlock>
       <UserInfoBlock>
         <UserInfo>{userinfo.bio}</UserInfo>
@@ -63,4 +83,4 @@ const WriterInfo = ({ userinfo }) => {
   )
 }
 
-export default WriterInfo;
+export default WriterInfo

@@ -27,22 +27,30 @@ const HeaderBlock = styled.div`
     flex-direction: row;
     align-items: center;
     padding: 0 64px;
-    @media (max-width: 728px){
+    @media (max-width: 728px) {
         padding: 0 24px;
         flex-direction: column;
     }
-    @media (max-width: 904px) and (min-width: 728px){
+    @media (max-width: 904px) and (min-width: 728px) {
         padding: 0 48px;
     }
 `;
 
-
-const Header = ({ showModal, userinfo, logged_in, me }) => {
+const Header = ({ showModal, userinfo, logged_in, me, isSearchboxOpen, onClickSearchButton, onChangeSearchbox, search, openDropdown }) => {
     return (
         <HeaderWrapper>
             <HeaderBlock>
                 <HeaderLeft userinfo={userinfo} />
-                <HeaderRight showModal={showModal} logged_in={logged_in} me={me} />
+                <HeaderRight
+                    showModal={showModal}
+                    logged_in={logged_in}
+                    me={me}
+                    isSearchboxOpen={isSearchboxOpen}
+                    onClickSearchButton={onClickSearchButton}
+                    onChangeSearchbox={onChangeSearchbox}
+                    search={search}
+                    openDropdown={openDropdown}
+                />
             </HeaderBlock>
         </HeaderWrapper>
     );
