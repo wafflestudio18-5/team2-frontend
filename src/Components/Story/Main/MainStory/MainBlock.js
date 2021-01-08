@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const MainBlock = styled.div`
     display: block;
@@ -15,6 +15,11 @@ const MainBlock = styled.div`
     @media (max-width: 904px) and (min-width: 728px){
         margin: 0 48px;
     }
+    ${(props) =>
+        props.marginzero &&
+        css`
+          margin: 0;
+        `}
 `;
 
 export default MainBlock;

@@ -10,7 +10,7 @@ const MainWrapper = styled.div`
     justify-content: center;
 `;
 
-const Content = ({ section }) => {
+const Content = ({ section, marginzero=false }) => {
     let contents = [];
     var isimage = false;
     section.forEach(content => {
@@ -40,7 +40,7 @@ const Content = ({ section }) => {
     }*/
     return (
         <MainWrapper>
-            <MainBlock>{contents}</MainBlock>
+            <MainBlock marginzero={marginzero}>{contents}</MainBlock>
         </MainWrapper>
     );
 };

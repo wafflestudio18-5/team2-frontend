@@ -40,10 +40,10 @@ const UserPage = () => {
         if (Story.length > 0) {
             setFetching(true);
             page.current++;
-            getUserStory(user_id, setStory, setIsEnd, page.current);
+            getUserStory(user_id, setStory, setIsEnd, history, page.current);
             setFetching(false);
         }
-    }, [Story, token]);
+    }, [Story, user_id]);
   
     useIntersectionObserver({
         target: targetRef.current,
@@ -59,7 +59,7 @@ const UserPage = () => {
         setlogged_in(token !== undefined);
         getMe(token, setme);
         getUserAbout(user_id, setuser, history);
-        getUserStory(user_id, setStory, setIsEnd);
+        getUserStory(user_id, setStory, setIsEnd, history);
     }, [token]);
 
     const [InputValue, setInputValue] = useState('');
