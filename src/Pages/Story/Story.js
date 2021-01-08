@@ -71,6 +71,7 @@ const StoryPage = () => {
     useIntersectionObserver({
         target: targetRef.current,
         onIntersect: ([{ isIntersecting }]) => {
+            console.log(isIntersecting, fetching, isEnd)
             if (isIntersecting && !fetching && !isEnd) {
                 loadNextPage();
             }
@@ -81,7 +82,6 @@ const StoryPage = () => {
 
     const [userinfo, setuserinfo] = useState(null);
     const [storyinfo, setstoryinfo] = useState(null);
-    const [tag, settag] = useState([]);
     const [me, setme] = useState({
         id: null,
     });
