@@ -12,6 +12,10 @@ import useIntersectionObserver from '../Search/Functions/useIntersectionObserver
 import fetchResponse from './Functions/fetchResponse';
 import postResponse from './Functions/postResponse';
 import deleteResponse from './Functions/deleteResponse';
+import onClickSearchButton from "../Main/Functions/onClickSearchButton"
+import onChangeSearchbox from "../Main/Functions/onChangeSearchbox"
+import search from "../Search/Functions/search"
+import logout from "../Main/Functions/logout"
 
 const StoryPage = () => {
 /*
@@ -54,6 +58,7 @@ const StoryPage = () => {
 */
     const history = useHistory();
     const token = useCookies(['auth'])[0].auth;
+    const removeCookie = useCookies(["auth"])[2]
     // AuthModal 화면 표시 여부 관리하는 state
     const [modalShow, setModalShow] = useState(false);
     const [logged_in, setlogged_in] = useState(false);
@@ -164,6 +169,12 @@ const StoryPage = () => {
     const [InputValue, setInputValue] = useState('');
     const [ResponseInput, setResponseInput] = useState(false);
     const [ResponseOpen, setResponseOpen] = useState(false);
+
+    
+    const [isSearchboxOpen, setIsSearchboxOpen] = useState(false)
+    const [searchValue, setSearchValue] = useState("")
+    const [isDropdownOpened, setIsDropdownOpened] = useState(false)
+
     if(userinfo === null || storyinfo === null)
         return(<div />)
     else
@@ -190,6 +201,16 @@ const StoryPage = () => {
                     setInputValue={setInputValue}
                     targetRef={targetRef}
                     history={history}
+                    isSearchboxOpen={isSearchboxOpen}
+                    onClickSearchButton={() =>
+                      onClickSearchButton(isSearchboxOpen, setIsSearchboxOpen, history)
+                    }
+                    onChangeSearchbox={(event) => onChangeSearchbox(event, setSearchValue)}
+                    search={(event) => search(event, searchValue, history)}
+                    isDropdownOpened={isDropdownOpened}
+                    openDropdown={() => setIsDropdownOpened(true)}
+                    hideDropdown={() => setIsDropdownOpened(false)}
+                    signOut={() => logout(token, removeCookie)}
                 />
                 {modalShow && (
                     <AuthModalContainer

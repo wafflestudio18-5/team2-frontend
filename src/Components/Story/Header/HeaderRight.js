@@ -2,7 +2,9 @@ import styled from 'styled-components';
 import Color from '../../../Constants/Color';
 import ModalTypeConstants from '../../../Constants/ModalTypeConstants';
 import { useHistory } from 'react-router-dom';
-import default_profile_image from '../../../Images/default_profile_image.png'
+import default_profile_image from '../../../Images/default_profile_image.png';
+import Search from '../../MainLogin/Header/Search';
+import UserProfile from '../../MainLogin/Header/UserProfile';
 
 const HeaderRightWrapper = styled.div`
     display: flex;
@@ -139,24 +141,7 @@ const UserIconBlock = styled.div`
         margin-left: 0px;
     }
 `;
-
-const HeaderRight = ({ showModal, logged_in, me }) => {
-    const history = useHistory();
-    var profile
-    if(me.profile_image === '')
-        profile = default_profile_image
-    else
-        profile = me.profile_image
-    if (logged_in) {
-        return (
-            <HeaderRightWrapper>
-                <HeaderRightBlock>
-                    <ButtonBlock>
-                        <Mobile>
-                            <Signin>Open in app</Signin>
-                        </Mobile>
-                    </ButtonBlock>
-                    <LoggedinBlock>
+/*
                         <SearchBlock>
                             <Button onClick={() => history.push('/search')}>
                                 <IconWrapper>
@@ -171,6 +156,30 @@ const HeaderRight = ({ showModal, logged_in, me }) => {
                                 <img src={profile} width="32px" height="32px" border-radius="50%" />
                             </Button>
                         </UserIconBlock>
+                        */
+
+const HeaderRight = ({ showModal, logged_in, me, isSearchboxOpen, onClickSearchButton, onChangeSearchbox, search, openDropdown }) => {
+    const history = useHistory();
+    var profile;
+    if (me.profile_image === '') profile = default_profile_image;
+    else profile = me.profile_image;
+    if (logged_in) {
+        return (
+            <HeaderRightWrapper>
+                <HeaderRightBlock>
+                    <ButtonBlock>
+                        <Mobile>
+                            <Signin>Open in app</Signin>
+                        </Mobile>
+                    </ButtonBlock>
+                    <LoggedinBlock>
+                        <Search
+                            isSearchboxOpen={isSearchboxOpen}
+                            onClickSearchButton={onClickSearchButton}
+                            onChangeSearchbox={onChangeSearchbox}
+                            search={search}
+                        />
+                        <UserProfile profileImage={profile} openDropdown={openDropdown} />
                     </LoggedinBlock>
                     <Logo href="/main">
                         <svg height="25px" viewBox="0 0 1043.63 592.71">
