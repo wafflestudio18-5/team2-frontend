@@ -49,18 +49,18 @@ const UserInfo = styled.p`
   margin: 0;
 `
 
-const WriterInfo = ({userinfo}) => {
-    return (
-        <WriterInfoBlock>
-            <WrittenBy>written by</WrittenBy>
-            <UserNameBlock>
-                <UserName href={'/user/'+userinfo.id}>{userinfo.name}</UserName>
-            </UserNameBlock>
-            <UserInfoBlock>
-                <UserInfo>{userinfo.userinfo}</UserInfo>
-            </UserInfoBlock>
-        </WriterInfoBlock>
-    );
-};
+const WriterInfo = ({ userinfo }) => {
+  return (
+    <WriterInfoBlock>
+      <WrittenBy>written by</WrittenBy>
+      <UserNameBlock>
+        <UserName href={userinfo.url}>{userinfo.name}</UserName>
+      </UserNameBlock>
+      <UserInfoBlock>
+        <UserInfo>{userinfo.bio}</UserInfo>
+      </UserInfoBlock>
+    </WriterInfoBlock>
+  )
+}
 
 export default WriterInfo;
