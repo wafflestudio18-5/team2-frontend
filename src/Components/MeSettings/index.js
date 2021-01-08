@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import Header from "./Header"
+import Main from "./Main"
 import UserDropdown from "../MainLogin/UserDropdown"
 
 const SettingsStyle = styled.div``
@@ -14,6 +15,7 @@ const MeSettings = ({
   onClickSearchButton,
   onChangeSearchbox,
   search,
+  userSpec,
 }) => {
   return (
     <SettingsStyle>
@@ -25,6 +27,7 @@ const MeSettings = ({
         onChangeSearchbox={onChangeSearchbox}
         search={search}
       />
+      <Main userSpec={userSpec} />
       {isDropdownOpened && (
         <UserDropdown
           user={user}
