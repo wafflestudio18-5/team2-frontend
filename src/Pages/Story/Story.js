@@ -16,6 +16,7 @@ import onClickSearchButton from '../Main/Functions/onClickSearchButton';
 import onChangeSearchbox from '../Main/Functions/onChangeSearchbox';
 import search from '../Search/Functions/search';
 import logout from '../Main/Functions/logout';
+import deleteStory from './Functions/deleteStory';
 
 const StoryPage = () => {
 
@@ -142,6 +143,8 @@ const StoryPage = () => {
                     openDropdown={() => setIsDropdownOpened(true)}
                     hideDropdown={() => setIsDropdownOpened(false)}
                     signOut={() => logout(token, removeCookie)}
+                    deleteStory={()=>deleteStory(token,story_id,history)}
+                    editStory={()=>history.push('/edit/'+story_id)}
                 />
                 {modalShow && (
                     <AuthModalContainer

@@ -34,6 +34,8 @@ const Story = ({
     signOut,
     isDropdownOpened,
     hideDropdown,
+    deleteStory,
+    editStory,
 }) => {
     return (
         <StoryStyle>
@@ -57,6 +59,9 @@ const Story = ({
                 setOpen={setResponseOpen}
                 ResponseNum={responseNum}
                 history={history}
+                deleteStory={deleteStory}
+                editStory={editStory}
+                me={me}
             />
             <Response
                 logged_in={logged_in}
