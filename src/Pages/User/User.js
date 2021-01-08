@@ -40,7 +40,7 @@ const UserPage = () => {
         if (Story.length > 0) {
             setFetching(true);
             page.current++;
-            getUserStory(user_id, setStory, setIsEnd, history, page.current);
+            await getUserStory(user_id, setStory, setIsEnd, history, page.current);
             setFetching(false);
         }
     }, [Story, user_id]);
