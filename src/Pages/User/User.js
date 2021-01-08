@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useHistory } from 'react-router-dom'
 import User from '../../Components/User';
 import hideModal from '../Story/Functions/hideModal';
 import showModal from '../Story/Functions/showModal';
@@ -10,6 +10,7 @@ import getMe from '../Story/Functions/getMe';
 import getUserAbout from './Functions/getUserAbout'
 
 const UserPage = () => {
+    const history = useHistory();
     const { user_id } = useParams();
     const token = useCookies(['auth'])[0].auth;
     const [modalShow, setModalShow] = useState(false);
@@ -23,7 +24,7 @@ const UserPage = () => {
     useEffect(() => {
         setlogged_in(token !== undefined);
         getMe(token, setme);
-        getUserAbout(user_id, setuser)
+        getUserAbout(user_id, setuser, history)
     }, [token]);
     return (
         <div>

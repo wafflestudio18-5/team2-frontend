@@ -5,6 +5,7 @@ import StoryPage from "./Pages/Story/Story"
 import SearchPage from "./Pages/Search"
 import MePage from "./Pages/Me"
 import UserPage from "./Pages/User"
+import ErrorPage from "./Pages/Error"
 
 const routes = {
   main: { path: "/main", component: MainPage },
@@ -14,5 +15,6 @@ const routes = {
   search: { path: "/search", component: SearchPage },
   me: { path: "/me", component: MePage },
   user: { path: "/user/:user_id", component: UserPage },
+  error: { path: "/error", component: ErrorPage },
 }
 export { routes }
