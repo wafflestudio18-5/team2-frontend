@@ -44,7 +44,7 @@ const UserPage = () => {
         let scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
         let scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
         let clientHeight = document.documentElement.clientHeight;
-        if (scrollTop >= 300 && scrollTop + clientHeight < scrollHeight - 10) {
+        if (scrollTop >= 100 && scrollTop + clientHeight < scrollHeight - 10) {
             setReachScrollCheckPoint(true);
         } else {
             setReachScrollCheckPoint(false);
