@@ -112,7 +112,7 @@ const StoryPage = () => {
                     story={story}
                     storyinfo={storyinfo}
                     userinfo={userinfo}
-                    tag={tag}
+                    tag={[]}
                     logged_in={logged_in}
                     me={me}
                     response={Response}
