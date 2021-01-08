@@ -1,16 +1,22 @@
 import { createGlobalStyle } from "styled-components"
 import Lora from "./Lora.ttf"
-import NotoSans from "./NotoSans.ttf"
+import NotoSansKR from "./NotoSansKR.otf"
+import NanumMyeongjo from "./NanumMyeongjo.ttf"
 
 const Fonts = createGlobalStyle`
     @font-face {
         font-family: 'Lora';
         src: url(${Lora});
     }
+    @font-face {
+        font-family: "Lora";
+        src: url(${NanumMyeongjo});
+        unicode-range: U+AC00-U+D7A3;
+    }
 
     @font-face {
         font-family: 'NotoSans';
-        src: url(${NotoSans});
+        src: url(${NotoSansKR});
     }
 `
 
