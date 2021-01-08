@@ -10,8 +10,7 @@ const changeMyInfo = async (token, body, setUser, setErrorMessage) => {
       document.getElementById("error").classList.remove("run")
     }, 600)
   } catch (error) {
-    console.log(error)
-    setErrorMessage(error.response.data)
+    setErrorMessage(JSON.stringify(error.response.data.profile_image))
   }
 }
 
