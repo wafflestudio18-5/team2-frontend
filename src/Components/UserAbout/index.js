@@ -4,7 +4,7 @@ import UserDropdown from "../MainLogin/UserDropdown"
 
 const Wrapper = styled.div``
 
-const UserAbout = (
+const UserAbout = ({
   showModal,
   userinfo,
   logged_in,
@@ -16,8 +16,8 @@ const UserAbout = (
   openDropdown,
   signOut,
   isDropdownOpened,
-  hideDropdown
-) => {
+  hideDropdown,
+}) => {
   return (
     <Wrapper>
       <Header
