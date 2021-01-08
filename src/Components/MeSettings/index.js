@@ -22,6 +22,7 @@ const MeSettings = ({
   userSpec,
   onChangeInput,
   save,
+  errorMessage,
 }) => {
   return (
     <SettingsStyle>
@@ -33,7 +34,12 @@ const MeSettings = ({
         onChangeSearchbox={onChangeSearchbox}
         search={search}
       />
-      <Main userSpec={userSpec} onChangeInput={onChangeInput} save={save} />
+      <Main
+        userSpec={userSpec}
+        onChangeInput={onChangeInput}
+        save={save}
+        errorMessage={errorMessage}
+      />
       {isDropdownOpened && (
         <UserDropdown
           user={user}

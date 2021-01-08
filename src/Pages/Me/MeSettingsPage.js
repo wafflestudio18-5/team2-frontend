@@ -9,6 +9,7 @@ import search from "../Main/Functions/search"
 import logout from "../Main/Functions/logout"
 import getUserSpec from "./Functions/getUserSpec"
 import changeMyInfo from "./Functions/changeMyInfo"
+import save from "./Functions/save"
 
 const MeSettingsPage = () => {
   const [cookie, , removeCookie] = useCookies(["auth"])
@@ -40,6 +41,8 @@ const MeSettingsPage = () => {
   const [searchValue, setSearchValue] = useState("")
   // Dropdown 표시 여부
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
+  // error message
+  const [errorMessage, setErrorMessage] = useState("")
 
   const onChangeInput = (event) => {
     const { name, value } = event.target
@@ -66,11 +69,8 @@ const MeSettingsPage = () => {
       signOut={() => logout(token, removeCookie)}
       userSpec={userSpec}
       onChangeInput={onChangeInput}
-      save={() => {
-        changeMyInfo(token, userSpec, setUserSpec)
-        getCurrentUser(token, setUser)
-        getUserSpec(token, setUserSpec)
-      }}
+      save={() => save(token, userSpec, setUserSpec, setUser, setErrorMessage)}
+      errorMessage={errorMessage}
     />
   )
 }
