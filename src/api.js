@@ -150,8 +150,13 @@ export const getStory = async ({ page, title, tag }) => {
 
 export const getStoryById = async (storyid, token = "") => {
   //GET /story/{story_id}
-  const config = { headers: { Authorization: "Token " + token } }
-  const response = await axios.get("story/" + storyid, config)
+  var response
+  if (token !== "") {
+    const config = { headers: { Authorization: "Token " + token } }
+    response = await axios.get("story/" + storyid, config)
+    return response
+  }
+  response = await axios.get("story/" + storyid)
   return response
 }
 
