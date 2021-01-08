@@ -146,32 +146,37 @@ export const getStory = async ({ page, title, tag }) => {
   queryString = queryString.slice(0, -1)
   const response = await axios.get("story/" + queryString)
   return response
-};
+}
 
-export const getStoryById = async (storyid) => {
+export const getStoryById = async (storyid, token = "") => {
   //GET /story/{story_id}
-  const response = await axios.get("story/" + storyid)
+  const config = { headers: { Authorization: "Token " + token } }
+  const response = await axios.get("story/" + storyid, config)
   return response
 }
 
 export const getResponse = async (storyid, pagenum) => {
   //GET /story/{story_id}/comment/?page={pagenum}
-  const response = await axios.get('story/'+storyid+'/comment/?page='+pagenum);
-  return response;
-};
-
+  const response = await axios.get(
+    "story/" + storyid + "/comment/?page=" + pagenum
+  )
+  return response
+}
 
 export const postComment = async (token, body, storyid) => {
   // POST /story/{story_id}/comment/
-
   const config = {
     headers: {
       Authorization: "Token " + token,
     },
   }
-  const response = await axios.post("story/"+storyid+"/comment/", body, config)
+  const response = await axios.post(
+    "story/" + storyid + "/comment/",
+    body,
+    config
+  )
   return response
-};
+}
 
 export const deleteComment = async (token, storyid, commentid) => {
   //DELETE /story/{story_id}/comment/?id={comment_id}
@@ -180,7 +185,10 @@ export const deleteComment = async (token, storyid, commentid) => {
       Authorization: "Token " + token,
     },
   }
-  const response = await axios.delete("story/"+storyid+"/comment/?id="+commentid,config)
+  const response = await axios.delete(
+    "story/" + storyid + "/comment/?id=" + commentid,
+    config
+  )
   return response
 }
 
