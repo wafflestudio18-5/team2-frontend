@@ -54,10 +54,9 @@ const StoryPage = () => {
 */
     const history = useHistory();
     const token = useCookies(['auth'])[0].auth;
-    const logged_in = token !== undefined;
     // AuthModal 화면 표시 여부 관리하는 state
     const [modalShow, setModalShow] = useState(false);
-
+    const [logged_in, setlogged_in] = useState(false);
     // AuthModal이 사라질 때 애니메이션을 실행시키기 위한 state.
     const [modalVisible, setModalVisible] = useState(false);
 
@@ -129,6 +128,7 @@ const StoryPage = () => {
     const [story, setstory] = useState([]);
 
     useEffect(() => {
+        setlogged_in(token !== undefined);
         getStory(story_id, setuserinfo, setstoryinfo, setstory, history);
         fetchResponse(setResponse, setResponseNum, setIsEnd, story_id);
         getMe(token, setme);
