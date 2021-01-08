@@ -6,9 +6,11 @@ const baseUrl = "https://api.wadium.shop/"
 axios.defaults.baseURL = baseUrl
 
 // user api
-export const getUser = async (username) => {
+export const getUser = async (username, page) => {
   // GET /user?username={username}
-  const response = await axios.get("user/?username=" + username)
+  const response = await axios.get(
+    "user/?username=" + username + "&page=" + page
+  )
   return response
 }
 

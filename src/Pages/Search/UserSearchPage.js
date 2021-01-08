@@ -2,7 +2,7 @@ import Search from "../../Components/Search"
 import AuthModalContainer from "../../Container/AuthModal"
 import { useCookies } from "react-cookie"
 import { useLocation, useHistory } from "react-router-dom"
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef, useCallback } from "react"
 import queryString from "query-string"
 import getCurrentUser from "../Main/Functions/getCurrentUser"
 import logout from "../Main/Functions/logout"
@@ -11,6 +11,7 @@ import hideModal from "../Main/Functions/hideModal"
 import fetchPeople from "./Functions/fetchPeople"
 import search from "./Functions/search"
 import onChangeInput from "./Functions/onChangeInput"
+import useIntersectionObserver from "./Functions/useIntersectionObserver"
 import ModalTypeConstants from "../../Constants/ModalTypeConstants"
 
 const StorySearchPage = () => {
@@ -34,6 +35,16 @@ const StorySearchPage = () => {
   const [modalVisible, setModalVisible] = useState(false)
   // modal type을 결정하는 state
   const [ModalType, setModalType] = useState(ModalTypeConstants.LOG_IN)
+  // request state
+  const [fetching, setFetching] = useState(false)
+  // check current page is end
+  const [isEnd, setIsEnd] = useState(false)
+
+  // refs
+  // 현재 검색된 마지막 페이지
+  const page = useRef(1)
+  // target
+  const targetRef = useRef(null)
 
   // 처음 서버로부터 검색 결과 받아옴
   useEffect(() => {
@@ -42,9 +53,29 @@ const StorySearchPage = () => {
     }
     if (searchWord !== undefined || searchWord !== "") {
       setPeople([])
-      fetchPeople(searchWord, setPeople)
+      fetchPeople(searchWord, setPeople, setIsEnd)
     }
   }, [searchWord, token])
+
+  // 다음 페이지 로드
+  const loadNextPage = useCallback(async () => {
+    if (people.length > 0) {
+      setFetching(true)
+      page.current++
+      await fetchPeople(searchWord, setPeople, setIsEnd, page.current)
+      setFetching(false)
+    }
+  }, [searchWord, people])
+
+  // 스크롤이 끝에 닿으면 다음 페이지 요청
+  useIntersectionObserver({
+    target: targetRef.current,
+    onIntersect: ([{ isIntersecting }]) => {
+      if (isIntersecting && !fetching && !isEnd) {
+        loadNextPage()
+      }
+    },
+  })
 
   // Modal이 떠있는 동안 scroll 고정
   useEffect(() => {
@@ -75,6 +106,7 @@ const StorySearchPage = () => {
           showModal(modalType, setModalShow, setModalVisible, setModalType)
         }
       />
+      <div ref={targetRef} />
       {modalShow && (
         <AuthModalContainer
           hideModal={() => hideModal(setModalVisible, setModalShow)}
