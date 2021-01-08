@@ -44,10 +44,11 @@ const UserPage = () => {
             setFetching(false);
         }
     }, [Story, user_id]);
-  
+
     useIntersectionObserver({
         target: targetRef.current,
         onIntersect: ([{ isIntersecting }]) => {
+            console.log(isIntersecting, fetching, isEnd)
             if (isIntersecting && !fetching && !isEnd) {
                 loadNextPage();
             }

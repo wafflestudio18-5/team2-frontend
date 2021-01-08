@@ -79,8 +79,7 @@ const Response = ({
                     setInputValue={setInputValue}
                     postResponse={postResponse}
                 />
-                <ResponseBlock Response={Response} me={me} deleteResponse={deleteResponse}/>
-                <div ref={targetRef}/>
+                <ResponseBlock Response={Response} me={me} deleteResponse={deleteResponse} targetRef={targetRef}/>
             </ResponseWrapper>
         </ResponseModal>
     );
