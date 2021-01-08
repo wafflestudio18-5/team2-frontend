@@ -1,6 +1,8 @@
 import styled from "styled-components"
 import Header from "../Story/Header"
 import UserDropdown from "../MainLogin/UserDropdown"
+import Footer from "../Story/Main/Footer"
+import Main from "./Main"
 
 const Wrapper = styled.div``
 
@@ -31,9 +33,11 @@ const UserAbout = ({
         search={search}
         openDropdown={openDropdown}
       />
+      <Main user={userinfo} />
       {isDropdownOpened && (
         <UserDropdown user={me} signOut={signOut} hideDropdown={hideDropdown} />
       )}
+      <Footer />
     </Wrapper>
   )
 }
