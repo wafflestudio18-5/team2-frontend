@@ -1,6 +1,5 @@
 const validateName = (name, setErrorMessage) => {
   const nameInput = document.getElementById("nameInput")
-  const nameTag = document.getElementById("nameTag")
   if (name.length === 0) {
     setErrorMessage((error) => {
       return {
@@ -25,11 +24,9 @@ const validateName = (name, setErrorMessage) => {
     })
     setTimeout(() => {
       nameInput.classList.add("run")
-      nameTag.classList.add("run")
     }, 1)
     setTimeout(() => {
       nameInput.classList.remove("run")
-      nameTag.classList.remove("run")
     }, 400)
     return false
   }

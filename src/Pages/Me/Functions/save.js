@@ -31,7 +31,9 @@ const save = (token, userSpec, setUserSpec, setUser, setErrorMessage) => {
     }, 600)
     return
   }
-  changeMyInfo(token, userSpec)
+  changeMyInfo(token, userSpec).catch((error) => {
+    console.log(error.response.status)
+  })
   getCurrentUser(token, setUser)
   setTimeout(() => {
     document.getElementById("error").classList.add("run")
