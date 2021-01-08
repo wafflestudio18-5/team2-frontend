@@ -43,7 +43,7 @@ const DropdownMain = ({ user, signOut }) => {
         <DropdownLink href="/me/stories">Stories</DropdownLink>
       </LinkLi>
       <LinkLi>
-        <DropdownLink href="me/settings">Settings</DropdownLink>
+        <DropdownLink href="/me/settings">Settings</DropdownLink>
       </LinkLi>
       <DividerLi>
         <DropdownDivider />
