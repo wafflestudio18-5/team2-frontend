@@ -1,14 +1,14 @@
-import Paragraph from './Paragraph';
-import Image from './Image';
-import MainBlock from './MainBlock';
-import StoryBlock from './StoryBlock';
-import styled from 'styled-components';
+import Paragraph from "./Paragraph"
+import Image from "./Image"
+import MainBlock from "./MainBlock"
+import StoryBlock from "./StoryBlock"
+import styled from "styled-components"
 
 const MainWrapper = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: center;
-`;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+`
 
 const Content = ({ section, marginzero=false }) => {
     let contents = [];
@@ -45,4 +45,4 @@ const Content = ({ section, marginzero=false }) => {
     );
 };
 
-export default Content;
+export default Content

@@ -7,129 +7,129 @@ import Search from '../../MainLogin/Header/Search';
 import UserProfile from '../../MainLogin/Header/UserProfile';
 
 const HeaderRightWrapper = styled.div`
-    display: flex;
-    flex-wrap: wrap;
-    flex: 0 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  flex: 0 0 auto;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: flex-end;
+  margin-bottom: -8px;
+  @media (max-width: 728px) {
+    background: white;
+    width: 100%;
+    order: 1;
+    height: 61px;
     box-sizing: border-box;
-    align-items: center;
-    justify-content: flex-end;
-    margin-bottom: -8px;
-    @media (max-width: 728px) {
-        background: white;
-        width: 100%;
-        order: 1;
-        height: 61px;
-        box-sizing: border-box;
-        border-bottom: 1px solid ${Color.lightGray};
-        justify-content: center;
-        z-index: 500;
-        position: fixed;
-        top: 0;
-    }
-`; //편의상 fixed로 두었습니다.(실제로는 내용이 같은 새로운 header 만들어서 특정 스크롤 지나면 위에서 새로운 header가 튀어나오는 방식 )
+    border-bottom: 1px solid ${Color.lightGray};
+    justify-content: center;
+    z-index: 500;
+    position: fixed;
+    top: 0;
+  }
+` //편의상 fixed로 두었습니다.(실제로는 내용이 같은 새로운 header 만들어서 특정 스크롤 지나면 위에서 새로운 header가 튀어나오는 방식 )
 
 const HeaderRightBlock = styled.div`
-    display: flex;
-    width: 100%;
-    @media (max-width: 728px) {
-        margin: 0 24px;
-    }
-`;
+  display: flex;
+  width: 100%;
+  @media (max-width: 728px) {
+    margin: 0 24px;
+  }
+`
 
 const ButtonBlock = styled.div`
-    display: flex;
-    flex: 1 0 auto;
-    flex-direction: row;
-    align-items: center;
-`;
+  display: flex;
+  flex: 1 0 auto;
+  flex-direction: row;
+  align-items: center;
+`
 
 const SigninBlock = styled.div`
-    display: flex;
-`;
+  display: flex;
+`
 
 const Signin = styled.a`
-    margin: 0;
-    padding: 0;
-    font-weight: 400;
-    font-family: sohne, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-size: 14px;
-    color: ${Color.green};
-    line-height: 20px;
-    cursor: pointer;
-`;
+  margin: 0;
+  padding: 0;
+  font-weight: 400;
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  color: ${Color.green};
+  line-height: 20px;
+  cursor: pointer;
+`
 const GetstartedBlock = styled.div`
-    display: block;
-    margin-top: -3px;
-    margin-left: 14px;
-    margin-bottom: -8px;
-    margin-right: 24px;
-    @media (max-width: 728px) {
-        margin-right: 14px;
-    }
-`;
+  display: block;
+  margin-top: -3px;
+  margin-left: 14px;
+  margin-bottom: -8px;
+  margin-right: 24px;
+  @media (max-width: 728px) {
+    margin-right: 14px;
+  }
+`
 
 const Getstarted = styled.button`
-    padding: 4px 12px 6px;
-    text-decoration: none;
-    display: inline-block;
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 4px;
-    border-color: ${Color.green};
-    font-size: 14px;
-    line-height: 20px;
-    font-family: sohne, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    font-weight: 400;
-    cursor: pointer;
-    color: ${Color.green};
-    background: 0;
-`;
+  padding: 4px 12px 6px;
+  text-decoration: none;
+  display: inline-block;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 4px;
+  border-color: ${Color.green};
+  font-size: 14px;
+  line-height: 20px;
+  font-family: sohne, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 400;
+  cursor: pointer;
+  color: ${Color.green};
+  background: 0;
+`
 
 const Logo = styled.a`
-    @media (max-width: 728px) {
-        align-item: flex-end;
-    }
-`;
+  @media (max-width: 728px) {
+    align-item: flex-end;
+  }
+`
 
 const Mobile = styled.div`
-    display: none;
-    @media (max-width: 728px) {
-        display: flex;
-    }
-`;
+  display: none;
+  @media (max-width: 728px) {
+    display: flex;
+  }
+`
 
 const LoggedinBlock = styled.div`
-    margin-right: 24px;
-    height: 32px;
-    align-items: center;
-    display: flex;
-    @media (max-width: 728px) {
-        margin-right: 0px;
-    }
-`;
+  margin-right: 24px;
+  height: 32px;
+  align-items: center;
+  display: flex;
+  @media (max-width: 728px) {
+    margin-right: 0px;
+  }
+`
 
 const SearchBlock = styled.div`
-    display: block;
-    margin-right: 10px;
-    margin-left: 8px;
-    @media (max-width: 728px) {
-        display: none;
-    }
-`;
+  display: block;
+  margin-right: 10px;
+  margin-left: 8px;
+  @media (max-width: 728px) {
+    display: none;
+  }
+`
 
 const Button = styled.button`
-    margin: 0;
-    padding: 0;
-    border: 0;
-    background: 0;
-    fill: ${Color.gray};
-    cursor: pointer;
-`;
+  margin: 0;
+  padding: 0;
+  border: 0;
+  background: 0;
+  fill: ${Color.gray};
+  cursor: pointer;
+`
 
 const IconWrapper = styled.div`
-    display: block;
-    padding: 4px;
-`;
+  display: block;
+  padding: 4px;
+`
 
 const UserIconBlock = styled.div`
     margin-right: 12px;
@@ -235,4 +235,4 @@ const HeaderRight = ({ showModal, logged_in, me, isSearchboxOpen, onClickSearchB
     }
 };
 
-export default HeaderRight;
+export default HeaderRight

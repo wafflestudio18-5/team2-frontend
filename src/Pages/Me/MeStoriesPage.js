@@ -24,6 +24,7 @@ const MeStoriesPage = () => {
     // 로그인 하지 않았으면 main page로 redirect
     history.push("/")
   }
+
   // states
   // user
   const [user, setUser] = useState({})

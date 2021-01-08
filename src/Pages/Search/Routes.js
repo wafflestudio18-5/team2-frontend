@@ -1,4 +1,3 @@
-import UserProfile from "../../Components/MainLogin/Header/UserProfile"
 import StorySearchPage from "./StorySearchPage"
 import UserSearchPage from "./UserSearchPage"
 
