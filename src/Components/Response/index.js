@@ -20,7 +20,6 @@ const ResponseCloser = styled.div`
     position: fixed;
     width: 100%;
     display: none;
-    z-index: 2;
     ${props =>
         props.IsOpen &&
         css`
@@ -34,7 +33,6 @@ const ResponseWrapper = styled.div`
     box-shadow: rgba(0, 0, 0, 0.15) 0px 4px 12px;
     left: 100%;
     background: white;
-    z-index: 3;
     width: 414px;
     top: 0px;
     height: 100%;
@@ -68,9 +66,11 @@ const Response = ({
 }) => {
     return (
         <ResponseModal>
+            <ResponseCloser IsOpen={IsOpen} onClick={() => setOpen(false)} />
             <ResponseWrapper IsOpen={IsOpen}>
                 <ResponseHeader ResponseNum={ResponseNum} setOpen={setOpen} />
                 <ResponseInput
+                    showModal={showModal}
                     logged_in={logged_in}
                     responseInput={responseInput}
                     setResponseInput={setResponseInput}
@@ -82,7 +82,6 @@ const Response = ({
                 <ResponseBlock Response={Response} me={me} deleteResponse={deleteResponse}/>
                 <div ref={targetRef}/>
             </ResponseWrapper>
-            <ResponseCloser IsOpen={IsOpen} onClick={() => setOpen(false)} />
         </ResponseModal>
     );
 };
