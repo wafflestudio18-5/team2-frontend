@@ -6,6 +6,12 @@ import validateBio from "./validateBio"
 import validatePhoto from "./validatePhoto"
 
 const save = (token, userSpec, setUserSpec, setUser, setErrorMessage) => {
+  setErrorMessage({
+    nameError: "",
+    bioError: "",
+    photoError: "",
+    generalError: "",
+  })
   if (
     !validateBio(userSpec.bio, setErrorMessage) ||
     !validateName(userSpec.name, setErrorMessage) ||
@@ -17,7 +23,9 @@ const save = (token, userSpec, setUserSpec, setUser, setErrorMessage) => {
         generalError: "Save failed",
       }
     })
-    document.getElementById("error").classList.add("run")
+    setTimeout(() => {
+      document.getElementById("error").classList.add("run")
+    }, 1)
     setTimeout(() => {
       document.getElementById("error").classList.remove("run")
     }, 600)
@@ -25,11 +33,19 @@ const save = (token, userSpec, setUserSpec, setUser, setErrorMessage) => {
   }
   changeMyInfo(token, userSpec)
   getCurrentUser(token, setUser)
-  document.getElementById("error").classList.add("run")
+  setTimeout(() => {
+    document.getElementById("error").classList.add("run")
+  }, 1)
   setTimeout(() => {
     document.getElementById("error").classList.remove("run")
   }, 600)
   getUserSpec(token, setUserSpec)
+  setErrorMessage((error) => {
+    return {
+      ...error,
+      generalError: "Saved",
+    }
+  })
 }
 
 export default save

@@ -1,6 +1,27 @@
 import styled, { keyframes } from "styled-components"
 import Color from "../../../Constants/Color"
 
+const shake = keyframes`
+  0% {
+   transform: translateX(3px); 
+  }
+  20% {
+    transform: translateX(-3px);
+  }
+  40% {
+    transform: translateX(3px);
+  }
+  60% {
+    transform: translateX(-3px);
+  }
+  80% {
+    transform: translateX(3px);
+  }
+  100% {
+    transform: translateX(-3px);
+  }
+`
+
 const Wrapper = styled.div`
   font-family: "Noto Sans";
   margin-top: 129px;
@@ -34,13 +55,26 @@ const Input = styled.input`
   outline: 0;
   width: 100%;
   max-width: 500px;
-  border-bottom: 1px solid ${Color.lightGray};
+  border-bottom: 1px solid;
+  border-color: ${(props) =>
+    (props.errorStatus && Color.lightGray) || Color.red};
   font-size: 18px;
   margin: 0;
+  &.run {
+    animation-fill-mode: forwards;
+    animation: 400ms ease 0s 1 normal none running ${shake};
+  }
 `
 
 const Message = styled.p`
   color: ${Color.gray};
+  font-size: 14px;
+  margin: 0;
+  margin-top: 4px;
+`
+
+const ErrorTag = styled.p`
+  color: ${Color.red};
   font-size: 14px;
   margin: 0;
   margin-top: 4px;
@@ -89,16 +123,19 @@ const ErrorMessage = styled.p`
 
 const Main = ({ userSpec, onChangeInput, save, errorMessage }) => {
   const { nameError, bioError, photoError, generalError } = errorMessage
-  const errorStatus = nameError === "" && bioError === "" && photoError === ""
+  const errorStatus = generalError === "Saved"
   return (
     <Wrapper>
       <Block>
         <InputTag>Name</InputTag>
         <Input
+          id="nameInput"
           defaultValue={userSpec.name}
           name="name"
           onChange={onChangeInput}
+          errorStatus={nameError === ""}
         />
+        <ErrorTag id="nameTag">{nameError}</ErrorTag>
         <Message>
           Your name appears on your Profile page, as your byline, and in your
           responses.
@@ -109,10 +146,13 @@ const Main = ({ userSpec, onChangeInput, save, errorMessage }) => {
       <Block>
         <InputTag>Bio</InputTag>
         <Input
+          id="bioInput"
           defaultValue={userSpec.bio}
           name="bio"
           onChange={onChangeInput}
+          errorStatus={bioError === ""}
         />
+        <ErrorTag id="bioTag">{bioError}</ErrorTag>
         <Message>
           Your bio appears on your Profile page. Max 140 characters.
         </Message>
@@ -120,10 +160,13 @@ const Main = ({ userSpec, onChangeInput, save, errorMessage }) => {
       <Block>
         <InputTag>Photo</InputTag>
         <Input
+          id="photoInput"
           defaultValue={userSpec.profile_image}
           name="profile_image"
           onChange={onChangeInput}
+          errorStatus={photoError === ""}
         />
+        <ErrorTag id="photoTag">{photoError}</ErrorTag>
         <Message>
           Your photo appears on your Profile page and with your stories across
           Wadium.

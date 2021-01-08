@@ -1,6 +1,6 @@
-import validateBio from "./validateName"
-
 const validatePhoto = (photo, setErrorMessage) => {
+  const photoInput = document.getElementById("photoInput")
+  const photoTag = document.getElementById("photoTag")
   var pattern = new RegExp(
     "^(https?:\\/\\/)?" +
       "((([a-z\\d]([a-z\\d-]*[a-z\\d])*)\\.)+[a-z]{2,}|" +
@@ -17,6 +17,12 @@ const validatePhoto = (photo, setErrorMessage) => {
         photoError: "Image url is invalid.",
       }
     })
+    setTimeout(() => {
+      photoInput.classList.add("run")
+    }, 1)
+    setTimeout(() => {
+      photoInput.classList.remove("run")
+    }, 400)
     return false
   }
   return true
