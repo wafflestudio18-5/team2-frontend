@@ -1,5 +1,4 @@
 const StoryExample = [
-  //각 글은 여러 section의 list로 이루어짐.
   [
     {
       type: "paragraph",

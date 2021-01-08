@@ -1,5 +1,4 @@
 const getTimeLeft = (editTime, type) => {
-  //2021-01-06T08:58:13.908146Z
   var m = "Last edited about "
   if (type === "public") {
     m = "Published about "

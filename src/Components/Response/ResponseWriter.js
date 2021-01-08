@@ -69,7 +69,6 @@ const Button = styled.button`
 
 const ResponseWriter = ({ Response, me, deleteResponse }) => {
     const Writer = Response.writer;
-    //var isedited = Response.created_at === Response.updated_at ? '' : '(edited)';
     var isedited = ''
     var profileimg
     if(Writer.profile_image === "")

@@ -16,7 +16,6 @@ const signUpCheck = async (
       req_type: "CHECK",
       access_token: token,
     })
-    // 성공 시 state 저장
     setEmail(response.data.email)
     setTokenStatus(TokenStatus.VALID)
     setUsername(response.data.username)
@@ -25,12 +24,10 @@ const signUpCheck = async (
     console.log(error)
     switch (error.response.status) {
       case 401:
-        // error code 401
         setTokenStatus(TokenStatus.INVALID)
         break
 
       case 404:
-        // error code 404
         break
 
       default:

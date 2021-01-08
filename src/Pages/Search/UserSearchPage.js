@@ -20,33 +20,19 @@ const StorySearchPage = () => {
   const token = cookie.auth
   const history = useHistory()
 
-  // states
-  // current user
   const [user, setUser] = useState(undefined)
-  // people 검색 결과
   const [people, setPeople] = useState([])
-  // 검색창 값
   const [inputValue, setInputValue] = useState(searchWord)
-  // dropdown 표시 여부
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
-  // AuthModal 화면 표시 여부 관리하는 state
   const [modalShow, setModalShow] = useState(false)
-  // AuthModal이 사라질 때 애니메이션을 실행시키기 위한 state.
   const [modalVisible, setModalVisible] = useState(false)
-  // modal type을 결정하는 state
   const [ModalType, setModalType] = useState(ModalTypeConstants.LOG_IN)
-  // request state
   const [fetching, setFetching] = useState(false)
-  // check current page is end
   const [isEnd, setIsEnd] = useState(false)
 
-  // refs
-  // 현재 검색된 마지막 페이지
   const page = useRef(1)
-  // target
   const targetRef = useRef(null)
 
-  // 처음 서버로부터 검색 결과 받아옴
   useEffect(() => {
     if (token !== undefined) {
       getCurrentUser(token, setUser)
@@ -57,7 +43,6 @@ const StorySearchPage = () => {
     }
   }, [searchWord, token])
 
-  // 다음 페이지 로드
   const loadNextPage = useCallback(async () => {
     if (people.length > 0) {
       setFetching(true)
@@ -67,7 +52,6 @@ const StorySearchPage = () => {
     }
   }, [searchWord, people])
 
-  // 스크롤이 끝에 닿으면 다음 페이지 요청
   useIntersectionObserver({
     target: targetRef.current,
     onIntersect: ([{ isIntersecting }]) => {
@@ -77,7 +61,6 @@ const StorySearchPage = () => {
     },
   })
 
-  // Modal이 떠있는 동안 scroll 고정
   useEffect(() => {
     if (modalVisible === true) {
       document.body.style.cssText = `overflow: hidden; top: -${window.scrollY}px`

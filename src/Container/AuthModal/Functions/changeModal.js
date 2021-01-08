@@ -6,7 +6,6 @@ const changeModal = (
   setAlertWrongEmail,
   changeToEmail
 ) => {
-  // modal의 종류를 바꾸는 함수
   if (modalType === ModalTypeConstants.EMAIL_LOG_IN) {
     setModalType(ModalTypeConstants.LOG_IN)
     setAlertWrongEmail(false)

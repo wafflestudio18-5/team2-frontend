@@ -14,20 +14,13 @@ const CallbackEmailPage = () => {
   const history = useHistory()
   const setCookie = useCookies(["auth"])[1]
 
-  //general state
   const [email, setEmail] = useState("")
-  // operation=register인 경우 email을 받아 페이지에 출력하기 위한 state
   const [tokenStatus, setTokenStatus] = useState(TokenStatus.NOT_EXIST)
-  // 토큰의 상태(유효한지 아닌지)
   const [input, setInput] = useState("")
-  // input field의 값
   const [alertInvalidInput, setAlertInvalidInput] = useState(false)
 
-  //operation=register인 경우 필요한 state
   const [access_token, setAccessToken] = useState("")
-  // POST /user/ check요청을 보내 받은 토큰
   const [username, setUsername] = useState("")
-  // POST /user/ check요청을 보내 받은 username
 
   useEffect(() => {
     switch (queryStrings.operation) {
@@ -53,7 +46,6 @@ const CallbackEmailPage = () => {
   }, [queryStrings.operation, queryStrings.token, history, setCookie])
 
   const onClickCreateButton = () => {
-    // 마지막 POST /user/ 요청을 보내는 함수
     if (input === "") {
       setAlertInvalidInput(true)
       runAnimationOnInvalidEmail()
@@ -71,8 +63,6 @@ const CallbackEmailPage = () => {
   }
 
   const onChangeInput = (event) => {
-    // input field의 값이 변경되면 state에 저장
-    // 토큰이 유효하면 이 값(full name)으로 sign up 요청을 보냄
     setInput(event.target.value)
   }
 

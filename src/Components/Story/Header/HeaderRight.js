@@ -26,8 +26,7 @@ const HeaderRightWrapper = styled.div`
     position: fixed;
     top: 0;
   }
-` //편의상 fixed로 두었습니다.(실제로는 내용이 같은 새로운 header 만들어서 특정 스크롤 지나면 위에서 새로운 header가 튀어나오는 방식 )
-
+`
 const HeaderRightBlock = styled.div`
   display: flex;
   width: 100%;
@@ -141,22 +140,6 @@ const UserIconBlock = styled.div`
         margin-left: 0px;
     }
 `;
-/*
-                        <SearchBlock>
-                            <Button onClick={() => history.push('/search')}>
-                                <IconWrapper>
-                                    <svg width="25" height="25" viewBox="0 0 25 25">
-                                        <path d="M20.07 18.93l-4.16-4.15a6 6 0 1 0-.88.88l4.15 4.16a.62.62 0 1 0 .89-.89zM6.5 11a4.75 4.75 0 1 1 9.5 0 4.75 4.75 0 0 1-9.5 0z"></path>
-                                    </svg>
-                                </IconWrapper>
-                            </Button>
-                        </SearchBlock>
-                        <UserIconBlock>
-                            <Button onClick={() => history.push('/me/stories')}>
-                                <img src={profile} width="32px" height="32px" border-radius="50%" />
-                            </Button>
-                        </UserIconBlock>
-                        */
 
 const HeaderRight = ({ showModal, logged_in, me, isSearchboxOpen, onClickSearchButton, onChangeSearchbox, search, openDropdown }) => {
     const history = useHistory();

@@ -11,9 +11,6 @@ import fetchArticles from './Functions/fetchArticles';
 import useIntersectionObserver from '../Search/Functions/useIntersectionObserver';
 
 const MainNotLoginPage = () => {
-    //로그인 하지 않았을 때 페이지
-
-    // 스크롤 될 때 header 색 변하는 로직
     const [reachScrollCheckPoint, setReachScrollCheckPoint] = useState(false);
     window.addEventListener('scroll', () => {
         let scrollLocation = document.documentElement.scrollTop;
@@ -25,15 +22,11 @@ const MainNotLoginPage = () => {
     });
 
     const [Article, setArticle] = useState([]);
-    // AuthModal 화면 표시 여부 관리하는 state
     const [modalShow, setModalShow] = useState(false);
-    // AuthModal이 사라질 때 애니메이션을 실행시키기 위한 state.
     const [modalVisible, setModalVisible] = useState(false);
-    // modal type을 결정하는 state
     const [ModalType, setModalType] = useState(ModalTypeConstants.LOG_IN);
     const [trendingPosts, setTrendingPosts] = useState([]);
 
-    // Modal이 떠있는 동안 scroll 고정
     useEffect(() => {
         if (modalVisible === true) {
             document.body.style.cssText = `overflow: hidden; top: -${window.scrollY}px`;
@@ -45,16 +38,11 @@ const MainNotLoginPage = () => {
         }
     }, [modalVisible]);
 
-    // request state
     const [fetching, setFetching] = useState(false);
-    // check current page is end
     const [isEnd, setIsEnd] = useState(false);
-    // 현재 검색된 마지막 페이지
     const page = useRef(1);
-    // target
     const targetRef = useRef(null);
 
-    // 다음 페이지 로드
     const loadNextPage = useCallback(async () => {
         if (Article.length > 0) {
             setFetching(true);
@@ -64,7 +52,6 @@ const MainNotLoginPage = () => {
         }
     }, [Article]);
 
-    // 스크롤이 끝에 닿으면 다음 페이지 요청
     useIntersectionObserver({
         target: targetRef.current,
         onIntersect: ([{ isIntersecting }]) => {

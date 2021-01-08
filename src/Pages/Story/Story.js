@@ -23,15 +23,12 @@ const StoryPage = () => {
     const history = useHistory();
     const token = useCookies(['auth'])[0].auth;
     const removeCookie = useCookies(['auth'])[2];
-    // AuthModal 화면 표시 여부 관리하는 state
     const [modalShow, setModalShow] = useState(false);
     const [logged_in, setlogged_in] = useState(false);
-    // AuthModal이 사라질 때 애니메이션을 실행시키기 위한 state.
     const [modalVisible, setModalVisible] = useState(false);
 
     const [ModalType, setModalType] = useState(ModalTypeConstants.LOG_IN);
 
-    // Modal이 떠있는 동안 scroll 고정
     useEffect(() => {
         if (modalVisible === true) {
             document.body.style.cssText = `overflow: hidden; top: -${window.scrollY}px`;
@@ -58,14 +55,10 @@ const StoryPage = () => {
     const [Response, setResponse] = useState([]);
     const [ResponseNum, setResponseNum] = useState(0);
     const [fetching, setFetching] = useState(false);
-    // check current page is end
     const [isEnd, setIsEnd] = useState(false);
-    // 현재 검색된 마지막 페이지
     const page = useRef(1);
-    // target
     const targetRef = useRef(null);
 
-    // 다음 페이지 로드
     const loadNextPage = useCallback(async () => {
         if (Response.length > 0) {
             setFetching(true);
@@ -75,7 +68,6 @@ const StoryPage = () => {
         }
     }, [Response]);
 
-    // 스크롤이 끝에 닿으면 다음 페이지 요청
     useIntersectionObserver({
         target: targetRef.current,
         onIntersect: ([{ isIntersecting }]) => {
@@ -85,7 +77,7 @@ const StoryPage = () => {
         },
     });
 
-    const { story_id } = useParams(); //이용해서 해당하는 유저, 스토리 가져오기
+    const { story_id } = useParams(); 
 
     const [userinfo, setuserinfo] = useState(null);
     const [storyinfo, setstoryinfo] = useState(null);

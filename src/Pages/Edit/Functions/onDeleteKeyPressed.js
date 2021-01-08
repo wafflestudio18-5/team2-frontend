@@ -2,13 +2,11 @@ import removeMultiSectionSelected from "./removeMultiSectionSelected"
 import getIdOfCaretPlaced from "./getIdOfCaretPlaced"
 
 const onDeleteKeyPressed = (event, story, setStory, setCaret) => {
-  // Delete 키가 눌렸을 때 실행
   let newStory = JSON.parse(JSON.stringify(story))
 
   if (window.getSelection().getRangeAt(0).collapsed) {
     const { id, backContent, offsetList } = getIdOfCaretPlaced()
     if (id === "main") {
-      // prevent error
       event.preventDefault()
       return
     }
