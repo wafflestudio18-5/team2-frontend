@@ -42,8 +42,8 @@ const ModalButton = ({
 
     case "Facebook":
       return (
-        <ModalButtonStyle>
-          <Facebook onClick={facebookLogin} />
+        <ModalButtonStyle onClick={facebookLogin}>
+          <Facebook />
           {ModalType === ModalTypeConstants.LOG_IN && "Sign in with " + Logo}
           {ModalType === ModalTypeConstants.SIGN_UP && "Sign up with " + Logo}
         </ModalButtonStyle>

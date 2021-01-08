@@ -63,7 +63,7 @@ export const getAccountsGoogleLoginCallback = async (queryString) => {
   return response
 }
 
-export const getAccountFacebookLogin = async () => {
+export const getAccountsFacebookLogin = async () => {
   // GET /accounts/facebook/login/
   const response = await axios.get("accounts/facebook/login/")
   return response
