@@ -1,6 +1,7 @@
 import Header from '../Story/Header';
 import Footer from '../Story/Main/Footer';
 import UserDropdown from '../MainLogin/UserDropdown';
+import Main from './Main'
 
 const User = ({
     showModal,
@@ -15,6 +16,7 @@ const User = ({
     signOut,
     isDropdownOpened,
     hideDropdown,
+    reachScrollCheckPoint,
 }) => {
     return (
         <div>
@@ -29,8 +31,9 @@ const User = ({
                 search={search}
                 openDropdown={openDropdown}
             />
-            {isDropdownOpened && <UserDropdown user={me} signOut={signOut} hideDropdown={hideDropdown} />}
+            <Main reachScrollCheckPoint={reachScrollCheckPoint} userinfo={userinfo} />
             <Footer />
+            {isDropdownOpened && <UserDropdown user={me} signOut={signOut} hideDropdown={hideDropdown} />}
         </div>
     );
 };

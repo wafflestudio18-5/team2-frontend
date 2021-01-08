@@ -1,11 +1,24 @@
 import styled from 'styled-components';
-import Color from '../../../../Constants/Color';
+import Color from '../../../Constants/Color';
+import default_profile_image from '../../../Images/default_profile_image.png'
 
 const WriterInfoBlock = styled.div`
     display: block;
     padding-bottom: 28px;
-    border-bottom: 1px solid ${Color.lightGray};
 `;
+
+const UserImageBlock = styled.div`
+    max-width: 131px;
+    max-height: 131px;
+    margin-bottom: 32px;
+    overflow: hidden;
+    display: block;
+`
+
+const UserImage = styled.img`
+    vertical-align: middle;
+    width: 131px;
+`
 
 const WrittenBy = styled.p`
     text-transform: uppercase;
@@ -49,30 +62,19 @@ const UserInfo = styled.p`
     margin: 0;
 `;
 
-const FollowBlock = styled.div`
-    display: block;
-    padding-top: 14px;
-`;
-
-const FollowButton = styled.button`
-    display: inline-block;
-    padding: 4px 12px 6px;
-    border-color: ${Color.gray};
-    color: ${Color.black};
-    text-decoration: none;
-    border-width: 1px;
-    border-radius: 4px;
-    background: 0;
-    line-height: 20px;
-    font-size: 14px;
-    font-family: sohne, 'Helvetica Neue', Helvetica, Arial, sans-serif;
-    cursor: pointer;
-`;
-
 const WriterInfo = ({userinfo}) => {
+    console.log(userinfo)
+    var profile
+    if(userinfo.profile_image === '' || userinfo.profile_image === undefined)
+        profile = default_profile_image
+    else
+        profile = userinfo.profile_image
     return (
         <WriterInfoBlock>
-            <WrittenBy>written by</WrittenBy>
+            <UserImageBlock>
+                <UserImage src={profile}/>
+            </UserImageBlock>
+            <WrittenBy>About</WrittenBy>
             <UserNameBlock>
                 <UserName href={'/user/'+userinfo.id}>{userinfo.name}</UserName>
             </UserNameBlock>

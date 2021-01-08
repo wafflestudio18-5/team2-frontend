@@ -34,12 +34,22 @@ const UserPage = () => {
     }, [token]);
 
     const [InputValue, setInputValue] = useState('');
-    const [ResponseInput, setResponseInput] = useState(false);
-    const [ResponseOpen, setResponseOpen] = useState(false);
 
     const [isSearchboxOpen, setIsSearchboxOpen] = useState(false);
     const [searchValue, setSearchValue] = useState('');
     const [isDropdownOpened, setIsDropdownOpened] = useState(false);
+
+    const [reachScrollCheckPoint, setReachScrollCheckPoint] = useState(false);
+    window.addEventListener('scroll', () => {
+        let scrollHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
+        let scrollTop = Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+        let clientHeight = document.documentElement.clientHeight;
+        if (scrollTop >= 300 && scrollTop + clientHeight < scrollHeight - 10) {
+            setReachScrollCheckPoint(true);
+        } else {
+            setReachScrollCheckPoint(false);
+        }
+    });
 
     return (
         <div>
@@ -48,14 +58,20 @@ const UserPage = () => {
                 userinfo={user}
                 logged_in={logged_in}
                 me={me}
+                InputValue={InputValue}
+                setInputValue={setInputValue}
+                history={history}
                 isSearchboxOpen={isSearchboxOpen}
-                onClickSearchButton={() => onClickSearchButton(isSearchboxOpen, setIsSearchboxOpen, history)}
-                onChangeSearchbox={event => onChangeSearchbox(event, setSearchValue)}
-                search={event => search(event, searchValue, history)}
+                onClickSearchButton={() =>
+                    onClickSearchButton(isSearchboxOpen, setIsSearchboxOpen, history)
+                }
+                onChangeSearchbox={(event) => onChangeSearchbox(event, setSearchValue)}
+                search={(event) => search(event, searchValue, history)}
                 isDropdownOpened={isDropdownOpened}
                 openDropdown={() => setIsDropdownOpened(true)}
                 hideDropdown={() => setIsDropdownOpened(false)}
                 signOut={() => logout(token, removeCookie)}
+                reachScrollCheckPoint={reachScrollCheckPoint}
             />
             {modalShow && (
                 <AuthModalContainer
