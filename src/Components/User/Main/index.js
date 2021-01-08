@@ -16,12 +16,12 @@ const StoryWrapper = styled.div`
     justify-content: center;
 `;
 
-const Main = ({ reachScrollCheckPoint, userinfo, targetRef, UserStory }) => {
+const Main = ({ reachScrollCheckPoint, userinfo, targetRef, UserStory, me }) => {
     return (
         <MainWrapper>
             <About reachScrollCheckPoint={reachScrollCheckPoint} userinfo={userinfo} />
             <StoryWrapper>
-                <StoryList UserStory={UserStory} targetRef={targetRef}/>
+                <StoryList UserStory={UserStory} targetRef={targetRef} me={me} userinfo={userinfo}/>
             </StoryWrapper>
         </MainWrapper>
     );
