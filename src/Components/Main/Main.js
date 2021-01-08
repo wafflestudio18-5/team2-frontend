@@ -2,7 +2,6 @@ import Header from "./Header"
 import Center from "./Center"
 import Trending from "./Trending"
 import Article from "./Article"
-import Topic from "./Topic"
 import Footer from "./Footer"
 import styled from "styled-components"
 import {
