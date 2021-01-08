@@ -114,7 +114,6 @@ const EditLoginPage = ({ token }) => {
         break
 
       case "Control":
-        console.log(JSON.stringify(story))
         break
 
       default:

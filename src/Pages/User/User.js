@@ -27,7 +27,7 @@ const UserPage = () => {
     const [me, setme] = useState({
         id: null,
     });
-    const [Story, setStory] = useState([]);
+    const [Story, setStory] = useState(null);
     const [user, setuser] = useState({ id: null });
 
 
@@ -58,8 +58,8 @@ const UserPage = () => {
     useEffect(() => {
         setlogged_in(token !== undefined);
         getMe(token, setme);
-        getUserStory(user_id, setStory, setIsEnd, history);
         getUserAbout(user_id, setuser, history);
+        getUserStory(user_id, setStory, setIsEnd, history);
     }, [token]);
 
     const [InputValue, setInputValue] = useState('');
@@ -78,8 +78,9 @@ const UserPage = () => {
             setReachScrollCheckPoint(false);
         }
     });
-    if(user.id === null)
-        return(<div />)
+
+    if(Story === null)
+        return (<div/>)
     else
         return (
             <div>
@@ -113,7 +114,7 @@ const UserPage = () => {
                     />
                 )}
             </div>
-        );
+    );
 };
 
 export default UserPage;
