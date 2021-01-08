@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import Color from '../../../Constants/Color';
 import ModalTypeConstants from '../../../Constants/ModalTypeConstants';
-import { useHistory } from 'react-router-dom';
 import default_profile_image from '../../../Images/default_profile_image.png';
 import Search from '../../MainLogin/Header/Search';
 import UserProfile from '../../MainLogin/Header/UserProfile';
@@ -107,42 +106,7 @@ const LoggedinBlock = styled.div`
   }
 `
 
-const SearchBlock = styled.div`
-  display: block;
-  margin-right: 10px;
-  margin-left: 8px;
-  @media (max-width: 728px) {
-    display: none;
-  }
-`
-
-const Button = styled.button`
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: 0;
-  fill: ${Color.gray};
-  cursor: pointer;
-`
-
-const IconWrapper = styled.div`
-  display: block;
-  padding: 4px;
-`
-
-const UserIconBlock = styled.div`
-    margin-right: 12px;
-    margin-left: 12px;
-    align-items: center;
-    display: flex;
-    @media (max-width: 728px) {
-        margin-right: 10px;
-        margin-left: 0px;
-    }
-`;
-
 const HeaderRight = ({ showModal, logged_in, me, isSearchboxOpen, onClickSearchButton, onChangeSearchbox, search, openDropdown }) => {
-    const history = useHistory();
     var profile;
     if (me.profile_image === '') profile = default_profile_image;
     else profile = me.profile_image;

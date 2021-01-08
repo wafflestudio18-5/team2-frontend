@@ -9,7 +9,6 @@ const fetchResponse = async (
 ) => {
   try {
     const response = await getResponse(storyid, page)
-    console.log(response.data)
     setResponseNum(response.data.count)
     setResponse((responses) => {
       return [...responses, ...response.data.comments]
