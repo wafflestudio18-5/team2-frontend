@@ -34,15 +34,22 @@ const EditLoginPage = ({ token }) => {
 
   useEffect(() => {
     getCurrentUser(token, setUser)
+  }, [token])
+
+  useEffect(() => {
     if (storyId !== "" && storyId !== undefined) {
+<<<<<<< HEAD
       try {
         getStory(storyId, setStory)
       } catch {
         history.push("/error")
       }
+=======
+      getStory(storyId, setStory, token, user.id, history)
+>>>>>>> master
       id.current = storyId
     }
-  }, [token, storyId])
+  }, [token, storyId, user, history])
 
   // 글 저장 관련
   const [saveStatus, setSaveStatus] = useState(SaveStatusConstants.INIT)
