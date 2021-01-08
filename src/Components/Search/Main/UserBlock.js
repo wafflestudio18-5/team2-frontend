@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import default_profile_image from "../../../Images/default_profile_image.png"
 import Color from "../../../Constants/Color"
+import getDate from "../../../Pages/Search/Functions/getDate"
 
 const UserBlockStyle = styled.div`
   padding-bottom: 18px;
@@ -64,7 +65,7 @@ const UserBlock = ({ user, first }) => {
       </a>
       <UserParagraph>
         <UserName href={"/user/" + id}>{name}</UserName>
-        {created_at && <UserDate>{created_at}</UserDate>}
+        {created_at && <UserDate>{getDate(created_at)}</UserDate>}
         {bio && <UserBio>{bio}</UserBio>}
       </UserParagraph>
     </UserBlockStyle>
