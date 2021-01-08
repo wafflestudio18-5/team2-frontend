@@ -1,16 +1,10 @@
 import { putUserMe } from "../../../api"
 
-const changeMyInfo = async (token, body, setUser, setErrorMessage) => {
+const changeMyInfo = async (token, body) => {
   try {
-    const response = await putUserMe(token, body)
-    setUser(response.data)
-    document.getElementById("error").classList.add("run")
-    setErrorMessage("Saved")
-    setTimeout(() => {
-      document.getElementById("error").classList.remove("run")
-    }, 600)
+    await putUserMe(token, body)
   } catch (error) {
-    setErrorMessage(JSON.stringify(error.response.data.profile_image))
+    console.log(error.response.data)
   }
 }
 

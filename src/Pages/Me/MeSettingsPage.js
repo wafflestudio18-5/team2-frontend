@@ -8,7 +8,6 @@ import onChangeSearchbox from "../Main/Functions/onChangeSearchbox"
 import search from "../Main/Functions/search"
 import logout from "../Main/Functions/logout"
 import getUserSpec from "./Functions/getUserSpec"
-import changeMyInfo from "./Functions/changeMyInfo"
 import save from "./Functions/save"
 
 const MeSettingsPage = () => {
@@ -42,7 +41,12 @@ const MeSettingsPage = () => {
   // Dropdown 표시 여부
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
   // error message
-  const [errorMessage, setErrorMessage] = useState("")
+  const [errorMessage, setErrorMessage] = useState({
+    nameError: "",
+    bioError: "",
+    photoError: "",
+    generalError: "",
+  })
 
   const onChangeInput = (event) => {
     const { name, value } = event.target

@@ -88,7 +88,8 @@ const ErrorMessage = styled.p`
 `
 
 const Main = ({ userSpec, onChangeInput, save, errorMessage }) => {
-  const errorStatus = errorMessage === "Saved"
+  const { nameError, bioError, photoError, generalError } = errorMessage
+  const errorStatus = nameError === "" && bioError === "" && photoError === ""
   return (
     <Wrapper>
       <Block>
@@ -113,7 +114,7 @@ const Main = ({ userSpec, onChangeInput, save, errorMessage }) => {
           onChange={onChangeInput}
         />
         <Message>
-          Your bio appears on your Profile page. Max 160 characters.
+          Your bio appears on your Profile page. Max 140 characters.
         </Message>
       </Block>
       <Block>
@@ -134,7 +135,7 @@ const Main = ({ userSpec, onChangeInput, save, errorMessage }) => {
       <ButtonWrapper>
         <Button onClick={save}>Save</Button>
         <ErrorMessage id="error" errorStatus={errorStatus}>
-          {errorMessage}
+          {generalError}
         </ErrorMessage>
       </ButtonWrapper>
     </Wrapper>
