@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { useParams } from 'react-router-dom'
 import User from '../../Components/User';
 import hideModal from '../Story/Functions/hideModal';
 import showModal from '../Story/Functions/showModal';
@@ -6,8 +7,10 @@ import ModalTypeConstants from '../../Constants/ModalTypeConstants';
 import AuthModalContainer from '../../Container/AuthModal';
 import { useCookies } from 'react-cookie';
 import getMe from '../Story/Functions/getMe';
+import getUserAbout from './Functions/getUserAbout'
 
 const UserPage = () => {
+    const { user_id } = useParams();
     const token = useCookies(['auth'])[0].auth;
     const [modalShow, setModalShow] = useState(false);
     const [modalVisible, setModalVisible] = useState(false);
@@ -16,21 +19,17 @@ const UserPage = () => {
     const [me, setme] = useState({
         id: null,
     });
-    const userinfo = {
-        img: 'https://miro.medium.com/fit/c/56/56/1*dmbNkD5D-u45r44go_cf0g.png',
-        name: 'UserName',
-        userinfo: 'UserInfo',
-        url: '/user/0',
-    };
+    const [user, setuser] = useState({id:null});
     useEffect(() => {
         setlogged_in(token !== undefined);
         getMe(token, setme);
+        getUserAbout(user_id, setuser)
     }, [token]);
     return (
         <div>
             <User
                 showModal={modalType => showModal(modalType, setModalShow, setModalVisible, setModalType)}
-                userinfo={userinfo}
+                userinfo={user}
                 logged_in={logged_in}
                 me={me}
             />

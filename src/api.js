@@ -29,6 +29,11 @@ export const getUserMeStory = async (token, publish, page) => {
   return response
 }
 
+export const getUserUseridAbout = async (userid) => {
+  const response = await axios.get("user/"+userid+"/about")
+  return response
+}
+
 export const postUser = async (body) => {
   // POST /user/
   const response = await axios.post("user/", body)
