@@ -138,14 +138,14 @@ export const getStoryTrending = async (token) => {
   return response
 }
 
-export const getStoryPage = async (token, pagenum) => {
+export const getStoryPage = async (token, page) => {
   // GET /story/?page={page_number}
   var response
   if (token === "") {
-    response = await axios.get("story/", { params: { page: pagenum } })
+    response = await axios.get("story/?page="+page)
   } else {
     const config = { headers: { Authorization: "Token " + token } }
-    response = await axios.get("story/", { params: { page: pagenum } }, config)
+    response = await axios.get("story/?page="+page, {}, config)
   }
   return response
 }
