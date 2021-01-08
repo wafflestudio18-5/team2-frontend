@@ -45,6 +45,11 @@ export const getUserMeStory = async (token, publish, page) => {
   return response
 }
 
+export const getUserUseridAbout = async (userid) => {
+  const response = await axios.get("user/"+userid+"/about")
+  return response
+}
+
 export const postUser = async (body) => {
   // POST /user/
   const response = await axios.post("user/", body)
@@ -149,14 +154,14 @@ export const getStoryTrending = async (token) => {
   return response
 }
 
-export const getStoryPage = async (token, pagenum) => {
+export const getStoryPage = async (token, page) => {
   // GET /story/?page={page_number}
   var response
   if (token === "") {
-    response = await axios.get("story/", { params: { page: pagenum } })
+    response = await axios.get("story/?page="+page)
   } else {
     const config = { headers: { Authorization: "Token " + token } }
-    response = await axios.get("story/", { params: { page: pagenum } }, config)
+    response = await axios.get("story/?page="+page, {}, config)
   }
   return response
 }
@@ -231,5 +236,10 @@ export const deleteStoryStoryId = async (token, id) => {
   // DELETE /story/{story_id}
   const config = { headers: { Authorization: "Token " + token } }
   const response = await axios.delete("story/" + id + "/", config)
+  return response
+}
+
+export const getUserUseridStory = async (id, pagenum) => {
+  const response = await axios.get("user/"+id+"/story/?page="+pagenum)
   return response
 }

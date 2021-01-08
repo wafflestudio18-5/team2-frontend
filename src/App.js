@@ -24,6 +24,7 @@ function App() {
             component={routes.callback.component}
           />
           <Route path={routes.me.path} component={routes.me.component} />
+          <Route path={routes.user.path} component={routes.user.component} />
           <Route path={routes.error.path} component={routes.error.component} />
           <Redirect to={routes.error.path} />
         </Switch>
