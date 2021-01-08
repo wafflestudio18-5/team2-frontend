@@ -63,7 +63,6 @@ const UserInfo = styled.p`
 `;
 
 const WriterInfo = ({userinfo}) => {
-    console.log(userinfo)
     var profile
     if(userinfo.profile_image === '' || userinfo.profile_image === undefined)
         profile = default_profile_image
