@@ -22,16 +22,16 @@ const HeaderContent = styled.div`
 `
 
 const Header = ({ user, status, publish, openDropdown }) => {
-  let profileUrl = user.imageUrl
-  if (profileUrl === "" || profileUrl === undefined) {
-    profileUrl = default_profile_image
+  let profile_image = user.profile_image
+  if (profile_image === "" || profile_image === undefined) {
+    profile_image = default_profile_image
   }
   return (
     <HeaderWrapper>
       <HeaderContent>
         <HeaderLeft userName={user.name} status={status} />
         <HeaderRight
-          profileUrl={profileUrl}
+          profileUrl={profile_image}
           publish={publish}
           openDropdown={openDropdown}
         />

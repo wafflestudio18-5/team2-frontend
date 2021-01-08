@@ -1,5 +1,4 @@
 import styled from "styled-components"
-import default_profile_image from "../../../Images/default_profile_image.png"
 
 const ButtonStyle = styled.button`
   margin: 0;
@@ -17,13 +16,9 @@ const ProfileImage = styled.img`
 `
 
 const UserProfile = ({ profileImage, openDropdown }) => {
-  let profileImageUrl = profileImage
-  if (profileImage === "") {
-    profileImageUrl = default_profile_image
-  }
   return (
     <ButtonStyle id="userProfile" onClick={openDropdown}>
-      <ProfileImage src={profileImageUrl} />
+      <ProfileImage src={profileImage} />
     </ButtonStyle>
   )
 }

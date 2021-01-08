@@ -15,12 +15,12 @@ const HeaderRight = ({ user, openDropdown, showModal }) => {
       </Wrapper>
     )
   } else {
-    let { profileImage } = user
-    if (profileImage === "" || profileImage === undefined) {
-      profileImage = default_profile_image
+    let { profile_image } = user
+    if (profile_image === "" || profile_image === undefined) {
+      profile_image = default_profile_image
     }
     return (
-      <UserProfile profileImage={profileImage} openDropdown={openDropdown} />
+      <UserProfile profileImage={profile_image} openDropdown={openDropdown} />
     )
   }
 }
