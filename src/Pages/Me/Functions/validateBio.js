@@ -1,6 +1,5 @@
 const validateBio = (bio, setErrorMessage) => {
   const bioInput = document.getElementById("bioInput")
-  const bioTag = document.getElementById("bioTag")
   if (bio.length > 300) {
     setErrorMessage((error) => {
       return {
