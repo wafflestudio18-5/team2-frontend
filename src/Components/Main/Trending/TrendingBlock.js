@@ -39,7 +39,7 @@ const TrendingBlockNumber = styled.p`
   position: relative;
 `
 
-const TrendingBlockWriter = styled.div`
+const TrendingBlockWriter = styled.a`
   margin-bottom: 8px;
   display: flex;
   align-items: center;
@@ -47,6 +47,7 @@ const TrendingBlockWriter = styled.div`
   line-height: 16px;
   color: ${Color.borderBlack};
   font-weight: 500;
+  text-decoration: none;
 `
 
 const TrendingBlockProfile = styled.img`
@@ -59,7 +60,7 @@ const TrendingBlockProfile = styled.img`
   object-fit: cover;
 `
 
-const TrendingBlockTitle = styled.p`
+const TrendingBlockTitle = styled.a`
   width: 100%;
   max-height: 40px;
   display: -webkit-box;
@@ -73,6 +74,7 @@ const TrendingBlockTitle = styled.p`
   line-height: 20px;
   font-size: 16px;
   color: ${Color.borderBlack};
+  text-decoration: none;
 `
 
 const TrendingBlockDateAndTime = styled.p`
@@ -102,11 +104,13 @@ const TrendingBlock = ({ index, story }) => {
     <TrendingBlockStyle>
       <TrendingBlockNumber>0{index + 1}</TrendingBlockNumber>
       <div>
-        <TrendingBlockWriter>
+        <TrendingBlockWriter href={"/user/" + story.writer.id}>
           <TrendingBlockProfile src={profile_image} />
           {name}
         </TrendingBlockWriter>
-        <TrendingBlockTitle>{story.title}</TrendingBlockTitle>
+        <TrendingBlockTitle href={"/story/" + story.id}>
+          {story.title}
+        </TrendingBlockTitle>
         <TrendingBlockDateAndTime>
           {changeDate(story.published_at)}
         </TrendingBlockDateAndTime>
