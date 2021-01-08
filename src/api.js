@@ -48,6 +48,21 @@ export const postUserLogout = async (token) => {
   return response
 }
 
+// Google Login api
+export const getAccountsGoogleLogin = async () => {
+  // GET /accounts/google/login/
+  const response = await axios.get("accounts/google/login/")
+  return response
+}
+
+export const getAccountsGoogleLoginCallback = async (queryString) => {
+  // GET /accounts/google/login/callback/
+  const response = await axios.get(
+    "accounts/google/login/callback/" + queryString
+  )
+  return response
+}
+
 // story api
 export const postStory = async (token, body) => {
   // POST /story/
@@ -131,32 +146,42 @@ export const getStory = async ({ page, title, tag }) => {
   queryString = queryString.slice(0, -1)
   const response = await axios.get("story/" + queryString)
   return response
-};
+}
 
-export const getStoryById = async (storyid) => {
+export const getStoryById = async (storyid, token = "") => {
   //GET /story/{story_id}
-  const response = await axios.get("story/" + storyid)
+  var response
+  if (token !== "") {
+    const config = { headers: { Authorization: "Token " + token } }
+    response = await axios.get("story/" + storyid, config)
+    return response
+  }
+  response = await axios.get("story/" + storyid)
   return response
 }
 
 export const getResponse = async (storyid, pagenum) => {
   //GET /story/{story_id}/comment/?page={pagenum}
-  const response = await axios.get('story/'+storyid+'/comment/?page='+pagenum);
-  return response;
-};
-
+  const response = await axios.get(
+    "story/" + storyid + "/comment/?page=" + pagenum
+  )
+  return response
+}
 
 export const postComment = async (token, body, storyid) => {
   // POST /story/{story_id}/comment/
-
   const config = {
     headers: {
       Authorization: "Token " + token,
     },
   }
-  const response = await axios.post("story/"+storyid+"/comment/", body, config)
+  const response = await axios.post(
+    "story/" + storyid + "/comment/",
+    body,
+    config
+  )
   return response
-};
+}
 
 export const deleteComment = async (token, storyid, commentid) => {
   //DELETE /story/{story_id}/comment/?id={comment_id}
@@ -165,7 +190,10 @@ export const deleteComment = async (token, storyid, commentid) => {
       Authorization: "Token " + token,
     },
   }
-  const response = await axios.delete("story/"+storyid+"/comment/?id="+commentid,config)
+  const response = await axios.delete(
+    "story/" + storyid + "/comment/?id=" + commentid,
+    config
+  )
   return response
 }
 

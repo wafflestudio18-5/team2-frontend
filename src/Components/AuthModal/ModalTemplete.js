@@ -102,6 +102,7 @@ const ModalTemplete = ({
   clickContinueButton,
   alertWrongEmail,
   email,
+  googleLogin,
 }) => {
   return (
     <ModalTempleteStyle modalVisible={modalVisible}>
@@ -115,7 +116,11 @@ const ModalTemplete = ({
         <ModalContent>
           <ModalBigWriting ModalType={ModalType} />
           <ModalButtonWrapper>
-            <ModalButton Logo="Google" ModalType={ModalType} />
+            <ModalButton
+              Logo="Google"
+              ModalType={ModalType}
+              googleLogin={googleLogin}
+            />
             <ModalButton Logo="Facebook" ModalType={ModalType} />
             <ModalButton
               Logo="email"

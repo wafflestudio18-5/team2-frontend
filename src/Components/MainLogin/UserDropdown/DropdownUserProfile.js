@@ -41,15 +41,15 @@ const Username = styled.a`
 `
 
 const DropdownUserProfile = ({ user }) => {
-  let { id, name, username, profileImage } = user
-  if (profileImage === "" || profileImage === undefined) {
-    profileImage = default_profile_image
+  let { id, name, username, profile_image } = user
+  if (profile_image === "" || profile_image === undefined) {
+    profile_image = default_profile_image
   }
 
   return (
     <ProfileStyle>
       <a href={"/user/" + id}>
-        <ProfileImage src={profileImage} />
+        <ProfileImage src={profile_image} />
       </a>
       <Names>
         <Fullname href={"/user/" + id}>{name}</Fullname>
