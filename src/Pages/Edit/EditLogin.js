@@ -38,15 +38,7 @@ const EditLoginPage = ({ token }) => {
 
   useEffect(() => {
     if (storyId !== "" && storyId !== undefined) {
-<<<<<<< HEAD
-      try {
-        getStory(storyId, setStory)
-      } catch {
-        history.push("/error")
-      }
-=======
       getStory(storyId, setStory, token, user.id, history)
->>>>>>> master
       id.current = storyId
     }
   }, [token, storyId, user, history])
