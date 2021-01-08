@@ -4,7 +4,14 @@ import UserDropdown from "../MainLogin/UserDropdown"
 import Footer from "../Story/Main/Footer"
 import Main from "./Main"
 
-const Wrapper = styled.div``
+const Wrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`
+const MainWrapper = styled.div`
+  flex: 1 0 auto;
+`
 
 const UserAbout = ({
   showModal,
@@ -22,18 +29,20 @@ const UserAbout = ({
 }) => {
   return (
     <Wrapper>
-      <Header
-        showModal={showModal}
-        userinfo={userinfo}
-        logged_in={logged_in}
-        me={me}
-        isSearchboxOpen={isSearchboxOpen}
-        onClickSearchButton={onClickSearchButton}
-        onChangeSearchbox={onChangeSearchbox}
-        search={search}
-        openDropdown={openDropdown}
-      />
-      <Main user={userinfo} />
+      <MainWrapper>
+        <Header
+          showModal={showModal}
+          userinfo={userinfo}
+          logged_in={logged_in}
+          me={me}
+          isSearchboxOpen={isSearchboxOpen}
+          onClickSearchButton={onClickSearchButton}
+          onChangeSearchbox={onChangeSearchbox}
+          search={search}
+          openDropdown={openDropdown}
+        />
+        <Main user={userinfo} />
+      </MainWrapper>
       {isDropdownOpened && (
         <UserDropdown user={me} signOut={signOut} hideDropdown={hideDropdown} />
       )}
