@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import User from '../../Components/User';
 import hideModal from '../Story/Functions/hideModal';
@@ -12,6 +12,8 @@ import onClickSearchButton from '../Main/Functions/onClickSearchButton';
 import onChangeSearchbox from '../Main/Functions/onChangeSearchbox';
 import search from '../Search/Functions/search';
 import logout from '../Main/Functions/logout';
+import getUserStory from './Functions/getUserStory';
+import useIntersectionObserver from "../Search/Functions/useIntersectionObserver"
 
 const UserPage = () => {
     const history = useHistory();
@@ -25,16 +27,42 @@ const UserPage = () => {
     const [me, setme] = useState({
         id: null,
     });
-
+    const [Story, setStory] = useState([]);
     const [user, setuser] = useState({ id: null });
+
+
+    const [fetching, setFetching] = useState(false)
+    const [isEnd, setIsEnd] = useState(false)
+    const page = useRef(1)
+    const targetRef = useRef(null)
+
+    const loadNextPage = useCallback(async () => {
+        if (Story.length > 0) {
+            setFetching(true);
+            page.current++;
+            getUserStory(user_id, setStory, setIsEnd, page.current);
+            setFetching(false);
+        }
+    }, [Story, token]);
+  
+    useIntersectionObserver({
+        target: targetRef.current,
+        onIntersect: ([{ isIntersecting }]) => {
+            if (isIntersecting && !fetching && !isEnd) {
+                loadNextPage();
+            }
+        },
+    });
+
+
     useEffect(() => {
         setlogged_in(token !== undefined);
         getMe(token, setme);
         getUserAbout(user_id, setuser, history);
+        getUserStory(user_id, setStory, setIsEnd);
     }, [token]);
 
     const [InputValue, setInputValue] = useState('');
-
     const [isSearchboxOpen, setIsSearchboxOpen] = useState(false);
     const [searchValue, setSearchValue] = useState('');
     const [isDropdownOpened, setIsDropdownOpened] = useState(false);
@@ -72,6 +100,8 @@ const UserPage = () => {
                 hideDropdown={() => setIsDropdownOpened(false)}
                 signOut={() => logout(token, removeCookie)}
                 reachScrollCheckPoint={reachScrollCheckPoint}
+                UserStory={Story}
+                targetRef={targetRef}
             />
             {modalShow && (
                 <AuthModalContainer

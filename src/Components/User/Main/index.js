@@ -11,44 +11,10 @@ flex-direction: column;
 `;
 
 
-const Main = ({ reachScrollCheckPoint, userinfo }) => {
+const Main = ({ reachScrollCheckPoint, userinfo, targetRef }) => {
     return (
         <MainWrapper>
             <About reachScrollCheckPoint={reachScrollCheckPoint} userinfo={userinfo} />
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
-            <p>Main</p>
         </MainWrapper>
     );
 };

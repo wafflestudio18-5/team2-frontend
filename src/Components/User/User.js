@@ -17,6 +17,7 @@ const User = ({
     isDropdownOpened,
     hideDropdown,
     reachScrollCheckPoint,
+    targetRef,
 }) => {
     return (
         <div>
@@ -31,7 +32,7 @@ const User = ({
                 search={search}
                 openDropdown={openDropdown}
             />
-            <Main reachScrollCheckPoint={reachScrollCheckPoint} userinfo={userinfo} />
+            <Main reachScrollCheckPoint={reachScrollCheckPoint} userinfo={userinfo} targetRef={targetRef}/>
             <Footer />
             {isDropdownOpened && <UserDropdown user={me} signOut={signOut} hideDropdown={hideDropdown} />}
         </div>

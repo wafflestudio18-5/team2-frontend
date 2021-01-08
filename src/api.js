@@ -222,3 +222,8 @@ export const deleteStoryStoryId = async (token, id) => {
   const response = await axios.delete("story/" + id + "/", config)
   return response
 }
+
+export const getUserUseridStory = async (id, pagenum) => {
+  const response = await axios.get("user/"+id+"/story/?page="+pagenum)
+  return response
+}
