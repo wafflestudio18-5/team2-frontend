@@ -10,27 +10,28 @@ const MainWrapper = styled.div`
   justify-content: center;
 `
 
-const Content = ({ section, marginzero=false }) => {
-    let contents = [];
-    var isimage = false;
-    section.forEach(content => {
-        if (content.type === 'paragraph') {
-            contents.push(
-                <StoryBlock>
-                    <Paragraph content={content.detail.content} emphasizing={content.detail.emphasizing} />
-                </StoryBlock>
-            );
-        }
-        if (content.type === 'image') {
-            isimage = true;
-            contents.push(<Image detail={content.detail} />);
-        }
-    });
-    return (
-        <MainWrapper>
-            <MainBlock marginzero={marginzero}>{contents}</MainBlock>
-        </MainWrapper>
-    );
-};
+const Content = ({ section, marginzero = false }) => {
+  let contents = []
+  section.forEach((content) => {
+    if (content.type === "paragraph") {
+      contents.push(
+        <StoryBlock>
+          <Paragraph
+            content={content.detail.content}
+            emphasizing={content.detail.emphasizing}
+          />
+        </StoryBlock>
+      )
+    }
+    if (content.type === "image") {
+      contents.push(<Image detail={content.detail} />)
+    }
+  })
+  return (
+    <MainWrapper>
+      <MainBlock marginzero={marginzero}>{contents}</MainBlock>
+    </MainWrapper>
+  )
+}
 
 export default Content

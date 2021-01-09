@@ -11,7 +11,7 @@ const Fonts = createGlobalStyle`
     @font-face {
         font-family: "Lora";
         src: url(${NanumMyeongjo});
-        unicode-range: U+AC00-U+D7A3;
+        unicode-range: U+AC00-D7A3;
     }
 
     @font-face {
