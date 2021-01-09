@@ -3,6 +3,7 @@ import Header from './Header';
 import Main from './Main';
 import Response from '../Response';
 import UserDropdown from "../MainLogin/UserDropdown"
+import ConfirmModal from "../MeStories/ConfirmModal"
 
 const StoryStyle = styled.div`
   display: flex;
@@ -44,6 +45,9 @@ const Story = ({
     isDropdownOpened,
     hideDropdown,
     deleteStory,
+    showConfirmModal,
+    openConfirmModal,
+    hideConfirmModal,
 }) => {
     return (
         <StoryStyle>
@@ -77,6 +81,7 @@ const Story = ({
                 history={history}
                 deleteStory={deleteStory}
                 me={me}
+                openConfirmModal={openConfirmModal}
             />
             <Response
                 logged_in={logged_in}
@@ -94,6 +99,12 @@ const Story = ({
                 postResponse={postResponse}
                 deleteResponse={deleteResponse}
             />
+            {showConfirmModal && (
+              <ConfirmModal
+                deleteStory={deleteStory}
+                hideConfirmModal={hideConfirmModal}
+              />
+            )}
             </StoryWrapper>
         </StoryStyle>
     );

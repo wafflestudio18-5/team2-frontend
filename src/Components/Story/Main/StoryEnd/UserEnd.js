@@ -59,14 +59,14 @@ const EndButton = styled.button`
     cursor: pointer;
 `;
 
-const UserEnd = ({ setOpen, ResponseNum, deleteStory, editStory, me, userinfo }) => {
+const UserEnd = ({ setOpen, ResponseNum, deleteStory, me, userinfo, openConfirmModal }) => {
     var endright;
     if (me.id !== userinfo.id) {
         endright = <div />;
     } else {
         endright = (
             <EndRightBlock>
-                <EndButton onClick={deleteStory}>
+                <EndButton onClick={openConfirmModal}>
                     <svg width="25" height="25" viewBox="0 0 25 25" class="dw">
                         <path d="M18.13 6.11l-5.61 5.61-5.6-5.61-.81.8 5.61 5.61-5.61 5.61.8.8 5.61-5.6 5.61 5.6.8-.8-5.6-5.6 5.6-5.62"></path>
                     </svg>
