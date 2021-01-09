@@ -44,7 +44,6 @@ const Story = ({
     isDropdownOpened,
     hideDropdown,
     deleteStory,
-    editStory,
 }) => {
     return (
         <StoryStyle>
@@ -77,7 +76,6 @@ const Story = ({
                 ResponseNum={responseNum}
                 history={history}
                 deleteStory={deleteStory}
-                editStory={editStory}
                 me={me}
             />
             <Response

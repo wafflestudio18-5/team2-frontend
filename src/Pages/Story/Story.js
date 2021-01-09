@@ -136,7 +136,6 @@ const StoryPage = () => {
                     hideDropdown={() => setIsDropdownOpened(false)}
                     signOut={() => logout(token, removeCookie)}
                     deleteStory={()=>deleteStory(token,story_id,history)}
-                    editStory={()=>history.push('/edit/'+story_id)}
                 />
                 {modalShow && (
                     <AuthModalContainer
