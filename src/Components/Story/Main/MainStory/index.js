@@ -49,7 +49,6 @@ const SubTitle = styled.h2`
 const MainStory = ({ story, userinfo, storyinfo, history }) => {
   let article = []
   var { storylist, title, subtitle } = findTitleSubtitle(story)
-  console.log(story)
   storylist.forEach((section) => {
     article.push(<Content section={section} />)
   })
