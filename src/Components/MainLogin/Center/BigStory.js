@@ -1,6 +1,5 @@
 import styled from "styled-components"
 import BigStoryNotLoaded from "./BigStoryNotLoaded"
-import default_featured_image from "../../../Images/default_featured_image.jpeg"
 import default_profile_image from "../../../Images/default_profile_image.png"
 import Color from "../../../Constants/Color"
 import changeDate from "../../../Pages/Main/Functions/changeDate"
@@ -96,9 +95,6 @@ const BigStory = ({ story }) => {
   let featured_image = story.featured_image
   if (profile_image === "") {
     profile_image = default_profile_image
-  }
-  if (featured_image === undefined) {
-    featured_image = default_featured_image
   }
   return (
     <BigStoryStyle>

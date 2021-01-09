@@ -6,8 +6,6 @@ const getMainTrending = async (
   setCenterArticles = () => {},
   token = ""
 ) => {
-  // Main page에서 main, trending stories를 불러오는 함수.
-  // login: Boolean
   getStoryTrending(token)
     .then((response) => setTrendingPosts(response.data))
     .catch((error) => console.log(error))

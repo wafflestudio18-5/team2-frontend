@@ -10,7 +10,6 @@ const CallbackFacebookPage = () => {
   const history = useHistory()
 
   useEffect(() => {
-    console.log(queryString)
     facebookLogin(queryString, setCookie, history)
   }, [history, queryString, setCookie])
 

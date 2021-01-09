@@ -1,8 +1,4 @@
 const createNewContentMultiLineSelected = (
-  // 여러 줄이 선택된 상태에서 엔터키를 입력한 경우 그 줄들을 지우고 새로운 빈 줄을 생성
-  // newStory: createNewContent 함수 안에서 실행되기 때문에 story가 아닌, 그것을 복사한 newStory를 입력받음.
-  // startId, endId: range의 양 끝이 각각 위치한 content의 id
-  // frontContent, endContent: range 기준 앞과 뒤의 content
   newStory,
   startId,
   endId,

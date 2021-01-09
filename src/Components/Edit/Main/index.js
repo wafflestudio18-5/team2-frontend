@@ -23,7 +23,7 @@ const Main = ({
       <Section id={sectionIndex}>
         {section.map((content, contentIndex) => {
           const id = sectionIndex + " " + contentIndex
-          return <Content content={content} id={id} />
+          return <Content content={content} id={id}/>
         })}
       </Section>
     )

@@ -8,7 +8,6 @@ const googleLogin = async (queryString, setCookie, history) => {
     history.push("/")
   } catch (error) {
     console.log(error)
-    console.log(error.response.data)
   }
 }
 

@@ -25,7 +25,7 @@ const EmptyText = styled.h4`
 
 const WriteText = styled.a``;
 
-const StoryList = ({ UserStory, targetRef }) => {
+const StoryList = ({ UserStory, targetRef, me, userinfo }) => {
     if (UserStory.length !== 0)
         return (
             <StoryListStyle>
@@ -35,15 +35,23 @@ const StoryList = ({ UserStory, targetRef }) => {
                 <div ref={targetRef} />
             </StoryListStyle>
         );
-    else
+    else if(userinfo.id === me.id)
         return (
             <StoryListStyle>
                 <EmptyText>
-                    Have something to share?
+                    Have something to share?&nbsp;
                     <WriteText href="/edit">Write your first story</WriteText>
                 </EmptyText>
             </StoryListStyle>
         );
+    else
+    return (
+        <StoryListStyle>
+            <EmptyText>
+            {userinfo.name} hasn't written any stories yet.
+            </EmptyText>
+        </StoryListStyle>
+    );
 };
 
 export default StoryList;

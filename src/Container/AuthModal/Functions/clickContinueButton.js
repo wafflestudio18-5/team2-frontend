@@ -10,8 +10,6 @@ const clickContinueButton = (
   setModalType,
   setEmail
 ) => {
-  // email 로그인, 회원가입에서 continue 버튼 클릭 시  호출되는 함수
-  // parameter로 type을 입력받아 로그인인지 회원가입인지 결정.
   if (!checkEmailValidation(email)) {
     setAlertWrongEmail(true)
     runAnimationOnInvalidEmail()

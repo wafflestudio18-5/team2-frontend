@@ -25,8 +25,7 @@ const HeaderRightWrapper = styled.div`
     position: fixed;
     top: 0;
   }
-` //편의상 fixed로 두었습니다.(실제로는 내용이 같은 새로운 header 만들어서 특정 스크롤 지나면 위에서 새로운 header가 튀어나오는 방식 )
-
+`
 const HeaderRightBlock = styled.div`
   display: flex;
   width: 100%;
@@ -85,9 +84,8 @@ const Getstarted = styled.button`
 `
 
 const Logo = styled.a`
-  @media (max-width: 728px) {
-    align-item: flex-end;
-  }
+  display: flex;
+  align-items: center;
 `
 
 const Mobile = styled.div`
@@ -104,6 +102,7 @@ const LoggedinBlock = styled.div`
   display: flex;
   @media (max-width: 728px) {
     margin-right: 0px;
+    display: none;
   }
 `
 

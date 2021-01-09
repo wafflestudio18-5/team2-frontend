@@ -3,20 +3,22 @@ import Color from "../../../../Constants/Color"
 import WriterInfo from "./WriterInfo"
 
 const AboutWrapper = styled.div`
-  display: none;
+  display: flex;
   justify-content: center;
   transition: opacity 200ms;
-  opacity: 1;
+  opacity: 0;
   will-change: opacity;
   top: 85.6px;
   position: fixed;
   width: 22.5%;
+  pointer-events: none;
 
   @media (min-width: 1200px) {
     ${(props) =>
       props.reachScrollCheckPoint &&
       css`
-        display: flex;
+        opacity: 1;
+        pointer-events: all;
       `}
   }
 `

@@ -6,14 +6,17 @@ const ResponseListWrapper = styled.div`
 `
 
 
-const ResponseListBlock = ( {Response, me, deleteResponse} ) => {
+const ResponseListBlock = ( {Response, me, deleteResponse, targetRef} ) => {
     let ResponseList = []
     Response.forEach(response => {
         ResponseList.push(<ResponseComponent Response={response} me={me} deleteResponse={deleteResponse} />)
     });
+    ResponseList.pop();
+    ResponseList.push(<ResponseComponent Response={Response[Response.length-1]} me={me} deleteResponse={deleteResponse} />)
     return(
-        <ResponseListWrapper class = "target">
+        <ResponseListWrapper>
             {ResponseList}
+            <div ref={targetRef} />
         </ResponseListWrapper>
     );
 }

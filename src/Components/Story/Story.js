@@ -3,8 +3,18 @@ import Header from './Header';
 import Main from './Main';
 import Response from '../Response';
 import UserDropdown from "../MainLogin/UserDropdown"
+import ConfirmModal from "../MeStories/ConfirmModal"
 
-const StoryStyle = styled.div``;
+const StoryStyle = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+`;
+
+const StoryWrapper = styled.div`
+    flex: 1 0 auto;
+`
+
 const Story = ({
     showModal,
     reachScrollCheckPoint,
@@ -34,9 +44,14 @@ const Story = ({
     signOut,
     isDropdownOpened,
     hideDropdown,
+    deleteStory,
+    showConfirmModal,
+    openConfirmModal,
+    hideConfirmModal,
 }) => {
     return (
         <StoryStyle>
+            <StoryWrapper>
             <Header
                 showModal={showModal}
                 userinfo={userinfo}
@@ -48,6 +63,13 @@ const Story = ({
                 search={search}
                 openDropdown={openDropdown}
             />
+            {isDropdownOpened && (
+                <UserDropdown
+                  user={me}
+                  signOut={signOut}
+                  hideDropdown={hideDropdown}
+                />
+              )}
             <Main
                 reachScrollCheckPoint={reachScrollCheckPoint}
                 story={story}
@@ -57,9 +79,13 @@ const Story = ({
                 setOpen={setResponseOpen}
                 ResponseNum={responseNum}
                 history={history}
+                deleteStory={deleteStory}
+                me={me}
+                openConfirmModal={openConfirmModal}
             />
             <Response
                 logged_in={logged_in}
+                showModal={showModal}
                 IsOpen={ResponseOpen}
                 setOpen={setResponseOpen}
                 Response={response}
@@ -73,13 +99,13 @@ const Story = ({
                 postResponse={postResponse}
                 deleteResponse={deleteResponse}
             />
-            {isDropdownOpened && (
-                <UserDropdown
-                  user={me}
-                  signOut={signOut}
-                  hideDropdown={hideDropdown}
-                />
-              )}
+            {showConfirmModal && (
+              <ConfirmModal
+                deleteStory={deleteStory}
+                hideConfirmModal={hideConfirmModal}
+              />
+            )}
+            </StoryWrapper>
         </StoryStyle>
     );
 };

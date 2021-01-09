@@ -22,7 +22,6 @@ const publish = async (
     history.push("/story/" + storyId)
   } catch (error) {
     console.log(error)
-    console.log(error.response.data)
     return error
   }
 }

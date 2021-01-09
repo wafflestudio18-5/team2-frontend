@@ -43,7 +43,6 @@ const EditLoginPage = ({ token }) => {
     }
   }, [token, storyId, user, history])
 
-  // 글 저장 관련
   const [saveStatus, setSaveStatus] = useState(SaveStatusConstants.INIT)
 
   var typingTimer
@@ -58,7 +57,6 @@ const EditLoginPage = ({ token }) => {
   }
 
   const changeStateOnInput = () => {
-    // 값에 변경 있을 시 state도 그에 맞게 변경
     preserveCaret(() => {
       if (saveStatus === SaveStatusConstants.SAVING) {
         return
@@ -116,8 +114,6 @@ const EditLoginPage = ({ token }) => {
         break
 
       case "Control":
-        // For testing
-        console.log(JSON.stringify(story))
         break
 
       default:
@@ -131,7 +127,6 @@ const EditLoginPage = ({ token }) => {
     moveCaret(caret)
   }, [caret])
 
-  // Dropdown 관련
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
   window.addEventListener("resize", () => {
     const dropdown = document.getElementById("dropdown")
@@ -149,7 +144,6 @@ const EditLoginPage = ({ token }) => {
     }
   })
 
-  // Add content button 관련
   const [showImageUrlInput, setShowImageUrlInput] = useState(false)
   const [imageUrl, setImageUrl] = useState("")
   const [idImagePlaced, setIdImagePlaced] = useState("0 0")

@@ -27,7 +27,6 @@ const saveStory = async (token, story, saveStatus, setSaveStatus, id) => {
       return response
     } catch (error) {
       console.log(error)
-      console.log(error.response.data)
       setSaveStatus(SaveStatusConstants.SAVE_FAILED)
       return error
     }
@@ -39,7 +38,6 @@ const saveStory = async (token, story, saveStatus, setSaveStatus, id) => {
       return response
     } catch (error) {
       console.log(error)
-      console.log(error.response.data)
       setSaveStatus(SaveStatusConstants.SAVE_FAILED)
       return error
     }
