@@ -8,11 +8,10 @@ import getCurrentUser from "./Functions/getCurrentUser"
 import getMainTrending from "./Functions/getMainTrending"
 import logout from "./Functions/logout"
 import MainLogin from "../../Components/MainLogin"
-import fetchArticles from './Functions/fetchArticles';
-import useIntersectionObserver from '../Search/Functions/useIntersectionObserver';
+import fetchArticles from "./Functions/fetchArticles"
+import useIntersectionObserver from "../Search/Functions/useIntersectionObserver"
 
 const MainLoginPage = ({ token }) => {
-
   const [user, setUser] = useState({})
   const [centerArticles, setCenterArticles] = useState([])
   const [trendingPosts, setTrendingPosts] = useState([])
@@ -21,35 +20,35 @@ const MainLoginPage = ({ token }) => {
   useEffect(() => {
     getCurrentUser(token, setUser)
     getMainTrending(true, setTrendingPosts, setCenterArticles, token)
-    fetchArticles(setArticle, setIsEnd, 1, token);
+    fetchArticles(setArticle, setIsEnd, 1, token)
   }, [token])
 
   const [isSearchboxOpen, setIsSearchboxOpen] = useState(false)
   const [searchValue, setSearchValue] = useState("")
   const [isDropdownOpened, setIsDropdownOpened] = useState(false)
 
-  const [fetching, setFetching] = useState(false);
-  const [isEnd, setIsEnd] = useState(false);
-  const page = useRef(1);
-  const targetRef = useRef(null);
+  const [fetching, setFetching] = useState(false)
+  const [isEnd, setIsEnd] = useState(false)
+  const page = useRef(1)
+  const targetRef = useRef(null)
 
   const loadNextPage = useCallback(async () => {
-      if (Article.length > 0) {
-          setFetching(true);
-          page.current++;
-          await fetchArticles(setArticle, setIsEnd, page.current, token);
-          setFetching(false);
-      }
-  }, [Article]);
+    if (Article.length > 0) {
+      setFetching(true)
+      page.current++
+      await fetchArticles(setArticle, setIsEnd, page.current, token)
+      setFetching(false)
+    }
+  }, [Article, token])
 
   useIntersectionObserver({
-      target: targetRef.current,
-      onIntersect: ([{ isIntersecting }]) => {
-          if (isIntersecting && !fetching && !isEnd) {
-              loadNextPage();
-          }
-      },
-  });
+    target: targetRef.current,
+    onIntersect: ([{ isIntersecting }]) => {
+      if (isIntersecting && !fetching && !isEnd) {
+        loadNextPage()
+      }
+    },
+  })
 
   const history = useHistory()
   const removeCookie = useCookies(["auth"])[2]

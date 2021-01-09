@@ -1,14 +1,14 @@
 const preserveCaret = async (f) => {
   const containerEl = document.getElementById("main")
-  var range = window.getSelection().getRangeAt(0)
-  var preSelectionRange = range.cloneRange()
+  var oldRange = window.getSelection().getRangeAt(0)
+  var preSelectionRange = oldRange.cloneRange()
   preSelectionRange.selectNodeContents(containerEl)
-  preSelectionRange.setEnd(range.startContainer, range.startOffset)
+  preSelectionRange.setEnd(oldRange.startContainer, oldRange.startOffset)
   var start = preSelectionRange.toString().length
 
   const savedSel = {
     start: start,
-    end: start + range.toString().length,
+    end: start + oldRange.toString().length,
   }
 
   await f()
